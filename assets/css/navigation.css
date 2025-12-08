@@ -70,3 +70,7 @@
 .mobile-menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
+
+.mobile-lang-separator {
+    display: none;
+}

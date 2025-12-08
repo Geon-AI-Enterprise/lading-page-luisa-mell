@@ -8,7 +8,6 @@ export function setupCustomLanguageDropdown() {
     const switcher = document.getElementById('language-switcher');
     const displayButton = document.getElementById('lang-display');
     const dropdown = document.getElementById('lang-dropdown');
-    const langCodeSpan = document.getElementById('current-lang-code');
     const selectElement = document.getElementById('language-select');
 
     // Segurança: se os elementos não existirem no HTML, para a execução
@@ -50,24 +49,35 @@ export function setupCustomLanguageDropdown() {
 
     // Listen to language change events
     document.addEventListener('languageChanged', (e) => {
-        updateCustomDropdownDisplay(e.detail.lang);
+        // CORREÇÃO AQUI: Usar a função exportada correta
+        updateAllLanguageVisuals(e.detail.lang);
     });
 
     // Initialize display
-    updateCustomDropdownDisplay(currentLang);
+    // CORREÇÃO AQUI: Usar a função exportada correta
+    updateAllLanguageVisuals(currentLang);
 }
 
-// Atualiza o visual do dropdown customizado quando o idioma muda
-export function updateCustomDropdownDisplay(lang) {
+// Setup dos Botões Mobile
+export function setupMobileLanguageSwitcher() {
+    const mobileButtons = document.querySelectorAll('.mob-lang-btn');
+    
+    mobileButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const newLang = e.target.getAttribute('data-lang');
+            changeLanguage(newLang);
+        });
+    });
+}
+
+// Atualiza TODOS os visuais (Desktop e Mobile)
+export function updateAllLanguageVisuals(lang) {
+    // 1. Atualiza Desktop Dropdown
     const langCodeSpan = document.getElementById('current-lang-code');
     const dropdown = document.getElementById('lang-dropdown');
 
-    // Atualiza texto do botão (PT, EN, ES)
-    if (langCodeSpan) {
-        langCodeSpan.textContent = lang.toUpperCase();
-    }
-
-    // Atualiza classe 'active' na lista
+    if (langCodeSpan) langCodeSpan.textContent = lang.toUpperCase();
+    
     if (dropdown) {
         dropdown.querySelectorAll('.lang-option').forEach(opt => {
             opt.classList.remove('active');
@@ -76,9 +86,18 @@ export function updateCustomDropdownDisplay(lang) {
             }
         });
     }
+
+    // 2. Atualiza Mobile Buttons
+    const mobileButtons = document.querySelectorAll('.mob-lang-btn');
+    mobileButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
 }
 
-// Fallback: Native select event listener (caso ainda exista no DOM visível)
+// Fallback: Native select
 export function setupNativeSelectFallback() {
     const languageSelect = document.getElementById('language-select');
     if (languageSelect) {
