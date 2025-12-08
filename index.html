@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instituto Luisa Mell - Proteção Animal e Ambiental">
+    <title>Instituto Luisa Mell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="assets/images/logo.svg" alt="Instituto Luisa Mell" class="logo-image">
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Navigation -->
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#como-ajudar" data-i18n="nav.help">Como ajudar</a></li>
+                        <li><a href="#adotar" data-i18n="nav.adopt">Adotar</a></li>
+                        <li><a href="#apadrinhar" data-i18n="nav.sponsor">Apadrinhar</a></li>
+                        <li><a href="#quem-somos" data-i18n="nav.about">Quem somos</a></li>
+                        <li class="mobile-only-donation">
+                            <a href="https://www.institutolouisamell.org/doacao" target="_blank"
+                                rel="noopener noreferrer" data-i18n="donation">
+                                Doação
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Right Section: Language Switcher + Donation Button -->
+                <div class="header-actions">
+                    <!-- Donation Button -->
+                    <a href="https://www.institutolouisamell.org/doacao" class="btn-donation" target="_blank"
+                        rel="noopener noreferrer">
+                        <span data-i18n="donation">Doação</span>
+                    </a>
+
+                    <!-- Language Switcher -->
+                    <div class="language-switcher" id="language-switcher">
+                        <button class="lang-display" aria-controls="lang-dropdown" aria-expanded="false"
+                            id="lang-display">
+                            <span class="current-lang-code" id="current-lang-code">PT</span>
+                            <svg class="lang-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L6 6L11 1" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <ul class="lang-dropdown" id="lang-dropdown" hidden>
+                            <li data-lang="pt" class="lang-option active">PT</li>
+                            <li data-lang="en" class="lang-option">EN</li>
+                            <li data-lang="es" class="lang-option">ES</li>
+                        </ul>
+
+                        <select class="lang-select" aria-label="Selecionar idioma" id="language-select"
+                            style="display: none;">
+                            <option value="pt" selected>PT</option>
+                            <option value="en">EN</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content sections will be added here as you provide more layouts -->
+        <section class="hero" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <h1 data-i18n="hero.title">Bem-vindo ao Instituto Luisa Mell</h1>
+        </section>
+    </main>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+
+</html>

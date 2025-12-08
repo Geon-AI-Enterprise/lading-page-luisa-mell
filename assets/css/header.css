@@ -1,0 +1,44 @@
+/* ========================================
+   Fixed Header
+   ======================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-orange);
+    height: var(--header-height);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    gap: 2rem;
+}
+
+/* ========================================
+   Logo
+   ======================================== */
+.logo {
+    flex-shrink: 0;
+}
+
+.logo-image {
+    height: 100px;
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+/* ========================================
+   Header Actions (Language + Donation)
+   ======================================== */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+}

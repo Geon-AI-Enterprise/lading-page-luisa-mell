@@ -1,0 +1,15 @@
+/* ========================================
+   Main CSS - Imports all modules
+   ======================================== */
+
+/* 1. Reset and Base Styles */
+@import url('reset.css');
+
+/* 2. Component Styles */
+@import url('header.css');
+@import url('navigation.css');
+@import url('language.css');
+@import url('buttons.css');
+
+/* 3. Responsive Styles */
+@import url('responsive.css');

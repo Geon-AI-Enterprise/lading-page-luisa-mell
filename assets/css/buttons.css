@@ -1,0 +1,25 @@
+/* ========================================
+   Donation Button
+   ======================================== */
+.btn-donation {
+    background-color: var(--primary-teal);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* box-shadow removido */
+    display: inline-block;
+}
+
+.btn-donation:hover {
+    background-color: #45b8b0;
+    transform: translateY(-2px);
+    /* box-shadow hover removido */
+}
+
+.btn-donation:active {
+    transform: translateY(0);
+}
