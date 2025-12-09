@@ -1,0 +1,141 @@
+/* assets/css/footer.css */
+
+.site-footer {
+    background-color: #2D2D2D; /* Cinza escuro do protótipo */
+    color: var(--white);
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    font-family: var(--font-family);
+    font-weight: 300; /* Poppins costuma ser mais leve */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4rem;
+    /* Removemos margin-bottom para aproximar o rodapé se necessário, 
+       mas como não tem linha, o espaçamento visual é controlado pelo padding */
+}
+
+/* --- Coluna da Esquerda (Info) --- */
+.footer-brand {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.footer-logo {
+    height: 120px;
+    width: auto;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.footer-description {
+    font-size: 0.95rem; /* Ajuste fino para Poppins */
+    line-height: 1.8;
+    color: #E0E0E0; /* Texto levemente mais claro para contraste na Poppins */
+    margin-bottom: 2.5rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Ícones limpos, sem box background por padrão, apenas o ícone branco */
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-link svg {
+    width: 32px; /* Ícones levemente maiores para destaque */
+    height: 32px;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+/* --- Coluna da Direita (Links) --- */
+.footer-links-area {
+    display: flex;
+    gap: 5rem; /* Mais espaçamento entre colunas */
+}
+
+.footer-nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Espaçamento vertical entre links */
+}
+
+.footer-link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color 0.2s ease;
+    text-align: right;
+    letter-spacing: 0.5px;
+}
+
+.footer-link:hover {
+    color: var(--primary-orange);
+}
+
+/* --- Rodapé Inferior (Sem borda) --- */
+.footer-bottom {
+    /* border-top removido conforme solicitado */
+    margin-top: 1.5rem; 
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #CCCCCC;
+    font-weight: 300;
+}
+
+.footer-bottom a {
+    color: #FFFFFF; /* Destaque para links legais */
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.footer-bottom a:hover {
+    opacity: 0.7;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .footer-links-area {
+        width: 100%;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .footer-link {
+        text-align: left;
+    }
+
+    .footer-bottom {
+        align-items: center;
+        text-align: center;
+        margin-top: 2rem;
+    }
+}

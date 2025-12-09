@@ -10,6 +10,7 @@
 @import url('navigation.css');
 @import url('language.css');
 @import url('buttons.css');
+@import url('footer.css');
 
 /* 3. Responsive Styles */
 @import url('responsive.css');

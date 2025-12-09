@@ -9,7 +9,15 @@ export const translations = {
         'nav.sponsor': 'Apadrinhar',
         'nav.about': 'Quem somos',
         'donation': 'Doação',
-        'hero.title': 'Bem-vindo ao Instituto Luisa Mell'
+        'hero.title': 'Bem-vindo ao Instituto Luisa Mell',
+        'footer.desc': 'O Instituto Luisa Mell trabalha para resgatar, cuidar e promover adoções responsáveis de animais em situação de abandono e maus-tratos.',
+        'footer.volunteer': 'Ser Voluntário',
+        'footer.ambassador': 'Ser Embaixador',
+        'footer.report': 'Denunciar',
+        'footer.faq': 'FAQ',
+        'footer.transparency': 'Transparência',
+        'footer.privacy': 'Política de Privacidade e Termos de Uso',
+        'footer.rights': '© Todos direitos reservados'
     },
     en: {
         'nav.help': 'How to Help',
@@ -17,7 +25,15 @@ export const translations = {
         'nav.sponsor': 'Sponsor',
         'nav.about': 'About Us',
         'donation': 'Donate',
-        'hero.title': 'Welcome to Luisa Mell Institute'
+        'hero.title': 'Welcome to Luisa Mell Institute',
+        'footer.desc': 'The Luisa Mell Institute works to rescue, care for, and promote responsible adoption of abandoned and mistreated animals.',
+        'footer.volunteer': 'Be a Volunteer',
+        'footer.ambassador': 'Be an Ambassador',
+        'footer.report': 'Report Abuse',
+        'footer.faq': 'FAQ',
+        'footer.transparency': 'Transparency',
+        'footer.privacy': 'Privacy Policy and Terms of Use',
+        'footer.rights': '© All rights reserved'
     },
     es: {
         'nav.help': 'Cómo ayudar',
@@ -25,7 +41,15 @@ export const translations = {
         'nav.sponsor': 'Apadrinar',
         'nav.about': 'Quiénes somos',
         'donation': 'Donación',
-        'hero.title': 'Bienvenido al Instituto Luisa Mell'
+        'hero.title': 'Bienvenido al Instituto Luisa Mell',
+        'footer.desc': 'El Instituto Luisa Mell trabaja para rescatar, cuidar y promover la adopción responsable de animales abandonados y maltratados.',
+        'footer.volunteer': 'Ser Voluntario',
+        'footer.ambassador': 'Ser Embajador',
+        'footer.report': 'Denunciar',
+        'footer.faq': 'FAQ',
+        'footer.transparency': 'Transparencia',
+        'footer.privacy': 'Política de Privacidad y Términos de Uso',
+        'footer.rights': '© Todos los derechos reservados'
     }
 };
 
