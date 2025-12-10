@@ -2,7 +2,7 @@
 // Main JavaScript - Initialization
 // ========================================
 
-import { loadSavedLanguage, currentLang } from './i18n.js';
+import { loadSavedLanguage, currentLang, changeLanguage } from './i18n.js';
 import {
   setupCustomLanguageDropdown,
   setupMobileLanguageSwitcher,
@@ -177,10 +177,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Load saved language preference
   const savedLang = loadSavedLanguage();
-  if (!savedLang || savedLang === 'pt') {
-    // Garante estado inicial correto visualmente
-    updateAllLanguageVisuals(currentLang);
+  // Se não há idioma salvo, aplicamos o idioma corrente para garantir que
+  // todos os elementos com `data-i18n` sejam atualizados (isso cobre
+  // alterações recentes no HTML que adicionaram atributos).
+  if (!savedLang) {
+    changeLanguage(currentLang);
   }
+  // Garante estado visual dos controles de idioma
+  updateAllLanguageVisuals(currentLang);
 
   // 3. Fallback: Native select event listener
   setupNativeSelectFallback();
