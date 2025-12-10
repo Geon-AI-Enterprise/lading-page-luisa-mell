@@ -139,21 +139,177 @@
       </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
-      <!-- Content sections will be added here as you provide more layouts -->
-      <section
-        class="hero"
-        style="
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        "
-      >
-        <h1 data-i18n="hero.title">Bem-vindo ao Instituto Luisa Mell</h1>
+      <!-- HERO: BANNERS (Institucional, Doação, Sorteio, Adoção) -->
+      <section class="hero" id="topo">
+        <div class="container hero__inner">
+          <div class="hero__banner hero-placeholder">
+            <span>BANNERS (institucional, Doação, Sorteio, Adoção)</span>
+          </div>
+
+          <div class="hero__dots hero__dots--center" aria-hidden="true">
+            <span class="hero-dot hero-dot--active"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 BOLHAS: Doação / Apadrinhamento / Adoção -->
+      <section class="help-cards" id="como-ajudar">
+        <div class="container">
+          <div class="help-cards__grid">
+            <!-- Doação -->
+            <article class="help-card">
+              <div
+                class="help-card__shape hero-placeholder hero-placeholder--blob"
+              >
+                <!-- aqui depois entram as ilustrações -->
+              </div>
+              <button class="help-card__button">Doação</button>
+            </article>
+
+            <!-- Apadrinhamento -->
+            <article class="help-card" id="apadrinhar">
+              <div
+                class="help-card__shape hero-placeholder hero-placeholder--blob"
+              ></div>
+              <button class="help-card__button">Apadrinhamento</button>
+            </article>
+
+            <!-- Adoção -->
+            <article class="help-card" id="adotar">
+              <div
+                class="help-card__shape hero-placeholder hero-placeholder--blob"
+              ></div>
+              <button class="help-card__button">Adoção</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOCO 4 FOTOS + TEXTO INSTITUCIONAL -->
+      <section class="about" id="quem-somos">
+        <div class="container about__inner">
+          <figure class="about__gallery hero-placeholder">
+            <div class="about__gallery-frame">
+              <div class="about__gallery-image"></div>
+              <span class="about__gallery-text">4 fotos</span>
+              <div class="about__gallery-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </figure>
+
+          <div class="about__content">
+            <h2>Instituto Luisa Mell é uma organização não governamental</h2>
+
+            <!-- texto aqui é placeholder visual, para manter fidelidade de blocos -->
+            <p>
+              Fundado em 2015 pela ativista e apresentadora Luisa Mell, o
+              instituto tem como missão promover a defesa dos direitos dos
+              animais, combater maustratos e conscientizar a sociedade sobre a
+              importância do respeito e da compaixão para com todas as espécies.
+              +500 animais resgatados em 2024 Com um time incansável de
+              voluntários, veterinários e apoiadores, o instituto alcançou a
+              incrível marca de mais de 500 animais resgatados em apenas alguns
+              meses. +300 animais adotados em 2024 Dos mais de 300 animais
+              adotados, a maioria são cães e gatos resgatados de situações de
+              abandono, maus-tratos ou risco.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESGATES MARCANTES -->
+      <section class="rescues" id="resgates">
+        <div class="container">
+          <header class="section-header">
+            <h2>Resgates Marcantes</h2>
+            <p>
+              Cada resgate é uma história de superação, esperança e amor. No
+              Instituto Luisa Mell, já salvamos milhares de animais de situações
+              extremas
+            </p>
+          </header>
+
+          <div class="rescues__grid">
+            <article class="rescue-card">
+              <div class="rescue-card__image hero-placeholder"></div>
+            </article>
+            <article class="rescue-card">
+              <div class="rescue-card__image hero-placeholder"></div>
+            </article>
+            <article class="rescue-card">
+              <div class="rescue-card__image hero-placeholder"></div>
+            </article>
+            <article class="rescue-card">
+              <div class="rescue-card__image hero-placeholder"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMO TRANSFORMAMOS VIDAS + DIAGRAMA -->
+      <section class="how-we-help" id="como-transformamos">
+        <div class="container how-we-help__inner">
+          <div class="how-we-help__content">
+            <h2>Como transformamos vidas</h2>
+
+            <div class="how-we-help__columns">
+              <div class="how-we-help__column">
+                <h3>1. Etapa/ação do fluxo</h3>
+                <ul>
+                  <li>Bullet de exemplo 1.</li>
+                  <li>Bullet de exemplo 2.</li>
+                  <li>Bullet de exemplo 3.</li>
+                </ul>
+              </div>
+              <div class="how-we-help__column">
+                <h3>2. Etapa/ação do fluxo</h3>
+                <ul>
+                  <li>Bullet de exemplo 1.</li>
+                  <li>Bullet de exemplo 2.</li>
+                  <li>Bullet de exemplo 3.</li>
+                </ul>
+              </div>
+              <div class="how-we-help__column">
+                <h3>3. Etapa/ação do fluxo</h3>
+                <ul>
+                  <li>Bullet de exemplo 1.</li>
+                  <li>Bullet de exemplo 2.</li>
+                  <li>Bullet de exemplo 3.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <aside class="how-we-help__diagram hero-placeholder">
+            <span>Diagrama</span>
+          </aside>
+        </div>
+      </section>
+
+      <!-- NOSSOS PARCEIROS -->
+      <section class="partners" id="parceiros">
+        <div class="container">
+          <header class="section-header">
+            <h2>Nossos Parceiros</h2>
+          </header>
+
+          <div class="partners__logos">
+            <div class="partners__logo hero-placeholder"></div>
+            <div class="partners__logo hero-placeholder"></div>
+            <div class="partners__logo hero-placeholder"></div>
+            <div class="partners__logo hero-placeholder"></div>
+            <div class="partners__logo hero-placeholder"></div>
+          </div>
+
+          <p class="partners__note">Link para página do parceiro</p>
+        </div>
       </section>
     </main>
+
     <footer class="site-footer">
       <div class="container">
         <div class="footer-content">
