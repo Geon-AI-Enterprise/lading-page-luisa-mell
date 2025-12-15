@@ -47,12 +47,22 @@
           <!-- Navigation -->
           <nav class="nav">
             <ul class="nav-list">
-              <li>
-                <a href="#como-ajudar" data-i18n="nav.help">Como ajudar</a>
+              <li class="help-dropdown-wrapper">
+                <button class="help-display" aria-controls="help-dropdown" aria-expanded="false" id="help-display" data-i18n="nav.help">
+                  Como ajudar
+                  <svg class="help-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <ul class="help-dropdown" id="help-dropdown" hidden>
+                  <li class="help-option" data-action="volunteer" data-i18n="footer.volunteer">Ser Voluntário</li>
+                  <li class="help-option" data-action="ambassador" data-i18n="footer.ambassador">Ser Embaixador</li>
+                  <li class="help-option" data-action="report" data-i18n="footer.report">Denunciar</li>
+                </ul>
               </li>
-              <li><a href="#adotar" data-i18n="nav.adopt">Adotar</a></li>
+              <li><a href="adotar.html" data-i18n="nav.adopt">Adotar</a></li>
               <li>
-                <a href="#apadrinhar" data-i18n="nav.sponsor">Apadrinhar</a>
+                <a href="apadrinhar.html" data-i18n="nav.sponsor">Apadrinhar</a>
               </li>
               <li>
                 <a href="#quem-somos" data-i18n="nav.about">Quem somos</a>

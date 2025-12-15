@@ -12,12 +12,12 @@
     border: 1px solid rgba(255, 255, 255, 0.4);
     color: var(--white);
     font-weight: 600;
-    font-size: 0.875rem;
-    padding: 0.5rem 0.75rem;
-    padding-right: 2rem;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.7rem;
+    padding-right: 1.75rem;
     border-radius: 6px;
     cursor: pointer;
-    font-family: var(--font-family);
+    font-family: 'Inter', sans-serif;
     outline: none;
     transition: all 0.3s ease;
     display: flex;

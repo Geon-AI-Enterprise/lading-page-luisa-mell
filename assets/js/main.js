@@ -11,6 +11,7 @@ import {
 } from './language-switcher.js';
 import { setupMobileMenu } from './navigation.js';
 import { setupSmoothScroll, handleHeaderScroll } from './scroll.js';
+import { setupHelpDropdown } from './help-dropdown.js';
 
 // ========================================
 // HERO - Carrossel de banners (placeholder)
@@ -189,14 +190,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Fallback: Native select event listener
   setupNativeSelectFallback();
 
-  // 4. Mobile menu setup
+  // 4. Help Dropdown setup
+  setupHelpDropdown();
+
+  // 5. Mobile menu setup
   setupMobileMenu();
 
-  // 5. Smooth scrolling & header effect
+  // 6. Smooth scrolling & header effect
   setupSmoothScroll();
   handleHeaderScroll();
 
-  // 6. Animações / interações da Home
+  // 7. Animações / interações da Home
   setupHeroCarousel();
   setupAboutGallerySlider();
   setupHelpCardsInteractions();
