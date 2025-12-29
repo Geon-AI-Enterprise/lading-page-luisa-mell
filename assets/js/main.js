@@ -12,7 +12,10 @@ import {
 import { setupMobileMenu } from './navigation.js';
 import { setupSmoothScroll, handleHeaderScroll } from './scroll.js';
 import { setupHelpDropdown } from './help-dropdown.js';
+<<<<<<< HEAD
 import { setupAdoptFilters } from './adopt-filters.js';
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 
 // ========================================
 // HERO - Carrossel de banners (placeholder)
@@ -205,7 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
   setupHeroCarousel();
   setupAboutGallerySlider();
   setupHelpCardsInteractions();
+<<<<<<< HEAD
 
   // 8. Adopt page filters
   setupAdoptFilters();
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 });

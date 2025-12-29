@@ -14,9 +14,12 @@
 
 /* 2.1 Home Styles */
 @import url('home.css');
+<<<<<<< HEAD
 
 /* 2.2 About Styles */
 @import url('about.css');
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 
 /* 3. Responsive Styles */
 @import url('responsive.css');

@@ -5,6 +5,7 @@
 export function setupAdoptFilters() {
     const filterButtons = document.querySelectorAll('.adopt-filter-btn');
     const adoptCards = document.querySelectorAll('.adopt-card');
+<<<<<<< HEAD
     const sizeBtn = document.getElementById('size-btn');
     const sizeMenu = document.getElementById('size-menu');
     const sizeOptions = document.querySelectorAll('.adopt-filter-size-option');
@@ -12,6 +13,11 @@ export function setupAdoptFilters() {
     if (!filterButtons.length || !adoptCards.length) return;
 
     // Main filter buttons functionality
+=======
+
+    if (!filterButtons.length || !adoptCards.length) return;
+
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             const filterType = button.getAttribute('data-filter');
@@ -31,6 +37,7 @@ export function setupAdoptFilters() {
             });
         });
     });
+<<<<<<< HEAD
 
     // Size selector functionality
     if (sizeBtn && sizeMenu) {
@@ -79,4 +86,6 @@ export function setupAdoptFilters() {
             sizeBtn.classList.remove('active');
         });
     }
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 }

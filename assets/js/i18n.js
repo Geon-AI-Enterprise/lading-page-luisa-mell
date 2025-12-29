@@ -39,6 +39,7 @@ export const translations = {
         'footer.faq': 'FAQ',
         'footer.transparency': 'Transparência',
         'footer.privacy': 'Política de Privacidade e Termos de Uso',
+<<<<<<< HEAD
         'footer.rights': '© Todos direitos reservados',
         'adopt.title': 'Apadrinhe um amigo',
         'adopt.description': 'O apadrinhamento é uma forma de apoio contínuo que permite ao instituto oferecer, de forma estável, todos os cuidados necessários dos animais: alimentação, suporte veterinário, manutenção do espaço e atenção integral.',
@@ -130,6 +131,9 @@ export const translations = {
         'volunteerPage.form.consent': 'Li e aceito o uso dos meus dados para contato sobre o programa de voluntariado.',
         'volunteerPage.form.submit': 'Inscrever-se',
         'volunteerPage.form.privacy': 'Seus dados são protegidos e utilizados exclusivamente para retorno do Instituto.'
+=======
+        'footer.rights': '© Todos direitos reservados'
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     },
     en: {
         'nav.help': 'How to Help',
@@ -167,6 +171,7 @@ export const translations = {
         'footer.faq': 'FAQ',
         'footer.transparency': 'Transparency',
         'footer.privacy': 'Privacy Policy and Terms of Use',
+<<<<<<< HEAD
         'footer.rights': '© All rights reserved',
         'adopt.title': 'Sponsor a friend',
         'adopt.description': 'Sponsorship is a form of continuous support that allows the institute to stably offer all necessary animal care: food, veterinary support, space maintenance and full attention.',
@@ -258,6 +263,9 @@ export const translations = {
         'volunteerPage.form.consent': 'I have read and agree to the use of my data to contact me about the volunteer program.',
         'volunteerPage.form.submit': 'Sign up',
         'volunteerPage.form.privacy': 'Your data is protected and used exclusively so the Institute can contact you.'
+=======
+        'footer.rights': '© All rights reserved'
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     },
     es: {
         'nav.help': 'Cómo ayudar',
@@ -295,6 +303,7 @@ export const translations = {
         'footer.faq': 'FAQ',
         'footer.transparency': 'Transparencia',
         'footer.privacy': 'Política de Privacidad y Términos de Uso',
+<<<<<<< HEAD
         'footer.rights': '© Todos los derechos reservados',
         'adopt.title': 'Apadrina un amigo',
         'adopt.description': 'El apadrinamiento es una forma de apoyo continuo que permite al instituto ofrecer de manera estable todos los cuidados necesarios de los animales: alimentación, apoyo veterinario, mantenimiento del espacio y atención integral.',
@@ -386,6 +395,9 @@ export const translations = {
         'volunteerPage.form.consent': 'Leí y acepto el uso de mis datos para contactarme sobre el programa de voluntariado.',
         'volunteerPage.form.submit': 'Inscribirme',
         'volunteerPage.form.privacy': 'Tus datos están protegidos y se usan exclusivamente para el retorno del Instituto.'
+=======
+        'footer.rights': '© Todos los derechos reservados'
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     }
 };
 

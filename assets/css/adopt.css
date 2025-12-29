@@ -5,6 +5,7 @@
 /* ========================================
    HERO SECTION
    ======================================== */
+<<<<<<< HEAD
 
 /* Hero Section - Adote um peludo */
 .adopt-hero-section {
@@ -219,6 +220,8 @@
 }
 
 /* Hero Section - Apadrinhe um amigo */
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 .adopt-hero {
     padding: 4rem 0;
     background: var(--white);
@@ -287,7 +290,11 @@
 
 .adopt-animals__wrapper {
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: 1fr;
+=======
+    grid-template-columns: 140px 1fr;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     gap: 3rem;
 }
 
@@ -295,10 +302,14 @@
 .adopt-filters {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     gap: 1.5rem;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     border-bottom: 2px solid #f0f0f0;
+=======
+    gap: 2rem;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 }
 
 .adopt-filters__title {
@@ -313,25 +324,41 @@
 
 .adopt-filters__list {
     display: flex;
+<<<<<<< HEAD
     flex-direction: row;
     gap: 1.5rem;
     flex-wrap: wrap;
+=======
+    flex-direction: column;
+    gap: 1.25rem;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 }
 
 .adopt-filter-btn {
     background: transparent;
+<<<<<<< HEAD
     border: 1px solid #ddd;
     color: #666;
+=======
+    border: none;
+    color: #999;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+<<<<<<< HEAD
     text-align: center;
     padding: 0.5rem 1.2rem;
+=======
+    text-align: left;
+    padding: 0;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     font-family: 'Inter', sans-serif;
     position: relative;
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     justify-content: center;
     gap: 0.5rem;
     border-radius: 6px;
@@ -343,22 +370,36 @@
     height: 20px;
     flex-shrink: 0;
     object-fit: contain;
+=======
+    gap: 0.5rem;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 }
 
 .adopt-filter-btn::before {
     content: '';
+<<<<<<< HEAD
     width: 16px;
     height: 16px;
     background-color: #ddd;
     border-radius: 3px;
     flex-shrink: 0;
     display: none;
+=======
+    width: 24px;
+    height: 24px;
+    background-color: #ddd;
+    border-radius: 4px;
+    flex-shrink: 0;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 }
 
 .adopt-filter-btn:hover {
     color: #E46038;
+<<<<<<< HEAD
     border-color: #E46038;
     background-color: #fff;
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 }
 
 .adopt-filter-btn:hover::before {
@@ -366,6 +407,7 @@
 }
 
 .adopt-filter-btn.active {
+<<<<<<< HEAD
     color: var(--white);
     font-weight: 600;
     background-color: #E46038;
@@ -464,6 +506,14 @@
 .adopt-filter-size-option.active {
     background-color: #E46038;
     color: var(--white);
+=======
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.adopt-filter-btn.active::before {
+    background-color: #E46038;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
 }
 
 /* GRID DE ANIMAIS */
@@ -674,6 +724,7 @@
    RESPONSIVE
    ======================================== */
 @media (max-width: 1024px) {
+<<<<<<< HEAD
     .adopt-hero-section__wrapper {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -683,6 +734,8 @@
         width: 350px;
     }
 
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     .adopt-hero__wrapper {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -703,6 +756,7 @@
     .adopt-donation-cta__paw-img {
         width: 150px;
     }
+<<<<<<< HEAD
 
     .adopt-stories-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -778,6 +832,11 @@
         height: 120px;
     }
 
+=======
+}
+
+@media (max-width: 768px) {
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     .adopt-hero {
         padding: 2rem 0;
     }
@@ -813,8 +872,14 @@
     }
 
     .adopt-filters {
+<<<<<<< HEAD
         flex-direction: column;
         gap: 1rem;
+=======
+        flex-direction: row;
+        gap: 1rem;
+        flex-wrap: wrap;
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
         padding-bottom: 1.5rem;
         border-bottom: 1px solid #e8e8e8;
     }
@@ -838,25 +903,32 @@
         border-radius: 20px;
         border: 1px solid #e0e0e0;
         font-size: 0.8rem;
+<<<<<<< HEAD
         flex: 0 1 auto;
         min-width: fit-content;
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     }
 
     .adopt-filter-btn::before {
         display: none;
     }
 
+<<<<<<< HEAD
     .adopt-filter-icon {
         width: 18px;
         height: 18px;
     }
 
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     .adopt-filter-btn.active {
         background-color: #E46038;
         color: var(--white);
         border-color: #E46038;
     }
 
+<<<<<<< HEAD
     .adopt-filter-size-btn {
         padding: 0.4rem 0.8rem;
         background-color: #f0f0f0;
@@ -880,6 +952,8 @@
         font-size: 0.8rem;
     }
 
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
     .adopt-animals__grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -907,6 +981,7 @@
         margin-bottom: 3rem;
     }
 }
+<<<<<<< HEAD
 
 /* ========================================
    FAQ SECTION
@@ -1008,3 +1083,5 @@
         padding: 0.75rem;
     }
 }
+=======
+>>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
