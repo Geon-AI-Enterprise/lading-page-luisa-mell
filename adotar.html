@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Instituto Luisa Mell - Adote um Animal" />
+    <title>Adotar - Instituto Luisa Mell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/adopt.css" />
+  </head>
+
+  <body>
+    <!-- Fixed Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <!-- Logo -->
+          <div class="logo">
+            <a href="index.html">
+              <img
+                src="assets/images/logo.svg"
+                alt="Instituto Luisa Mell"
+                class="logo-image"
+              />
+            </a>
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- Navigation -->
+          <nav class="nav">
+            <ul class="nav-list">
+              <li class="help-dropdown-wrapper">
+                <button
+                  class="help-display"
+                  aria-controls="help-dropdown"
+                  aria-expanded="false"
+                  id="help-display"
+                >
+                  <span data-i18n="nav.help">Como ajudar</span>
+                  <svg
+                    class="help-arrow"
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L6 6L11 1"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <ul class="help-dropdown" id="help-dropdown" hidden>
+                  <li
+                    class="help-option"
+                    data-action="volunteer"
+                    data-i18n="footer.volunteer"
+                  >
+                    Ser Voluntário
+                  </li>
+                  <li
+                    class="help-option"
+                    data-action="report"
+                    data-i18n="footer.report"
+                  >
+                    Denunciar
+                  </li>
+                </ul>
+              </li>
+              <li><a href="adotar.html" data-i18n="nav.adopt">Adotar</a></li>
+              <li>
+                <a href="apadrinhar.html" data-i18n="nav.sponsor">Apadrinhar</a>
+              </li>
+              <li>
+                <a href="quem-somos.html" data-i18n="nav.about"
+                  >Quem somos</a
+                >
+              </li>
+              <li class="mobile-only-donation">
+                <a
+                  href="https://www.institutolouisamell.org/doacao"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="donation"
+                >
+                  Doação
+                </a>
+              </li>
+
+              <li class="mobile-lang-separator">
+                <div class="mobile-lang-options">
+                  <button class="mob-lang-btn active" data-lang="pt">PT</button>
+                  <button class="mob-lang-btn" data-lang="en">EN</button>
+                  <button class="mob-lang-btn" data-lang="es">ES</button>
+                </div>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Right Section: Language Switcher + Donation Button -->
+          <div class="header-actions">
+            <!-- Donation Button -->
+            <a
+              href="https://www.institutolouisamell.org/doacao"
+              class="btn-donation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span data-i18n="donation">Doação</span>
+            </a>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+              <button
+                class="lang-display"
+                aria-controls="lang-dropdown"
+                aria-expanded="false"
+                id="lang-display"
+              >
+                <span class="current-lang-code" id="current-lang-code">PT</span>
+                <svg
+                  class="lang-arrow"
+                  width="12"
+                  height="8"
+                  viewBox="0 0 12 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L6 6L11 1"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <ul class="lang-dropdown" id="lang-dropdown" hidden>
+                <li data-lang="pt" class="lang-option active">PT</li>
+                <li data-lang="en" class="lang-option">EN</li>
+                <li data-lang="es" class="lang-option">ES</li>
+              </ul>
+
+              <select
+                class="lang-select"
+                aria-label="Selecionar idioma"
+                id="language-select"
+                style="display: none"
+              >
+                <option value="pt" selected>PT</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- HERO: Adote um peludo -->
+      <section class="adopt-hero-section">
+        <div class="container">
+          <h1 class="adopt-hero-section__title" data-i18n="adopt.heroTitle">
+            Adote um peludo!
+          </h1>
+
+          <div class="adopt-hero-section__wrapper">
+            <div class="adopt-hero-section__text-left">
+              <p data-i18n="adopt.heroDescriptionLeft">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                convallis neque in lorem egestas, at ultrices erat pulvinar. In
+                tincidunt risus at nisl euismod, sed tempus tortor euismod.
+                Aenean aliquet porttitor arcu ac feugiat.
+              </p>
+            </div>
+
+            <div class="adopt-hero-section__image">
+              <img
+                src="assets/images/adotar-img.jpg"
+                alt="Adote um peludo"
+                class="adopt-hero-section__img"
+              />
+              <p
+                class="adopt-hero-section__image-caption"
+                data-i18n="adopt.heroImageCaption"
+              >
+                Não posso adotar agora, mas quero ajudar!
+              </p>
+            </div>
+
+            <div class="adopt-hero-section__text-right">
+              <p data-i18n="adopt.heroDescriptionRight">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                convallis neque in lorem egestas, at ultrices erat pulvinar. In
+                tincidunt risus at nisl euismod, sed tempus tortor euismod.
+                Aenean aliquet porttitor arcu ac feugiat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Como faço para adotar -->
+      <section class="adopt-process-intro">
+        <div class="container">
+          <h2 class="adopt-process-intro__title" data-i18n="adopt.processTitle">
+            Como faço para adotar?
+          </h2>
+          <p
+            class="adopt-process-intro__description"
+            data-i18n="adopt.processDescription"
+          >
+            Etapas simples do processo (formulário → entrevista → visita →
+            adoção).
+          </p>
+        </div>
+      </section>
+
+      <!-- FILTROS E GRID DE ANIMAIS -->
+      <section class="adopt-animals">
+        <div class="container">
+          <!-- Filtros no topo, horizontal -->
+          <aside class="adopt-filters">
+            <h2 class="adopt-filters__title" data-i18n="adopt.filterTitle">
+              Quer ser meu dindo ou minha dinda?
+            </h2>
+            <div class="adopt-filters__list">
+              <button
+                class="adopt-filter-btn active"
+                data-filter="all"
+              >
+                <img
+                  src="assets/images/apadrinhe/todos.svg"
+                  alt="Todos"
+                  class="adopt-filter-icon"
+                />
+                <span data-i18n="adopt.filter.all">Todos</span>
+              </button>
+              <button
+                class="adopt-filter-btn"
+                data-filter="dogs"
+              >
+                <img
+                  src="assets/images/apadrinhe/caes.svg"
+                  alt="Cães"
+                  class="adopt-filter-icon"
+                />
+                <span data-i18n="adopt.filter.dogs">Cães</span>
+              </button>
+              <button
+                class="adopt-filter-btn"
+                data-filter="cats"
+              >
+                <img
+                  src="assets/images/apadrinhe/gatos.svg"
+                  alt="Gatos"
+                  class="adopt-filter-icon"
+                />
+                <span data-i18n="adopt.filter.cats">Gatos</span>
+              </button>
+              <button
+                class="adopt-filter-btn"
+                data-filter="puppies"
+              >
+                <img
+                  src="assets/images/apadrinhe/filhote.png"
+                  alt="Filhotes"
+                  class="adopt-filter-icon"
+                />
+                <span data-i18n="adopt.filter.puppies">Filhotes</span>
+              </button>
+              <button
+                class="adopt-filter-btn"
+                data-filter="female"
+              >
+                <img
+                  src="assets/images/apadrinhe/femenine.png"
+                  alt="Fêmea"
+                  class="adopt-filter-icon"
+                />
+                <span data-i18n="adopt.filter.female">Fêmea</span>
+              </button>
+              <button
+                class="adopt-filter-btn"
+                data-filter="male"
+              >
+                <img
+                  src="assets/images/apadrinhe/male-gender.png"
+                  alt="Macho"
+                  class="adopt-filter-icon"
+                />
+                <span data-i18n="adopt.filter.male">Macho</span>
+              </button>
+
+              <!-- Select Box de Tamanho -->
+              <div class="adopt-filter-size-wrapper">
+                <button class="adopt-filter-size-btn" id="size-btn">
+                  <img
+                    src="assets/images/apadrinhe/tamanho.svg"
+                    alt="Tamanho"
+                    class="adopt-filter-icon"
+                  />
+                  <span data-i18n="adopt.filter.size">Tamanho</span>
+                  <svg
+                    class="adopt-filter-size-arrow"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <ul class="adopt-filter-size-menu" id="size-menu" hidden>
+                  <li class="adopt-filter-size-option" data-filter="size-p">
+                    P
+                  </li>
+                  <li class="adopt-filter-size-option" data-filter="size-m">
+                    M
+                  </li>
+                  <li class="adopt-filter-size-option" data-filter="size-g">
+                    G
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+          <div class="adopt-animals__wrapper">
+            <!-- Grid de Animais -->
+            <div class="adopt-animals__grid">
+              <article class="adopt-card" data-filter-type="dogs">
+                <div class="adopt-card__image hero-placeholder">
+                  <span>Foto José</span>
+                </div>
+                <div class="adopt-card__content">
+                  <h3 class="adopt-card__name">José</h3>
+                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">
+                    Cão
+                  </p>
+                  <p class="adopt-card__info">Sem risco definido</p>
+                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
+                  <p class="adopt-card__quote">
+                    "Y'car ito bonito assim fica toda a minha mamãe"
+                  </p>
+                  <button class="btn-primary" data-i18n="adopt.btnKnow">
+                    Conheça-me
+                  </button>
+                </div>
+              </article>
+
+              <article class="adopt-card" data-filter-type="dogs">
+                <div class="adopt-card__image hero-placeholder">
+                  <span>Foto José</span>
+                </div>
+                <div class="adopt-card__content">
+                  <h3 class="adopt-card__name">José</h3>
+                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">
+                    Cão
+                  </p>
+                  <p class="adopt-card__info">Sem risco definido</p>
+                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
+                  <p class="adopt-card__quote">
+                    "Y'car ito bonito assim fica toda a minha mamãe"
+                  </p>
+                  <button class="btn-primary" data-i18n="adopt.btnKnow">
+                    Conheça-me
+                  </button>
+                </div>
+              </article>
+
+              <article class="adopt-card" data-filter-type="dogs">
+                <div class="adopt-card__image hero-placeholder">
+                  <span>Foto José</span>
+                </div>
+                <div class="adopt-card__content">
+                  <h3 class="adopt-card__name">José</h3>
+                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">
+                    Cão
+                  </p>
+                  <p class="adopt-card__info">Sem risco definido</p>
+                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
+                  <p class="adopt-card__quote">
+                    "Y'car ito bonito assim fica toda a minha mamãe"
+                  </p>
+                  <button class="btn-primary" data-i18n="adopt.btnKnow">
+                    Conheça-me
+                  </button>
+                </div>
+              </article>
+
+              <article class="adopt-card" data-filter-type="cats">
+                <div class="adopt-card__image hero-placeholder">
+                  <span>Foto José</span>
+                </div>
+                <div class="adopt-card__content">
+                  <h3 class="adopt-card__name">José</h3>
+                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">
+                    Gato
+                  </p>
+                  <p class="adopt-card__info">Sem risco definido</p>
+                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
+                  <p class="adopt-card__quote">
+                    "Y'car ito bonito assim fica toda a minha mamãe"
+                  </p>
+                  <button class="btn-primary" data-i18n="adopt.btnKnow">
+                    Conheça-me
+                  </button>
+                </div>
+              </article>
+
+              <article class="adopt-card" data-filter-type="cats">
+                <div class="adopt-card__image hero-placeholder">
+                  <span>Foto José</span>
+                </div>
+                <div class="adopt-card__content">
+                  <h3 class="adopt-card__name">José</h3>
+                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">
+                    Gato
+                  </p>
+                  <p class="adopt-card__info">Sem risco definido</p>
+                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
+                  <p class="adopt-card__quote">
+                    "Y'car ito bonito assim fica toda a minha mamãe"
+                  </p>
+                  <button class="btn-primary" data-i18n="adopt.btnKnow">
+                    Conheça-me
+                  </button>
+                </div>
+              </article>
+
+              <article class="adopt-card" data-filter-type="cats">
+                <div class="adopt-card__image hero-placeholder">
+                  <span>Foto José</span>
+                </div>
+                <div class="adopt-card__content">
+                  <h3 class="adopt-card__name">José</h3>
+                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">
+                    Gato
+                  </p>
+                  <p class="adopt-card__info">Sem risco definido</p>
+                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
+                  <p class="adopt-card__quote">
+                    "Y'car ito bonito assim fica toda a minha mamãe"
+                  </p>
+                  <button class="btn-primary" data-i18n="adopt.btnKnow">
+                    Conheça-me
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: De resgatado a amado -->
+      <section class="adopt-stories-section">
+        <div class="container">
+          <h2
+            class="adopt-stories-section__title"
+            data-i18n="adopt.storiesTitle"
+          >
+            De resgatado a amado
+          </h2>
+          <p
+            class="adopt-stories-section__subtitle"
+            data-i18n="adopt.storiesSubtitle"
+          >
+            Fotos do antes e depois com novos tutores
+          </p>
+
+          <div class="adopt-stories-grid">
+            <div class="adopt-story-item">
+              <div class="adopt-story-image before-placeholder">
+                <span>Antes x Depois</span>
+              </div>
+            </div>
+
+            <div class="adopt-story-item">
+              <div class="adopt-story-image before-placeholder">
+                <span>Antes x Depois</span>
+              </div>
+            </div>
+
+            <div class="adopt-story-item">
+              <div class="adopt-story-image before-placeholder">
+                <span>Antes x Depois</span>
+              </div>
+            </div>
+
+            <div class="adopt-story-item">
+              <div class="adopt-story-image before-placeholder">
+                <span>Antes x Depois</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION: CTA Apadrinhamento -->
+      <section class="adopt-donation-cta adopt-donation-cta--secondary">
+        <div class="adopt-donation-cta__paws adopt-donation-cta__paws-left">
+          <img
+            src="assets/images/apadrinhe/apadrinhe-3.svg"
+            alt="Patas"
+            class="adopt-donation-cta__paw-img"
+          />
+        </div>
+
+        <div class="container">
+          <div class="adopt-donation-cta__content">
+            <h2 data-i18n="adopt.sponsorshipTitle">
+              Não pode adotar? Seja padrinho ou madrinha!
+            </h2>
+            <p data-i18n="adopt.sponsorshipDesc">
+              Apadrinhar é mais do que doar — é criar um laço de afeto com um animal que depende de cuidados especiais para viver com dignidade. Com sua ajuda, garantimos que ele siga vivendo com conforto, saúde e muito amor.
+            </p>
+            <a
+              href="apadrinhar.html"
+              class="btn-donate"
+              data-i18n="adopt.sponsorshipBtn"
+            >
+              Apadrinhamento
+            </a>
+          </div>
+        </div>
+
+        <div class="adopt-donation-cta__paws adopt-donation-cta__paws-right">
+          <img
+            src="assets/images/apadrinhe/apadrinhe-2.svg"
+            alt="Patas"
+            class="adopt-donation-cta__paw-img"
+          />
+        </div>
+      </section>
+
+      <!-- SECTION: FAQ / Dúvidas -->
+      <section class="adopt-faq-section">
+        <div class="container">
+          <h2 class="adopt-faq-section__title" data-i18n="adopt.faqTitle">
+            Tem alguma dúvida?
+          </h2>
+          
+          <div class="adopt-faq-search">
+            <input 
+              type="text" 
+              class="adopt-faq-search__input" 
+              placeholder="Procurar..."
+              data-i18n-placeholder="adopt.faqSearchPlaceholder"
+            />
+            <button class="adopt-faq-search__btn" aria-label="Buscar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <img
+              src="assets/images/logo_orange.svg"
+              alt="Instituto Luisa Mell"
+              class="footer-logo"
+            />
+
+            <p class="footer-description" data-i18n="footer.desc">
+              O Instituto Luisa Mell trabalha para resgatar, cuidar e promover
+              adoções responsáveis de animais em situação de abandono e
+              maus-tratos.
+            </p>
+
+            <div class="footer-social">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="#ffffff"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
+                    stroke="none"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links-area">
+            <div class="footer-nav-col">
+              <a
+                href="index.html#como-ajudar"
+                class="footer-link"
+                data-i18n="nav.help"
+                >Como ajudar</a
+              >
+              <a href="index.html#doar" class="footer-link" data-i18n="donation"
+                >Doar</a
+              >
+              <a
+                href="ser-voluntario.html"
+                class="footer-link"
+                data-i18n="footer.volunteer"
+                >Ser Voluntário</a
+              >
+              <a
+                href="quem-somos.html#embaixador"
+                class="footer-link"
+                data-i18n="footer.ambassador"
+                >Ser Embaixador</a
+              >
+              <a
+                href="denunciar.html"
+                class="footer-link"
+                data-i18n="footer.report"
+                >Denunciar</a
+              >
+            </div>
+
+            <div class="footer-nav-col">
+              <a href="adotar.html" class="footer-link" data-i18n="nav.adopt"
+                >Adotar</a
+              >
+              <a
+                href="apadrinhar.html"
+                class="footer-link"
+                data-i18n="nav.sponsor"
+                >Apadrinhar</a
+              >
+              <a
+                href="quem-somos.html"
+                class="footer-link"
+                data-i18n="nav.about"
+                >Quem somos</a
+              >
+              <a href="#faq" class="footer-link" data-i18n="footer.faq">FAQ</a>
+              <a
+                href="#transparencia"
+                class="footer-link"
+                data-i18n="footer.transparency"
+                >Transparência</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <a href="/privacidade" data-i18n="footer.privacy"
+            >Política de Privacidade e Termos de Uso</a
+          >
+          <p data-i18n="footer.rights">© Todos direitos reservados</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/adopt-filters.js"></script>
+  </body>
+</html>

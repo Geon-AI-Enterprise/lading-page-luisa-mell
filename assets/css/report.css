@@ -1,0 +1,147 @@
+/* ========================================
+   Página de Denúncias
+   ======================================== */
+
+.report-page {
+  background-color: #ffffff;
+}
+
+.report-hero {
+  background-color: #ffffff;
+  padding: 140px 0 40px;
+  text-align: center;
+}
+
+.report-hero h1 {
+  font-family: var(--font-poppins);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.report-hero h2 {
+  font-family: var(--font-poppins);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.report-hero p {
+  max-width: 720px;
+  margin: 0 auto 16px;
+  color: #3e3e3e;
+  line-height: 1.7;
+}
+
+.report-form {
+  background-color: #ffffff;
+  padding: 24px 0 96px;
+}
+
+.report-card {
+  background-color: #090909;
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+.report-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #2b2b2b;
+  background-color: #121212;
+  color: #f8f8f8;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #9c9c9c;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 3px rgba(228, 96, 56, 0.25);
+  outline: none;
+}
+
+.form-field input[type="file"] {
+  padding: 10px 12px;
+  background-color: #080808;
+}
+
+.form-helper {
+  color: #bdbdbd;
+  font-size: 0.8rem;
+}
+
+.report-submit {
+  width: fit-content;
+  border: none;
+  border-radius: 999px;
+  padding: 16px 42px;
+  background-color: #d6453d;
+  color: #ffffff;
+  font-family: var(--font-poppins);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 15px 35px rgba(214, 69, 61, 0.45);
+}
+
+.report-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 40px rgba(214, 69, 61, 0.55);
+}
+
+.privacy-note {
+  text-align: center;
+  color: #dcdcdc;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-card {
+    padding: 32px;
+  }
+
+  .report-submit {
+    width: 100%;
+  }
+}

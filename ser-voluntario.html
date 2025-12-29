@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Instituto Luisa Mell - Proteção Animal e Ambiental"
+      content="Programa de voluntariado do Instituto Luisa Mell"
     />
-    <title>Instituto Luisa Mell - DEV</title>
+    <title>Instituto Luisa Mell - Ser Voluntário</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,6 +21,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/volunteer.css" />
   </head>
 
   <body>
@@ -28,7 +29,6 @@
     <header class="header">
       <div class="container">
         <div class="header-content">
-          <!-- Logo -->
           <div class="logo">
             <a href="index.html">
               <img
@@ -39,26 +39,54 @@
             </a>
           </div>
 
-          <!-- Mobile Menu Toggle -->
           <button class="mobile-menu-toggle" aria-label="Toggle menu">
             <span></span>
             <span></span>
             <span></span>
           </button>
 
-          <!-- Navigation -->
           <nav class="nav">
             <ul class="nav-list">
               <li class="help-dropdown-wrapper">
-                <button class="help-display" aria-controls="help-dropdown" aria-expanded="false" id="help-display">
+                <button
+                  class="help-display"
+                  aria-controls="help-dropdown"
+                  aria-expanded="false"
+                  id="help-display"
+                >
                   <span data-i18n="nav.help">Como ajudar</span>
-                  <svg class="help-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <svg
+                    class="help-arrow"
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L6 6L11 1"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
                   </svg>
                 </button>
                 <ul class="help-dropdown" id="help-dropdown" hidden>
-                  <li class="help-option" data-action="volunteer" data-i18n="footer.volunteer">Ser Voluntário</li>
-                  <li class="help-option" data-action="report" data-i18n="footer.report">Denunciar</li>
+                  <li
+                    class="help-option"
+                    data-action="volunteer"
+                    data-i18n="footer.volunteer"
+                  >
+                    Ser Voluntário
+                  </li>
+                  <li
+                    class="help-option"
+                    data-action="report"
+                    data-i18n="footer.report"
+                  >
+                    Denunciar
+                  </li>
                 </ul>
               </li>
               <li><a href="adotar.html" data-i18n="nav.adopt">Adotar</a></li>
@@ -89,9 +117,7 @@
             </ul>
           </nav>
 
-          <!-- Right Section: Language Switcher + Donation Button -->
           <div class="header-actions">
-            <!-- Donation Button -->
             <a
               href="https://www.institutolouisamell.org/doacao"
               class="btn-donation"
@@ -101,7 +127,6 @@
               <span data-i18n="donation">Doação</span>
             </a>
 
-            <!-- Language Switcher -->
             <div class="language-switcher" id="language-switcher">
               <button
                 class="lang-display"
@@ -150,170 +175,136 @@
       </div>
     </header>
 
-    <main class="main-content">
-      <!-- HERO: BANNERS (Institucional, Doação, Sorteio, Adoção) -->
-      <section class="hero" id="topo">
-        <div class="container hero__inner">
-          <div class="hero__banner hero-placeholder">
-            <span data-i18n="hero.banner">BANNERS (institucional, Doação, Sorteio, Adoção)</span>
-          </div>
-
-          <div class="hero__dots hero__dots--center" aria-hidden="true">
-            <span class="hero-dot hero-dot--active"></span>
-            <span class="hero-dot"></span>
-            <span class="hero-dot"></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3 BOLHAS: Doação / Apadrinhamento / Adoção -->
-      <section class="help-cards" id="como-ajudar">
+    <main class="main-content volunteer-page">
+      <section class="volunteer-hero" id="topo">
         <div class="container">
-          <div class="help-cards__grid">
-            <!-- Doação -->
-            <article class="help-card">
-              <div
-                class="help-card__shape hero-placeholder hero-placeholder--blob"
-              >
-                <!-- aqui depois entram as ilustrações -->
-              </div>
-              <button class="help-card__button" data-i18n="donation">Doação</button>
-            </article>
-
-            <!-- Apadrinhamento -->
-            <article class="help-card" id="apadrinhar">
-              <div
-                class="help-card__shape hero-placeholder hero-placeholder--blob"
-              ></div>
-              <button class="help-card__button" data-i18n="nav.sponsor">Apadrinhamento</button>
-            </article>
-
-            <!-- Adoção -->
-            <article class="help-card" id="adotar">
-              <div
-                class="help-card__shape hero-placeholder hero-placeholder--blob"
-              ></div>
-              <button class="help-card__button" data-i18n="nav.adopt">Adoção</button>
-            </article>
-          </div>
+          <h1 data-i18n="volunteerPage.heroTitle">Seja Voluntário do Instituto Luisa Mell e Faça a Diferença!</h1>
+          <p class="volunteer-hero__lead" data-i18n="volunteerPage.heroLead">
+            Sua dedicação transforma resgates em histórias de amor. Preencha o formulário
+            abaixo e conte para nós como você pode apoiar o Instituto nas ações de
+            acolhimento, cuidados veterinários e eventos.
+          </p>
         </div>
       </section>
 
-      <!-- BLOCO 4 FOTOS + TEXTO INSTITUCIONAL -->
-      <section class="about" id="quem-somos">
-        <div class="container about__inner">
-            <figure class="about__gallery hero-placeholder">
-            <div class="about__gallery-frame">
-              <div class="about__gallery-image"></div>
-              <span class="about__gallery-text" data-i18n="about.galleryCount">4 fotos</span>
-              <div class="about__gallery-dots">
-                <span></span><span></span><span></span>
-              </div>
+      <section class="volunteer-form" id="formulario">
+        <div class="container">
+          <div class="volunteer-card">
+            <div class="volunteer-card__intro">
+              <h2 data-i18n="volunteerPage.introTitle">Juntos Podemos Fazer Mais!</h2>
+              <p data-i18n="volunteerPage.introDescription">
+                Buscamos pessoas dispostas a colaborar em diferentes frentes: resgates
+                em campo, lar temporário, produção de conteúdo, logística de doações e
+                eventos de adoção. Conte com uma equipe preparada para orientar todas as etapas.
+              </p>
             </div>
-          </figure>
 
-          <div class="about__content">
-            <h2 data-i18n="about.title">Instituto Luisa Mell é uma organização não governamental</h2>
+            <form
+              class="volunteer-card__form"
+              aria-label="Formulário de voluntariado"
+              method="post"
+              action="#"
+            >
+              <p class="form-required-note" data-i18n="volunteerPage.form.requiredNote">Campos marcados com * são obrigatórios</p>
 
-            <!-- texto aqui é placeholder visual, para manter fidelidade de blocos -->
-            <p data-i18n="about.desc">
-              Fundado em 2015 pela ativista e apresentadora Luisa Mell, o
-              instituto tem como missão promover a defesa dos direitos dos
-              animais, combater maustratos e conscientizar a sociedade sobre a
-              importância do respeito e da compaixão para com todas as espécies.
-              +500 animais resgatados em 2024 Com um time incansável de
-              voluntários, veterinários e apoiadores, o instituto alcançou a
-              incrível marca de mais de 500 animais resgatados em apenas alguns
-              meses. +300 animais adotados em 2024 Dos mais de 300 animais
-              adotados, a maioria são cães e gatos resgatados de situações de
-              abandono, maus-tratos ou risco.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESGATES MARCANTES -->
-      <section class="rescues" id="resgates">
-        <div class="container">
-          <header class="section-header">
-            <h2 data-i18n="rescues.title">Resgates Marcantes</h2>
-            <p data-i18n="rescues.desc">
-              Cada resgate é uma história de superação, esperança e amor. No
-              Instituto Luisa Mell, já salvamos milhares de animais de situações
-              extremas
-            </p>
-          </header>
-
-          <div class="rescues__grid">
-            <article class="rescue-card">
-              <div class="rescue-card__image hero-placeholder"></div>
-            </article>
-            <article class="rescue-card">
-              <div class="rescue-card__image hero-placeholder"></div>
-            </article>
-            <article class="rescue-card">
-              <div class="rescue-card__image hero-placeholder"></div>
-            </article>
-            <article class="rescue-card">
-              <div class="rescue-card__image hero-placeholder"></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- COMO TRANSFORMAMOS VIDAS + DIAGRAMA -->
-      <section class="how-we-help" id="como-transformamos">
-        <div class="container how-we-help__inner">
-          <div class="how-we-help__content">
-            <h2 data-i18n="how.title">Como transformamos vidas</h2>
-
-            <div class="how-we-help__columns">
-              <div class="how-we-help__column">
-                <h3 data-i18n="how.step1">1. Etapa/ação do fluxo</h3>
-                <ul>
-                  <li data-i18n="how.col1.li1">Bullet de exemplo 1.</li>
-                  <li data-i18n="how.col1.li2">Bullet de exemplo 2.</li>
-                  <li data-i18n="how.col1.li3">Bullet de exemplo 3.</li>
-                </ul>
+              <div class="form-field">
+                <label for="state" data-i18n="volunteerPage.form.stateLabel">Qual seu estado? *</label>
+                <select id="state" name="state" required>
+                  <option value="" disabled selected data-i18n="volunteerPage.form.statePlaceholder">Selecione o estado</option>
+                  <option value="ac">Acre (AC)</option>
+                  <option value="al">Alagoas (AL)</option>
+                  <option value="ap">Amapá (AP)</option>
+                  <option value="am">Amazonas (AM)</option>
+                  <option value="ba">Bahia (BA)</option>
+                  <option value="ce">Ceará (CE)</option>
+                  <option value="df">Distrito Federal (DF)</option>
+                  <option value="es">Espírito Santo (ES)</option>
+                  <option value="go">Goiás (GO)</option>
+                  <option value="ma">Maranhão (MA)</option>
+                  <option value="mt">Mato Grosso (MT)</option>
+                  <option value="ms">Mato Grosso do Sul (MS)</option>
+                  <option value="mg">Minas Gerais (MG)</option>
+                  <option value="pa">Pará (PA)</option>
+                  <option value="pb">Paraíba (PB)</option>
+                  <option value="pr">Paraná (PR)</option>
+                  <option value="pe">Pernambuco (PE)</option>
+                  <option value="pi">Piauí (PI)</option>
+                  <option value="rj">Rio de Janeiro (RJ)</option>
+                  <option value="rn">Rio Grande do Norte (RN)</option>
+                  <option value="rs">Rio Grande do Sul (RS)</option>
+                  <option value="ro">Rondônia (RO)</option>
+                  <option value="rr">Roraima (RR)</option>
+                  <option value="sc">Santa Catarina (SC)</option>
+                  <option value="sp">São Paulo (SP)</option>
+                  <option value="se">Sergipe (SE)</option>
+                  <option value="to">Tocantins (TO)</option>
+                </select>
               </div>
-              <div class="how-we-help__column">
-                <h3 data-i18n="how.step2">2. Etapa/ação do fluxo</h3>
-                <ul>
-                  <li data-i18n="how.col2.li1">Bullet de exemplo 1.</li>
-                  <li data-i18n="how.col2.li2">Bullet de exemplo 2.</li>
-                  <li data-i18n="how.col2.li3">Bullet de exemplo 3.</li>
-                </ul>
+
+              <div class="form-field">
+                <label for="volunteer-role" data-i18n="volunteerPage.form.roleLabel">Você quer ser voluntário em qual frente? *</label>
+                <select id="volunteer-role" name="volunteer-role" required>
+                  <option value="" disabled selected data-i18n="volunteerPage.form.rolePlaceholder">Selecione a frente de atuação</option>
+                  <option value="resgates" data-i18n="volunteerPage.form.role.option.rescue">Resgates e acolhimento</option>
+                  <option value="clinica" data-i18n="volunteerPage.form.role.option.vet">Apoio veterinário / clínica</option>
+                  <option value="eventos" data-i18n="volunteerPage.form.role.option.events">Eventos e feiras de adoção</option>
+                  <option value="comunicacao" data-i18n="volunteerPage.form.role.option.communication">Comunicação e redes sociais</option>
+                  <option value="administrativo" data-i18n="volunteerPage.form.role.option.admin">Administrativo / remoto</option>
+                </select>
               </div>
-              <div class="how-we-help__column">
-                <h3 data-i18n="how.step3">3. Etapa/ação do fluxo</h3>
-                <ul>
-                  <li data-i18n="how.col3.li1">Bullet de exemplo 1.</li>
-                  <li data-i18n="how.col3.li2">Bullet de exemplo 2.</li>
-                  <li data-i18n="how.col3.li3">Bullet de exemplo 3.</li>
-                </ul>
+
+              <div class="form-field">
+                <label for="fullname" data-i18n="volunteerPage.form.nameLabel">Nome completo *</label>
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Digite seu nome"
+                  data-i18n-placeholder="volunteerPage.form.namePlaceholder"
+                  required
+                />
               </div>
-            </div>
-          </div>
 
-          <aside class="how-we-help__diagram hero-placeholder">
-            <span data-i18n="how.diagram">Diagrama</span>
-          </aside>
-        </div>
-      </section>
+              <div class="form-field">
+                <label for="email" data-i18n="volunteerPage.form.emailLabel">E-mail *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="nome@email.com"
+                  data-i18n-placeholder="volunteerPage.form.emailPlaceholder"
+                  required
+                />
+              </div>
 
-      <!-- NOSSOS PARCEIROS -->
-      <section class="partners" id="parceiros">
-        <div class="container">
-          <header class="section-header">
-            <h2 data-i18n="partners.title">Nossos Parceiros</h2>
-          </header>
+              <div class="form-field">
+                <label for="whatsapp" data-i18n="volunteerPage.form.whatsappLabel">WhatsApp *</label>
+                <input
+                  type="tel"
+                  id="whatsapp"
+                  name="whatsapp"
+                  placeholder="(00) 00000-0000"
+                  data-i18n-placeholder="volunteerPage.form.whatsappPlaceholder"
+                  pattern="\(\d{2}\) \d{4,5}-\d{4}"
+                  required
+                />
+                <small class="form-helper" data-i18n="volunteerPage.form.whatsappHelper">Formato: (11) 98888-7777</small>
+              </div>
 
-          <div class="partners__logos">
-            <div class="partners__logo hero-placeholder"></div>
-            <div class="partners__logo hero-placeholder"></div>
-            <div class="partners__logo hero-placeholder"></div>
-            <div class="partners__logo hero-placeholder"></div>
-            <div class="partners__logo hero-placeholder"></div>
+
+              <label class="form-consent">
+                <input type="checkbox" name="consent" required />
+                <span data-i18n="volunteerPage.form.consent">
+                  Li e aceito o uso dos meus dados para contato sobre o programa de voluntariado.
+                </span>
+              </label>
+
+              <button type="submit" class="volunteer-submit" data-i18n="volunteerPage.form.submit">Inscrever-se</button>
+
+              <p class="privacy-note" data-i18n="volunteerPage.form.privacy">
+                Seus dados são protegidos e utilizados exclusivamente para retorno do Instituto.
+              </p>
+            </form>
           </div>
         </div>
       </section>
@@ -362,9 +353,7 @@
                   stroke-linejoin="round"
                 >
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path
-                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                  ></path>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>

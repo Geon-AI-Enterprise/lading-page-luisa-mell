@@ -2,22 +2,23 @@
    Donation Button
    ======================================== */
 .btn-donation {
-    background-color: var(--primary-teal);
+    background-color: #4ECDC4;
     color: var(--white);
     font-weight: 600;
-    font-size: 1rem;
-    padding: 0.875rem 2rem;
-    border-radius: 50px;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    /* box-shadow removido */
     display: inline-block;
+    font-family: 'Inter', sans-serif;
+    border: none;
 }
 
 .btn-donation:hover {
-    background-color: #45b8b0;
+    background-color: #3eb39f;
     transform: translateY(-2px);
-    /* box-shadow hover removido */
+    box-shadow: 0 4px 12px rgba(78, 205, 196, 0.25);
 }
 
 .btn-donation:active {
