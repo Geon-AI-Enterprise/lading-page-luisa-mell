@@ -1035,6 +1035,25 @@
     box-shadow: 0 4px 12px rgba(228, 96, 56, 0.3);
 }
 
+.adopt-faq-section__link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #666;
+}
+
+.adopt-faq-section__link a {
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.adopt-faq-section__link a:hover {
+    color: #d4532e;
+    text-decoration: underline;
+}
+
 /* Responsive - Tablet */
 @media (max-width: 1024px) {
     .adopt-faq-section__title {

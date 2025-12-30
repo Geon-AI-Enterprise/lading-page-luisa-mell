@@ -151,17 +151,43 @@
     </header>
 
     <main class="main-content">
-      <!-- HERO: BANNERS (Institucional, Doação, Sorteio, Adoção) -->
+      <!-- HERO: BANNERS (Adoção, Apadrinhamento) -->
       <section class="hero" id="topo">
         <div class="container hero__inner">
-          <div class="hero__banner hero-placeholder">
-            <span data-i18n="hero.banner">BANNERS (institucional, Doação, Sorteio, Adoção)</span>
+          <div class="hero__carousel" id="hero-carousel">
+            <div class="hero__carousel-track">
+              <a href="adotar.html" class="hero__carousel-slide hero__carousel-slide--active">
+                <img 
+                  src="assets/images/adote-banner.jpg" 
+                  alt="Adote um animal - Clique para conhecer nossos peludos disponíveis para adoção" 
+                  class="hero__carousel-img"
+                />
+              </a>
+              <a href="apadrinhar.html" class="hero__carousel-slide">
+                <img 
+                  src="assets/images/apadrinhe-banner.jpg" 
+                  alt="Apadrinhe um animal - Clique para conhecer nossos peludos disponíveis para apadrinhamento" 
+                  class="hero__carousel-img"
+                />
+              </a>
+            </div>
+
+            <!-- Setas de navegação -->
+            <button class="hero__carousel-arrow hero__carousel-arrow--prev" aria-label="Banner anterior">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="hero__carousel-arrow hero__carousel-arrow--next" aria-label="Próximo banner">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
           </div>
 
-          <div class="hero__dots hero__dots--center" aria-hidden="true">
-            <span class="hero-dot hero-dot--active"></span>
-            <span class="hero-dot"></span>
-            <span class="hero-dot"></span>
+          <div class="hero__dots hero__dots--center" id="hero-dots" aria-hidden="true">
+            <button class="hero-dot hero-dot--active" data-slide="0" aria-label="Ir para banner 1"></button>
+            <button class="hero-dot" data-slide="1" aria-label="Ir para banner 2"></button>
           </div>
         </div>
       </section>
@@ -263,41 +289,15 @@
 
       <!-- COMO TRANSFORMAMOS VIDAS + DIAGRAMA -->
       <section class="how-we-help" id="como-transformamos">
-        <div class="container how-we-help__inner">
-          <div class="how-we-help__content">
+        <div class="container">
+          <header class="section-header">
             <h2 data-i18n="how.title">Como transformamos vidas</h2>
-
-            <div class="how-we-help__columns">
-              <div class="how-we-help__column">
-                <h3 data-i18n="how.step1">1. Etapa/ação do fluxo</h3>
-                <ul>
-                  <li data-i18n="how.col1.li1">Bullet de exemplo 1.</li>
-                  <li data-i18n="how.col1.li2">Bullet de exemplo 2.</li>
-                  <li data-i18n="how.col1.li3">Bullet de exemplo 3.</li>
-                </ul>
-              </div>
-              <div class="how-we-help__column">
-                <h3 data-i18n="how.step2">2. Etapa/ação do fluxo</h3>
-                <ul>
-                  <li data-i18n="how.col2.li1">Bullet de exemplo 1.</li>
-                  <li data-i18n="how.col2.li2">Bullet de exemplo 2.</li>
-                  <li data-i18n="how.col2.li3">Bullet de exemplo 3.</li>
-                </ul>
-              </div>
-              <div class="how-we-help__column">
-                <h3 data-i18n="how.step3">3. Etapa/ação do fluxo</h3>
-                <ul>
-                  <li data-i18n="how.col3.li1">Bullet de exemplo 1.</li>
-                  <li data-i18n="how.col3.li2">Bullet de exemplo 2.</li>
-                  <li data-i18n="how.col3.li3">Bullet de exemplo 3.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <aside class="how-we-help__diagram hero-placeholder">
-            <span data-i18n="how.diagram">Diagrama</span>
-          </aside>
+          </header>
+          <img 
+            src="assets/images/diagrama-principal.jpg" 
+            alt="Como transformamos vidas - Diagrama do processo de resgate, cuidado e adoção" 
+            class="how-we-help__image"
+          />
         </div>
       </section>
 
@@ -307,13 +307,49 @@
           <header class="section-header">
             <h2 data-i18n="partners.title">Nossos Parceiros</h2>
           </header>
+        </div>
 
-          <div class="partners__logos">
-            <div class="partners__logo hero-placeholder"></div>
-            <div class="partners__logo hero-placeholder"></div>
-            <div class="partners__logo hero-placeholder"></div>
-            <div class="partners__logo hero-placeholder"></div>
-            <div class="partners__logo hero-placeholder"></div>
+        <div class="partners-carousel">
+          <div class="partners-carousel__track">
+            <!-- Conjunto 1 -->
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+            </div>
+            <!-- Conjunto 2 (duplicado) -->
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+            </div>
+            <!-- Conjunto 3 (duplicado) -->
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+            </div>
           </div>
         </div>
       </section>
@@ -404,9 +440,9 @@
               <a href="quem-somos.html" class="footer-link" data-i18n="nav.about"
                 >Quem somos</a
               >
-              <a href="#faq" class="footer-link" data-i18n="footer.faq">FAQ</a>
+              <a href="faq.html" class="footer-link" data-i18n="footer.faq">FAQ</a>
               <a
-                href="#transparencia"
+                href="transparencia.html"
                 class="footer-link"
                 data-i18n="footer.transparency"
                 >Transparência</a
@@ -425,5 +461,6 @@
     </footer>
 
     <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/hero-carousel.js"></script>
   </body>
 </html>

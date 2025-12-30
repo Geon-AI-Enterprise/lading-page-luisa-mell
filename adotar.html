@@ -521,20 +521,27 @@
             Tem alguma dúvida?
           </h2>
           
-          <div class="adopt-faq-search">
+          <form class="adopt-faq-search" id="adopt-faq-form" action="faq.html" method="get">
             <input 
               type="text" 
               class="adopt-faq-search__input" 
+              id="adopt-faq-input"
+              name="q"
               placeholder="Procurar..."
               data-i18n-placeholder="adopt.faqSearchPlaceholder"
+              autocomplete="off"
             />
-            <button class="adopt-faq-search__btn" aria-label="Buscar">
+            <button type="submit" class="adopt-faq-search__btn" aria-label="Buscar">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
             </button>
-          </div>
+          </form>
+          
+          <p class="adopt-faq-section__link">
+            Ou acesse nossa <a href="faq.html">página de perguntas frequentes</a>
+          </p>
         </div>
       </section>
     </main>
@@ -638,9 +645,9 @@
                 data-i18n="nav.about"
                 >Quem somos</a
               >
-              <a href="#faq" class="footer-link" data-i18n="footer.faq">FAQ</a>
+              <a href="faq.html" class="footer-link" data-i18n="footer.faq">FAQ</a>
               <a
-                href="#transparencia"
+                href="transparencia.html"
                 class="footer-link"
                 data-i18n="footer.transparency"
                 >Transparência</a

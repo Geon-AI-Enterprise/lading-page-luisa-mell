@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Perguntas Frequentes - Instituto Luisa Mell"
+    />
+    <title>Instituto Luisa Mell - FAQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/faq.css" />
+  </head>
+
+  <body>
+    <!-- Fixed Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="index.html">
+              <img
+                src="assets/images/logo.svg"
+                alt="Instituto Luisa Mell"
+                class="logo-image"
+              />
+            </a>
+          </div>
+
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="nav">
+            <ul class="nav-list">
+              <li class="help-dropdown-wrapper">
+                <button
+                  class="help-display"
+                  aria-controls="help-dropdown"
+                  aria-expanded="false"
+                  id="help-display"
+                >
+                  <span data-i18n="nav.help">Como ajudar</span>
+                  <svg
+                    class="help-arrow"
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L6 6L11 1"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <ul class="help-dropdown" id="help-dropdown" hidden>
+                  <li
+                    class="help-option"
+                    data-action="volunteer"
+                    data-i18n="footer.volunteer"
+                  >
+                    Ser Voluntário
+                  </li>
+                  <li
+                    class="help-option"
+                    data-action="report"
+                    data-i18n="footer.report"
+                  >
+                    Denunciar
+                  </li>
+                </ul>
+              </li>
+              <li><a href="adotar.html" data-i18n="nav.adopt">Adotar</a></li>
+              <li>
+                <a href="apadrinhar.html" data-i18n="nav.sponsor">Apadrinhar</a>
+              </li>
+              <li>
+                <a href="quem-somos.html" data-i18n="nav.about">Quem somos</a>
+              </li>
+              <li class="mobile-only-donation">
+                <a
+                  href="https://www.institutolouisamell.org/doacao"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="donation"
+                >
+                  Doação
+                </a>
+              </li>
+
+              <li class="mobile-lang-separator">
+                <div class="mobile-lang-options">
+                  <button class="mob-lang-btn active" data-lang="pt">PT</button>
+                  <button class="mob-lang-btn" data-lang="en">EN</button>
+                  <button class="mob-lang-btn" data-lang="es">ES</button>
+                </div>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <a
+              href="https://www.institutolouisamell.org/doacao"
+              class="btn-donation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span data-i18n="donation">Doação</span>
+            </a>
+
+            <div class="language-switcher" id="language-switcher">
+              <button
+                class="lang-display"
+                aria-controls="lang-dropdown"
+                aria-expanded="false"
+                id="lang-display"
+              >
+                <span class="current-lang-code" id="current-lang-code">PT</span>
+                <svg
+                  class="lang-arrow"
+                  width="12"
+                  height="8"
+                  viewBox="0 0 12 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L6 6L11 1"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <ul class="lang-dropdown" id="lang-dropdown" hidden>
+                <li data-lang="pt" class="lang-option active">PT</li>
+                <li data-lang="en" class="lang-option">EN</li>
+                <li data-lang="es" class="lang-option">ES</li>
+              </ul>
+
+              <select
+                class="lang-select"
+                aria-label="Selecionar idioma"
+                id="language-select"
+                style="display: none"
+              >
+                <option value="pt" selected>PT</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content faq-page">
+      <!-- Hero Section -->
+      <section class="faq-hero">
+        <div class="container">
+          <h1 data-i18n="faq.title">Perguntas Frequentes</h1>
+          <p class="faq-hero__description" data-i18n="faq.description">
+            Encontre respostas para as dúvidas mais comuns sobre adoção, 
+            apadrinhamento, voluntariado e como ajudar o Instituto Luisa Mell.
+          </p>
+          
+          <!-- Search Bar -->
+          <div class="faq-search">
+            <div class="faq-search__wrapper">
+              <svg class="faq-search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input 
+                type="text" 
+                id="faq-search-input"
+                class="faq-search__input" 
+                placeholder="Digite sua dúvida..."
+                data-i18n-placeholder="faq.searchPlaceholder"
+                autocomplete="off"
+              />
+              <button class="faq-search__clear" id="faq-search-clear" hidden aria-label="Limpar busca">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="faq-search__results" id="faq-search-results" hidden></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Categories -->
+      <section class="faq-content">
+        <div class="container">
+          <!-- Category: Adoção -->
+          <div class="faq-category" data-category="adoption">
+            <h2 class="faq-category__title">
+              <span class="faq-category__icon">🐾</span>
+              <span data-i18n="faq.category.adoption">Adoção</span>
+            </h2>
+            
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.adoption.q1">
+                  Como faço para adotar um animal?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.adoption.a1">
+                  <p>Para adotar um animal do Instituto Luisa Mell, você deve seguir estes passos:</p>
+                  <ol>
+                    <li>Acesse nossa página de adoção e conheça os animais disponíveis</li>
+                    <li>Preencha o formulário de interesse em adoção</li>
+                    <li>Aguarde o contato da nossa equipe para uma entrevista</li>
+                    <li>Realize uma visita ao abrigo para conhecer o animal</li>
+                    <li>Após aprovação, assine o termo de adoção responsável</li>
+                  </ol>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.adoption.q2">
+                  Quais são os requisitos para adotar?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.adoption.a2">
+                  <p>Para adotar um animal, você precisa:</p>
+                  <ul>
+                    <li>Ter mais de 18 anos</li>
+                    <li>Apresentar documento de identidade com foto</li>
+                    <li>Comprovar residência fixa</li>
+                    <li>Ter condições de oferecer alimentação, abrigo e cuidados veterinários</li>
+                    <li>Concordar com visitas de acompanhamento pós-adoção</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.adoption.q3">
+                  A adoção tem algum custo?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.adoption.a3">
+                  <p>A adoção é gratuita! Todos os animais são entregues castrados, vacinados e vermifugados. Pedimos apenas que você tenha condições de arcar com os cuidados contínuos do animal, como alimentação e acompanhamento veterinário.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.adoption.q4">
+                  Posso devolver o animal se não me adaptar?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.adoption.a4">
+                  <p>Pedimos que a decisão de adotar seja bem pensada. Porém, se realmente houver incompatibilidade, entre em contato conosco. Jamais abandone o animal! Preferimos que ele volte ao Instituto a ficar em situação de risco.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- Category: Apadrinhamento -->
+          <div class="faq-category" data-category="sponsorship">
+            <h2 class="faq-category__title">
+              <span class="faq-category__icon">💝</span>
+              <span data-i18n="faq.category.sponsorship">Apadrinhamento</span>
+            </h2>
+            
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.sponsorship.q1">
+                  O que é o apadrinhamento?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.sponsorship.a1">
+                  <p>O apadrinhamento é uma forma de ajudar um animal específico que está sob nossos cuidados. Com uma contribuição mensal, você ajuda a custear alimentação, vacinas, medicamentos e tratamentos do seu afilhado, mesmo sem poder levá-lo para casa.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.sponsorship.q2">
+                  Qual o valor do apadrinhamento?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.sponsorship.a2">
+                  <p>Você pode escolher o valor que cabe no seu orçamento. Toda contribuição é bem-vinda e faz diferença na vida dos nossos animais. Temos planos a partir de R$ 30,00 mensais.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.sponsorship.q3">
+                  Posso visitar meu afilhado?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.sponsorship.a3">
+                  <p>Sim! Padrinhos e madrinhas podem agendar visitas para conhecer e passar um tempo com seus afilhados. Entre em contato conosco para agendar sua visita.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- Category: Voluntariado -->
+          <div class="faq-category" data-category="volunteer">
+            <h2 class="faq-category__title">
+              <span class="faq-category__icon">🤝</span>
+              <span data-i18n="faq.category.volunteer">Voluntariado</span>
+            </h2>
+            
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.volunteer.q1">
+                  Como posso ser voluntário?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.volunteer.a1">
+                  <p>Para ser voluntário, basta preencher nosso formulário de cadastro na página "Ser Voluntário". Nossa equipe entrará em contato para explicar as oportunidades disponíveis e agendar um treinamento.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.volunteer.q2">
+                  Quais atividades os voluntários realizam?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.volunteer.a2">
+                  <p>Os voluntários podem atuar em diversas frentes:</p>
+                  <ul>
+                    <li>Resgates e acolhimento de animais</li>
+                    <li>Apoio na clínica veterinária</li>
+                    <li>Eventos e feiras de adoção</li>
+                    <li>Comunicação e redes sociais</li>
+                    <li>Atividades administrativas (presenciais ou remotas)</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.volunteer.q3">
+                  Preciso ter experiência com animais?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.volunteer.a3">
+                  <p>Não é necessário ter experiência prévia. Oferecemos treinamento para todas as atividades. O mais importante é ter amor pelos animais e disponibilidade para ajudar!</p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- Category: Denúncias -->
+          <div class="faq-category" data-category="report">
+            <h2 class="faq-category__title">
+              <span class="faq-category__icon">🚨</span>
+              <span data-i18n="faq.category.report">Denúncias</span>
+            </h2>
+            
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.report.q1">
+                  Como denunciar maus-tratos?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.report.a1">
+                  <p>Você pode denunciar maus-tratos através da nossa página "Denunciar". Preencha o formulário com o máximo de informações possíveis, incluindo endereço, descrição da situação e, se possível, fotos ou vídeos como prova.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.report.q2">
+                  A denúncia é sigilosa?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.report.a2">
+                  <p>Sim! Todas as denúncias são tratadas com total sigilo. Seus dados pessoais não serão compartilhados e sua identidade será preservada.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.report.q3">
+                  O que acontece após a denúncia?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.report.a3">
+                  <p>Nossa equipe analisa cada denúncia e, quando confirmada, tomamos as providências necessárias, que podem incluir resgate do animal, acionamento de órgãos competentes e acompanhamento do caso.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- Category: Doações -->
+          <div class="faq-category" data-category="donation">
+            <h2 class="faq-category__title">
+              <span class="faq-category__icon">💰</span>
+              <span data-i18n="faq.category.donation">Doações</span>
+            </h2>
+            
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.donation.q1">
+                  Como posso fazer uma doação?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.donation.a1">
+                  <p>Você pode doar através do botão "Doação" em nosso site, que aceita diversas formas de pagamento. Também aceitamos doações de ração, medicamentos, cobertores e outros itens para os animais.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.donation.q2">
+                  Minha doação é dedutível do imposto de renda?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.donation.a2">
+                  <p>Sim! O Instituto Luisa Mell é uma organização sem fins lucrativos e suas doações podem ser deduzidas do Imposto de Renda, conforme legislação vigente. Emitimos recibos para todas as doações.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__question" data-i18n="faq.donation.q3">
+                  Para onde vai o dinheiro das doações?
+                </summary>
+                <div class="faq-item__answer" data-i18n="faq.donation.a3">
+                  <p>100% das doações são utilizadas para o bem-estar dos animais: alimentação, vacinas, medicamentos, cirurgias, tratamentos, manutenção do abrigo e operações de resgate. Você pode conferir nossa prestação de contas na página de Transparência.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- No Results Message -->
+          <div class="faq-no-results" id="faq-no-results" hidden>
+            <div class="faq-no-results__icon">🔍</div>
+            <h3 class="faq-no-results__title" data-i18n="faq.noResults.title">Nenhum resultado encontrado</h3>
+            <p class="faq-no-results__text" data-i18n="faq.noResults.text">
+              Não encontramos perguntas relacionadas à sua busca. Tente usar outras palavras ou entre em contato conosco.
+            </p>
+            <button class="btn-primary faq-no-results__btn" id="faq-clear-search" data-i18n="faq.noResults.btn">
+              Ver todas as perguntas
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="faq-cta">
+        <div class="container">
+          <h2 data-i18n="faq.cta.title">Não encontrou o que procurava?</h2>
+          <p data-i18n="faq.cta.description">Entre em contato conosco! Nossa equipe terá prazer em ajudar.</p>
+          <a href="mailto:contato@institutoluisamell.org" class="btn-primary" data-i18n="faq.cta.button">
+            Fale Conosco
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <img
+              src="assets/images/logo_orange.svg"
+              alt="Instituto Luisa Mell"
+              class="footer-logo"
+            />
+
+            <p class="footer-description" data-i18n="footer.desc">
+              O Instituto Luisa Mell trabalha para resgatar, cuidar e promover
+              adoções responsáveis de animais em situação de abandono e
+              maus-tratos.
+            </p>
+
+            <div class="footer-social">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="#ffffff"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
+                    stroke="none"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links-area">
+            <div class="footer-nav-col">
+              <a href="index.html#como-ajudar" class="footer-link" data-i18n="nav.help"
+                >Como ajudar</a
+              >
+              <a href="index.html#doar" class="footer-link" data-i18n="donation">Doar</a>
+              <a
+                href="ser-voluntario.html"
+                class="footer-link"
+                data-i18n="footer.volunteer"
+                >Ser Voluntário</a
+              >
+              <a href="denunciar.html" class="footer-link" data-i18n="footer.report"
+                >Denunciar</a
+              >
+            </div>
+
+            <div class="footer-nav-col">
+              <a href="adotar.html" class="footer-link" data-i18n="nav.adopt"
+                >Adotar</a
+              >
+              <a href="apadrinhar.html" class="footer-link" data-i18n="nav.sponsor"
+                >Apadrinhar</a
+              >
+              <a href="quem-somos.html" class="footer-link" data-i18n="nav.about"
+                >Quem somos</a
+              >
+              <a href="faq.html" class="footer-link" data-i18n="footer.faq" aria-current="page">FAQ</a>
+              <a
+                href="transparencia.html"
+                class="footer-link"
+                data-i18n="footer.transparency"
+                >Transparência</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <a href="/privacidade" data-i18n="footer.privacy"
+            >Política de Privacidade e Termos de Uso</a
+          >
+          <p data-i18n="footer.rights">© Todos direitos reservados</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/faq-search.js"></script>
+  </body>
+</html>
