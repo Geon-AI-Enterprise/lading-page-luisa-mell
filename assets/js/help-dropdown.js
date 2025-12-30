@@ -52,27 +52,11 @@ function handleHelpAction(action) {
     switch (action) {
         case 'volunteer':
             // Redirecionar para a página de voluntários
-<<<<<<< HEAD
             window.location.href = 'ser-voluntario.html';
-            break;
-        case 'ambassador':
-            // Redirecionar para a página de embaixadores
-            window.location.href = 'quem-somos.html#embaixador';
             break;
         case 'report':
             // Redirecionar para a página de denúncias
             window.location.href = 'denunciar.html';
-=======
-            window.location.href = '#voluntario';
-            break;
-        case 'ambassador':
-            // Redirecionar para a página de embaixadores
-            window.location.href = '#embaixador';
-            break;
-        case 'report':
-            // Redirecionar para a página de denúncias
-            window.location.href = '#denunciar';
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
             break;
         default:
             break;

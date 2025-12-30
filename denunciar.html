@@ -22,6 +22,7 @@
     />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/report.css" />
+    <link rel="stylesheet" href="assets/css/forms.css" />
   </head>
 
   <body>
@@ -254,7 +255,19 @@
 
               <div class="form-field">
                 <label for="report-proof" data-i18n="report.form.proofLabel">Provas *</label>
-                <input type="file" id="report-proof" name="report-proof" required />
+                <div class="file-upload">
+                  <input type="file" id="report-proof" name="report-proof" class="file-upload__input" accept="image/*,video/*,.pdf,.doc,.docx" multiple />
+                  <div class="file-upload__dropzone">
+                    <svg class="file-upload__icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <span class="file-upload__text" data-i18n="report.form.proofUploadText">Clique ou arraste arquivos aqui</span>
+                    <span class="file-upload__formats">JPG, PNG, MP4, PDF, DOC (máx. 10MB)</span>
+                  </div>
+                  <div class="file-upload__preview"></div>
+                </div>
                 <small class="form-helper" data-i18n="report.form.proofHelper">Envie fotos, vídeos ou documentos relacionados.</small>
               </div>
 
@@ -386,5 +399,6 @@
     </footer>
 
     <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/form-handler.js"></script>
   </body>
 </html>

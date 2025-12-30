@@ -351,125 +351,80 @@
           </aside>
 
           <div class="adopt-animals__wrapper">
-            <!-- Grid de Animais -->
+            <!-- Mensagem quando não há resultados -->
+            <div class="adopt-no-results" id="adopt-no-results" hidden>
+              <div class="adopt-no-results__icon">
+                🐾
+              </div>
+              <h3 class="adopt-no-results__title" data-i18n="adopt.noResults.title">Nenhum amiguinho encontrado</h3>
+              <p class="adopt-no-results__text" data-i18n="adopt.noResults.text">
+                No momento não temos animais disponíveis para este filtro, mas novos resgates acontecem todos os dias! 
+                Que tal explorar outras opções ou fazer uma doação para ajudar os que ainda estão esperando por um lar?
+              </p>
+              <button class="btn-primary adopt-no-results__btn" data-filter="all" data-i18n="adopt.noResults.btn">Ver todos os animais</button>
+            </div>
+
+            <!-- Grid de Animais - Carregados dinamicamente do Supabase -->
             <div class="adopt-animals__grid">
-              <article class="adopt-card" data-filter-type="dogs">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <!-- Skeleton Loading - Exibido enquanto carrega -->
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">
-                    Cão
-                  </p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">
-                    "Y'car ito bonito assim fica toda a minha mamãe"
-                  </p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">
-                    Conheça-me
-                  </button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="dogs">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">
-                    Cão
-                  </p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">
-                    "Y'car ito bonito assim fica toda a minha mamãe"
-                  </p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">
-                    Conheça-me
-                  </button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="dogs">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">
-                    Cão
-                  </p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">
-                    "Y'car ito bonito assim fica toda a minha mamãe"
-                  </p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">
-                    Conheça-me
-                  </button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="cats">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">
-                    Gato
-                  </p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">
-                    "Y'car ito bonito assim fica toda a minha mamãe"
-                  </p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">
-                    Conheça-me
-                  </button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="cats">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">
-                    Gato
-                  </p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">
-                    "Y'car ito bonito assim fica toda a minha mamãe"
-                  </p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">
-                    Conheça-me
-                  </button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="cats">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">
-                    Gato
-                  </p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">
-                    "Y'car ito bonito assim fica toda a minha mamãe"
-                  </p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">
-                    Conheça-me
-                  </button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
             </div>

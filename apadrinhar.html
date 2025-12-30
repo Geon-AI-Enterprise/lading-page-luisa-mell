@@ -51,39 +51,23 @@
           <nav class="nav">
             <ul class="nav-list">
               <li class="help-dropdown-wrapper">
-<<<<<<< HEAD
                 <button class="help-display" aria-controls="help-dropdown" aria-expanded="false" id="help-display">
                   <span data-i18n="nav.help">Como ajudar</span>
-=======
-                <button class="help-display" aria-controls="help-dropdown" aria-expanded="false" id="help-display" data-i18n="nav.help">
-                  Como ajudar
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
                   <svg class="help-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </button>
                 <ul class="help-dropdown" id="help-dropdown" hidden>
                   <li class="help-option" data-action="volunteer" data-i18n="footer.volunteer">Ser Voluntário</li>
-<<<<<<< HEAD
-=======
-                  <li class="help-option" data-action="ambassador" data-i18n="footer.ambassador">Ser Embaixador</li>
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
                   <li class="help-option" data-action="report" data-i18n="footer.report">Denunciar</li>
                 </ul>
               </li>
               <li><a href="adotar.html" data-i18n="nav.adopt">Adotar</a></li>
               <li>
-<<<<<<< HEAD
                 <a href="apadrinhar.html" data-i18n="nav.sponsor">Apadrinhar</a>
               </li>
               <li>
                 <a href="quem-somos.html" data-i18n="nav.about">Quem somos</a>
-=======
-                <a href="index.html#apadrinhar" data-i18n="nav.sponsor">Apadrinhar</a>
-              </li>
-              <li>
-                <a href="index.html#quem-somos" data-i18n="nav.about">Quem somos</a>
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
               </li>
               <li class="mobile-only-donation">
                 <a
@@ -189,11 +173,7 @@
             </div>
 
             <div class="adopt-hero__text-right">
-<<<<<<< HEAD
               <p data-i18n="sponsor.heroDescriptionRight">
-=======
-              <p>
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
                 Apadrinhar é mais do que doar — é criar um laço de afeto com um animal que depende de cuidados especiais para viver com dignidade. Com sua ajuda, garantimos que ele siga vivendo com conforto, saúde e muito amor até encontrar um lar.
               </p>
             </div>
@@ -204,7 +184,6 @@
       <!-- FILTROS E GRID DE ANIMAIS -->
       <section class="adopt-animals">
         <div class="container">
-<<<<<<< HEAD
           <!-- Filtros no topo, horizontal -->
           <aside class="adopt-filters">
             <h2 class="adopt-filters__title" data-i18n="adopt.filterTitle">Quer ser meu dindo ou minha dinda?</h2>
@@ -253,117 +232,80 @@
           </aside>
 
           <div class="adopt-animals__wrapper">
-=======
-          <div class="adopt-animals__wrapper">
-            <!-- Filtros à esquerda -->
-            <aside class="adopt-filters">
-              <h2 class="adopt-filters__title" data-i18n="adopt.filterTitle">Quer ser meu dindo ou minha dinda?</h2>
-              <div class="adopt-filters__list">
-                <button class="adopt-filter-btn active" data-filter="all" data-i18n="adopt.filter.all">
-                  <span>Todos</span>
-                </button>
-                <button class="adopt-filter-btn" data-filter="dogs" data-i18n="adopt.filter.dogs">
-                  <span>Cães</span>
-                </button>
-                <button class="adopt-filter-btn" data-filter="cats" data-i18n="adopt.filter.cats">
-                  <span>Gatos</span>
-                </button>
-                <button class="adopt-filter-btn" data-filter="puppies" data-i18n="adopt.filter.puppies">
-                  <span>Filhotes</span>
-                </button>
-                <button class="adopt-filter-btn" data-filter="female" data-i18n="adopt.filter.female">
-                  <span>Fêmea</span>
-                </button>
-                <button class="adopt-filter-btn" data-filter="male" data-i18n="adopt.filter.male">
-                  <span>Macho</span>
-                </button>
+            <!-- Mensagem quando não há resultados -->
+            <div class="adopt-no-results" id="adopt-no-results" hidden>
+              <div class="adopt-no-results__icon">
+                🐾
               </div>
-            </aside>
+              <h3 class="adopt-no-results__title" data-i18n="adopt.noResults.title">Nenhum amiguinho encontrado</h3>
+              <p class="adopt-no-results__text" data-i18n="adopt.noResults.text">
+                No momento não temos animais disponíveis para este filtro, mas novos resgates acontecem todos os dias! 
+                Que tal explorar outras opções ou fazer uma doação para ajudar os que ainda estão esperando por um lar?
+              </p>
+              <button class="btn-primary adopt-no-results__btn" data-filter="all" data-i18n="adopt.noResults.btn">Ver todos os animais</button>
+            </div>
 
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
-            <!-- Grid de Animais -->
+            <!-- Grid de Animais - Carregados dinamicamente do Supabase -->
             <div class="adopt-animals__grid">
-              <article class="adopt-card" data-filter-type="dogs">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <!-- Skeleton Loading - Exibido enquanto carrega -->
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">Cão</p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">"Y'car ito bonito assim fica toda a minha mamãe"</p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">Conheça-me</button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="dogs">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">Cão</p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">"Y'car ito bonito assim fica toda a minha mamãe"</p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">Conheça-me</button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="dogs">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.dog">Cão</p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">"Y'car ito bonito assim fica toda a minha mamãe"</p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">Conheça-me</button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="cats">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">Gato</p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">"Y'car ito bonito assim fica toda a minha mamãe"</p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">Conheça-me</button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="cats">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">Gato</p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">"Y'car ito bonito assim fica toda a minha mamãe"</p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">Conheça-me</button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
-
-              <article class="adopt-card" data-filter-type="cats">
-                <div class="adopt-card__image hero-placeholder">
-                  <span>Foto José</span>
-                </div>
+              <article class="adopt-card adopt-card--skeleton">
+                <div class="adopt-card__image skeleton-box"></div>
                 <div class="adopt-card__content">
-                  <h3 class="adopt-card__name">José</h3>
-                  <p class="adopt-card__type" data-i18n="adopt.cardType.cat">Gato</p>
-                  <p class="adopt-card__info">Sem risco definido</p>
-                  <p class="adopt-card__date">Resgatado em 20/10/25</p>
-                  <p class="adopt-card__quote">"Y'car ito bonito assim fica toda a minha mamãe"</p>
-                  <button class="btn-primary" data-i18n="adopt.btnKnow">Conheça-me</button>
+                  <div class="skeleton-text skeleton-text--title"></div>
+                  <div class="skeleton-text skeleton-text--small"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-text"></div>
+                  <div class="skeleton-btn"></div>
                 </div>
               </article>
             </div>
@@ -466,30 +408,18 @@
               >
               <a href="index.html#doar" class="footer-link" data-i18n="donation">Doar</a>
               <a
-<<<<<<< HEAD
                 href="ser-voluntario.html"
-=======
-                href="index.html#voluntario"
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
                 class="footer-link"
                 data-i18n="footer.volunteer"
                 >Ser Voluntário</a
               >
               <a
-<<<<<<< HEAD
                 href="quem-somos.html#embaixador"
-=======
-                href="index.html#embaixador"
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
                 class="footer-link"
                 data-i18n="footer.ambassador"
                 >Ser Embaixador</a
               >
-<<<<<<< HEAD
               <a href="denunciar.html" class="footer-link" data-i18n="footer.report"
-=======
-              <a href="index.html#denunciar" class="footer-link" data-i18n="footer.report"
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
                 >Denunciar</a
               >
             </div>
@@ -501,11 +431,7 @@
               <a href="index.html#apadrinhar" class="footer-link" data-i18n="nav.sponsor"
                 >Apadrinhar</a
               >
-<<<<<<< HEAD
               <a href="quem-somos.html" class="footer-link" data-i18n="nav.about"
-=======
-              <a href="index.html#quem-somos" class="footer-link" data-i18n="nav.about"
->>>>>>> 469f0519f2c506b35e198e301ddb29f1cc9e8cb1
                 >Quem somos</a
               >
               <a href="#faq" class="footer-link" data-i18n="footer.faq">FAQ</a>
