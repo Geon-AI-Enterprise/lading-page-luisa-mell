@@ -151,91 +151,94 @@
     </header>
 
     <main class="main-content">
-      <!-- HERO: BANNERS (Adoção, Apadrinhamento) -->
-      <section class="hero" id="topo">
-        <div class="container hero__inner">
-          <div class="hero__carousel" id="hero-carousel">
-            <div class="hero__carousel-track">
-              <a href="adotar.html" class="hero__carousel-slide hero__carousel-slide--active">
-                <img 
-                  src="assets/images/adote-banner.jpg" 
-                  alt="Adote um animal - Clique para conhecer nossos peludos disponíveis para adoção" 
-                  class="hero__carousel-img"
-                />
-              </a>
-              <a href="apadrinhar.html" class="hero__carousel-slide">
-                <img 
-                  src="assets/images/apadrinhe-banner.jpg" 
-                  alt="Apadrinhe um animal - Clique para conhecer nossos peludos disponíveis para apadrinhamento" 
-                  class="hero__carousel-img"
-                />
-              </a>
-            </div>
+      <!-- HERO: Video Background + Conteúdo -->
+      <section class="hero-video" id="topo">
+        <!-- Video Background -->
+        <div class="hero-video__bg">
+          <video autoplay muted loop playsinline class="hero-video__video">
+            <source src="assets/videos/luisamell-drone.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-video__overlay"></div>
+        </div>
 
-            <!-- Setas de navegação -->
-            <button class="hero__carousel-arrow hero__carousel-arrow--prev" aria-label="Banner anterior">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-            <button class="hero__carousel-arrow hero__carousel-arrow--next" aria-label="Próximo banner">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
+        <!-- Conteúdo -->
+        <div class="container hero-video__content">
+          <div class="hero-video__text">
+            <span class="hero-video__eyebrow" data-i18n="hero.eyebrow">Juntos Salvamos Vidas</span>
+            <h1 class="hero-video__title" data-i18n="hero.welcome">Bem-vindos</h1>
+            <p class="hero-video__description" data-i18n="hero.description">
+              No Instituto Luisa Mell, acreditamos que toda vida importa. Desde 2015, nossa missão é resgatar, cuidar e transformar a realidade de animais vítimas de abandono, maus-tratos e situações de risco. Com uma equipe apaixonada e voluntária, oferecemos atendimento veterinário, reabilitação e, principalmente, uma nova chance para centenas de cães, gatos e outros animais encontrarem um lar cheio de amor.
+            </p>
+            <p class="hero-video__cta-text" data-i18n="hero.ctaText">
+              Junte-se a nós nessa causa! Doe, adote, seja voluntário e faça parte dessa corrente do bem. O futuro dos animais depende do nosso compromisso e do seu apoio.
+            </p>
+            <a 
+              href="https://www.institutoluisamell.org/doacao" 
+              class="btn-primary hero-video__btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="hero.donateBtn"
+            >
+              Doe aqui
+            </a>
           </div>
+          <div class="hero-video__image">
+            <img 
+              src="assets/images/apadrinhar-img.png" 
+              alt="Luisa Mell com um cachorro"
+              class="hero-video__img"
+            />
+          </div>
+        </div>
 
-          <div class="hero__dots hero__dots--center" id="hero-dots" aria-hidden="true">
-            <button class="hero-dot hero-dot--active" data-slide="0" aria-label="Ir para banner 1"></button>
-            <button class="hero-dot" data-slide="1" aria-label="Ir para banner 2"></button>
-          </div>
+        <!-- Wave Transition -->
+        <div class="hero-video__wave">
+          <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,80 C120,40 240,100 360,80 C480,60 600,100 720,80 C840,60 960,100 1080,80 C1200,60 1320,100 1440,80 L1440,150 L0,150 Z" fill="#ffffff"/>
+          </svg>
         </div>
       </section>
 
-      <!-- 3 BOLHAS: Doação / Apadrinhamento / Adoção -->
+      <!-- 3 CARDS: Doação / Apadrinhamento / Adoção -->
       <section class="help-cards" id="como-ajudar">
         <div class="container">
           <div class="help-cards__grid">
             <!-- Doação -->
             <article class="help-card">
-              <div
-                class="help-card__shape hero-placeholder hero-placeholder--blob"
-              >
-                <!-- aqui depois entram as ilustrações -->
+              <div class="help-card__shape">
+                <img src="assets/images/doacao.jpg" alt="Doação" class="help-card__img" />
               </div>
               <button class="help-card__button" data-i18n="donation">Doação</button>
             </article>
 
             <!-- Apadrinhamento -->
             <article class="help-card" id="apadrinhar">
-              <div
-                class="help-card__shape hero-placeholder hero-placeholder--blob"
-              ></div>
+              <div class="help-card__shape">
+                <img src="assets/images/resgates-marcantes.jpg" alt="Apadrinhar" class="help-card__img" />
+              </div>
               <button class="help-card__button" data-i18n="nav.sponsor">Apadrinhamento</button>
             </article>
 
             <!-- Adoção -->
             <article class="help-card" id="adotar">
-              <div
-                class="help-card__shape hero-placeholder hero-placeholder--blob"
-              ></div>
+              <div class="help-card__shape">
+                <img src="assets/images/adotar-img.jpg" alt="Adoção" class="help-card__img" />
+              </div>
               <button class="help-card__button" data-i18n="nav.adopt">Adoção</button>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- BLOCO 4 FOTOS + TEXTO INSTITUCIONAL -->
+      <!-- BLOCO INSTITUCIONAL -->
       <section class="about" id="quem-somos">
         <div class="container about__inner">
-            <figure class="about__gallery hero-placeholder">
-            <div class="about__gallery-frame">
-              <div class="about__gallery-image"></div>
-              <span class="about__gallery-text" data-i18n="about.galleryCount">4 fotos</span>
-              <div class="about__gallery-dots">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
+          <figure class="about__gallery">
+            <img 
+              src="assets/images/doacao-img.png" 
+              alt="Instituto Luisa Mell" 
+              class="about__gallery-img"
+            />
           </figure>
 
           <div class="about__content">
@@ -324,6 +327,9 @@
             <div class="partners-carousel__slide">
               <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
             </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+            </div>
             <!-- Conjunto 2 (duplicado) -->
             <div class="partners-carousel__slide">
               <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
@@ -337,6 +343,9 @@
             <div class="partners-carousel__slide">
               <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
             </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+            </div>
             <!-- Conjunto 3 (duplicado) -->
             <div class="partners-carousel__slide">
               <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
@@ -349,6 +358,9 @@
             </div>
             <div class="partners-carousel__slide">
               <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+            </div>
+            <div class="partners-carousel__slide">
+              <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
             </div>
           </div>
         </div>

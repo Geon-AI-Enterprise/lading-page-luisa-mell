@@ -6,11 +6,192 @@
    ======================================== */
 
 /* ----------------------------------------
-   HERO
+   HERO VIDEO SECTION
+   ---------------------------------------- */
+.hero-video {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 60px;
+}
+
+.hero-video__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-video__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.hero-video__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.hero-video__text {
+  color: #ffffff;
+}
+
+.hero-video__eyebrow {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #ff6b35;
+  margin-bottom: 8px;
+}
+
+.hero-video__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+.hero-video__description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 16px 0;
+}
+
+.hero-video__cta-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 32px 0;
+}
+
+.hero-video__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease;
+}
+
+.hero-video__btn:hover {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.hero-video__image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-video__img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 16px;
+  border: 6px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Wave Transition */
+.hero-video__wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-video__wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .hero-video__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .hero-video__title {
+    font-size: 2.5rem;
+  }
+
+  .hero-video__image {
+    justify-content: center;
+    order: -1;
+  }
+
+  .hero-video__img {
+    max-height: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-video {
+    min-height: 500px;
+  }
+
+  .hero-video__title {
+    font-size: 2rem;
+  }
+
+  .hero-video__description,
+  .hero-video__cta-text {
+    font-size: 0.9rem;
+  }
+
+  .hero-video__img {
+    max-height: 280px;
+  }
+}
+
+/* ----------------------------------------
+   HERO (Legacy - Banner Carousel)
    ---------------------------------------- */
 
 .hero {
-  background-color: #f4f4f4;
+  background-color: #ffffff;
   padding: 56px 0 40px;
 }
 
@@ -83,14 +264,14 @@
   width: 100%;
   max-width: 1120px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 12px;
+  background: transparent;
 }
 
 .hero__carousel-track {
   position: relative;
   width: 100%;
-  min-height: 320px;
 }
 
 .hero__carousel-slide {
@@ -98,7 +279,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.6s ease, visibility 0.6s ease;
@@ -115,8 +295,8 @@
 
 .hero__carousel-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
   border-radius: 12px;
   transition: transform 0.3s ease;
@@ -251,13 +431,23 @@
 
 .help-card__shape {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 999px;
-  background: #e5f3dd;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  background: #f5f5f5;
   position: relative;
   overflow: hidden;
 }
+.help-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
 
+.help-card:hover .help-card__img {
+  transform: scale(1.05);
+}
 /* bolha com “recorte” - apenas visual */
 .hero-placeholder--blob {
   border-radius: 999px;
@@ -306,12 +496,21 @@
   align-items: center;
 }
 
-/* Moldura geral da TV/foto */
+/* Imagem institucional */
 .about__gallery {
   border-radius: 16px;
-  padding: 16px;
-  box-sizing: border-box;
-  background-color: #f4f4f4;
+  overflow: hidden;
+  flex-shrink: 0;
+  max-width: 450px;
+  margin: 0;
+}
+
+.about__gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .about__gallery-frame {
@@ -497,6 +696,11 @@
   animation: scroll-partners 25s linear infinite;
 }
 
+/* Pausar animação ao passar o mouse */
+.partners-carousel:hover .partners-carousel__track {
+  animation-play-state: paused;
+}
+
 .partners-carousel__slide {
   flex-shrink: 0;
   display: flex;
@@ -515,6 +719,7 @@
   filter: grayscale(100%);
   opacity: 0.7;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 /* Logo específica maior */
