@@ -205,58 +205,158 @@
               action="#"
               enctype="multipart/form-data"
             >
+              <p class="form-required-note form-required-note--dark" data-i18n="report.form.requiredNote">(*) Campos obrigatórios</p>
+
               <div class="form-grid">
                 <div class="form-field">
-                  <label for="report-name" data-i18n="report.form.nameLabel">Nome *</label>
+                  <label for="report-name" data-i18n="report.form.nameLabel">Nome completo *</label>
                   <input
                     type="text"
                     id="report-name"
                     name="report-name"
-                    placeholder="Nome completo"
+                    placeholder="Digite seu nome completo"
                     data-i18n-placeholder="report.form.namePlaceholder"
                     required
                   />
                 </div>
                 <div class="form-field">
-                  <label for="report-email" data-i18n="report.form.emailLabel">E-mail *</label>
+                  <label for="report-email" data-i18n="report.form.emailLabel">Email *</label>
                   <input
                     type="email"
                     id="report-email"
                     name="report-email"
-                    placeholder="E-mail"
+                    placeholder="nome@email.com"
                     data-i18n-placeholder="report.form.emailPlaceholder"
                     required
                   />
                 </div>
                 <div class="form-field">
-                  <label for="report-address" data-i18n="report.form.addressLabel">Endereço *</label>
-                  <input
-                    type="text"
-                    id="report-address"
-                    name="report-address"
-                    placeholder="Endereço completo"
-                    data-i18n-placeholder="report.form.addressPlaceholder"
-                    required
-                  />
-                </div>
-                <div class="form-field">
-                  <label for="report-whatsapp" data-i18n="report.form.whatsappLabel">WhatsApp *</label>
+                  <label for="report-phone" data-i18n="report.form.phoneLabel">Telefone *</label>
                   <input
                     type="tel"
-                    id="report-whatsapp"
-                    name="report-whatsapp"
-                    placeholder="WhatsApp"
-                    data-i18n-placeholder="report.form.whatsappPlaceholder"
+                    id="report-phone"
+                    name="report-phone"
+                    placeholder="(00) 0000-0000"
+                    data-i18n-placeholder="report.form.phonePlaceholder"
                     pattern="\(\d{2}\) \d{4,5}-\d{4}"
                     required
                   />
+                  <small class="form-helper" data-i18n="report.form.phoneHelper">Formato: (00) 0000-0000</small>
+                </div>
+                <div class="form-field">
+                  <label for="report-type" data-i18n="report.form.typeLabel">Tipo da denúncia *</label>
+                  <select id="report-type" name="report-type" required>
+                    <option value="" disabled selected data-i18n="report.form.typePlaceholder">Selecionar</option>
+                    <option value="abandono" data-i18n="report.form.type.abandonment">Abandono</option>
+                    <option value="maus-tratos" data-i18n="report.form.type.abuse">Maus tratos</option>
+                  </select>
                 </div>
               </div>
 
               <div class="form-field">
-                <label for="report-proof" data-i18n="report.form.proofLabel">Provas *</label>
+                <label for="report-address" data-i18n="report.form.addressLabel">Endereço da denúncia *</label>
+                
+                <!-- CEP com busca automática -->
+                <div class="form-grid form-grid--address">
+                  <div class="form-field form-field--cep">
+                    <label for="report-cep" data-i18n="report.form.cepLabel">CEP *</label>
+                    <div class="input-with-loader">
+                      <input
+                        type="text"
+                        id="report-cep"
+                        name="report-cep"
+                        placeholder="00000-000"
+                        data-i18n-placeholder="report.form.cepPlaceholder"
+                        maxlength="9"
+                        required
+                      />
+                      <span class="input-loader" id="cep-loader"></span>
+                    </div>
+                    <small class="form-helper cep-status" id="cep-status"></small>
+                  </div>
+                  
+                  <div class="form-field form-field--street">
+                    <label for="report-street" data-i18n="report.form.streetLabel">Rua *</label>
+                    <input
+                      type="text"
+                      id="report-street"
+                      name="report-street"
+                      placeholder="Nome da rua"
+                      data-i18n-placeholder="report.form.streetPlaceholder"
+                      required
+                    />
+                  </div>
+                  
+                  <div class="form-field form-field--number">
+                    <label for="report-number" data-i18n="report.form.numberLabel">Número *</label>
+                    <input
+                      type="text"
+                      id="report-number"
+                      name="report-number"
+                      placeholder="Nº"
+                      data-i18n-placeholder="report.form.numberPlaceholder"
+                      required
+                    />
+                  </div>
+                  
+                  <div class="form-field form-field--complement">
+                    <label for="report-complement" data-i18n="report.form.complementLabel">Complemento</label>
+                    <input
+                      type="text"
+                      id="report-complement"
+                      name="report-complement"
+                      placeholder="Apto, Bloco, etc."
+                      data-i18n-placeholder="report.form.complementPlaceholder"
+                    />
+                  </div>
+                  
+                  <div class="form-field form-field--neighborhood">
+                    <label for="report-neighborhood" data-i18n="report.form.neighborhoodLabel">Bairro *</label>
+                    <input
+                      type="text"
+                      id="report-neighborhood"
+                      name="report-neighborhood"
+                      placeholder="Bairro"
+                      data-i18n-placeholder="report.form.neighborhoodPlaceholder"
+                      required
+                    />
+                  </div>
+                  
+                  <div class="form-field form-field--city">
+                    <label for="report-city" data-i18n="report.form.cityLabel">Cidade *</label>
+                    <input
+                      type="text"
+                      id="report-city"
+                      name="report-city"
+                      placeholder="Cidade"
+                      data-i18n-placeholder="report.form.cityPlaceholder"
+                      required
+                      readonly
+                    />
+                  </div>
+                  
+                  <div class="form-field form-field--state">
+                    <label for="report-state" data-i18n="report.form.stateLabel">Estado *</label>
+                    <input
+                      type="text"
+                      id="report-state"
+                      name="report-state"
+                      placeholder="UF"
+                      data-i18n-placeholder="report.form.statePlaceholder"
+                      maxlength="2"
+                      required
+                      readonly
+                    />
+                  </div>
+                </div>
+                
+                <input type="hidden" id="report-address" name="report-address" />
+              </div>
+
+              <div class="form-field">
+                <label for="report-proof" data-i18n="report.form.proofLabel">Evidências (fotos ou vídeo) *</label>
                 <div class="file-upload">
-                  <input type="file" id="report-proof" name="report-proof" class="file-upload__input" accept="image/*,video/*,.pdf,.doc,.docx" multiple />
+                  <input type="file" id="report-proof" name="report-proof" class="file-upload__input" accept="image/*,video/*" multiple required />
                   <div class="file-upload__dropzone">
                     <svg class="file-upload__icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -264,15 +364,15 @@
                       <line x1="12" y1="3" x2="12" y2="15"></line>
                     </svg>
                     <span class="file-upload__text" data-i18n="report.form.proofUploadText">Clique ou arraste arquivos aqui</span>
-                    <span class="file-upload__formats">JPG, PNG, MP4, PDF, DOC (máx. 10MB)</span>
+                    <span class="file-upload__formats">JPG, PNG, MP4 (máx. 10MB)</span>
                   </div>
                   <div class="file-upload__preview"></div>
                 </div>
-                <small class="form-helper" data-i18n="report.form.proofHelper">Envie fotos, vídeos ou documentos relacionados.</small>
+                <small class="form-helper" data-i18n="report.form.proofHelper">Anexe fotos ou vídeos como evidência.</small>
               </div>
 
               <div class="form-field">
-                <label for="report-message" data-i18n="report.form.detailsLabel">Denúncia *</label>
+                <label for="report-message" data-i18n="report.form.detailsLabel">Relato da denúncia *</label>
                 <textarea
                   id="report-message"
                   name="report-message"
@@ -398,7 +498,9 @@
       </div>
     </footer>
 
+    <script src="assets/js/config.js"></script>
     <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/cep-search.js"></script>
     <script src="assets/js/form-handler.js"></script>
   </body>
 </html>

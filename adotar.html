@@ -19,6 +19,7 @@
     />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/adopt.css" />
+    <link rel="stylesheet" href="assets/css/animal-modal.css" />
   </head>
 
   <body>
@@ -380,6 +381,9 @@
                 </div>
               </article>
             </div>
+            
+            <!-- Botão Carregar Mais -->
+            <div class="adopt-load-more" id="adopt-load-more"></div>
           </div>
         </div>
       </section>
@@ -402,27 +406,55 @@
 
           <div class="adopt-stories-grid">
             <div class="adopt-story-item">
-              <div class="adopt-story-image before-placeholder">
-                <span>Antes x Depois</span>
-              </div>
+              <img 
+                src="assets/images/antes-1.png" 
+                alt="Antes - História de resgate 1" 
+                class="adopt-story-image"
+              />
+              <img 
+                src="assets/images/depiois-1.png" 
+                alt="Depois - História de resgate 1" 
+                class="adopt-story-image"
+              />
             </div>
 
             <div class="adopt-story-item">
-              <div class="adopt-story-image before-placeholder">
-                <span>Antes x Depois</span>
-              </div>
+              <img 
+                src="assets/images/antes-2.png" 
+                alt="Antes - História de resgate 2" 
+                class="adopt-story-image"
+              />
+              <img 
+                src="assets/images/depois-2.png" 
+                alt="Depois - História de resgate 2" 
+                class="adopt-story-image"
+              />
             </div>
 
             <div class="adopt-story-item">
-              <div class="adopt-story-image before-placeholder">
-                <span>Antes x Depois</span>
-              </div>
+              <img 
+                src="assets/images/antes-3.png" 
+                alt="Antes - História de resgate 3" 
+                class="adopt-story-image"
+              />
+              <img 
+                src="assets/images/depois-3.png" 
+                alt="Depois - História de resgate 3" 
+                class="adopt-story-image"
+              />
             </div>
 
             <div class="adopt-story-item">
-              <div class="adopt-story-image before-placeholder">
-                <span>Antes x Depois</span>
-              </div>
+              <img 
+                src="assets/images/antes-4.png" 
+                alt="Antes - História de resgate 4" 
+                class="adopt-story-image"
+              />
+              <img 
+                src="assets/images/depois-4.png" 
+                alt="Depois - História de resgate 4" 
+                class="adopt-story-image"
+              />
             </div>
           </div>
         </div>
@@ -617,7 +649,62 @@
       </div>
     </footer>
 
+    <!-- Modal de Perfil do Animal -->
+    <div class="animal-modal-overlay" id="animal-modal-overlay"></div>
+    <div class="animal-modal" id="animal-profile-modal">
+      <button class="animal-modal__close" aria-label="Fechar">×</button>
+      
+      <div class="animal-modal__content">
+        <!-- Foto Antes -->
+        <div class="animal-modal__before">
+          <div class="animal-modal__placeholder">
+            <span>📷</span>
+            <p>Carregando...</p>
+          </div>
+          <span class="animal-modal__label">ANTES</span>
+        </div>
+        
+        <!-- Informações Centrais -->
+        <div class="animal-modal__info">
+          <h2 class="animal-modal__name">Olá, sou a Maria!</h2>
+          <p class="animal-modal__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            convallis neque in lorem egestas, at ultrices erat pulvinar.
+          </p>
+          <p class="animal-modal__cost">Custos mensais: R$196,60</p>
+          
+          <div class="animal-modal__actions">
+            <a href="apadrinhar.html" class="animal-modal__btn animal-modal__btn--sponsor">Apadrinhe</a>
+            <a href="#contato" class="animal-modal__btn animal-modal__btn--adopt">Adote</a>
+            <a href="https://www.institutolouisamell.org/doacao" class="animal-modal__btn animal-modal__btn--gift" target="_blank">Dê um presente</a>
+          </div>
+          
+          <div class="animal-modal__care-icons">
+            <!-- Ícones serão populados via JS -->
+          </div>
+        </div>
+        
+        <!-- Foto Depois -->
+        <div class="animal-modal__after">
+          <div class="animal-modal__placeholder">
+            <span>📷</span>
+            <p>Carregando...</p>
+          </div>
+          <span class="animal-modal__label">DEPOIS</span>
+        </div>
+        
+        <!-- Galeria -->
+        <div class="animal-modal__gallery-section">
+          <div class="animal-modal__gallery">
+            <!-- Galeria será populada via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/config.js"></script>
     <script type="module" src="assets/js/main.js"></script>
     <script type="module" src="assets/js/adopt-filters.js"></script>
+    <script type="module" src="assets/js/animal-modal.js"></script>
   </body>
 </html>

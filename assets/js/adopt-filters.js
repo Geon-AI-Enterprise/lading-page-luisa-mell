@@ -4,6 +4,9 @@
 
 import { fetchAnimals, renderAnimalsToGrid, renderSkeletonCards, renderErrorMessage } from './animal-service.js';
 
+// Configuração de paginação
+const ITEMS_PER_PAGE = 5;
+
 // Estado atual dos filtros
 let currentFilters = {
     type: 'all',
@@ -12,12 +15,18 @@ let currentFilters = {
     isPuppy: false
 };
 
+// Estado da paginação
+let currentOffset = 0;
+let hasMoreItems = true;
+let isLoading = false;
+
 // Tipo da página (adoption ou sponsorship)
 let pageType = 'adoption';
 
 // Referências aos elementos DOM
 let animalsGrid = null;
 let noResultsElement = null;
+let loadMoreContainer = null;
 
 /**
  * Detecta o tipo de página baseado na URL
@@ -33,10 +42,22 @@ function detectPageType() {
 /**
  * Mostra loading skeleton enquanto carrega
  */
-function showLoading() {
+function showLoading(append = false) {
     if (animalsGrid) {
-        animalsGrid.innerHTML = renderSkeletonCards(6);
-        animalsGrid.style.display = '';
+        if (append) {
+            // Mostrar loading inline no botão
+            if (loadMoreContainer) {
+                loadMoreContainer.innerHTML = `
+                    <div class="adopt-load-more__loading">
+                        <span class="adopt-load-more__spinner"></span>
+                        Carregando...
+                    </div>
+                `;
+            }
+        } else {
+            animalsGrid.innerHTML = renderSkeletonCards(ITEMS_PER_PAGE);
+            animalsGrid.style.display = '';
+        }
     }
     if (noResultsElement) {
         noResultsElement.hidden = true;
@@ -51,20 +72,105 @@ function showError() {
         animalsGrid.innerHTML = renderErrorMessage();
         animalsGrid.style.display = '';
     }
+    hideLoadMore();
+}
+
+/**
+ * Atualiza o botão "Carregar mais"
+ */
+function updateLoadMoreButton() {
+    if (!loadMoreContainer) return;
+    
+    if (hasMoreItems) {
+        loadMoreContainer.innerHTML = `
+            <button class="adopt-load-more__btn btn-secondary" id="load-more-btn">
+                Ver mais animais
+            </button>
+        `;
+        
+        const btn = document.getElementById('load-more-btn');
+        if (btn) {
+            btn.addEventListener('click', loadMoreAnimals);
+        }
+    } else {
+        loadMoreContainer.innerHTML = `
+            <p class="adopt-load-more__end">Você viu todos os animais disponíveis 🐾</p>
+        `;
+    }
+}
+
+/**
+ * Esconde o container de carregar mais
+ */
+function hideLoadMore() {
+    if (loadMoreContainer) {
+        loadMoreContainer.innerHTML = '';
+    }
 }
 
 /**
  * Carrega animais do Supabase com os filtros atuais
  */
 async function loadAnimals() {
-    showLoading();
+    if (isLoading) return;
+    isLoading = true;
+    
+    // Resetar paginação
+    currentOffset = 0;
+    hasMoreItems = true;
+    
+    showLoading(false);
 
     try {
-        const animals = await fetchAnimals(currentFilters, pageType);
-        renderAnimalsToGrid(animals, animalsGrid);
+        const animals = await fetchAnimals(currentFilters, pageType, { 
+            limit: ITEMS_PER_PAGE, 
+            offset: 0 
+        });
+        
+        renderAnimalsToGrid(animals, animalsGrid, false);
+        
+        // Verificar se há mais itens
+        hasMoreItems = animals.length === ITEMS_PER_PAGE;
+        currentOffset = animals.length;
+        
+        updateLoadMoreButton();
     } catch (error) {
         console.error('Erro ao carregar animais:', error);
         showError();
+    } finally {
+        isLoading = false;
+    }
+}
+
+/**
+ * Carrega mais animais (próxima página)
+ */
+async function loadMoreAnimals() {
+    if (isLoading || !hasMoreItems) return;
+    isLoading = true;
+    
+    showLoading(true);
+
+    try {
+        const animals = await fetchAnimals(currentFilters, pageType, { 
+            limit: ITEMS_PER_PAGE, 
+            offset: currentOffset 
+        });
+        
+        if (animals.length > 0) {
+            renderAnimalsToGrid(animals, animalsGrid, true);
+            currentOffset += animals.length;
+        }
+        
+        // Verificar se há mais itens
+        hasMoreItems = animals.length === ITEMS_PER_PAGE;
+        
+        updateLoadMoreButton();
+    } catch (error) {
+        console.error('Erro ao carregar mais animais:', error);
+        updateLoadMoreButton(); // Restaurar botão em caso de erro
+    } finally {
+        isLoading = false;
     }
 }
 
@@ -73,6 +179,9 @@ async function loadAnimals() {
  */
 async function updateFilter(filterName, value) {
     currentFilters[filterName] = value;
+    // Resetar paginação ao mudar filtros
+    currentOffset = 0;
+    hasMoreItems = true;
     await loadAnimals();
 }
 
@@ -86,6 +195,9 @@ async function resetFilters() {
         gender: null,
         isPuppy: false
     };
+    // Resetar paginação
+    currentOffset = 0;
+    hasMoreItems = true;
     await loadAnimals();
 }
 
@@ -100,6 +212,7 @@ export async function setupAdoptFilters() {
     
     animalsGrid = document.querySelector('.adopt-animals__grid');
     noResultsElement = document.getElementById('adopt-no-results');
+    loadMoreContainer = document.getElementById('adopt-load-more');
 
     // Se não houver grid, não estamos em uma página de adoção/apadrinhamento
     if (!animalsGrid) return;

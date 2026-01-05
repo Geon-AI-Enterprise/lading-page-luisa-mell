@@ -72,6 +72,7 @@ function getCorsHeaders(origin: string | null): Record<string, string> {
 
 // Interface para tipagem dos filtros
 interface AnimalFilters {
+  id?: string  // UUID do animal para busca específica
   type?: 'dog' | 'cat'
   size?: 'p' | 'm' | 'g'
   gender?: 'male' | 'female'
@@ -124,6 +125,7 @@ Deno.serve(async (req) => {
     } else if (req.method === 'GET') {
       const url = new URL(req.url)
       filters = {
+        id: url.searchParams.get('id') || undefined,
         type: url.searchParams.get('type') as 'dog' | 'cat' | undefined,
         size: url.searchParams.get('size') as 'p' | 'm' | 'g' | undefined,
         gender: url.searchParams.get('gender') as 'male' | 'female' | undefined,
@@ -147,33 +149,40 @@ Deno.serve(async (req) => {
     let query = supabaseAdmin
       .from('animals')
       .select('*')
-      .eq('status', 'available')
 
-    // Aplicar filtro por tipo de página (adoção ou apadrinhamento)
-    if (filters.pageType === 'adoption') {
-      query = query.eq('available_for_adoption', true)
-    } else if (filters.pageType === 'sponsorship') {
-      query = query.eq('available_for_sponsorship', true)
-    }
+    // Se busca por ID específico, não aplicar outros filtros
+    if (filters.id) {
+      query = query.eq('id', filters.id)
+    } else {
+      // Apenas animais disponíveis para listagem geral
+      query = query.eq('status', 'available')
 
-    // Aplicar filtro por tipo de animal
-    if (filters.type) {
-      query = query.eq('type', filters.type)
-    }
+      // Aplicar filtro por tipo de página (adoção ou apadrinhamento)
+      if (filters.pageType === 'adoption') {
+        query = query.eq('available_for_adoption', true)
+      } else if (filters.pageType === 'sponsorship') {
+        query = query.eq('available_for_sponsorship', true)
+      }
 
-    // Aplicar filtro por tamanho
-    if (filters.size) {
-      query = query.eq('size', filters.size)
-    }
+      // Aplicar filtro por tipo de animal
+      if (filters.type) {
+        query = query.eq('type', filters.type)
+      }
 
-    // Aplicar filtro por gênero
-    if (filters.gender) {
-      query = query.eq('gender', filters.gender)
-    }
+      // Aplicar filtro por tamanho
+      if (filters.size) {
+        query = query.eq('size', filters.size)
+      }
 
-    // Aplicar filtro por filhote
-    if (filters.isPuppy !== undefined) {
-      query = query.eq('is_puppy', filters.isPuppy)
+      // Aplicar filtro por gênero
+      if (filters.gender) {
+        query = query.eq('gender', filters.gender)
+      }
+
+      // Aplicar filtro por filhote
+      if (filters.isPuppy !== undefined) {
+        query = query.eq('is_puppy', filters.isPuppy)
+      }
     }
 
     // Ordenação (mais recentes primeiro)

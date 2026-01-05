@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- Graduation cap / training icon -->
+  <path d="M24 8L6 18L24 28L42 18L24 8Z" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M12 22V34C12 34 18 40 24 40C30 40 36 34 36 34V22" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M42 18V32" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="42" cy="34" r="2" fill="#333"/>
+  <path d="M24 28V34" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -3,9 +3,10 @@
 // Instituto Luisa Mell
 // ========================================
 
-// URL da Edge Function (substitua pelo seu projeto após deploy)
-// Formato: https://SEU_PROJECT_ID.supabase.co/functions/v1/get-animals
-const EDGE_FUNCTION_URL = 'https://iakcrxcpumsffcogmbhz.supabase.co/functions/v1/get-animals';
+// Configuração carregada de config.js (não commitado no Git)
+const getConfig = () => window.APP_CONFIG || {};
+const EDGE_FUNCTION_URL = () => `${getConfig().EDGE_FUNCTION_BASE || ''}/get-animals`;
+const SUPABASE_ANON_KEY = () => getConfig().SUPABASE_ANON_KEY || '';
 
 /**
  * Busca animais via Edge Function (método seguro)
@@ -14,10 +15,12 @@ const EDGE_FUNCTION_URL = 'https://iakcrxcpumsffcogmbhz.supabase.co/functions/v1
  */
 export async function fetchAnimalsSecure(filters = {}) {
     try {
-        const response = await fetch(EDGE_FUNCTION_URL, {
+        const response = await fetch(EDGE_FUNCTION_URL(), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY()}`,
+                'apikey': SUPABASE_ANON_KEY()
             },
             body: JSON.stringify(filters)
         });
@@ -56,13 +59,15 @@ export async function fetchAnimalsGet(filters = {}) {
         });
 
         const url = params.toString() 
-            ? `${EDGE_FUNCTION_URL}?${params.toString()}`
-            : EDGE_FUNCTION_URL;
+            ? `${EDGE_FUNCTION_URL()}?${params.toString()}`
+            : EDGE_FUNCTION_URL();
         
         const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY()}`,
+                'apikey': SUPABASE_ANON_KEY()
             }
         });
 
@@ -100,5 +105,5 @@ export async function testConnection() {
 }
 
 // Exportar URL para debug (seguro - é apenas a URL pública)
-export const getEndpointUrl = () => EDGE_FUNCTION_URL;
+export const getEndpointUrl = () => EDGE_FUNCTION_URL();
 

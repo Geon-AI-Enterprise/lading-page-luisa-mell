@@ -206,53 +206,7 @@
               method="post"
               action="#"
             >
-              <p class="form-required-note" data-i18n="volunteerPage.form.requiredNote">Campos marcados com * são obrigatórios</p>
-
-              <div class="form-field">
-                <label for="state" data-i18n="volunteerPage.form.stateLabel">Qual seu estado? *</label>
-                <select id="state" name="state" required>
-                  <option value="" disabled selected data-i18n="volunteerPage.form.statePlaceholder">Selecione o estado</option>
-                  <option value="ac">Acre (AC)</option>
-                  <option value="al">Alagoas (AL)</option>
-                  <option value="ap">Amapá (AP)</option>
-                  <option value="am">Amazonas (AM)</option>
-                  <option value="ba">Bahia (BA)</option>
-                  <option value="ce">Ceará (CE)</option>
-                  <option value="df">Distrito Federal (DF)</option>
-                  <option value="es">Espírito Santo (ES)</option>
-                  <option value="go">Goiás (GO)</option>
-                  <option value="ma">Maranhão (MA)</option>
-                  <option value="mt">Mato Grosso (MT)</option>
-                  <option value="ms">Mato Grosso do Sul (MS)</option>
-                  <option value="mg">Minas Gerais (MG)</option>
-                  <option value="pa">Pará (PA)</option>
-                  <option value="pb">Paraíba (PB)</option>
-                  <option value="pr">Paraná (PR)</option>
-                  <option value="pe">Pernambuco (PE)</option>
-                  <option value="pi">Piauí (PI)</option>
-                  <option value="rj">Rio de Janeiro (RJ)</option>
-                  <option value="rn">Rio Grande do Norte (RN)</option>
-                  <option value="rs">Rio Grande do Sul (RS)</option>
-                  <option value="ro">Rondônia (RO)</option>
-                  <option value="rr">Roraima (RR)</option>
-                  <option value="sc">Santa Catarina (SC)</option>
-                  <option value="sp">São Paulo (SP)</option>
-                  <option value="se">Sergipe (SE)</option>
-                  <option value="to">Tocantins (TO)</option>
-                </select>
-              </div>
-
-              <div class="form-field">
-                <label for="volunteer-role" data-i18n="volunteerPage.form.roleLabel">Você quer ser voluntário em qual frente? *</label>
-                <select id="volunteer-role" name="volunteer-role" required>
-                  <option value="" disabled selected data-i18n="volunteerPage.form.rolePlaceholder">Selecione a frente de atuação</option>
-                  <option value="resgates" data-i18n="volunteerPage.form.role.option.rescue">Resgates e acolhimento</option>
-                  <option value="clinica" data-i18n="volunteerPage.form.role.option.vet">Apoio veterinário / clínica</option>
-                  <option value="eventos" data-i18n="volunteerPage.form.role.option.events">Eventos e feiras de adoção</option>
-                  <option value="comunicacao" data-i18n="volunteerPage.form.role.option.communication">Comunicação e redes sociais</option>
-                  <option value="administrativo" data-i18n="volunteerPage.form.role.option.admin">Administrativo / remoto</option>
-                </select>
-              </div>
+              <p class="form-required-note" data-i18n="volunteerPage.form.requiredNote">(*) Campos obrigatórios</p>
 
               <div class="form-field">
                 <label for="fullname" data-i18n="volunteerPage.form.nameLabel">Nome completo *</label>
@@ -260,14 +214,14 @@
                   type="text"
                   id="fullname"
                   name="fullname"
-                  placeholder="Digite seu nome"
+                  placeholder="Digite seu nome completo"
                   data-i18n-placeholder="volunteerPage.form.namePlaceholder"
                   required
                 />
               </div>
 
               <div class="form-field">
-                <label for="email" data-i18n="volunteerPage.form.emailLabel">E-mail *</label>
+                <label for="email" data-i18n="volunteerPage.form.emailLabel">Email *</label>
                 <input
                   type="email"
                   id="email"
@@ -279,26 +233,58 @@
               </div>
 
               <div class="form-field">
-                <label for="whatsapp" data-i18n="volunteerPage.form.whatsappLabel">WhatsApp *</label>
+                <label for="phone" data-i18n="volunteerPage.form.phoneLabel">Telefone *</label>
                 <input
                   type="tel"
-                  id="whatsapp"
-                  name="whatsapp"
-                  placeholder="(00) 00000-0000"
-                  data-i18n-placeholder="volunteerPage.form.whatsappPlaceholder"
+                  id="phone"
+                  name="phone"
+                  placeholder="(00) 0000-0000"
+                  data-i18n-placeholder="volunteerPage.form.phonePlaceholder"
                   pattern="\(\d{2}\) \d{4,5}-\d{4}"
                   required
                 />
-                <small class="form-helper" data-i18n="volunteerPage.form.whatsappHelper">Formato: (11) 98888-7777</small>
+                <small class="form-helper" data-i18n="volunteerPage.form.phoneHelper">Formato: (00) 0000-0000</small>
               </div>
 
+              <div class="form-field">
+                <label for="volunteer-topic" data-i18n="volunteerPage.form.topicLabel">Gostaria de ajudar o instituto com temas de *</label>
+                <select id="volunteer-topic" name="volunteer-topic" required>
+                  <option value="" disabled selected data-i18n="volunteerPage.form.topicPlaceholder">Selecionar</option>
+                  <option value="eventos" data-i18n="volunteerPage.form.topic.events">Eventos</option>
+                  <option value="administrativo" data-i18n="volunteerPage.form.topic.admin">Administrativos e legais</option>
+                  <option value="manutencao" data-i18n="volunteerPage.form.topic.maintenance">Manutenção do abrigo</option>
+                  <option value="cuidados" data-i18n="volunteerPage.form.topic.care">Cuidados básicos com os animais</option>
+                  <option value="socializacao" data-i18n="volunteerPage.form.topic.socialization">Socialização de animais</option>
+                  <option value="outros" data-i18n="volunteerPage.form.topic.others">Outros</option>
+                </select>
+              </div>
 
-              <label class="form-consent">
-                <input type="checkbox" name="consent" required />
-                <span data-i18n="volunteerPage.form.consent">
-                  Li e aceito o uso dos meus dados para contato sobre o programa de voluntariado.
-                </span>
-              </label>
+              <div class="form-field">
+                <label for="motivation" data-i18n="volunteerPage.form.motivationLabel">Conte um pouco porque gostaria de ser voluntário</label>
+                <textarea
+                  id="motivation"
+                  name="motivation"
+                  rows="4"
+                  placeholder="Escreva aqui sua motivação..."
+                  data-i18n-placeholder="volunteerPage.form.motivationPlaceholder"
+                ></textarea>
+              </div>
+
+              <div class="form-field form-field--checkbox">
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    id="consent"
+                    name="consent"
+                    required
+                  />
+                  <span class="checkbox-text" data-i18n="volunteerPage.form.consentLabel">
+                    Concordo com o tratamento dos meus dados pessoais conforme a 
+                    <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a> 
+                    do Instituto Luisa Mell, em conformidade com a LGPD (Lei Geral de Proteção de Dados). *
+                  </span>
+                </label>
+              </div>
 
               <button type="submit" class="volunteer-submit" data-i18n="volunteerPage.form.submit">Inscrever-se</button>
 
@@ -414,6 +400,7 @@
       </div>
     </footer>
 
+    <script src="assets/js/config.js"></script>
     <script type="module" src="assets/js/main.js"></script>
     <script src="assets/js/form-handler.js"></script>
   </body>

@@ -15,12 +15,15 @@ import { fetchAnimalsSecure } from './supabase-client.js';
  * @param {string} pageType - 'adoption' ou 'sponsorship'
  * @returns {Promise<Array>} Lista de animais
  */
-export async function fetchAnimals(filters = {}, pageType = 'adoption') {
+export async function fetchAnimals(filters = {}, pageType = 'adoption', options = {}) {
     try {
+        const { limit = 5, offset = 0 } = options;
+        
         // Preparar filtros para a API
         const apiFilters = {
             pageType: pageType,
-            limit: 12
+            limit: limit,
+            offset: offset
         };
 
         // Converter tipo do frontend para o formato da API
@@ -194,11 +197,12 @@ export function renderErrorMessage() {
  * Renderiza lista de animais no grid
  * @param {Array} animals - Lista de animais
  * @param {HTMLElement} container - Container do grid
+ * @param {boolean} append - Se true, adiciona ao final em vez de substituir
  */
-export function renderAnimalsToGrid(animals, container) {
+export function renderAnimalsToGrid(animals, container, append = false) {
     if (!container) return;
 
-    if (animals.length === 0) {
+    if (animals.length === 0 && !append) {
         // Mostra mensagem de nenhum resultado
         const noResultsElement = document.getElementById('adopt-no-results');
         if (noResultsElement) {
@@ -215,7 +219,14 @@ export function renderAnimalsToGrid(animals, container) {
     }
 
     container.style.display = '';
-    container.innerHTML = animals.map(animal => renderAnimalCard(animal)).join('');
+    
+    if (append) {
+        // Adicionar novos cards ao final
+        container.insertAdjacentHTML('beforeend', animals.map(animal => renderAnimalCard(animal)).join(''));
+    } else {
+        // Substituir todo o conteúdo
+        container.innerHTML = animals.map(animal => renderAnimalCard(animal)).join('');
+    }
 }
 
 /**

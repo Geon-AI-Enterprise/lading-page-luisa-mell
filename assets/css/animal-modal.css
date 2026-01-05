@@ -1,0 +1,467 @@
+/* ========================================
+   Animal Profile Modal
+   Instituto Luisa Mell
+======================================== */
+
+/* Overlay */
+.animal-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.animal-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Container */
+.animal-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 1100px;
+    max-height: 90vh;
+    background: #fff;
+    border-radius: 24px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+}
+
+.animal-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Close Button */
+.animal-modal__close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--primary-orange);
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.animal-modal__close:hover {
+    transform: scale(1.1);
+}
+
+/* Modal Content */
+.animal-modal__content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 0;
+    padding: 40px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+/* Before Photo (Left) */
+.animal-modal__before {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.animal-modal__before img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.animal-modal__label {
+    position: absolute;
+    bottom: 30%;
+    left: 0;
+    background: var(--primary-orange);
+    color: #fff;
+    padding: 8px 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.animal-modal__before .animal-modal__label {
+    left: -10px;
+}
+
+/* Center Content */
+.animal-modal__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    gap: 16px;
+}
+
+.animal-modal__name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.animal-modal__description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.animal-modal__cost {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-top: 8px;
+}
+
+/* Action Buttons */
+.animal-modal__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.animal-modal__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.animal-modal__btn--sponsor {
+    background: #fff;
+    color: var(--primary-orange);
+    border-color: var(--primary-orange);
+}
+
+.animal-modal__btn--sponsor:hover {
+    background: var(--primary-orange);
+    color: #fff;
+}
+
+.animal-modal__btn--adopt {
+    background: var(--primary-orange);
+    color: #fff;
+}
+
+.animal-modal__btn--adopt:hover {
+    background: #c9522e;
+}
+
+.animal-modal__btn--gift {
+    background: #fff;
+    color: var(--primary-orange);
+    border-color: var(--primary-orange);
+}
+
+.animal-modal__btn--gift:hover {
+    background: var(--primary-orange);
+    color: #fff;
+}
+
+/* Care Icons */
+.animal-modal__care-icons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.animal-modal__care-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animal-modal__care-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* After Photo (Right) */
+.animal-modal__after {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.animal-modal__after img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.animal-modal__after .animal-modal__label {
+    right: -10px;
+    left: auto;
+}
+
+/* Gallery Section */
+.animal-modal__gallery-section {
+    grid-column: 1 / -1;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #eee;
+}
+
+.animal-modal__gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.animal-modal__gallery-item {
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #e0f0f8 0%, #e0f0f8 50%, #a5d47a 50%, #a5d47a 100%);
+}
+
+.animal-modal__gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.animal-modal__gallery-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Loading State */
+.animal-modal--loading .animal-modal__content {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.animal-modal--loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-orange);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   Responsive
+======================================== */
+
+@media (max-width: 1024px) {
+    .animal-modal__content {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        padding: 30px;
+    }
+
+    .animal-modal__before {
+        order: 1;
+    }
+
+    .animal-modal__after {
+        order: 2;
+    }
+
+    .animal-modal__info {
+        order: 3;
+        grid-column: 1 / -1;
+    }
+
+    .animal-modal__gallery-section {
+        order: 4;
+    }
+
+    .animal-modal__name {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .animal-modal {
+        width: 95%;
+        max-height: 95vh;
+        border-radius: 16px;
+    }
+
+    .animal-modal__content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        padding-top: 50px;
+    }
+
+    .animal-modal__before,
+    .animal-modal__after {
+        justify-content: center;
+    }
+
+    .animal-modal__before img,
+    .animal-modal__after img {
+        max-width: 200px;
+    }
+
+    .animal-modal__before {
+        order: 1;
+    }
+
+    .animal-modal__after {
+        order: 2;
+    }
+
+    .animal-modal__info {
+        order: 3;
+    }
+
+    .animal-modal__gallery-section {
+        order: 4;
+    }
+
+    .animal-modal__gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .animal-modal__close {
+        top: 10px;
+        left: 10px;
+    }
+
+    .animal-modal__name {
+        font-size: 1.5rem;
+    }
+
+    .animal-modal__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .animal-modal__btn {
+        width: 100%;
+    }
+
+    .animal-modal__label {
+        font-size: 0.85rem;
+        padding: 6px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .animal-modal__before img,
+    .animal-modal__after img,
+    .animal-modal__placeholder {
+        max-width: 160px;
+    }
+
+    .animal-modal__care-icons {
+        gap: 10px;
+    }
+
+    .animal-modal__care-icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ========================================
+   Placeholder Styles
+======================================== */
+
+.animal-modal__placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    border: 3px dashed #cbd5e1;
+}
+
+.animal-modal__placeholder span {
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+.animal-modal__placeholder p {
+    font-size: 0.875rem;
+    margin: 0;
+    text-align: center;
+}
+
+/* Gallery Placeholder */
+.animal-modal__gallery-placeholder {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.875rem;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    min-height: 80px;
+}

@@ -3,7 +3,10 @@
 // Handles form submissions to Supabase Edge Functions
 // ========================================
 
-const EDGE_FUNCTION_BASE_URL = 'https://iakcrxcpumsffcogmbhz.supabase.co/functions/v1';
+// Configuração carregada de config.js (não commitado no Git)
+const getConfig = () => window.APP_CONFIG || {};
+const EDGE_FUNCTION_BASE_URL = () => getConfig().EDGE_FUNCTION_BASE || '';
+const SUPABASE_ANON_KEY = () => getConfig().SUPABASE_ANON_KEY || '';
 
 /**
  * Format file size to human readable
@@ -180,6 +183,154 @@ function setButtonLoading(button, isLoading) {
 }
 
 /**
+ * Validates email format
+ */
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+/**
+ * Validates phone format (Brazilian)
+ */
+function isValidPhone(phone) {
+    // Accept (XX) XXXX-XXXX or (XX) XXXXX-XXXX
+    const phoneRegex = /^\(\d{2}\) \d{4,5}-\d{4}$/;
+    return phoneRegex.test(phone);
+}
+
+/**
+ * Applies phone mask in real-time
+ */
+function applyPhoneMask(value) {
+    // Remove all non-digits
+    let digits = value.replace(/\D/g, '');
+    
+    // Limit to 11 digits (Brazilian mobile with DDD)
+    digits = digits.substring(0, 11);
+    
+    // Apply mask
+    if (digits.length === 0) {
+        return '';
+    } else if (digits.length <= 2) {
+        return `(${digits}`;
+    } else if (digits.length <= 6) {
+        return `(${digits.substring(0, 2)}) ${digits.substring(2)}`;
+    } else if (digits.length <= 10) {
+        return `(${digits.substring(0, 2)}) ${digits.substring(2, 6)}-${digits.substring(6)}`;
+    } else {
+        return `(${digits.substring(0, 2)}) ${digits.substring(2, 7)}-${digits.substring(7)}`;
+    }
+}
+
+/**
+ * Initialize phone mask on input
+ */
+function initPhoneMask() {
+    const phoneInputs = document.querySelectorAll('input[type="tel"]');
+    
+    phoneInputs.forEach(input => {
+        input.addEventListener('input', (e) => {
+            const cursorPosition = e.target.selectionStart;
+            const oldValue = e.target.value;
+            const newValue = applyPhoneMask(oldValue);
+            
+            e.target.value = newValue;
+            
+            // Try to maintain cursor position
+            if (cursorPosition < newValue.length) {
+                e.target.setSelectionRange(cursorPosition, cursorPosition);
+            }
+        });
+
+        input.addEventListener('blur', (e) => {
+            const value = e.target.value;
+            if (value && !isValidPhone(value)) {
+                e.target.classList.add('input-error');
+                showFieldError(e.target, 'Formato inválido. Use: (00) 00000-0000');
+            } else {
+                e.target.classList.remove('input-error');
+                clearFieldError(e.target);
+            }
+        });
+
+        input.addEventListener('focus', (e) => {
+            e.target.classList.remove('input-error');
+            clearFieldError(e.target);
+        });
+    });
+
+    console.log('📱 Phone mask initialized');
+}
+
+/**
+ * Initialize email validation on input
+ */
+function initEmailValidation() {
+    const emailInputs = document.querySelectorAll('input[type="email"]');
+    
+    emailInputs.forEach(input => {
+        input.addEventListener('blur', (e) => {
+            const value = e.target.value.trim();
+            if (value && !isValidEmail(value)) {
+                e.target.classList.add('input-error');
+                showFieldError(e.target, 'Digite um e-mail válido');
+            } else {
+                e.target.classList.remove('input-error');
+                clearFieldError(e.target);
+            }
+        });
+
+        input.addEventListener('focus', (e) => {
+            e.target.classList.remove('input-error');
+            clearFieldError(e.target);
+        });
+    });
+
+    console.log('📧 Email validation initialized');
+}
+
+/**
+ * Shows error message below a field
+ */
+function showFieldError(input, message) {
+    clearFieldError(input);
+    
+    const errorEl = document.createElement('span');
+    errorEl.className = 'field-error-message';
+    errorEl.textContent = message;
+    errorEl.style.cssText = 'color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; display: block;';
+    
+    input.parentNode.appendChild(errorEl);
+}
+
+/**
+ * Clears error message from a field
+ */
+function clearFieldError(input) {
+    const existingError = input.parentNode.querySelector('.field-error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+}
+
+/**
+ * Convert file to base64
+ */
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            // Remove the data URL prefix (e.g., "data:image/jpeg;base64,")
+            const base64 = reader.result.split(',')[1];
+            resolve(base64);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
+/**
  * Handles report form submission (denunciar.html)
  */
 async function handleReportFormSubmit(event) {
@@ -189,29 +340,122 @@ async function handleReportFormSubmit(event) {
     const submitButton = form.querySelector('button[type="submit"]');
     
     // Get form data - using actual IDs from denunciar.html
-    const formData = {
-        name: form.querySelector('#report-name')?.value?.trim() || '',
-        email: form.querySelector('#report-email')?.value?.trim() || '',
-        address: form.querySelector('#report-address')?.value?.trim() || '',
-        whatsapp: form.querySelector('#report-whatsapp')?.value?.trim() || '',
-        message: form.querySelector('#report-message')?.value?.trim() || ''
-    };
+    const name = form.querySelector('#report-name')?.value?.trim() || '';
+    const email = form.querySelector('#report-email')?.value?.trim() || '';
+    const phone = form.querySelector('#report-phone')?.value?.trim() || '';
+    const reportType = form.querySelector('#report-type')?.value?.trim() || '';
+    const message = form.querySelector('#report-message')?.value?.trim() || '';
+
+    // Collect structured address data
+    const cep = form.querySelector('#report-cep')?.value?.replace(/\D/g, '') || '';
+    const street = form.querySelector('#report-street')?.value?.trim() || '';
+    const number = form.querySelector('#report-number')?.value?.trim() || '';
+    const complement = form.querySelector('#report-complement')?.value?.trim() || '';
+    const neighborhood = form.querySelector('#report-neighborhood')?.value?.trim() || '';
+    const city = form.querySelector('#report-city')?.value?.trim() || '';
+    const state = form.querySelector('#report-state')?.value?.trim() || '';
+
+    // Build full address string
+    let fullAddress = street;
+    if (number) fullAddress += `, ${number}`;
+    if (complement) fullAddress += ` - ${complement}`;
+    if (neighborhood) fullAddress += `, ${neighborhood}`;
+    if (city) fullAddress += ` - ${city}`;
+    if (state) fullAddress += `/${state}`;
+    if (cep) fullAddress += ` - CEP: ${cep.replace(/(\d{5})(\d{3})/, '$1-$2')}`;
+
+    // Check for evidence files
+    const proofInput = form.querySelector('#report-proof');
+    const hasProof = proofInput && proofInput.files && proofInput.files.length > 0;
 
     // Basic validation
-    if (!formData.name || !formData.email || !formData.address || !formData.whatsapp || !formData.message) {
+    if (!name || !email || !phone || !reportType || !street || !city || !message) {
         showToast('Por favor, preencha todos os campos obrigatórios.', 'error');
+        return;
+    }
+
+    // Validate CEP format (8 digits)
+    if (cep && cep.length !== 8) {
+        showToast('Por favor, digite um CEP válido com 8 dígitos.', 'error');
+        form.querySelector('#report-cep')?.focus();
+        return;
+    }
+
+    // Validate email format
+    if (!isValidEmail(email)) {
+        showToast('Por favor, digite um e-mail válido.', 'error');
+        form.querySelector('#report-email')?.focus();
+        return;
+    }
+
+    // Validate phone format
+    if (!isValidPhone(phone)) {
+        showToast('Por favor, digite um telefone válido no formato (00) 00000-0000.', 'error');
+        form.querySelector('#report-phone')?.focus();
+        return;
+    }
+
+    if (!hasProof) {
+        showToast('Por favor, anexe pelo menos uma evidência (foto ou vídeo).', 'error');
         return;
     }
 
     setButtonLoading(submitButton, true);
 
     try {
-        const response = await fetch(`${EDGE_FUNCTION_BASE_URL}/submit-report`, {
+        // Build payload with structured address
+        const payload = {
+            name: name,
+            email: email,
+            whatsapp: phone,
+            address: fullAddress,
+            addressData: {
+                cep: cep,
+                street: street,
+                number: number,
+                complement: complement,
+                neighborhood: neighborhood,
+                city: city,
+                state: state
+            },
+            message: message,
+            reportType: reportType
+        };
+
+        // Convert first proof file to base64 and add to payload
+        if (hasProof) {
+            const file = proofInput.files[0];
+            
+            // Validate file size (max 10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                showToast('O arquivo é muito grande. Máximo permitido: 10MB.', 'error');
+                setButtonLoading(submitButton, false);
+                return;
+            }
+
+            try {
+                const base64 = await fileToBase64(file);
+                payload.proofFile = {
+                    name: file.name,
+                    type: file.type,
+                    base64: base64
+                };
+            } catch (fileError) {
+                console.error('Erro ao processar arquivo:', fileError);
+                showToast('Erro ao processar o arquivo. Tente novamente.', 'error');
+                setButtonLoading(submitButton, false);
+                return;
+            }
+        }
+
+        const response = await fetch(`${EDGE_FUNCTION_BASE_URL()}/submit-report`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY()}`,
+                'apikey': SUPABASE_ANON_KEY()
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(payload)
         });
 
         const result = await response.json();
@@ -219,6 +463,11 @@ async function handleReportFormSubmit(event) {
         if (result.success) {
             showToast(result.message, 'success');
             form.reset();
+            // Clear file preview
+            const preview = form.querySelector('.file-upload__preview');
+            if (preview) preview.innerHTML = '';
+            const fileUpload = form.querySelector('.file-upload');
+            if (fileUpload) fileUpload.classList.remove('file-upload--has-files');
         } else {
             showToast(result.error || 'Erro ao enviar denúncia.', 'error');
         }
@@ -240,33 +489,52 @@ async function handleVolunteerFormSubmit(event) {
     const submitButton = form.querySelector('button[type="submit"]');
     
     // Get form data - using actual IDs from ser-voluntario.html
+    const consentCheckbox = form.querySelector('#consent');
     const formData = {
-        state: form.querySelector('#state')?.value?.trim() || '',
-        volunteerRole: form.querySelector('#volunteer-role')?.value?.trim() || '',
         fullname: form.querySelector('#fullname')?.value?.trim() || '',
         email: form.querySelector('#email')?.value?.trim() || '',
-        whatsapp: form.querySelector('#whatsapp')?.value?.trim() || '',
-        consent: form.querySelector('input[name="consent"]')?.checked || false
+        whatsapp: form.querySelector('#phone')?.value?.trim() || '',
+        state: form.querySelector('#volunteer-state')?.value?.trim() || 'SP',
+        volunteerRole: form.querySelector('#volunteer-topic')?.value?.trim() || '',
+        motivation: form.querySelector('#motivation')?.value?.trim() || '',
+        consent: consentCheckbox?.checked || false
     };
 
     // Basic validation
-    if (!formData.state || !formData.volunteerRole || !formData.fullname || !formData.email || !formData.whatsapp) {
+    if (!formData.fullname || !formData.email || !formData.whatsapp || !formData.volunteerRole) {
         showToast('Por favor, preencha todos os campos obrigatórios.', 'error');
         return;
     }
 
+    // Validate consent
     if (!formData.consent) {
-        showToast('É necessário concordar com o uso dos dados.', 'error');
+        showToast('É necessário concordar com a Política de Privacidade para continuar.', 'error');
+        return;
+    }
+
+    // Validate email format
+    if (!isValidEmail(formData.email)) {
+        showToast('Por favor, digite um e-mail válido.', 'error');
+        form.querySelector('#email')?.focus();
+        return;
+    }
+
+    // Validate phone format
+    if (!isValidPhone(formData.whatsapp)) {
+        showToast('Por favor, digite um telefone válido no formato (00) 00000-0000.', 'error');
+        form.querySelector('#phone')?.focus();
         return;
     }
 
     setButtonLoading(submitButton, true);
 
     try {
-        const response = await fetch(`${EDGE_FUNCTION_BASE_URL}/submit-volunteer`, {
+        const response = await fetch(`${EDGE_FUNCTION_BASE_URL()}/submit-volunteer`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY()}`,
+                'apikey': SUPABASE_ANON_KEY()
             },
             body: JSON.stringify(formData)
         });
@@ -310,6 +578,8 @@ function initFormHandlers() {
 document.addEventListener('DOMContentLoaded', () => {
     initFormHandlers();
     initFileUpload();
+    initPhoneMask();
+    initEmailValidation();
 });
 
 // Export for module usage

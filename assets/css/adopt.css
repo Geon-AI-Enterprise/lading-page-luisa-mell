@@ -132,90 +132,22 @@
 
 .adopt-stories-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
 .adopt-story-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
 }
 
 .adopt-story-image {
     width: 100%;
     aspect-ratio: 1;
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.before-placeholder {
-    background: linear-gradient(135deg, #a8d8f0 0%, #7fc7e8 100%);
-    position: relative;
-}
-
-.before-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 45%;
-    background: linear-gradient(135deg, #e8f4f8 0%, #d4e8f2 100%);
-    border-radius: 12px 12px 0 0;
-}
-
-.before-placeholder::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(to top, #7ac946 0%, #a3d977 100%);
-    border-radius: 0 0 12px 12px;
-}
-
-.before-placeholder > span {
-    position: relative;
-    z-index: 1;
-}
-
-.after-placeholder {
-    background: linear-gradient(135deg, #a8d8f0 0%, #7fc7e8 100%);
-    position: relative;
-}
-
-.after-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 45%;
-    background: linear-gradient(135deg, #e8f4f8 0%, #d4e8f2 100%);
-    border-radius: 12px 12px 0 0;
-}
-
-.after-placeholder::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(to top, #7ac946 0%, #a3d977 100%);
-    border-radius: 0 0 12px 12px;
-}
-
-.after-placeholder > span {
-    position: relative;
-    z-index: 1;
+    object-fit: cover;
+    display: block;
 }
 
 /* Hero Section - Apadrinhe um amigo */
@@ -850,13 +782,13 @@
     }
 
     .adopt-story-item {
-        flex-direction: row;
+        grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
     }
 
     .adopt-story-image {
-        aspect-ratio: auto;
-        height: 120px;
+        aspect-ratio: 1;
+        height: auto;
     }
 
     .adopt-hero {
@@ -1269,5 +1201,75 @@
 
 .adopt-card:hover .adopt-card__image img {
     transform: scale(1.05);
+}
+
+/* ========================================
+   LOAD MORE BUTTON
+   ======================================== */
+
+.adopt-load-more {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    min-height: 80px;
+}
+
+.adopt-load-more__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: transparent;
+    color: #E46038;
+    border: 2px solid #E46038;
+    border-radius: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.adopt-load-more__btn:hover {
+    background-color: #E46038;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(228, 96, 56, 0.3);
+}
+
+.adopt-load-more__loading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.adopt-load-more__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e0e0e0;
+    border-top-color: #E46038;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.adopt-load-more__end {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #888;
+    text-align: center;
+    margin: 0;
 }
 

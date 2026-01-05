@@ -8,12 +8,13 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2"
 import { getCorsHeaders, isAllowedOrigin } from "../_shared/cors.ts"
 
 interface VolunteerData {
-  state: string
+  state?: string
   volunteerRole: string
   fullname: string
   email: string
   whatsapp: string
-  consent: boolean
+  consent?: boolean
+  motivation?: string
 }
 
 console.log("🤝 Edge Function submit-volunteer iniciada!")
@@ -53,17 +54,9 @@ Deno.serve(async (req) => {
     const data: VolunteerData = await req.json()
 
     // Validação básica
-    if (!data.state || !data.volunteerRole || !data.fullname || !data.email || !data.whatsapp) {
+    if (!data.volunteerRole || !data.fullname || !data.email || !data.whatsapp) {
       return new Response(
         JSON.stringify({ success: false, error: 'Todos os campos são obrigatórios' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      )
-    }
-
-    // Verificar consentimento
-    if (!data.consent) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'É necessário concordar com o uso dos dados' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
@@ -78,18 +71,25 @@ Deno.serve(async (req) => {
     }
 
     // Inserir no banco
+    const insertData: Record<string, unknown> = {
+      fullname: data.fullname,
+      email: data.email,
+      whatsapp: data.whatsapp,
+      state: data.state || 'SP',
+      volunteer_role: data.volunteerRole,
+      consent_given: data.consent !== false,
+      status: 'pending',
+      created_at: new Date().toISOString()
+    }
+
+    // Adiciona motivation se existir (campo pode não existir na tabela ainda)
+    // if (data.motivation) {
+    //   insertData.motivation = data.motivation
+    // }
+
     const { data: volunteer, error } = await supabaseAdmin
       .from('volunteers')
-      .insert({
-        fullname: data.fullname,
-        email: data.email,
-        whatsapp: data.whatsapp,
-        state: data.state,
-        volunteer_role: data.volunteerRole,
-        consent_given: data.consent,
-        status: 'pending',
-        created_at: new Date().toISOString()
-      })
+      .insert(insertData)
       .select()
       .single()
 
