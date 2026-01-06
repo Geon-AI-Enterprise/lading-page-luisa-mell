@@ -190,13 +190,6 @@
             />
           </div>
         </div>
-
-        <!-- Wave Transition -->
-        <div class="hero-video__wave">
-          <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,80 C120,40 240,100 360,80 C480,60 600,100 720,80 C840,60 960,100 1080,80 C1200,60 1320,100 1440,80 L1440,150 L0,150 Z" fill="#ffffff"/>
-          </svg>
-        </div>
       </section>
 
       <!-- 3 CARDS: Doação / Apadrinhamento / Adoção -->
@@ -234,29 +227,48 @@
       <section class="about" id="quem-somos">
         <div class="container about__inner">
           <figure class="about__gallery">
-            <img 
-              src="assets/images/doacao-img.png" 
-              alt="Instituto Luisa Mell" 
-              class="about__gallery-img"
-            />
+            <div class="about__carousel">
+              <div class="about__carousel-track">
+                <img 
+                  src="assets/images/luisa-section/luisa-section.jpg" 
+                  alt="Instituto Luisa Mell" 
+                  class="about__carousel-img active"
+                />
+                <img 
+                  src="assets/images/luisa-section/luisa-section-1.jpg" 
+                  alt="Instituto Luisa Mell" 
+                  class="about__carousel-img"
+                />
+                <img 
+                  src="assets/images/luisa-section/luisa-section-2.png" 
+                  alt="Instituto Luisa Mell" 
+                  class="about__carousel-img"
+                />
+              </div>
+              <div class="about__carousel-dots">
+                <button class="about__carousel-dot active" data-index="0" aria-label="Imagem 1"></button>
+                <button class="about__carousel-dot" data-index="1" aria-label="Imagem 2"></button>
+                <button class="about__carousel-dot" data-index="2" aria-label="Imagem 3"></button>
+              </div>
+            </div>
           </figure>
 
           <div class="about__content">
             <h2 data-i18n="about.title">Instituto Luisa Mell é uma organização não governamental</h2>
 
-            <!-- texto aqui é placeholder visual, para manter fidelidade de blocos -->
             <p data-i18n="about.desc">
-              Fundado em 2015 pela ativista e apresentadora Luisa Mell, o
-              instituto tem como missão promover a defesa dos direitos dos
-              animais, combater maustratos e conscientizar a sociedade sobre a
-              importância do respeito e da compaixão para com todas as espécies.
-              +500 animais resgatados em 2024 Com um time incansável de
-              voluntários, veterinários e apoiadores, o instituto alcançou a
-              incrível marca de mais de 500 animais resgatados em apenas alguns
-              meses. +300 animais adotados em 2024 Dos mais de 300 animais
-              adotados, a maioria são cães e gatos resgatados de situações de
-              abandono, maus-tratos ou risco.
+              Fundado em 2015 pela ativista e apresentadora Luisa Mell, o instituto tem como missão promover a defesa dos direitos dos animais, combater maus-tratos e conscientizar a sociedade sobre a importância do respeito e da compaixão para com todas as espécies.
             </p>
+
+            <div class="about__stat">
+              <h3>+500 animais resgatados em 2024</h3>
+              <p>Com um time incansável de voluntários, veterinários e apoiadores, o instituto alcançou a incrível marca de mais de 500 animais resgatados em apenas alguns meses.</p>
+            </div>
+
+            <div class="about__stat">
+              <h3>+300 animais adotados em 2024</h3>
+              <p>Dos mais de 300 animais adotados, a maioria são cães e gatos resgatados de situações de abandono, maus-tratos ou risco.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -274,17 +286,56 @@
           </header>
 
           <div class="rescues__grid">
-            <article class="rescue-card">
-              <div class="rescue-card__image hero-placeholder"></div>
+            <!-- Enchentes RS - CNN Brasil -->
+            <article class="rescue-card rescue-card--news">
+              <a href="https://www.cnnbrasil.com.br/nacional/a-cnn-luisa-mell-relata-desafios-no-resgate-de-animais-durante-enchentes/" target="_blank" rel="noopener noreferrer">
+                <div class="rescue-card__header">
+                  <span class="rescue-card__source rescue-card__source--cnn">CNN Brasil</span>
+                  <span class="rescue-card__date">09/05/2024</span>
+                </div>
+                <h3 class="rescue-card__title">Luísa Mell relata desafios no resgate de animais durante enchentes no RS</h3>
+                <p class="rescue-card__excerpt">Mais de 1,5 mil animais foram salvos durante as enchentes. Operação de 7 horas resgatou égua em situação crítica.</p>
+                <span class="rescue-card__link">Ler matéria completa →</span>
+              </a>
             </article>
-            <article class="rescue-card">
-              <div class="rescue-card__image hero-placeholder"></div>
+
+            <!-- Costelas Quebradas RS - G1 -->
+            <article class="rescue-card rescue-card--news">
+              <a href="https://g1.globo.com/pop-arte/noticia/2024/05/14/luisa-mell-conta-que-quebrou-duas-costelas-em-resgate-de-animais-no-rio-grande-do-sul.ghtml" target="_blank" rel="noopener noreferrer">
+                <div class="rescue-card__header">
+                  <span class="rescue-card__source rescue-card__source--g1">G1</span>
+                  <span class="rescue-card__date">14/05/2024</span>
+                </div>
+                <h3 class="rescue-card__title">Luisa Mell quebra duas costelas em resgate de animais no Rio Grande do Sul</h3>
+                <p class="rescue-card__excerpt">"Dor insuportável": mesmo ferida, ativista continuou os trabalhos de resgate até que os remédios não fizeram mais efeito.</p>
+                <span class="rescue-card__link">Ler matéria completa →</span>
+              </a>
             </article>
-            <article class="rescue-card">
-              <div class="rescue-card__image hero-placeholder"></div>
+
+            <!-- 135 Cães Osasco - G1 -->
+            <article class="rescue-card rescue-card--news">
+              <a href="https://g1.globo.com/sao-paulo/noticia/ong-de-luisa-mell-resgata-135-caes-de-maus-tratos-em-canil-de-osasco.ghtml" target="_blank" rel="noopener noreferrer">
+                <div class="rescue-card__header">
+                  <span class="rescue-card__source rescue-card__source--g1">G1</span>
+                  <span class="rescue-card__date">29/09/2017</span>
+                </div>
+                <h3 class="rescue-card__title">ONG de Luisa Mell resgata 135 cães de maus-tratos em canil de Osasco</h3>
+                <p class="rescue-card__excerpt">Animais estavam sem banho, com fezes grudadas. 9 filhotes mortos foram encontrados no lixo do local.</p>
+                <span class="rescue-card__link">Ler matéria completa →</span>
+              </a>
             </article>
-            <article class="rescue-card">
-              <div class="rescue-card__image hero-placeholder"></div>
+
+            <!-- 1.700 Cachorros Piedade - G1 -->
+            <article class="rescue-card rescue-card--news">
+              <a href="https://g1.globo.com/sp/sorocaba-jundiai/noticia/2022/11/08/justica-condena-dona-de-canil-por-maus-tratos-contra-mais-de-1700-cachorros-no-interior-de-sp.ghtml" target="_blank" rel="noopener noreferrer">
+                <div class="rescue-card__header">
+                  <span class="rescue-card__source rescue-card__source--g1">G1</span>
+                  <span class="rescue-card__date">08/11/2022</span>
+                </div>
+                <h3 class="rescue-card__title">Justiça condena dona de canil por maus-tratos contra mais de 1.700 cachorros</h3>
+                <p class="rescue-card__excerpt">Canil Céu Azul em Piedade funcionava de forma clandestina. Animais viviam em condições precárias e sem veterinário.</p>
+                <span class="rescue-card__link">Ler matéria completa →</span>
+              </a>
             </article>
           </div>
         </div>
@@ -316,51 +367,81 @@
           <div class="partners-carousel__track">
             <!-- Conjunto 1 -->
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+              <a href="https://www.cobasi.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+              <a href="https://lojadoportabanner.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+              <a href="https://nfpet.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+              <a href="https://www.petfoodsolution.com.br/br/allcanis.php" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+              <a href="https://www.belmond.studio/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+              </a>
             </div>
             <!-- Conjunto 2 (duplicado) -->
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+              <a href="https://www.cobasi.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+              <a href="https://lojadoportabanner.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+              <a href="https://nfpet.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+              <a href="https://www.petfoodsolution.com.br/br/allcanis.php" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+              <a href="https://www.belmond.studio/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+              </a>
             </div>
             <!-- Conjunto 3 (duplicado) -->
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+              <a href="https://www.cobasi.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+              <a href="https://lojadoportabanner.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+              <a href="https://nfpet.com.br/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+              <a href="https://www.petfoodsolution.com.br/br/allcanis.php" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+              </a>
             </div>
             <div class="partners-carousel__slide">
-              <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+              <a href="https://www.belmond.studio/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+              </a>
             </div>
           </div>
         </div>
@@ -475,5 +556,6 @@
     <script src="assets/js/config.js"></script>
     <script type="module" src="assets/js/main.js"></script>
     <script src="assets/js/hero-carousel.js"></script>
+    <script src="assets/js/about-carousel.js"></script>
   </body>
 </html>

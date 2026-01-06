@@ -172,6 +172,14 @@
     min-height: 500px;
   }
 
+  .hero-video__content {
+    padding: 60px 0;
+  }
+
+  .hero-video__text {
+    padding: 0 20px;
+  }
+
   .hero-video__title {
     font-size: 2rem;
   }
@@ -513,6 +521,66 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* Carrossel da seção institucional */
+.about__carousel {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.about__carousel-track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.about__carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.about__carousel-img.active {
+  opacity: 1;
+}
+
+.about__carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.about__carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.about__carousel-dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.about__carousel-dot.active {
+  background-color: #ff7a1b;
+  transform: scale(1.2);
+}
+
 .about__gallery-frame {
   border-radius: 12px;
   background-color: #ffffff;
@@ -584,16 +652,34 @@
 .about__content h2 {
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .about__content p {
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.7;
   color: #444444;
+}
+
+.about__stat {
+  margin-top: 20px;
+}
+
+.about__stat h3 {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222222;
+  margin-bottom: 4px;
+}
+
+.about__stat p {
+  font-size: 1rem;
+  margin-bottom: 0;
 }
 
 /* ----------------------------------------
@@ -636,6 +722,128 @@
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   background-color: #e3f1d8;
+}
+
+/* Cards de Manchetes de Jornais */
+.rescue-card--news {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8e8e8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.rescue-card--news:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  border-color: #ff7a1b;
+}
+
+.rescue-card--news a {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.rescue-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.rescue-card__source {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.rescue-card__source--cnn {
+  background: linear-gradient(135deg, #cc0000, #990000);
+}
+
+.rescue-card__source--g1 {
+  background: linear-gradient(135deg, #e02020, #b81818);
+}
+
+.rescue-card__date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #888888;
+}
+
+.rescue-card__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #222222;
+  margin: 0 0 12px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rescue-card--news:hover .rescue-card__title {
+  color: #ff7a1b;
+}
+
+.rescue-card__excerpt {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rescue-card__link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ff7a1b;
+  margin-top: 16px;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.rescue-card--news:hover .rescue-card__link {
+  color: #e06500;
+}
+
+/* Responsivo - Cards de Manchetes */
+@media (max-width: 1024px) {
+  .rescues__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .rescues__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .rescue-card--news a {
+    padding: 16px;
+  }
+  
+  .rescue-card__title {
+    font-size: 0.95rem;
+  }
 }
 
 /* ----------------------------------------

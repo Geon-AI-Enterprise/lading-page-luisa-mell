@@ -42,7 +42,7 @@
 
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -62,6 +62,47 @@
 .pillar-card p {
   color: #4a4a4a;
   line-height: 1.6;
+}
+
+.pillar-card--values {
+  grid-column: span 2;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+}
+
+.values-list li {
+  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.values-list li strong {
+  color: #222222;
+}
+
+.team-photo--center-right img {
+  object-position: 35% top;
+}
+
+@media (max-width: 900px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar-card--values {
+    grid-column: span 1;
+  }
+  
+  .values-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .team-section {
@@ -112,6 +153,24 @@
   width: 100%;
   padding-bottom: 100%;
   border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-photo img {
+  transform: scale(1.05);
 }
 
 .placeholder {
@@ -159,48 +218,114 @@
 
 .rescue-highlight {
   padding: 72px 0;
+  background-color: #ffffff;
 }
 
-.rescue-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
-  gap: 40px;
+.rescue-layout {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.rescue-content {
+  text-align: center;
+  max-width: 520px;
+  flex: 1;
 }
 
 .rescue-content h2 {
   font-family: var(--font-poppins);
   font-size: 1.8rem;
-  margin-bottom: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #222222;
 }
 
 .rescue-content p {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   color: #454545;
-  line-height: 1.7;
+  line-height: 1.8;
+  font-size: 0.95rem;
 }
 
-.rescue-visuals {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.cta-button--teal {
+  background-color: #4ecdc4;
+  color: #ffffff;
 }
 
-.rescue-blob {
-  width: 180px;
-  height: 200px;
-  background: linear-gradient(180deg, #d4f8c4 0%, #bde7a9 100%);
-  border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
-  position: relative;
+.cta-button--teal:hover {
+  background-color: #3dbdb5;
 }
 
-.rescue-blob::after {
-  content: '';
-  position: absolute;
-  inset: 20px;
-  border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
-  background: linear-gradient(180deg, #fbfffb 0%, #d2f1c9 100%);
+/* Cards estilo Instagram */
+.rescue-post {
+  flex-shrink: 0;
+  width: 220px;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rescue-post:hover {
+  transform: translateY(-6px) rotate(0deg) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.rescue-post--left {
+  transform: rotate(-3deg);
+}
+
+.rescue-post--right {
+  transform: rotate(3deg);
+}
+
+.rescue-post__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.rescue-post__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.rescue-post:hover .rescue-post__image img {
+  transform: scale(1.05);
+}
+
+.rescue-post__caption {
+  padding: 12px 14px 16px;
+  background: #ffffff;
+}
+
+.rescue-post__source {
+  font-family: var(--font-poppins);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #e02020;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.rescue-post__title {
+  font-family: var(--font-poppins);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #333333;
+  margin: 0;
+  font-style: italic;
 }
 
 .partners-section {
@@ -236,8 +361,19 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 
-  .rescue-grid {
-    grid-template-columns: 1fr;
+  .rescue-layout {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .rescue-post--left,
+  .rescue-post--right {
+    display: none;
+  }
+
+  .rescue-content {
+    max-width: 100%;
+    padding: 0 20px;
   }
 }
 
@@ -250,8 +386,7 @@
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 
-  .rescue-blob {
-    width: 140px;
-    height: 160px;
+  .rescue-content h2 {
+    font-size: 1.5rem;
   }
 }

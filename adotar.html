@@ -192,10 +192,7 @@
           <div class="adopt-hero-section__wrapper">
             <div class="adopt-hero-section__text-left">
               <p data-i18n="adopt.heroDescriptionLeft">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                convallis neque in lorem egestas, at ultrices erat pulvinar. In
-                tincidunt risus at nisl euismod, sed tempus tortor euismod.
-                Aenean aliquet porttitor arcu ac feugiat.
+                Cada animal que você vê aqui tem uma história de superação. Eles foram resgatados de situações de abandono, maus-tratos ou risco e hoje estão prontos para recomeçar. Adotar é dar uma segunda chance a quem só precisa de amor.
               </p>
             </div>
 
@@ -215,10 +212,7 @@
 
             <div class="adopt-hero-section__text-right">
               <p data-i18n="adopt.heroDescriptionRight">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                convallis neque in lorem egestas, at ultrices erat pulvinar. In
-                tincidunt risus at nisl euismod, sed tempus tortor euismod.
-                Aenean aliquet porttitor arcu ac feugiat.
+                Nosso processo de adoção é simples, seguro e acompanhado por nossa equipe. Queremos garantir que cada peludo encontre o lar ideal — e que você encontre um companheiro para a vida toda. Conheça nossos animais e descubra seu novo melhor amigo.
               </p>
             </div>
           </div>
@@ -245,56 +239,79 @@
       <section class="adopt-animals">
         <div class="container">
           <!-- Filtros na sidebar esquerda -->
-          <aside class="adopt-filters">
-            <div class="adopt-filters__list">
-              <button class="adopt-filter-btn active" data-filter="all">
-                <img src="assets/images/apadrinhe/todos.svg" alt="Todos" class="adopt-filter-icon" />
-                <span data-i18n="adopt.filter.all">todos</span>
-              </button>
-              <button class="adopt-filter-btn" data-filter="dogs">
-                <img src="assets/images/apadrinhe/caes.svg" alt="Cães" class="adopt-filter-icon" />
-                <span data-i18n="adopt.filter.dogs">cães</span>
-              </button>
-              <button class="adopt-filter-btn" data-filter="cats">
-                <img src="assets/images/apadrinhe/gatos.svg" alt="Gatos" class="adopt-filter-icon" />
-                <span data-i18n="adopt.filter.cats">gatos</span>
-              </button>
-              <button class="adopt-filter-btn" data-filter="puppies">
-                <img src="assets/images/apadrinhe/filhote.png" alt="Filhotes" class="adopt-filter-icon" />
-                <span data-i18n="adopt.filter.puppies">filhote</span>
-              </button>
+          <aside class="adopt-filters" id="adopt-filters">
+            <button class="adopt-filters__toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters-list">
+              <span class="adopt-filters__toggle-text">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+                Filtrar animais
+              </span>
+              <svg class="adopt-filters__toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="adopt-filters__list" id="filters-list">
+              <!-- Tipo de Animal -->
+              <div class="adopt-filter-group">
+                <span class="adopt-filter-group__title">Tipo de Animal</span>
+                <div class="adopt-filter-group__buttons">
+                  <button class="adopt-filter-btn active" data-filter="all">
+                    <img src="assets/images/apadrinhe/todos.svg" alt="Todos" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.all">Todos</span>
+                  </button>
+                  <button class="adopt-filter-btn" data-filter="dogs">
+                    <img src="assets/images/apadrinhe/caes.svg" alt="Cães" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.dogs">Cães</span>
+                  </button>
+                  <button class="adopt-filter-btn" data-filter="cats">
+                    <img src="assets/images/apadrinhe/gatos.svg" alt="Gatos" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.cats">Gatos</span>
+                  </button>
+                  <button class="adopt-filter-btn" data-filter="puppies">
+                    <img src="assets/images/apadrinhe/filhote.png" alt="Filhotes" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.puppies">Filhotes</span>
+                  </button>
+                </div>
+              </div>
 
-              <div class="adopt-filter-separator"></div>
+              <!-- Tamanho -->
+              <div class="adopt-filter-group">
+                <span class="adopt-filter-group__title">Tamanho</span>
+                <div class="adopt-filter-group__buttons">
+                  <button class="adopt-filter-btn" data-filter="size-p">
+                    <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho P" class="adopt-filter-icon" />
+                    <span>P</span>
+                  </button>
+                  <button class="adopt-filter-btn" data-filter="size-m">
+                    <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho M" class="adopt-filter-icon" />
+                    <span>M</span>
+                  </button>
+                  <button class="adopt-filter-btn" data-filter="size-g">
+                    <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho G" class="adopt-filter-icon" />
+                    <span>G</span>
+                  </button>
+                  <button class="adopt-filter-btn" data-filter="size-gg">
+                    <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho GG" class="adopt-filter-icon" />
+                    <span>GG</span>
+                  </button>
+                </div>
+              </div>
 
-              <!-- Tamanhos como botões separados -->
-              <button class="adopt-filter-btn" data-filter="size-p">
-                <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho P" class="adopt-filter-icon" />
-                <span>P</span>
-              </button>
-              <button class="adopt-filter-btn" data-filter="size-m">
-                <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho M" class="adopt-filter-icon" />
-                <span>M</span>
-              </button>
-              <button class="adopt-filter-btn" data-filter="size-g">
-                <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho G" class="adopt-filter-icon" />
-                <span>G</span>
-              </button>
-              <button class="adopt-filter-btn" data-filter="size-gg">
-                <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho GG" class="adopt-filter-icon" />
-                <span>GG</span>
-              </button>
-
-              <div class="adopt-filter-separator"></div>
-
-              <!-- Gênero -->
-              <button class="adopt-filter-btn" data-filter="female">
-                <img src="assets/images/apadrinhe/femenine.png" alt="Fêmea" class="adopt-filter-icon" />
-                <span data-i18n="adopt.filter.female">fêmea</span>
-              </button>
-              <button class="adopt-filter-btn" data-filter="male">
-                <img src="assets/images/apadrinhe/male-gender.png" alt="Macho" class="adopt-filter-icon" />
-                <span data-i18n="adopt.filter.male">macho</span>
-              </button>
+              <!-- Sexo -->
+              <div class="adopt-filter-group">
+                <span class="adopt-filter-group__title">Sexo</span>
+                <div class="adopt-filter-group__buttons">
+                  <button class="adopt-filter-btn" data-filter="female">
+                    <img src="assets/images/apadrinhe/femenine.png" alt="Fêmea" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.female">Fêmea</span>
+                  </button>
+                  <button class="adopt-filter-btn" data-filter="male">
+                    <img src="assets/images/apadrinhe/male-gender.png" alt="Macho" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.male">Macho</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </aside>
 
@@ -704,6 +721,7 @@
 
     <script src="assets/js/config.js"></script>
     <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/filters-dropdown.js"></script>
     <script type="module" src="assets/js/adopt-filters.js"></script>
     <script type="module" src="assets/js/animal-modal.js"></script>
   </body>
