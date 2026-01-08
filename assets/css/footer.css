@@ -120,17 +120,44 @@
 @media (max-width: 900px) {
     .footer-content {
         flex-direction: column;
+        align-items: center;
         gap: 3rem;
+    }
+
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        min-width: unset;
+        max-width: 100%;
+    }
+
+    .footer-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-description {
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
     }
     
     .footer-links-area {
         width: 100%;
-        justify-content: space-between;
-        gap: 2rem;
+        justify-content: center;
+        gap: 4rem;
+    }
+
+    .footer-nav-col {
+        align-items: center;
     }
 
     .footer-link {
-        text-align: left;
+        text-align: center;
     }
 
     .footer-bottom {

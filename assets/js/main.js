@@ -210,4 +210,17 @@ document.addEventListener('DOMContentLoaded', () => {
   setupAdoptFilters().catch(err => {
     console.error('Erro ao inicializar filtros de adoção:', err);
   });
+  
+    // 9. Events calendar (lazy-load apenas na página de adoção)
+    try {
+      const isAdoptPage = window.location.pathname.includes('adotar.html') || document.getElementById('events-calendar') !== null;
+      if (isAdoptPage) {
+        import('./events.js')
+          .then(mod => mod.initEventsCalendar({ limit: 50 }))
+          .then(res => console.log('Eventos inicializados:', res))
+          .catch(err => console.warn('Falha ao inicializar eventos:', err));
+      }
+    } catch (err) {
+      console.warn('Erro ao carregar módulo de eventos:', err);
+    }
 });

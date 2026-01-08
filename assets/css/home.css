@@ -991,6 +991,20 @@
     gap: 32px;
   }
 
+  .about__gallery {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .about__content {
+    text-align: center;
+  }
+
+  .about__content .btn {
+    margin: 0 auto;
+  }
+
   .help-cards__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
