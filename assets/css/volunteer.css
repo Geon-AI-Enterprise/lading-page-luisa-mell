@@ -9,7 +9,7 @@
 .volunteer-hero {
   background-color: #ffffff;
   text-align: center;
-  padding: 140px 0 72px;
+  padding: 140px 0 64px;
 }
 
 .volunteer-hero h1 {
@@ -30,7 +30,7 @@
 
 .volunteer-form {
   background-color: #f5f5f5;
-  padding: 64px 0 96px;
+  padding: var(--section-padding);
 }
 
 .volunteer-card {
@@ -50,9 +50,7 @@
 }
 
 .volunteer-card__intro h2 {
-  font-family: var(--font-poppins);
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: var(--font-size-h2);
 }
 
 .volunteer-card__intro p {

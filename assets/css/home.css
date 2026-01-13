@@ -53,7 +53,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
-  padding: 80px 0;
+  padding: var(--section-padding);
 }
 
 .hero-video__text {
@@ -63,7 +63,7 @@
 .hero-video__eyebrow {
   display: block;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #ff6b35;
   margin-bottom: 8px;
@@ -79,16 +79,16 @@
 }
 
 .hero-video__description {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.9);
   margin: 0 0 16px 0;
 }
 
 .hero-video__cta-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.9);
   margin: 0 0 32px 0;
@@ -98,19 +98,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 40px;
-  font-size: 1rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 50px;
-  background-color: transparent;
+  border-radius: 8px;
+  background-color: #4ECDC4;
   color: #ffffff;
-  border: 2px solid #ffffff;
+  border: none;
   transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-video__btn:hover {
-  background-color: #ffffff;
-  color: #333333;
+  background-color: #3eb39f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.25);
 }
 
 .hero-video__image {
@@ -200,7 +202,7 @@
 
 .hero {
   background-color: #ffffff;
-  padding: 56px 0 40px;
+  padding: var(--section-padding);
 }
 
 .hero__inner {
@@ -213,7 +215,7 @@
 /* Área cinza grande do banner (placeholder) */
 .hero__banner {
   width: 100%;
-  max-width: 1120px;
+  max-width: var(--content-max-width);
   min-height: 260px;
   border-radius: 12px;
   background-color: #dedede;
@@ -415,7 +417,7 @@
 
 .help-cards {
   background-color: #ffffff;
-  padding: 48px 0 40px;
+  padding: var(--section-padding);
 }
 
 .help-cards__grid {
@@ -465,42 +467,64 @@
 .help-card__button {
   border: none;
   outline: none;
-  border-radius: 999px;
-  padding: 10px 24px;
+  border-radius: 8px;
+  padding: 12px 28px;
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   background-color: #ff7a1b;
   color: #ffffff;
   letter-spacing: 0.02em;
   text-transform: none;
-  box-shadow: 0 8px 16px rgba(255, 122, 27, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 122, 27, 0.25);
   transition:
     background-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;
 }
 
-.help-card--hover .help-card__button,
-.help-card:hover .help-card__button {
-  background-color: #ff8d35;
+/* Botão de Doação - Turquesa */
+.help-card__button--donation {
+  background-color: #4BC5B8;
+  box-shadow: 0 4px 12px rgba(75, 197, 184, 0.25);
 }
+
+.help-card__button--donation:hover {
+  background-color: #3eb39f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(75, 197, 184, 0.3);
+}
+
+/* Botões de Apadrinhamento e Adoção - Laranja */
+.help-card__button--sponsor,
+.help-card__button--adopt {
+  background-color: #D6561D;
+  box-shadow: 0 4px 12px rgba(214, 86, 29, 0.25);
+}
+
+.help-card__button--sponsor:hover,
+.help-card__button--adopt:hover {
+  background-color: #c04a18;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 86, 29, 0.3);
+}
+
 
 /* ----------------------------------------
    BLOCO INSTITUCIONAL (4 FOTOS + TEXTO)
    ---------------------------------------- */
 
 .about {
-  padding: 56px 0 48px;
+  padding: var(--section-padding);
   background-color: #ffffff;
 }
 
 .about__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
   align-items: center;
 }
 
@@ -650,18 +674,12 @@
 
 /* Texto institucional */
 .about__content h2 {
-  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: var(--font-size-h2);
   margin-bottom: 20px;
 }
 
 .about__content p {
   margin-bottom: 12px;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #444444;
 }
 
 .about__stat {
@@ -669,16 +687,11 @@
 }
 
 .about__stat h3 {
-  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #222222;
+  font-size: var(--font-size-h3);
   margin-bottom: 4px;
 }
 
 .about__stat p {
-  font-size: 1rem;
   margin-bottom: 0;
 }
 
@@ -687,63 +700,90 @@
    ---------------------------------------- */
 
 .rescues {
-  padding: 56px 0 48px;
+  padding: var(--section-padding);
   background-color: #ffffff;
 }
 
 .section-header {
   text-align: center;
-  max-width: 720px;
+  max-width: var(--content-narrow-width);
   margin: 0 auto 32px;
 }
 
 .section-header h2 {
-  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: var(--font-size-h2);
   margin-bottom: 8px;
 }
 
 .section-header p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #4b4b4b;
+  font-size: var(--font-size-body);
 }
 
 .rescues__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
+}
+
+/* Container da imagem do card */
+.rescue-card__image-container {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
 }
 
 .rescue-card__image {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 12px;
-  background-color: #e3f1d8;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s ease;
+}
+
+.rescue-card--news:hover .rescue-card__image {
+  transform: scale(1.08);
+}
+
+/* Overlay gradiente na imagem */
+.rescue-card__image-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Conteúdo do card */
+.rescue-card__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 16px 20px 20px;
 }
 
 /* Cards de Manchetes de Jornais */
 .rescue-card--news {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e8e8e8;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .rescue-card--news:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
   border-color: #ff7a1b;
 }
 
 .rescue-card--news a {
   display: flex;
   flex-direction: column;
-  padding: 20px;
   height: 100%;
   text-decoration: none;
   color: inherit;
@@ -776,7 +816,7 @@
 }
 
 .rescue-card__date {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.75rem;
   color: #888888;
 }
@@ -799,7 +839,7 @@
 }
 
 .rescue-card__excerpt {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.85rem;
   line-height: 1.6;
   color: #555555;
@@ -837,8 +877,12 @@
     grid-template-columns: 1fr;
   }
   
-  .rescue-card--news a {
-    padding: 16px;
+  .rescue-card__content {
+    padding: 14px 16px 16px;
+  }
+  
+  .rescue-card__image-container {
+    aspect-ratio: 16 / 9;
   }
   
   .rescue-card__title {
@@ -851,14 +895,14 @@
    ---------------------------------------- */
 
 .how-we-help {
-  padding: 56px 0 64px;
+  padding: var(--section-padding);
   background-color: #ffffff;
 }
 
 .how-we-help__image {
   display: block;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   height: auto;
   margin: 0 auto;
   border-radius: 16px;
@@ -869,7 +913,7 @@
    ---------------------------------------- */
 
 .partners {
-  padding: 48px 0 56px;
+  padding: var(--section-padding);
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -877,7 +921,7 @@
 /* Carrossel infinito */
 .partners-carousel {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   margin: 32px auto 0;
   overflow: hidden;
   position: relative;

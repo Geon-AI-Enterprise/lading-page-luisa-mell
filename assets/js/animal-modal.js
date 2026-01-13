@@ -211,7 +211,7 @@ function populateModal(animal) {
 
     const giftBtn = modal.querySelector('.animal-modal__btn--gift');
     if (giftBtn) {
-        giftBtn.href = `https://www.institutolouisamell.org/doacao?animal=${animal.id}`;
+        giftBtn.href = `https://institutoluisamell.colabore.org/doe/single_step?animal=${animal.id}`;
     }
 }
 

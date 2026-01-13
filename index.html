@@ -11,12 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
@@ -57,8 +51,9 @@
                   </svg>
                 </button>
                 <ul class="help-dropdown" id="help-dropdown" hidden>
-                  <li class="help-option" data-action="volunteer" data-i18n="footer.volunteer">Ser Voluntário</li>
+                  <li class="help-option" data-action="donate" data-i18n="nav.donate">Doar</li>
                   <li class="help-option" data-action="report" data-i18n="footer.report">Denunciar</li>
+                  <li class="help-option" data-action="volunteer" data-i18n="footer.volunteer">Ser Voluntário</li>
                 </ul>
               </li>
               <li><a href="adotar.html" data-i18n="nav.adopt">Adotar</a></li>
@@ -70,7 +65,7 @@
               </li>
               <li class="mobile-only-donation">
                 <a
-                  href="https://www.institutolouisamell.org/doacao"
+                  href="https://institutoluisamell.colabore.org/doe/single_step"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-i18n="donation"
@@ -93,7 +88,7 @@
           <div class="header-actions">
             <!-- Donation Button -->
             <a
-              href="https://www.institutolouisamell.org/doacao"
+              href="https://institutoluisamell.colabore.org/doe/single_step"
               class="btn-donation"
               target="_blank"
               rel="noopener noreferrer"
@@ -173,7 +168,7 @@
               Junte-se a nós nessa causa! Doe, adote, seja voluntário e faça parte dessa corrente do bem. O futuro dos animais depende do nosso compromisso e do seu apoio.
             </p>
             <a 
-              href="https://www.institutoluisamell.org/doacao" 
+              href="https://institutoluisamell.colabore.org/doe/single_step" 
               class="btn-primary hero-video__btn"
               target="_blank"
               rel="noopener noreferrer"
@@ -201,7 +196,7 @@
               <div class="help-card__shape">
                 <img src="assets/images/doacao.jpg" alt="Doação" class="help-card__img" />
               </div>
-              <button class="help-card__button" data-i18n="donation">Doação</button>
+              <button class="help-card__button help-card__button--donation" data-i18n="donation">Doação</button>
             </article>
 
             <!-- Apadrinhamento -->
@@ -209,7 +204,7 @@
               <div class="help-card__shape">
                 <img src="assets/images/resgates-marcantes.jpg" alt="Apadrinhar" class="help-card__img" />
               </div>
-              <a href="apadrinhar.html"><button class="help-card__button" data-i18n="nav.sponsor">Apadrinhamento</button></a>
+              <a href="apadrinhar.html"><button class="help-card__button help-card__button--sponsor" data-i18n="nav.sponsor">Apadrinhamento</button></a>
             </article>
 
             <!-- Adoção -->
@@ -217,7 +212,7 @@
               <div class="help-card__shape">
                 <img src="assets/images/adotar-img.jpg" alt="Adoção" class="help-card__img" />
               </div>
-              <a href="adotar.html"><button class="help-card__button" data-i18n="nav.adopt">Adoção</button></a>
+              <a href="adotar.html"><button class="help-card__button help-card__button--adopt" data-i18n="nav.adopt">Adoção</button></a>
             </article>
           </div>
         </div>
@@ -254,7 +249,7 @@
           </figure>
 
           <div class="about__content">
-            <h2 data-i18n="about.title">Instituto Luisa Mell é uma organização não governamental</h2>
+            <h2 data-i18n="about.title">Instituto Luisa Mell é uma<br>organização não governamental</h2>
 
             <p data-i18n="about.desc">
               Fundado em 2015 pela ativista e apresentadora Luisa Mell, o instituto tem como missão promover a defesa dos direitos dos animais, combater maus-tratos e conscientizar a sociedade sobre a importância do respeito e da compaixão para com todas as espécies.
@@ -289,52 +284,72 @@
             <!-- Enchentes RS - CNN Brasil -->
             <article class="rescue-card rescue-card--news">
               <a href="https://www.cnnbrasil.com.br/nacional/a-cnn-luisa-mell-relata-desafios-no-resgate-de-animais-durante-enchentes/" target="_blank" rel="noopener noreferrer">
-                <div class="rescue-card__header">
-                  <span class="rescue-card__source rescue-card__source--cnn">CNN Brasil</span>
-                  <span class="rescue-card__date">09/05/2024</span>
+                <div class="rescue-card__image-container">
+                  <img src="assets/images/resgates/luisa-mell7.png" alt="Resgate de animais nas enchentes do RS" class="rescue-card__image" style="object-position: center center;" />
                 </div>
-                <h3 class="rescue-card__title">Luísa Mell relata desafios no resgate de animais durante enchentes no RS</h3>
-                <p class="rescue-card__excerpt">Mais de 1,5 mil animais foram salvos durante as enchentes. Operação de 7 horas resgatou égua em situação crítica.</p>
-                <span class="rescue-card__link">Ler matéria completa →</span>
+                <div class="rescue-card__content">
+                  <div class="rescue-card__header">
+                    <span class="rescue-card__source rescue-card__source--cnn">CNN Brasil</span>
+                    <span class="rescue-card__date">09/05/2024</span>
+                  </div>
+                  <h3 class="rescue-card__title">Luísa Mell relata desafios no resgate de animais durante enchentes no RS</h3>
+                  <p class="rescue-card__excerpt">Mais de 1,5 mil animais foram salvos durante as enchentes. Operação de 7 horas resgatou égua em situação crítica.</p>
+                  <span class="rescue-card__link">Ler matéria completa →</span>
+                </div>
               </a>
             </article>
 
             <!-- Costelas Quebradas RS - G1 -->
             <article class="rescue-card rescue-card--news">
               <a href="https://g1.globo.com/pop-arte/noticia/2024/05/14/luisa-mell-conta-que-quebrou-duas-costelas-em-resgate-de-animais-no-rio-grande-do-sul.ghtml" target="_blank" rel="noopener noreferrer">
-                <div class="rescue-card__header">
-                  <span class="rescue-card__source rescue-card__source--g1">G1</span>
-                  <span class="rescue-card__date">14/05/2024</span>
+                <div class="rescue-card__image-container">
+                  <img src="assets/images/resgates/resgate-costelas.png" alt="Luisa Mell quebra costelas em resgate" class="rescue-card__image" />
                 </div>
-                <h3 class="rescue-card__title">Luisa Mell quebra duas costelas em resgate de animais no Rio Grande do Sul</h3>
-                <p class="rescue-card__excerpt">"Dor insuportável": mesmo ferida, ativista continuou os trabalhos de resgate até que os remédios não fizeram mais efeito.</p>
-                <span class="rescue-card__link">Ler matéria completa →</span>
+                <div class="rescue-card__content">
+                  <div class="rescue-card__header">
+                    <span class="rescue-card__source rescue-card__source--g1">G1</span>
+                    <span class="rescue-card__date">14/05/2024</span>
+                  </div>
+                  <h3 class="rescue-card__title">Luisa Mell quebra duas costelas em resgate de animais no Rio Grande do Sul</h3>
+                  <p class="rescue-card__excerpt">"Dor insuportável": mesmo ferida, ativista continuou os trabalhos de resgate até que os remédios não fizeram mais efeito.</p>
+                  <span class="rescue-card__link">Ler matéria completa →</span>
+                </div>
               </a>
             </article>
 
             <!-- 135 Cães Osasco - G1 -->
             <article class="rescue-card rescue-card--news">
               <a href="https://g1.globo.com/sao-paulo/noticia/ong-de-luisa-mell-resgata-135-caes-de-maus-tratos-em-canil-de-osasco.ghtml" target="_blank" rel="noopener noreferrer">
-                <div class="rescue-card__header">
-                  <span class="rescue-card__source rescue-card__source--g1">G1</span>
-                  <span class="rescue-card__date">29/09/2017</span>
+                <div class="rescue-card__image-container">
+                  <img src="assets/images/resgates/resgate-osasco.png" alt="Resgate de 135 cães em Osasco" class="rescue-card__image" />
                 </div>
-                <h3 class="rescue-card__title">ONG de Luisa Mell resgata 135 cães de maus-tratos em canil de Osasco</h3>
-                <p class="rescue-card__excerpt">Animais estavam sem banho, com fezes grudadas. 9 filhotes mortos foram encontrados no lixo do local.</p>
-                <span class="rescue-card__link">Ler matéria completa →</span>
+                <div class="rescue-card__content">
+                  <div class="rescue-card__header">
+                    <span class="rescue-card__source rescue-card__source--g1">G1</span>
+                    <span class="rescue-card__date">29/09/2017</span>
+                  </div>
+                  <h3 class="rescue-card__title">ONG de Luisa Mell resgata 135 cães de maus-tratos em canil de Osasco</h3>
+                  <p class="rescue-card__excerpt">Animais estavam sem banho, com fezes grudadas. 9 filhotes mortos foram encontrados no lixo do local.</p>
+                  <span class="rescue-card__link">Ler matéria completa →</span>
+                </div>
               </a>
             </article>
 
             <!-- 1.700 Cachorros Piedade - G1 -->
             <article class="rescue-card rescue-card--news">
               <a href="https://g1.globo.com/sp/sorocaba-jundiai/noticia/2022/11/08/justica-condena-dona-de-canil-por-maus-tratos-contra-mais-de-1700-cachorros-no-interior-de-sp.ghtml" target="_blank" rel="noopener noreferrer">
-                <div class="rescue-card__header">
-                  <span class="rescue-card__source rescue-card__source--g1">G1</span>
-                  <span class="rescue-card__date">08/11/2022</span>
+                <div class="rescue-card__image-container">
+                  <img src="assets/images/resgates/resgate-canil-1500.png" alt="Resgate de 1.700 cachorros em Piedade" class="rescue-card__image" />
                 </div>
-                <h3 class="rescue-card__title">Justiça condena dona de canil por maus-tratos contra mais de 1.700 cachorros</h3>
-                <p class="rescue-card__excerpt">Canil Céu Azul em Piedade funcionava de forma clandestina. Animais viviam em condições precárias e sem veterinário.</p>
-                <span class="rescue-card__link">Ler matéria completa →</span>
+                <div class="rescue-card__content">
+                  <div class="rescue-card__header">
+                    <span class="rescue-card__source rescue-card__source--g1">G1</span>
+                    <span class="rescue-card__date">08/11/2022</span>
+                  </div>
+                  <h3 class="rescue-card__title">Justiça condena dona de canil por maus-tratos contra mais de 1.700 cachorros</h3>
+                  <p class="rescue-card__excerpt">Canil Céu Azul em Piedade funcionava de forma clandestina. Animais viviam em condições precárias e sem veterinário.</p>
+                  <span class="rescue-card__link">Ler matéria completa →</span>
+                </div>
               </a>
             </article>
           </div>
@@ -502,36 +517,18 @@
 
           <div class="footer-links-area">
             <div class="footer-nav-col">
-              <a href="index.html#doar" class="footer-link" data-i18n="donation">Doar</a>
-              <a
-                href="ser-voluntario.html"
-                class="footer-link"
-                data-i18n="footer.volunteer"
-                >Ser Voluntário</a
-              >
-              <a href="denunciar.html" class="footer-link" data-i18n="footer.report"
-                >Denunciar</a
-              >
+              <a href="https://institutoluisamell.colabore.org/doe/single_step" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="donation">Doar</a>
+              <a href="denunciar.html" class="footer-link" data-i18n="footer.report">Denunciar</a>
+              <a href="ser-voluntario.html" class="footer-link" data-i18n="footer.volunteer">Ser Voluntário</a>
+              <a href="adotar.html" class="footer-link" data-i18n="nav.adopt">Adotar</a>
+              <a href="apadrinhar.html" class="footer-link" data-i18n="nav.sponsor">Apadrinhar</a>
             </div>
 
             <div class="footer-nav-col">
-              <a href="adotar.html" class="footer-link" data-i18n="nav.adopt"
-                >Adotar</a
-              >
-              <a href="apadrinhar.html" class="footer-link" data-i18n="nav.sponsor"
-                >Apadrinhar</a
-              >
-              <a href="quem-somos.html" class="footer-link" data-i18n="nav.about"
-                >Quem somos</a
-              >
+              <a href="quem-somos.html" class="footer-link" data-i18n="nav.about">Quem somos</a>
               <a href="faq.html" class="footer-link" data-i18n="footer.faq">FAQ</a>
               <a href="eventos.html" class="footer-link" data-i18n="footer.events">Eventos</a>
-              <a
-                href="transparencia.html"
-                class="footer-link"
-                data-i18n="footer.transparency"
-                >Transparência</a
-              >
+              <a href="transparencia.html" class="footer-link" data-i18n="footer.transparency">Transparência</a>
             </div>
           </div>
         </div>

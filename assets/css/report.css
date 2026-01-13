@@ -8,21 +8,18 @@
 
 .report-hero {
   background-color: #ffffff;
-  padding: 140px 0 40px;
+  padding: 140px 0 64px;
   text-align: center;
 }
 
 .report-hero h1 {
-  font-family: var(--font-poppins);
-  font-size: clamp(2rem, 3vw, 2.7rem);
-  font-weight: 600;
+  font-size: var(--font-size-h1);
   letter-spacing: 0.08em;
   margin-bottom: 12px;
 }
 
 .report-hero h2 {
-  font-family: var(--font-poppins);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: var(--font-size-h2);
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -30,13 +27,11 @@
 .report-hero p {
   max-width: 720px;
   margin: 0 auto 16px;
-  color: #3e3e3e;
-  line-height: 1.7;
 }
 
 .report-form {
   background-color: #ffffff;
-  padding: 24px 0 96px;
+  padding: var(--section-padding);
 }
 
 .report-card {

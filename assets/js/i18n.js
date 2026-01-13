@@ -5,6 +5,7 @@
 export const translations = {
     pt: {
         'nav.help': 'Como ajudar',
+        'nav.donate': 'Doar',
         'nav.adopt': 'Adotar',
         'nav.sponsor': 'Apadrinhar',
         'nav.about': 'Quem somos',
@@ -15,7 +16,7 @@ export const translations = {
         'hero.description': 'No Instituto Luisa Mell, acreditamos que toda vida importa. Desde 2015, nossa missão é resgatar, cuidar e transformar a realidade de animais vítimas de abandono, maus-tratos e situações de risco. Com uma equipe apaixonada e voluntária, oferecemos atendimento veterinário, reabilitação e, principalmente, uma nova chance para centenas de cães, gatos e outros animais encontrarem um lar cheio de amor.',
         'hero.ctaText': 'Junte-se a nós nessa causa! Doe, adote, seja voluntário e faça parte dessa corrente do bem. O futuro dos animais depende do nosso compromisso e do seu apoio.',
         'hero.donateBtn': 'Doe aqui',
-        'about.title': 'Instituto Luisa Mell é uma organização não governamental',
+        'about.title': 'Instituto Luisa Mell é uma<br>organização não governamental',
         'about.desc': 'Fundado em 2015 pela ativista Luisa Mell, o instituto atua na defesa dos direitos dos animais, no combate aos maus-tratos e na conscientização pela compaixão com todas as espécies. +500 animais resgatados em 2024 Com o apoio de voluntários, veterinários e parceiros, alcançamos mais de 500 resgates só este ano. +300 animais adotados em 2024 Mais de 300 cães e gatos ganharam novos lares após serem resgatados de abandono e situações de risco. ',
         'rescues.title': 'Resgates Marcantes',
         'rescues.desc': 'Cada resgate é uma história de superação, esperança e amor. No Instituto Luisa Mell, já salvamos milhares de animais de situações extremas.',
@@ -171,6 +172,7 @@ export const translations = {
     },
     en: {
         'nav.help': 'How to Help',
+        'nav.donate': 'Donate',
         'nav.adopt': 'Adopt',
         'nav.sponsor': 'Sponsor',
         'nav.about': 'About Us',
@@ -181,7 +183,7 @@ export const translations = {
         'hero.description': 'At the Luisa Mell Institute, we believe every life matters. Since 2015, our mission has been to rescue, care for, and transform the lives of animals who are victims of abandonment, abuse, and dangerous situations. With a passionate team of volunteers, we provide veterinary care, rehabilitation, and most importantly, a new chance for hundreds of dogs, cats, and other animals to find a loving home.',
         'hero.ctaText': 'Join us in this cause! Donate, adopt, volunteer, and be part of this chain of good. The future of animals depends on our commitment and your support.',
         'hero.donateBtn': 'Donate here',
-        'about.title': 'Luisa Mell Institute is a non-governmental organization',
+        'about.title': 'Luisa Mell Institute is a<br>non-governmental organization',
         'about.desc': 'Founded in 2015 by activist and presenter Luisa Mell, the institute aims to promote animal rights, combat mistreatment and raise awareness about the importance of respect and compassion for all species. 500+ animals rescued in 2024. 300+ animals adopted in 2024.',
         'rescues.title': 'Notable Rescues',
         'rescues.desc': 'Each rescue is a story of overcoming, hope and love. At the Luisa Mell Institute we have saved thousands of animals from extreme situations.',
@@ -337,6 +339,7 @@ export const translations = {
     },
     es: {
         'nav.help': 'Cómo ayudar',
+        'nav.donate': 'Donar',
         'nav.adopt': 'Adoptar',
         'nav.sponsor': 'Apadrinar',
         'nav.about': 'Quiénes somos',
@@ -347,7 +350,7 @@ export const translations = {
         'hero.description': 'En el Instituto Luisa Mell, creemos que toda vida importa. Desde 2015, nuestra misión es rescatar, cuidar y transformar la realidad de animales víctimas de abandono, maltrato y situaciones de riesgo. Con un equipo apasionado y voluntario, ofrecemos atención veterinaria, rehabilitación y, principalmente, una nueva oportunidad para que cientos de perros, gatos y otros animales encuentren un hogar lleno de amor.',
         'hero.ctaText': '¡Únete a nosotros en esta causa! Dona, adopta, sé voluntario y forma parte de esta cadena del bien. El futuro de los animales depende de nuestro compromiso y de tu apoyo.',
         'hero.donateBtn': 'Dona aquí',
-        'about.title': 'El Instituto Luisa Mell es una organización no gubernamental',
+        'about.title': 'El Instituto Luisa Mell es una<br>organización no gubernamental',
         'about.desc': 'Fundado en 2015 por la activista y presentadora Luisa Mell, el instituto tiene como misión promover la defensa de los derechos de los animales, combatir el maltrato y concienciar a la sociedad sobre la importancia del respeto y la compasión hacia todas las especies. Más de 500 animales rescatados en 2024. Más de 300 animales adoptados en 2024.',
         'rescues.title': 'Rescates Notables',
         'rescues.desc': 'Cada rescate es una historia de superación, esperanza y amor. En el Instituto Luisa Mell hemos salvado miles de animales de situaciones extremas.',
@@ -517,7 +520,7 @@ export function changeLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
+            element.innerHTML = translations[lang][key];
         }
     });
 

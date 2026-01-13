@@ -7,7 +7,7 @@
 }
 
 .about-hero {
-  padding: 60px 0 64px;
+  padding: var(--section-padding);
   text-align: center;
   background: linear-gradient(180deg, #ffffff 0%, #fef5ef 100%);
 }
@@ -22,17 +22,14 @@
 }
 
 .about-hero h1 {
-  font-family: var(--font-poppins);
-  font-size: clamp(2rem, 3vw, 2.7rem);
-  font-weight: 600;
+  font-size: var(--font-size-h1);
   margin-bottom: 16px;
 }
 
 .about-hero p {
   max-width: 720px;
   margin: 0 auto;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: var(--font-size-body);
   color: #444444;
 }
 
