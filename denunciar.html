@@ -179,26 +179,37 @@
 
     <main class="main-content report-page">
       <section class="report-hero">
-        <div class="container">
-          <h1 data-i18n="report.heroTitle">SOS ANIMAL</h1>
-          <h2 data-i18n="report.heroSubtitle">Faça a Diferença: Denuncie Maus-Tratos!</h2>
-          <p data-i18n="report.heroParagraph1">
-            Sua denúncia pode salvar vidas. No Instituto Luisa Mell, levamos a sério cada
-            relato de maus-tratos e abandono. Todas as denúncias são tratadas com sigilo
-            e analisadas por nossa equipe especializada para agir rapidamente em defesa
-            do bem-estar animal.
-          </p>
-          <p data-i18n="report.heroParagraph2">
-            Não se cale diante da crueldade. Se você presenciou ou tem conhecimento de
-            qualquer situação de maus-tratos, denuncie. Juntos, podemos combater a
-            injustiça e proteger aqueles que não têm voz.
-          </p>
+        <div class="report-hero__wrapper">
+          <img 
+            src="assets/images/denuncia/banner-denuncie.png" 
+            alt="SOS Animal - Faça a Diferença: Denuncie Maus-Tratos!" 
+            class="report-hero__banner"
+          />
+          <div class="report-hero__overlay">
+            <h1 class="sr-only">SOS Animal - Faça a Diferença: Denuncie Maus-Tratos!</h1>
+            <p class="report-hero__text">
+              Cada denúncia recebida pelo Instituto Luisa Mell é
+              tratada com seriedade, sigilo e urgência para proteger
+              animais em situação de risco. <strong>Sua denúncia pode salvar
+              vidas.</strong>
+            </p>
+          </div>
         </div>
       </section>
 
       <section class="report-form" id="form-denuncia">
         <div class="container">
           <div class="report-card">
+            <div class="report-card__intro">
+              <h2>Faça a Diferença: Denuncie Maus-Tratos!</h2>
+              <p>
+                Sua denúncia pode salvar vidas. No Instituto Luisa Mell, levamos a sério cada
+                relato de maus-tratos e abandono. Todas as denúncias são tratadas com sigilo
+                e analisadas por nossa equipe especializada para agir rapidamente em defesa
+                do bem-estar animal.
+              </p>
+            </div>
+
             <form
               class="report-card__form"
               aria-label="Formulário de denúncia"
@@ -206,7 +217,7 @@
               action="#"
               enctype="multipart/form-data"
             >
-              <p class="form-required-note form-required-note--dark" data-i18n="report.form.requiredNote">(*) Campos obrigatórios</p>
+              <p class="form-required-note" data-i18n="report.form.requiredNote">(*) Campos obrigatórios</p>
 
               <div class="form-grid">
                 <div class="form-field">
@@ -394,6 +405,30 @@
           </div>
         </div>
       </section>
+
+      <!-- Modal de Sucesso -->
+      <div class="report-success-modal" id="report-success-modal" hidden>
+        <div class="report-success-modal__overlay"></div>
+        <div class="report-success-modal__content">
+          <div class="report-success-modal__icon">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4BC5B8" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h3 class="report-success-modal__title">Denúncia enviada. Obrigado por agir.</h3>
+          <p class="report-success-modal__text">
+            Sua denúncia será analisada com cuidado por nossa equipe.
+            Todas as informações são tratadas com sigilo. Caso sejam necessários mais dados,
+            entraremos em contato.
+          </p>
+          <p class="report-success-modal__note">
+            <strong>Importante:</strong> o tempo de resposta pode variar conforme a complexidade do caso e a
+            disponibilidade de órgãos competentes.
+          </p>
+          <button type="button" class="report-success-modal__button" onclick="closeReportSuccessModal()">Entendido</button>
+        </div>
+      </div>
     </main>
 
     <footer class="site-footer">

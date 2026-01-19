@@ -179,13 +179,25 @@
 
     <main class="main-content volunteer-page">
       <section class="volunteer-hero" id="topo">
-        <div class="container">
-          <h1 data-i18n="volunteerPage.heroTitle">Seja Voluntário do Instituto Luisa Mell e Faça a Diferença!</h1>
-          <p class="volunteer-hero__lead" data-i18n="volunteerPage.heroLead">
-            Sua dedicação transforma resgates em histórias de amor. Preencha o formulário
-            abaixo e conte para nós como você pode apoiar o Instituto nas ações de
-            acolhimento, cuidados veterinários e eventos.
-          </p>
+        <div class="volunteer-hero__wrapper">
+          <img 
+            src="assets/images/ser-voluntario/banner-voluntario.png" 
+            alt="Seja Voluntário do Instituto Luisa Mell e Faça a Diferença!" 
+            class="volunteer-hero__banner"
+          />
+          <div class="volunteer-hero__overlay">
+            <h1 class="sr-only">Seja Voluntário do Instituto Luisa Mell e faça a diferença!</h1>
+            <p class="volunteer-hero__text">
+              Ser voluntário é <strong>dedicar tempo, carinho e disposição</strong> para
+              transformar a vida de animais que precisam de cuidado e
+              proteção. No Instituto Luisa Mell, <strong>você pode apoiar</strong> nos resgates,
+              nas rotinas do abrigo, nos eventos e em diversas atividades
+              essenciais.
+            </p>
+            <p class="volunteer-hero__cta">
+              Junte-se a nós e faça parte dessa<br>rede de amor e esperança.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -195,9 +207,10 @@
             <div class="volunteer-card__intro">
               <h2 data-i18n="volunteerPage.introTitle">Juntos Podemos Fazer Mais!</h2>
               <p data-i18n="volunteerPage.introDescription">
-                Buscamos pessoas dispostas a colaborar em diferentes frentes: resgates
-                em campo, lar temporário, produção de conteúdo, logística de doações e
-                eventos de adoção. Conte com uma equipe preparada para orientar todas as etapas.
+                Venha fazer parte dessa corrente do bem. Buscamos pessoas responsáveis,
+                com vontade de ajudar e principalmente que tenha amor aos animais.
+                Preencha o formulário abaixo e nossa equipe analisará seu perfil e entrará em
+                contato para os próximos passos.
               </p>
             </div>
 
@@ -221,30 +234,32 @@
                 />
               </div>
 
-              <div class="form-field">
-                <label for="email" data-i18n="volunteerPage.form.emailLabel">Email *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="nome@email.com"
-                  data-i18n-placeholder="volunteerPage.form.emailPlaceholder"
-                  required
-                />
-              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="email" data-i18n="volunteerPage.form.emailLabel">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="nome@email.com"
+                    data-i18n-placeholder="volunteerPage.form.emailPlaceholder"
+                    required
+                  />
+                </div>
 
-              <div class="form-field">
-                <label for="phone" data-i18n="volunteerPage.form.phoneLabel">Telefone *</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="(00) 0000-0000"
-                  data-i18n-placeholder="volunteerPage.form.phonePlaceholder"
-                  pattern="\(\d{2}\) \d{4,5}-\d{4}"
-                  required
-                />
-                <small class="form-helper" data-i18n="volunteerPage.form.phoneHelper">Formato: (00) 0000-0000</small>
+                <div class="form-field">
+                  <label for="phone" data-i18n="volunteerPage.form.phoneLabel">Telefone *</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="(00) 0000-0000"
+                    data-i18n-placeholder="volunteerPage.form.phonePlaceholder"
+                    pattern="\(\d{2}\) \d{4,5}-\d{4}"
+                    required
+                  />
+                  <small class="form-helper" data-i18n="volunteerPage.form.phoneHelper">Formato: (00) 0000-0000</small>
+                </div>
               </div>
 
               <div class="form-field">
@@ -256,6 +271,7 @@
                   <option value="manutencao" data-i18n="volunteerPage.form.topic.maintenance">Manutenção do abrigo</option>
                   <option value="cuidados" data-i18n="volunteerPage.form.topic.care">Cuidados básicos com os animais</option>
                   <option value="socializacao" data-i18n="volunteerPage.form.topic.socialization">Socialização de animais</option>
+                  <option value="patrocinio" data-i18n="volunteerPage.form.topic.sponsorship">Patrocínio e parcerias</option>
                   <option value="outros" data-i18n="volunteerPage.form.topic.others">Outros</option>
                 </select>
               </div>

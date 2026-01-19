@@ -331,6 +331,31 @@ function fileToBase64(file) {
 }
 
 /**
+ * Show report success modal
+ */
+function showReportSuccessModal() {
+    const modal = document.getElementById('report-success-modal');
+    if (modal) {
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+/**
+ * Close report success modal
+ */
+function closeReportSuccessModal() {
+    const modal = document.getElementById('report-success-modal');
+    if (modal) {
+        modal.hidden = true;
+        document.body.style.overflow = '';
+    }
+}
+
+// Make closeReportSuccessModal globally available
+window.closeReportSuccessModal = closeReportSuccessModal;
+
+/**
  * Handles report form submission (denunciar.html)
  */
 async function handleReportFormSubmit(event) {
@@ -461,7 +486,8 @@ async function handleReportFormSubmit(event) {
         const result = await response.json();
 
         if (result.success) {
-            showToast(result.message, 'success');
+            // Show success modal instead of toast
+            showReportSuccessModal();
             form.reset();
             // Clear file preview
             const preview = form.querySelector('.file-upload__preview');

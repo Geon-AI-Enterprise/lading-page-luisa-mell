@@ -209,6 +209,8 @@ export async function setupAdoptFilters() {
     const sizeBtn = document.getElementById('size-btn');
     const sizeMenu = document.getElementById('size-menu');
     const sizeOptions = document.querySelectorAll('.adopt-filter-size-option');
+    const ageSwitch = document.querySelector('.adopt-filter-switch');
+    const ageSwitchOptions = document.querySelectorAll('.adopt-filter-switch__option');
     
     animalsGrid = document.querySelector('.adopt-animals__grid');
     noResultsElement = document.getElementById('adopt-no-results');
@@ -253,6 +255,28 @@ export async function setupAdoptFilters() {
             await loadAnimals();
         });
     });
+
+    // Configura switch de idade (Filhote/Adulto)
+    if (ageSwitch && ageSwitchOptions.length > 0) {
+        ageSwitchOptions.forEach(option => {
+            option.addEventListener('click', async () => {
+                const filterType = option.getAttribute('data-filter');
+                
+                // Animar transição do toggle
+                ageSwitchOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // Atualizar filtro de idade
+                if (filterType === 'puppies') {
+                    currentFilters.isPuppy = true;
+                } else {
+                    currentFilters.isPuppy = false;
+                }
+                
+                await loadAnimals();
+            });
+        });
+    }
 
     // Botão "Ver todos" na mensagem de nenhum resultado
     if (noResultsElement) {

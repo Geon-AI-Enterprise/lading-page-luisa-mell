@@ -101,6 +101,69 @@
     margin: 0 auto;
 }
 
+/* Process Steps Cards */
+.adopt-process-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.adopt-process-step {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: #E46038;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    width: 180px;
+    height: 130px;
+    box-shadow: 0 4px 12px rgba(228, 96, 56, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.adopt-process-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(228, 96, 56, 0.3);
+}
+
+.adopt-process-step__text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: none;
+}
+
+.adopt-process-step__text--small {
+    font-size: 0.75rem;
+}
+
+.adopt-process-step__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.adopt-process-step__icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+.adopt-process-step__icon--large {
+    width: 40px;
+    height: 40px;
+}
+
 /* STORIES SECTION - De resgatado a amado */
 .adopt-stories-section {
     padding: var(--section-padding);
@@ -300,6 +363,22 @@
     object-fit: contain;
 }
 
+/* Tamanhos proporcionais dos ícones de tamanho */
+.adopt-filter-icon--size-p {
+    width: 14px;
+    height: 14px;
+}
+
+.adopt-filter-icon--size-m {
+    width: 20px;
+    height: 20px;
+}
+
+.adopt-filter-icon--size-g {
+    width: 24px;
+    height: 24px;
+}
+
 .adopt-filter-btn::before {
     display: none;
 }
@@ -313,6 +392,58 @@
     color: #E46038;
     font-weight: 600;
     background-color: rgba(228, 96, 56, 0.1);
+}
+
+/* Switch de Idade (Filhote/Adulto) */
+.adopt-filter-switch {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+    position: relative;
+}
+
+.adopt-filter-switch__option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    font-family: var(--font-poppins);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #666666;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.adopt-filter-switch__icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.adopt-filter-switch__option:hover:not(.active) {
+    color: #E46038;
+    background-color: rgba(228, 96, 56, 0.1);
+}
+
+.adopt-filter-switch__option.active {
+    background-color: #E46038;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(228, 96, 56, 0.3);
+}
+
+.adopt-filter-switch__option.active .adopt-filter-switch__icon {
+    filter: brightness(0) invert(1);
 }
 
 /* Separador visual entre grupos de filtros */
