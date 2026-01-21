@@ -425,3 +425,30 @@
     max-width: 180px;
   }
 }
+
+/* Botão Primário Laranja Padronizado */
+.btn-primary {
+  display: inline-block;
+  background-color: #E46038;
+  color: #ffffff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #d95a31;
+  box-shadow: 0 4px 12px rgba(228, 96, 56, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}

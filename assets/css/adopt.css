@@ -6,7 +6,69 @@
    HERO SECTION
    ======================================== */
 
-/* Hero Section - Adote um peludo */
+/* Hero Banner - Adote */
+.adopt-hero {
+    width: 100%;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.adopt-hero__wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.adopt-hero__banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.adopt-hero__overlay {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    max-width: 45%;
+    z-index: 10;
+}
+
+.adopt-hero__title {
+    font-family: 'Gluten', cursive;
+    font-weight: 400;
+    font-size: 3.2vw;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 1vw;
+}
+
+.adopt-hero__text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1vw;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.adopt-hero__link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.adopt-hero__link:hover {
+    text-decoration: underline;
+}
+
+.adopt-hero__image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Hero Section - Adote um peludo (legado) */
 .adopt-hero-section {
     padding: var(--section-padding);
     background: var(--white);
@@ -164,6 +226,19 @@
     height: 40px;
 }
 
+/* Process Image (fluxo de adoção) */
+.adopt-process-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.adopt-process-image__img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* STORIES SECTION - De resgatado a amado */
 .adopt-stories-section {
     padding: var(--section-padding);
@@ -209,63 +284,76 @@
     display: block;
 }
 
-/* Hero Section - Apadrinhe um amigo */
-.adopt-hero {
-    padding: var(--section-padding);
-    background: var(--white);
+/* Hero Section - Apadrinhe um amigo (Banner) */
+.sponsor-hero {
+    background-color: #E46038;
+    padding: 0;
 }
 
-.adopt-hero__title {
+.sponsor-hero__wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sponsor-hero__banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.sponsor-hero__overlay {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    max-width: 42%;
+    z-index: 10;
+    text-align: left;
+}
+
+.sponsor-hero__title {
+    font-family: 'Gluten', cursive;
+    font-size: 3.5vw;
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 1vw;
+}
+
+.sponsor-hero__text {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    text-align: center;
-    margin-bottom: 3rem;
-    line-height: 1.2;
+    font-size: 0.95vw;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 1vw;
 }
 
-.adopt-hero__wrapper {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 3rem;
-    align-items: stretch;
-}
-
-.adopt-hero__text-left {
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.6;
-    font-weight: 400;
-    text-align: justify;
-    align-self: flex-start;
-}
-
-.adopt-hero__text-right {
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.6;
-    font-weight: 400;
-    text-align: justify;
-    align-self: flex-end;
-}
-
-.adopt-hero__text-left p,
-.adopt-hero__text-right p {
-    margin: 0;
-}
-
-.adopt-hero__image {
+.sponsor-hero__cta {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85vw;
+    font-style: italic;
+    line-height: 1.5;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5vw;
 }
 
-.adopt-hero__img {
-    max-width: 100%;
-    height: auto;
-    width: 450px;
-    object-fit: contain;
+.sponsor-hero__heart {
+    width: 1.2vw;
+    height: 1.2vw;
+    flex-shrink: 0;
+}
+
+.sponsor-hero__cta a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.sponsor-hero__cta a:hover {
+    opacity: 0.8;
 }
 
 /* ========================================
@@ -936,29 +1024,12 @@
         height: auto;
     }
 
-    .adopt-hero {
-        padding: 2rem 0;
-    }
-
     .adopt-hero__title {
-        font-size: 1.75rem;
-        margin-bottom: 2rem;
+        font-size: 4.5vw;
     }
 
-    .adopt-hero__wrapper {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .adopt-hero__text-left,
-    .adopt-hero__text-right {
-        text-align: left;
-        font-size: 0.9rem;
-    }
-
-    .adopt-hero__img {
-        width: 100%;
-        max-width: 300px;
+    .adopt-hero__text {
+        font-size: 2vw;
     }
 
     .adopt-animals {

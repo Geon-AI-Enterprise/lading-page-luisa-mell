@@ -14,6 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/report.css" />
     <link rel="stylesheet" href="assets/css/forms.css" />
@@ -178,6 +182,7 @@
     </header>
 
     <main class="main-content report-page">
+      <!-- Hero Section -->
       <section class="report-hero">
         <div class="report-hero__wrapper">
           <img 
@@ -186,11 +191,14 @@
             class="report-hero__banner"
           />
           <div class="report-hero__overlay">
-            <h1 class="sr-only">SOS Animal - Faça a Diferença: Denuncie Maus-Tratos!</h1>
+            <h1 class="report-hero__title">
+              <span>Faça a diferença</span>
+              <span>Denuncie maus-tratos!</span>
+            </h1>
             <p class="report-hero__text">
               Cada denúncia recebida pelo Instituto Luisa Mell é
-              tratada com seriedade, sigilo e urgência para proteger
-              animais em situação de risco. <strong>Sua denúncia pode salvar
+              tratada com <strong>seriedade, sigilo e urgência</strong> para proteger
+              animais em situação de risco. Sua <strong>denúncia pode salvar
               vidas.</strong>
             </p>
           </div>
@@ -271,7 +279,7 @@
                 <!-- CEP com busca automática -->
                 <div class="form-grid form-grid--address">
                   <div class="form-field form-field--cep">
-                    <label for="report-cep" data-i18n="report.form.cepLabel">CEP *</label>
+                    <label for="report-cep" data-i18n="report.form.cepLabel">CEP</label>
                     <div class="input-with-loader">
                       <input
                         type="text"
@@ -280,7 +288,6 @@
                         placeholder="00000-000"
                         data-i18n-placeholder="report.form.cepPlaceholder"
                         maxlength="9"
-                        required
                       />
                       <span class="input-loader" id="cep-loader"></span>
                     </div>
@@ -312,13 +319,13 @@
                   </div>
                   
                   <div class="form-field form-field--complement">
-                    <label for="report-complement" data-i18n="report.form.complementLabel">Complemento</label>
+                    <label for="report-complement" data-i18n="report.form.referenceLabel">Referência</label>
                     <input
                       type="text"
                       id="report-complement"
                       name="report-complement"
-                      placeholder="Apto, Bloco, etc."
-                      data-i18n-placeholder="report.form.complementPlaceholder"
+                      placeholder="Próximo a..."
+                      data-i18n-placeholder="report.form.referencePlaceholder"
                     />
                   </div>
                   

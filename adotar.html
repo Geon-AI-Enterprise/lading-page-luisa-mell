@@ -11,9 +11,14 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/adopt.css" />
     <link rel="stylesheet" href="assets/css/events.css" />
+    <link rel="stylesheet" href="assets/css/events-page.css" />
     <link rel="stylesheet" href="assets/css/animal-modal.css" />
   </head>
 
@@ -184,39 +189,16 @@
     </header>
 
     <main class="main-content">
-      <!-- HERO: Adote um peludo -->
-      <section class="adopt-hero-section">
-        <div class="container">
-          <h1 class="adopt-hero-section__title" data-i18n="adopt.heroTitle">
-            Adote um peludo!
-          </h1>
-
-          <div class="adopt-hero-section__wrapper">
-            <div class="adopt-hero-section__text-left">
-              <p data-i18n="adopt.heroDescriptionLeft">
-                Cada animal que você vê aqui tem uma história de superação. Eles foram resgatados de situações de abandono, maus-tratos ou risco e hoje estão prontos para recomeçar. Adotar é dar uma segunda chance a quem só precisa de amor.
-              </p>
-            </div>
-
-            <div class="adopt-hero-section__image">
-              <img
-                src="assets/images/adotar-img.jpg"
-                alt="Adote um peludo"
-                class="adopt-hero-section__img"
-              />
-              <p
-                class="adopt-hero-section__image-caption"
-                data-i18n="adopt.heroImageCaption"
-              >
-                Não posso adotar agora, mas quero ajudar!
-              </p>
-            </div>
-
-            <div class="adopt-hero-section__text-right">
-              <p data-i18n="adopt.heroDescriptionRight">
-                Nosso processo de adoção é simples, seguro e acompanhado por nossa equipe. Queremos garantir que cada peludo encontre o lar ideal — e que você encontre um companheiro para a vida toda. Conheça nossos animais e descubra seu novo melhor amigo.
-              </p>
-            </div>
+      <!-- HERO: Banner Adote -->
+      <section class="adopt-hero">
+        <div class="adopt-hero__wrapper">
+          <img src="assets/images/adotar/banner-adote.png" alt="Adote um peludo" class="adopt-hero__banner" />
+          <div class="adopt-hero__overlay">
+            <h1 class="adopt-hero__title">Adote um peludo</h1>
+            <p class="adopt-hero__text">
+              Adotar é dar uma segunda chance.<br />
+              <a href="index.html#doacoes" class="adopt-hero__link">Mesmo sem adotar, eu escolho ajudar.</a>
+            </p>
           </div>
         </div>
       </section>
@@ -227,30 +209,8 @@
           <h2 class="adopt-process-intro__title" data-i18n="adopt.processTitle">
             Como faço para adotar?
           </h2>
-          <div class="adopt-process-steps">
-            <div class="adopt-process-step">
-              <span class="adopt-process-step__text">Escolha o animal</span>
-              <div class="adopt-process-step__icons">
-                <img src="assets/images/icons/cachorro-icon.svg" alt="Cachorro" class="adopt-process-step__icon" />
-                <img src="assets/images/icons/gato-icon.svg" alt="Gato" class="adopt-process-step__icon" />
-              </div>
-            </div>
-            <div class="adopt-process-step">
-              <span class="adopt-process-step__text adopt-process-step__text--small">Preencha o formulário de interesse</span>
-              <img src="assets/images/icons/form-icon.svg" alt="Formulário" class="adopt-process-step__icon adopt-process-step__icon--large" />
-            </div>
-            <div class="adopt-process-step">
-              <span class="adopt-process-step__text adopt-process-step__text--small">Participe de uma entrevista com nossa equipe</span>
-              <img src="assets/images/icons/interview-icon.svg" alt="Entrevista" class="adopt-process-step__icon adopt-process-step__icon--large" />
-            </div>
-            <div class="adopt-process-step">
-              <span class="adopt-process-step__text adopt-process-step__text--small">Conheça o animal pessoalmente</span>
-              <img src="assets/images/icons/meet-icon.svg" alt="Conhecer" class="adopt-process-step__icon adopt-process-step__icon--large" />
-            </div>
-            <div class="adopt-process-step">
-              <span class="adopt-process-step__text adopt-process-step__text--small">Assine o Termo de Adoção Responsável</span>
-              <img src="assets/images/icons/contract-icon.svg" alt="Contrato" class="adopt-process-step__icon adopt-process-step__icon--large" />
-            </div>
+          <div class="adopt-process-image">
+            <img src="assets/images/adotar/fluxo_adotar.png" alt="Fluxo de adoção" class="adopt-process-image__img" />
           </div>
         </div>
       </section>
@@ -298,14 +258,14 @@
               <!-- Idade -->
               <div class="adopt-filter-group">
                 <span class="adopt-filter-group__title">Idade</span>
-                <div class="adopt-filter-switch">
-                  <button class="adopt-filter-switch__option active" data-filter="puppies" data-i18n="adopt.filter.puppies">
-                    <img src="assets/images/apadrinhe/filhote.png" alt="Filhote" class="adopt-filter-switch__icon" />
-                    Filhote
+                <div class="adopt-filter-group__buttons">
+                  <button class="adopt-filter-btn" data-filter="puppies">
+                    <img src="assets/images/apadrinhe/filhote.png" alt="Filhote" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.puppies">Filhote</span>
                   </button>
-                  <button class="adopt-filter-switch__option" data-filter="adults" data-i18n="adopt.filter.adults">
-                    <img src="assets/images/apadrinhe/filhote.png" alt="Adulto" class="adopt-filter-switch__icon" />
-                    Adulto
+                  <button class="adopt-filter-btn" data-filter="adults">
+                    <img src="assets/images/apadrinhe/filhote.png" alt="Adulto" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.adults">Adulto</span>
                   </button>
                 </div>
               </div>
@@ -438,19 +398,43 @@
         </div>
       </section>
 
-      <!-- EVENTS CALENDAR SECTION -->
-      <section class="adopt-events" aria-labelledby="events-title">
+      <!-- EVENTS SECTION -->
+      <section class="events-grid-section" aria-labelledby="events-title">
         <div class="container">
-          <div class="adopt-events__header">
-            <h3 id="events-title" class="adopt-events__title" data-i18n="events.title">Próximos eventos e ações</h3>
+          <h2 id="events-title" class="section-title" data-i18n="events.allEvents">
+            Todos os Eventos
+          </h2>
+          
+          <!-- Filter Tabs -->
+          <div class="events-filter" role="tablist">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+              Todos
+            </button>
+            <button class="filter-tab" data-filter="upcoming" role="tab" aria-selected="false">
+              Próximos
+            </button>
+            <button class="filter-tab" data-filter="past" role="tab" aria-selected="false">
+              Realizados
+            </button>
           </div>
-
-          <div class="adopt-events__wrapper">
-            <div id="events-calendar" class="events-calendar" aria-hidden="false"></div>
-            <div id="events-list" class="events-list" aria-live="polite"></div>
+          
+          <div class="events-grid" id="events-grid">
+            <!-- Grid de eventos será inserida via JavaScript -->
           </div>
-          <div class="events-footer">
-            <a href="eventos.html" class="btn-primary" data-i18n="events.viewAll">Ver todos os eventos</a>
+          
+          <div class="events-empty" id="events-empty" hidden>
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <p data-i18n="events.noEvents">Nenhum evento encontrado</p>
+          </div>
+          
+          <div class="events-loading" id="events-loading">
+            <div class="loading-spinner"></div>
+            <p>Carregando eventos...</p>
           </div>
         </div>
       </section>
@@ -734,5 +718,6 @@
     <script src="assets/js/filters-dropdown.js"></script>
     <script type="module" src="assets/js/adopt-filters.js"></script>
     <script type="module" src="assets/js/animal-modal.js"></script>
+    <script type="module" src="assets/js/events-page.js"></script>
   </body>
 </html>

@@ -14,6 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/adopt.css" />
     <link rel="stylesheet" href="assets/css/animal-modal.css" />
@@ -148,31 +152,29 @@
     </header>
 
     <main class="main-content">
-      <!-- HERO: Título e Descrição -->
-      <section class="adopt-hero">
-        <div class="container">
-          <h1 class="adopt-hero__title" data-i18n="adopt.title">Apadrinhe um amigo</h1>
-          
-          <div class="adopt-hero__wrapper">
-            <div class="adopt-hero__text-left">
-              <p data-i18n="adopt.description">
-                O apadrinhamento é uma forma de apoio contínuo que permite ao instituto oferecer, de forma estável, todos os cuidados necessários dos animais: alimentação, suporte veterinário, manutenção do espaço e atenção integral.
-              </p>
-            </div>
-
-            <div class="adopt-hero__image">
-              <img 
-                src="assets/images/apadrinhe/apadrinhe-1.png" 
-                alt="Apadrinhe um amigo" 
-                class="adopt-hero__img"
-              />
-            </div>
-
-            <div class="adopt-hero__text-right">
-              <p data-i18n="sponsor.heroDescriptionRight">
-                Apadrinhar é mais do que doar — é criar um laço de afeto com um animal que depende de cuidados especiais para viver com dignidade. Com sua ajuda, garantimos que ele siga vivendo com conforto, saúde e muito amor até encontrar um lar.
-              </p>
-            </div>
+      <!-- HERO: Banner -->
+      <section class="sponsor-hero">
+        <div class="sponsor-hero__wrapper">
+          <img 
+            src="assets/images/apadrinhe/banner-apadrinhe.png" 
+            alt="Apadrinhe um amigo" 
+            class="sponsor-hero__banner"
+          />
+          <div class="sponsor-hero__overlay">
+            <h1 class="sponsor-hero__title">Apadrinhamento</h1>
+            <p class="sponsor-hero__text">
+              O apadrinhamento é uma forma de apoio contínuo que
+              permite ao instituto oferecer, de forma estável, todos os
+              cuidados necessários aos animais como: alimentação,
+              suporte veterinário, manutenção do espaço e atenção integral,
+              até eles encontrarem um lar.
+            </p>
+            <p class="sponsor-hero__cta">
+              <svg class="sponsor-hero__heart" width="16" height="16" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              <a href="https://institutoluisamell.colabore.org/doe/single_step" target="_blank" rel="noopener noreferrer">Quero ajudar mesmo sem apadrinhar.</a>
+            </p>
           </div>
         </div>
       </section>
@@ -220,14 +222,14 @@
               <!-- Idade -->
               <div class="adopt-filter-group">
                 <span class="adopt-filter-group__title">Idade</span>
-                <div class="adopt-filter-switch">
-                  <button class="adopt-filter-switch__option active" data-filter="puppies" data-i18n="adopt.filter.puppies">
-                    <img src="assets/images/apadrinhe/filhote.png" alt="Filhote" class="adopt-filter-switch__icon" />
-                    Filhote
+                <div class="adopt-filter-group__buttons">
+                  <button class="adopt-filter-btn" data-filter="puppies">
+                    <img src="assets/images/apadrinhe/filhote.png" alt="Filhote" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.puppies">Filhote</span>
                   </button>
-                  <button class="adopt-filter-switch__option" data-filter="adults" data-i18n="adopt.filter.adults">
-                    <img src="assets/images/apadrinhe/filhote.png" alt="Adulto" class="adopt-filter-switch__icon" />
-                    Adulto
+                  <button class="adopt-filter-btn" data-filter="adults">
+                    <img src="assets/images/apadrinhe/filhote.png" alt="Adulto" class="adopt-filter-icon" />
+                    <span data-i18n="adopt.filter.adults">Adulto</span>
                   </button>
                 </div>
               </div>
@@ -271,7 +273,7 @@
           <div class="adopt-animals__wrapper">
             <!-- Título da seção -->
             <div class="adopt-animals__header">
-              <h2 class="adopt-animals__title" data-i18n="adopt.filterTitle">Escolha seu melhor amigo</h2>
+              <h2 class="adopt-animals__title">Apadrinhe um amigo</h2>
             </div>
 
             <!-- Mensagem quando não há resultados -->
