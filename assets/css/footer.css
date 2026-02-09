@@ -1,7 +1,7 @@
 /* assets/css/footer.css */
 
 .site-footer {
-    background-color: #2D2D2D;
+    background-color: #00202a;
     color: var(--white);
     padding-top: 4rem;
     padding-bottom: 2.5rem;
@@ -68,7 +68,18 @@
 
 .social-link:hover {
     transform: translateY(-3px);
-    opacity: 0.8;
+    opacity: 1;
+}
+
+.social-link:hover svg {
+    stroke: #e46038;
+    fill: #e46038;
+}
+
+/* Instagram: manter fill none no hover para não virar quadrado */
+.social-link[aria-label="Instagram"]:hover svg {
+    fill: none;
+    stroke: #e46038;
 }
 
 /* --- Coluna da Direita (Links) --- */
@@ -99,7 +110,7 @@
 }
 
 .footer-link:hover {
-    color: var(--primary-orange);
+    color: #e46038;
 }
 
 /* --- Rodapé Inferior (Sem borda) --- */
@@ -123,7 +134,8 @@
 }
 
 .footer-bottom a:hover {
-    opacity: 0.7;
+    opacity: 1;
+    color: #e46038;
 }
 
 /* Responsividade */

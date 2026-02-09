@@ -1,4 +1,4 @@
-/* ========================================
+﻿/* ========================================
    Home Page Layout
    Estrutura da página principal (Hero,
    3 bolhas, Institucional, Resgates,
@@ -6,44 +6,17 @@
    ======================================== */
 
 /* ----------------------------------------
-   HERO VIDEO SECTION
+   HERO SECTION
    ---------------------------------------- */
 .hero-video {
   position: relative;
-  min-height: 600px;
+  min-height: 95vh;
   display: flex;
   align-items: center;
   overflow: hidden;
   padding-bottom: 60px;
-}
-
-.hero-video__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.hero-video__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-video__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  background: url('../images/background-herosection.png') no-repeat center center;
+  background-size: cover;
 }
 
 .hero-video__content {
@@ -57,40 +30,41 @@
 }
 
 .hero-video__text {
-  color: #ffffff;
+  color: #00202a;
 }
 
 .hero-video__eyebrow {
   display: block;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #ff6b35;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #f4a261;
   margin-bottom: 8px;
 }
 
 .hero-video__title {
   font-family: 'Poppins', sans-serif;
-  font-size: 3.5rem;
+  font-size: 5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #CA6134;
   margin: 0 0 24px 0;
   line-height: 1.1;
 }
 
 .hero-video__description {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
+  color: #00202a;
   margin: 0 0 16px 0;
 }
 
 .hero-video__cta-text {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
+  color: #00202a;
   margin: 0 0 32px 0;
 }
 
@@ -98,10 +72,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 1.8rem;
+  padding: 0.85rem 2rem;
   font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 25px;
   background-color: #4ECDC4;
   color: #ffffff;
   border: none;
@@ -122,12 +96,12 @@
 }
 
 .hero-video__img {
-  max-width: 100%;
+  max-width: 120%;
   height: auto;
-  max-height: 500px;
-  border-radius: 16px;
-  border: 6px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  max-height: 650px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
 }
 
 /* Wave Transition */
@@ -165,7 +139,11 @@
   }
 
   .hero-video__img {
-    max-height: 350px;
+    max-height: 450px;
+  }
+
+  .hero-video__text {
+    padding: 0 20px;
   }
 }
 
@@ -416,8 +394,29 @@
    ---------------------------------------- */
 
 .help-cards {
-  background-color: #ffffff;
   padding: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.help-cards__deco {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.help-cards__deco--heart {
+  top: 15px;
+  left: 25px;
+  width: 90px;
+  height: auto;
+}
+
+.help-cards__deco--smile {
+  bottom: 80px;
+  right: 25px;
+  width: 75px;
+  height: auto;
 }
 
 .help-cards__grid {
@@ -430,7 +429,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 26px;
   padding: 8px 8px 24px;
   border-radius: 20px;
   transition:
@@ -442,22 +441,38 @@
 .help-card__shape {
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: 16px;
-  background: #f5f5f5;
+  border-radius: 32px;
+  background: transparent;
   position: relative;
-  overflow: hidden;
+  display: inline-block;
 }
+
+.help-card__shape::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 100%;
+  height: 100%;
+  background: #FFD9C4;
+  border-radius: 32px;
+  z-index: 1;
+}
+
 .help-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 32px;
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .help-card:hover .help-card__img {
   transform: scale(1.05);
 }
+
 /* bolha com “recorte” - apenas visual */
 .hero-placeholder--blob {
   border-radius: 999px;
@@ -531,7 +546,6 @@
 /* Imagem institucional */
 .about__gallery {
   border-radius: 16px;
-  overflow: hidden;
   flex-shrink: 0;
   max-width: 450px;
   margin: 0;
@@ -550,8 +564,35 @@
   position: relative;
   width: 100%;
   border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+/* ADICIONE ESTE BLOCO NOVO para criar as patinhas */
+.about__carousel::before {
+  content: "";
+  position: absolute;
+  
+  /* Define o tamanho da área das patinhas. 
+     Como elas flutuam "fora" da foto, usamos mais de 100% */
+  width: 140%; 
+  height: 160%;
+  
+  /* Centraliza as patinhas em relação à foto */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Insere a imagem das patinhas */
+  background-image: url('../images/patinhas-carrossel.png'); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* Ajusta para caber no espaço definido */
+  
+  /* Garante que fique atrás da foto principal */
+  z-index: 99; 
+  pointer-events: none; /* Evita que a decoração atrapalhe cliques */
 }
 
 .about__carousel-track {
@@ -570,6 +611,7 @@
   border-radius: 16px;
   opacity: 0;
   transition: opacity 0.6s ease;
+  box-shadow: -20px -20px 0px #FFD9C4;
 }
 
 .about__carousel-img.active {
@@ -676,10 +718,12 @@
 .about__content h2 {
   font-size: var(--font-size-h2);
   margin-bottom: 20px;
+  color: #e46038;
 }
 
 .about__content p {
   margin-bottom: 12px;
+  color: #00202a
 }
 
 .about__stat {
@@ -689,10 +733,12 @@
 .about__stat h3 {
   font-size: var(--font-size-h3);
   margin-bottom: 4px;
+  color: #00202a;
 }
 
 .about__stat p {
   margin-bottom: 0;
+  color: #00202a
 }
 
 /* ----------------------------------------
@@ -701,7 +747,8 @@
 
 .rescues {
   padding: var(--section-padding);
-  background-color: #ffffff;
+  background: url('../images/background-resgates.png') no-repeat center center;
+  background-size: cover;
 }
 
 .section-header {
@@ -713,10 +760,16 @@
 .section-header h2 {
   font-size: var(--font-size-h2);
   margin-bottom: 8px;
+  color: #e46038;
 }
 
 .section-header p {
   font-size: var(--font-size-body);
+}
+
+.rescues .section-header h2,
+.rescues .section-header p {
+  color: #ffffff;
 }
 
 .rescues__grid {
@@ -771,14 +824,13 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f0f0f0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .rescue-card--news:hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
-  border-color: #ff7a1b;
 }
 
 .rescue-card--news a {
@@ -1029,7 +1081,7 @@
    RESPONSIVO
    ---------------------------------------- */
 
-@media (max-width: 960px) {
+@media (max-width: 1320px) {
   .about__inner {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1049,9 +1101,14 @@
     margin: 0 auto;
   }
 
+  .about__content h2 {
+    margin-top: 4rem;
+  }
+
   .help-cards__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
   }
 
   .rescues__grid {
@@ -1060,6 +1117,11 @@
 }
 
 @media (max-width: 720px) {
+  .about__carousel::before{
+    width: 125%;
+    height: 180%;
+  }
+
   .hero__banner {
     min-height: 220px;
     padding: 20px;
@@ -1085,12 +1147,6 @@
 
   .hero__carousel-arrow--next {
     right: 8px;
-  }
-
-  .help-cards__grid {
-    grid-template-columns: 1fr;
-    max-width: 360px;
-    margin: 0 auto;
   }
 
   .about__inner {
