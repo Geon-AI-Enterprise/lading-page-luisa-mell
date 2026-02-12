@@ -122,7 +122,16 @@
 }
 
 /* Responsivo */
-@media (max-width: 992px) {
+@media (max-width: 1307px) {
+  .hero__carousel{
+    overflow: hidden;
+  }
+
+  .hero-video {
+    background-position: center top;
+    background-size: cover;
+  }
+
   .hero-video__content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -149,7 +158,9 @@
 
 @media (max-width: 576px) {
   .hero-video {
-    min-height: 500px;
+    min-height: auto;
+    background-position: center top;
+    background: none;
   }
 
   .hero-video__content {
@@ -1166,5 +1177,74 @@
 @media (max-width: 480px) {
   .rescues__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Seção Institucional - About */
+  .about {
+    padding: 40px 0;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .about__gallery {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .about__carousel {
+    margin-top: 14px;
+    margin-left: 14px;
+  }
+
+  .about__carousel::before {
+    width: 120%;
+    height: 160%;
+  }
+
+  .about__carousel-img {
+    box-shadow: -14px -14px 0px #FFD9C4;
+    border-radius: 12px;
+  }
+
+  .about__carousel-track {
+    aspect-ratio: 4 / 5;
+  }
+
+  .about__content {
+    text-align: center;
+    padding: 0 4px;
+  }
+
+  .about__content h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .about__content h2 br {
+    display: none;
+  }
+
+  .about__content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .about__stat {
+    margin-top: 16px;
+  }
+
+  .about__stat h3 {
+    font-size: 1.05rem;
+  }
+
+  .about__stat p {
+    font-size: 0.85rem;
+    line-height: 1.6;
   }
 }
