@@ -20,7 +20,7 @@
 
 /* Hero Section */
 .report-hero {
-  background-color: #E46038;
+  background-color: #ffffff;
   padding: 0;
 }
 
@@ -28,6 +28,48 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  background-color: #ffffff;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Camada do background decorativo (ondas) - fica ACIMA da foto, ABAIXO do texto */
+.report-hero__wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/banner_denunciar.png') no-repeat center center;
+  background-size: cover;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.report-hero__content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: var(--section-padding);
+}
+
+.report-hero__image {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.report-hero__photo {
+  max-width: 100%;
+  height: auto;
+  max-height: 1200px;
+  object-fit: contain;
 }
 
 .report-hero__banner {
@@ -38,44 +80,162 @@
 }
 
 .report-hero__overlay {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translateY(-50%);
-  max-width: 45%;
-  z-index: 10;
+  position: relative;
+  max-width: 100%;
+  z-index: 3;
 }
 
 .report-hero__title {
-  font-family: 'Gluten', cursive;
-  font-weight: 400;
-  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1vw;
+  margin-bottom: 20px;
 }
 
 .report-hero__title span:first-child {
-  font-size: 2.2vw;
-  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #f4a261;
 }
 
 .report-hero__title span:last-child {
-  font-size: 3.2vw;
-  text-transform: uppercase;
+  font-size: 4.4rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #CA6134;
+  line-height: 1.1;
 }
 
 .report-hero__text {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.1vw;
-  line-height: 1.5;
-  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #000000;
 }
 
 .report-hero__text strong {
-  color: #ffffff;
+  color: #000000;
   font-weight: 600;
 }
+
+.report-hero__photo--mobile {
+  display: none;
+}
+
+@media (max-width: 1220px) {
+  .report-hero__wrapper {
+    min-height: auto;
+    background-position: center bottom;
+  }
+
+  .report-hero__wrapper::after {
+    background: url('../images/herosection_pannel.png') no-repeat center center;
+    background-size: cover;
+  }
+
+  .report-hero__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .report-hero__image {
+    order: -1;
+    z-index: 3;
+  }
+
+  .report-hero__photo--desktop {
+    display: none;
+  }
+
+  .report-hero__photo--mobile {
+    display: block;
+  }
+
+  .report-hero__photo {
+    max-height: 350px;
+  }
+
+  .report-hero__title span:last-child {
+    font-size: 2.2rem;
+  }
+
+  .report-hero__overlay {
+    padding: 0 20px;
+  }
+
+  .report-hero__text {
+    color: #ffffff;
+  }
+
+  .report-hero__text strong {
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 576px) {
+  .report-hero__photo {
+    max-height: 260px;
+  }
+
+  .report-hero__title span:first-child {
+    font-size: 1.2rem;
+  }
+
+  .report-hero__title span:last-child {
+    font-size: 1.8rem;
+  }
+
+  .report-hero__text {
+    font-size: 0.9rem;
+  }
+
+    .report-card__form-title{
+        font-size: 1.2rem;
+  }
+
+}
+
+/* Disclaimer entre hero e formulário */
+.report-disclaimer {
+  background-color: #f5f5f5;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.report-disclaimer__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #333333;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 22px;
+}
+
+/* Imagem do coração + título do formulário */
+.report-card__header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.report-card__heart {
+  height: 60px;
+  width: auto;
+}
+  .report-card__form-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #CA6134;
+    margin: 0;
+  }
 
 .report-form {
   background-color: #f5f5f5;
@@ -101,7 +261,7 @@
 
 .report-card__intro h2 {
   font-size: calc(var(--font-size-h2) + 10px);
-  color: #2e2e2e;
+  color: #CA6134;
 }
 
 .report-card__intro p {
@@ -145,6 +305,7 @@
   background-color: #fcfcfc;
   color: #2e2e2e;
   font-size: 0.95rem;
+  font-weight: 'Poppins', sans-serif;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -355,4 +516,13 @@
   .report-submit {
     width: 100%;
   }
+
+    .report-card__form-title{
+    font-size: 1.2rem;
+  }
+
+  .report-card__heart {
+  height: 40px;
+  width: auto;
+}
 }

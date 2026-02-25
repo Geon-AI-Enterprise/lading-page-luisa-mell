@@ -38,7 +38,6 @@
   font-family: 'Poppins', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
-  font-style: italic;
   color: #f4a261;
   margin-bottom: 8px;
 }
@@ -121,9 +120,168 @@
   display: block;
 }
 
+/* ----------------------------------------
+   HERO CAROUSEL - Full Width Wrapper
+   ---------------------------------------- */
+.hero__carousel.hero-carousel--fullwidth {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-carousel--fullwidth .hero__carousel-track {
+  position: relative;
+  width: 100%;
+}
+
+.hero-carousel--fullwidth .hero__carousel-slide {
+  border-radius: 0;
+}
+
+.hero-carousel--fullwidth .hero__carousel-arrow {
+  z-index: 10;
+  background: rgba(214, 86, 29, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  border: 1px solid rgba(214, 86, 29, 0.4);
+  width: 52px;
+  height: 52px;
+}
+
+.hero-carousel--fullwidth .hero__carousel-arrow:hover {
+  background: #D6561D;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-carousel--fullwidth .hero__carousel-arrow--prev {
+  left: 24px;
+}
+
+.hero-carousel--fullwidth .hero__carousel-arrow--next {
+  right: 24px;
+}
+
+.hero-carousel--fullwidth .hero__dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.hero-carousel--fullwidth .hero-dot {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-carousel--fullwidth .hero-dot--active {
+  background-color: #D6561D;
+}
+
+/* ----------------------------------------
+   SLIDE 2 - iPhone Promo
+   ---------------------------------------- */
+.hero-slide--iphone {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 60px;
+  background: url('../images/herosection_pannel.png') no-repeat center center;
+  background-size: cover;
+  background-color: #00282e;
+}
+
+.hero-slide--iphone__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: var(--section-padding);
+}
+
+.hero-slide--iphone__text {
+  color: #ffffff;
+  max-width: 540px;
+}
+
+.hero-slide--iphone__eyebrow {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f4a261;
+  margin-bottom: 12px;
+}
+
+.hero-slide--iphone__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+.hero-slide--iphone__description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 20px 0;
+}
+
+.hero-slide--iphone__cta-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 32px 0;
+}
+
+.hero-slide--iphone__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #D6561D;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-slide--iphone__btn:hover {
+  background-color: #e06b3a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(202, 97, 52, 0.35);
+}
+
+.hero-slide--iphone__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-slide--iphone__img {
+  max-width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: contain;
+}
+
 /* Responsivo */
 @media (max-width: 1307px) {
-  .hero__carousel{
+  .hero-carousel--fullwidth {
     overflow: hidden;
   }
 
@@ -154,6 +312,43 @@
   .hero-video__text {
     padding: 0 20px;
   }
+
+  /* iPhone slide responsivo */
+  .hero-slide--iphone {
+    background-position: center right;
+  }
+
+  .hero-slide--iphone__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .hero-slide--iphone__text {
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  .hero-slide--iphone__title {
+    font-size: 2.5rem;
+  }
+
+  .hero-slide--iphone__image {
+    justify-content: center;
+    order: -1;
+  }
+
+  .hero-slide--iphone__img {
+    max-height: 450px;
+  }
+
+  .hero-carousel--fullwidth .hero__carousel-arrow--prev {
+    left: 12px;
+  }
+
+  .hero-carousel--fullwidth .hero__carousel-arrow--next {
+    right: 12px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -182,6 +377,43 @@
 
   .hero-video__img {
     max-height: 280px;
+  }
+
+  /* iPhone slide mobile */
+  .hero-slide--iphone {
+    min-height: auto;
+    padding: 80px 0 80px;
+    background-position: 70% center;
+  }
+
+  .hero-slide--iphone__content {
+    padding: 40px 0;
+  }
+
+  .hero-slide--iphone__title {
+    font-size: 2rem;
+  }
+
+  .hero-slide--iphone__description,
+  .hero-slide--iphone__cta-text {
+    font-size: 0.9rem;
+  }
+
+  .hero-slide--iphone__image {
+    justify-content: center;
+  }
+
+  .hero-slide--iphone__img {
+    max-height: 280px;
+  }
+
+  .hero-carousel--fullwidth .hero__carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-carousel--fullwidth .hero__dots {
+    bottom: 16px;
   }
 }
 
@@ -729,7 +961,7 @@
 .about__content h2 {
   font-size: var(--font-size-h2);
   margin-bottom: 20px;
-  color: #e46038;
+  color: #CA6134;
 }
 
 .about__content p {
@@ -771,7 +1003,7 @@
 .section-header h2 {
   font-size: var(--font-size-h2);
   margin-bottom: 8px;
-  color: #e46038;
+  color: #CA6134;
 }
 
 .section-header p {

@@ -186,39 +186,56 @@
       <!-- Hero Section -->
       <section class="report-hero">
         <div class="report-hero__wrapper">
-          <img 
-            src="assets/images/denuncia/banner-denuncie.png" 
-            alt="SOS Animal - Faça a Diferença: Denuncie Maus-Tratos!" 
-            class="report-hero__banner"
-          />
-          <div class="report-hero__overlay">
-            <h1 class="report-hero__title">
-              <span>Faça a diferença</span>
-              <span>Denuncie maus-tratos!</span>
-            </h1>
-            <p class="report-hero__text">
-              Cada denúncia recebida pelo Instituto Luisa Mell é
-              tratada com <strong>seriedade, sigilo e urgência</strong> para proteger
-              animais em situação de risco. Sua <strong>denúncia pode salvar
-              vidas.</strong>
-            </p>
+          <div class="container report-hero__content">
+            <div class="report-hero__image">
+              <img 
+                src="assets/images/luisamell_denunciar.png" 
+                alt="Luisa Mell abraçando cachorro resgatado" 
+                class="report-hero__photo report-hero__photo--desktop"
+              />
+              <img 
+                src="assets/images/luisamell_denunciar_branco.png" 
+                alt="Luisa Mell abraçando cachorro resgatado" 
+                class="report-hero__photo report-hero__photo--mobile"
+              />
+            </div>
+            <div class="report-hero__overlay">
+              <h1 class="report-hero__title">
+                <span data-i18n="report.heroEyebrow">Faça a diferença:</span>
+                <span data-i18n="report.heroTitle">Denuncie<br>maus-tratos!</span>
+              </h1>
+              <p class="report-hero__text" data-i18n="report.heroText">
+                Cada denúncia recebida pelo Instituto Luisa Mell é
+                tratada com <strong>seriedade, sigilo e urgência</strong> para proteger
+                animais em situação de risco. Sua <strong>denúncia pode salvar
+                vidas.</strong>
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Texto intermediário -->
+      <section class="report-disclaimer">
+        <div class="container">
+          <p class="report-disclaimer__text">
+            No Instituto Luisa Mell todas as denúncias são tratadas com sigilo e analisadas por nossa equipe especializada para agir rapidamente em defesa do bem-estar animal.
+          </p>
         </div>
       </section>
 
       <section class="report-form" id="form-denuncia">
         <div class="container">
-          <div class="report-card">
-            <div class="report-card__intro">
-              <h2>Faça a Diferença: Denuncie Maus-Tratos!</h2>
-              <p>
-                Sua denúncia pode salvar vidas. No Instituto Luisa Mell, levamos a sério cada
-                relato de maus-tratos e abandono. Todas as denúncias são tratadas com sigilo
-                e analisadas por nossa equipe especializada para agir rapidamente em defesa
-                do bem-estar animal.
-              </p>
-            </div>
+          <div class="report-card__header-row">
+            <img 
+              src="assets/images/coracao_denunciar.png" 
+              alt="Coração" 
+              class="report-card__heart"
+            />
+            <h2 class="report-card__form-title">Preencha o formulário:</h2>
+          </div>
 
+          <div class="report-card">
             <form
               class="report-card__form"
               aria-label="Formulário de denúncia"
