@@ -20,7 +20,7 @@
 
 /* Hero Section */
 .volunteer-hero {
-  background-color: #E46038;
+  background-color: transparent;
   padding: 0;
 }
 
@@ -37,41 +37,50 @@
   object-fit: cover;
 }
 
+.volunteer-hero__banner--mobile {
+  display: none;
+}
+
 .volunteer-hero__overlay {
   position: absolute;
-  top: 50%;
-  right: 5%;
-  transform: translateY(-50%);
-  max-width: 45%;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  width: 90%;
   z-index: 10;
-  text-align: left;
+  text-align: center;
 }
 
 .volunteer-hero__title {
-  font-family: 'Gluten', cursive;
-  font-weight: 400;
-  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1vw;
+  margin-bottom: 16px;
 }
 
 .volunteer-hero__title span:first-child {
-  font-size: 2.2vw;
-  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f4a261;
+  margin-bottom: 8px;
 }
 
 .volunteer-hero__title span:last-child {
-  font-size: 2vw;
-  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #CA6134;
+  line-height: 1.1;
 }
 
 .volunteer-hero__text {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.9vw;
-  line-height: 1.5;
-  color: #ffffff;
-  margin-bottom: 1vw;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #00202a;
 }
 
 .volunteer-hero__text strong {
@@ -82,14 +91,27 @@
 .volunteer-hero__cta {
   font-family: 'Poppins', sans-serif;
   font-size: 0.85vw;
-  font-style: italic;
   line-height: 1.5;
   color: #ffffff;
 }
 
+.volunteer-cta-image {
+  width: 100%;
+  line-height: 0;
+  background-color: #F5F5F5;
+  text-align: center;
+}
+
+.volunteer-cta-image__img {
+  width: 80%;
+  max-width: 1200px;
+  height: auto;
+  display: inline-block;
+}
+
 .volunteer-form {
   background-color: #f5f5f5;
-  padding: var(--section-padding);
+  padding: 0 0 32px;
 }
 
 .volunteer-card {
@@ -248,19 +270,61 @@
   text-align: center;
 }
 
-@media (max-width: 1024px) {
-  .volunteer-card {
-    grid-template-columns: 1fr;
-    padding: 40px;
+@media (max-width: 1570px) {
+  .volunteer-hero__title span:first-child {
+    font-size: 1.3rem;
+  }
+
+  .volunteer-hero__title span:last-child {
+    font-size: 1.4rem;
+  }
+
+  .volunteer-hero__text {
+    font-size: 0.7rem;
+  }
+
+  .volunteer-hero__overlay {
+    max-width: 550px;
   }
 }
 
-@media (max-width: 640px) {
-  .form-row {
-    grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+  .volunteer-hero__banner--desktop {
+    display: none;
   }
 
-  .volunteer-card {
-    padding: 32px 24px;
+  .volunteer-hero__title span:first-child {
+    font-size: 1rem;
+  }
+
+  .volunteer-hero__title span:last-child {
+    font-size: 1.2rem;
+  }
+
+  .volunteer-hero__text {
+    font-size: 0.7rem;
+    padding: 0 60px;
+  }
+
+  .volunteer-hero__banner--mobile {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .volunteer-hero__title span:first-child {
+    font-size: 0.8rem;
+  }
+
+  .volunteer-hero__title span:last-child {
+    font-size: 0.9rem;
+  }
+
+  .volunteer-hero__text {
+    font-size: 0.7rem;
+    padding: 50 100px;
   }
 }

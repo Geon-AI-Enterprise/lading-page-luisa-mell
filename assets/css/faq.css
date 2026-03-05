@@ -6,12 +6,12 @@
 /* Hero Section */
 .faq-hero {
   padding: 120px 0 64px;
-  background-color: #f5f5f5;
   text-align: center;
 }
 
 .faq-hero h1 {
   font-size: var(--font-size-h1);
+  color: #CA6134;;
   margin-bottom: 16px;
 }
 

@@ -68,7 +68,8 @@
         width: 100%;
     }
 
-    .nav-list a {
+    .nav-list a,
+    .nav-list .help-display {
         font-size: 1.125rem;
         display: block;
     }

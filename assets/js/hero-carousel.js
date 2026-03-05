@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const slides = carousel.querySelectorAll('.hero__carousel-slide');
     const dots = dotsContainer.querySelectorAll('.hero-dot');
-    const prevBtn = carousel.querySelector('.hero__carousel-arrow--prev');
-    const nextBtn = carousel.querySelector('.hero__carousel-arrow--next');
 
     if (slides.length === 0) return;
 
@@ -56,23 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(autoplayInterval);
             autoplayInterval = null;
         }
-    }
-
-    // Event listeners para setas
-    if (prevBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            prevSlide();
-            startAutoplay(); // Reinicia o autoplay após interação
-        });
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            nextSlide();
-            startAutoplay(); // Reinicia o autoplay após interação
-        });
     }
 
     // Event listeners para dots

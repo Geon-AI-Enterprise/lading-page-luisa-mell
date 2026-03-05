@@ -194,7 +194,7 @@
                 class="report-hero__photo report-hero__photo--desktop"
               />
               <img 
-                src="assets/images/luisamell_denunciar_branco.png" 
+                src="assets/images/luisa_denunciar_mobile.png" 
                 alt="Luisa Mell abraçando cachorro resgatado" 
                 class="report-hero__photo report-hero__photo--mobile"
               />
@@ -212,6 +212,64 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Hero Text Mobile -->
+      <style>
+        #hero-text-mobile {
+          display: none;
+          background-color: #F5F5F5;
+          padding: 40px 20px;
+          text-align: center;
+        }
+        #hero-text-mobile .mobile-title {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 600;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 20px;
+        }
+        #hero-text-mobile .mobile-title span:first-child {
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: #f4a261;
+        }
+        #hero-text-mobile .mobile-title span:last-child {
+          font-size: 2.2rem;
+          font-weight: 700;
+          font-family: 'Poppins', sans-serif;
+          color: #CA6134;
+          line-height: 1.1;
+        }
+        #hero-text-mobile .mobile-text {
+          font-family: 'Poppins', sans-serif;
+          font-size: 1rem;
+          line-height: 1.7;
+          color: #000000;
+        }
+        #hero-text-mobile .mobile-text strong {
+          color: #000000;
+          font-weight: 600;
+        }
+        @media (max-width: 1220px) {
+          #hero-text-mobile {
+            display: block;
+          }
+        }
+      </style>
+      <section id="hero-text-mobile">
+        <div class="container">
+          <h2 class="mobile-title">
+            <span data-i18n="report.heroEyebrow">Faça a diferença:</span>
+            <span data-i18n="report.heroTitle">Denuncie<br>maus-tratos!</span>
+          </h2>
+          <p class="mobile-text" data-i18n="report.heroText">
+            Cada denúncia recebida pelo Instituto Luisa Mell é
+            tratada com <strong>seriedade, sigilo e urgência</strong> para proteger
+            animais em situação de risco. Sua <strong>denúncia pode salvar
+            vidas.</strong>
+          </p>
         </div>
       </section>
 
@@ -518,7 +576,6 @@
             <div class="footer-nav-col">
               <a href="quem-somos.html" class="footer-link" data-i18n="nav.about">Quem somos</a>
               <a href="faq.html" class="footer-link" data-i18n="footer.faq">FAQ</a>
-              <a href="eventos.html" class="footer-link" data-i18n="footer.events">Eventos</a>
               <a href="transparencia.html" class="footer-link" data-i18n="footer.transparency">Transparência</a>
             </div>
           </div>

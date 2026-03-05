@@ -35,7 +35,87 @@ function isValidCep(cep) {
 }
 
 /**
- * Busca endereço pelo CEP usando ViaCEP
+ * Busca endereço via JSONP (fallback para file:// e CORS)
+ * @param {string} cep - CEP limpo (somente números)
+ * @returns {Promise<Object|null>}
+ */
+function fetchAddressJsonp(cep) {
+    return new Promise((resolve) => {
+        const callbackName = 'viaCepCb_' + Math.floor(Math.random() * 1000000);
+        
+        const timeout = setTimeout(function() {
+            cleanup();
+            resolve(null);
+        }, 10000);
+
+        function cleanup() {
+            clearTimeout(timeout);
+            try { delete window[callbackName]; } catch(e) { window[callbackName] = undefined; }
+            var el = document.getElementById(callbackName);
+            if (el && el.parentNode) {
+                el.parentNode.removeChild(el);
+            }
+        }
+
+        window[callbackName] = function(data) {
+            cleanup();
+            if (!data || data.erro) {
+                resolve(null);
+            } else {
+                resolve({
+                    cep: data.cep,
+                    street: data.logradouro,
+                    complement: data.complemento,
+                    neighborhood: data.bairro,
+                    city: data.localidade,
+                    state: data.uf,
+                    ibge: data.ibge,
+                    ddd: data.ddd
+                });
+            }
+        };
+
+        var script = document.createElement('script');
+        script.id = callbackName;
+        script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=' + callbackName;
+        script.onerror = function() {
+            cleanup();
+            resolve(null);
+        };
+        
+        var target = document.head || document.getElementsByTagName('head')[0];
+        target.appendChild(script);
+    });
+}
+
+/**
+ * Busca endereço pelo CEP usando BrasilAPI (alternativa sem CORS)
+ * @param {string} cep - CEP limpo
+ * @returns {Promise<Object|null>}
+ */
+async function fetchAddressBrasilApi(cep) {
+    try {
+        const response = await fetch('https://brasilapi.com.br/api/cep/v1/' + cep);
+        if (!response.ok) return null;
+        const data = await response.json();
+        return {
+            cep: data.cep,
+            street: data.street || '',
+            complement: '',
+            neighborhood: data.neighborhood || '',
+            city: data.city || '',
+            state: data.state || '',
+            ibge: '',
+            ddd: ''
+        };
+    } catch (e) {
+        return null;
+    }
+}
+
+/**
+ * Busca endereço pelo CEP usando múltiplas APIs
+ * Tenta na ordem: fetch ViaCEP → fetch BrasilAPI → JSONP ViaCEP
  * @param {string} cep - CEP
  * @returns {Promise<Object|null>} Dados do endereço ou null se não encontrado
  */
@@ -46,8 +126,15 @@ async function fetchAddressByCep(cep) {
         return null;
     }
     
+    // Em protocolo file:// usa JSONP direto (fetch não funciona)
+    if (window.location.protocol === 'file:') {
+        const result = await fetchAddressJsonp(cleanedCep);
+        return result;
+    }
+    
+    // Em HTTP/HTTPS tenta fetch ViaCEP → BrasilAPI → JSONP
     try {
-        const response = await fetch(`https://viacep.com.br/ws/${cleanedCep}/json/`);
+        const response = await fetch('https://viacep.com.br/ws/' + cleanedCep + '/json/');
         const data = await response.json();
         
         if (data.erro) {
@@ -65,8 +152,12 @@ async function fetchAddressByCep(cep) {
             ddd: data.ddd
         };
     } catch (error) {
-        console.error('Erro ao buscar CEP:', error);
-        return null;
+        // Fallback 1: BrasilAPI
+        const brasilResult = await fetchAddressBrasilApi(cleanedCep);
+        if (brasilResult) return brasilResult;
+        
+        // Fallback 2: JSONP
+        return fetchAddressJsonp(cleanedCep);
     }
 }
 

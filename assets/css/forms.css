@@ -3,6 +3,19 @@
    Instituto Luisa Mell
 ======================================== */
 
+/* ========================================
+   Form Elements - Global Font
+======================================== */
+input,
+select,
+textarea,
+button,
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Toast Notification */
 .form-toast {
     position: fixed;

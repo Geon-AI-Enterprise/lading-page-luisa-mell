@@ -83,6 +83,8 @@
   position: relative;
   max-width: 100%;
   z-index: 3;
+  align-self: start;
+  padding-top: 40px;
 }
 
 .report-hero__title {
@@ -95,9 +97,19 @@
 
 .report-hero__title span:first-child {
   font-size: 1.8rem;
-  font-style: italic;
   font-weight: 600;
   color: #f4a261;
+}
+
+.report-disclaimer__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #000000;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 22px;
+  padding: 0 16px;
 }
 
 .report-hero__title span:last-child {
@@ -124,14 +136,52 @@
   display: none;
 }
 
-@media (max-width: 1220px) {
-  .report-hero__wrapper {
-    min-height: auto;
-    background-position: center bottom;
-  }
+/* Hero text mobile - visível apenas no mobile, entre hero e disclaimer */
+.report-hero-mobile-text {
+  display: none;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+}
 
+.report-hero-mobile-text__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.report-hero-mobile-text__title span:first-child {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f4a261;
+}
+
+.report-hero-mobile-text__title span:last-child {
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #CA6134;
+  line-height: 1.1;
+}
+
+.report-hero-mobile-text__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #000000;
+}
+
+.report-hero-mobile-text__text strong {
+  color: #000000;
+  font-weight: 600;
+}
+
+@media (max-width: 1220px) {
   .report-hero__wrapper::after {
-    background: url('../images/herosection_pannel.png') no-repeat center center;
+    display: block;
+    background: url('../images/banner_denunciar_mobile.png') no-repeat center center;
     background-size: cover;
   }
 
@@ -141,9 +191,12 @@
     padding: 40px 0;
   }
 
+  .report-disclaimer__text {
+  font-size: 1rem;
+}
+
   .report-hero__image {
-    order: -1;
-    z-index: 3;
+    display: none;
   }
 
   .report-hero__photo--desktop {
@@ -151,7 +204,7 @@
   }
 
   .report-hero__photo--mobile {
-    display: block;
+    display: none;
   }
 
   .report-hero__photo {
@@ -163,15 +216,11 @@
   }
 
   .report-hero__overlay {
-    padding: 0 20px;
+    display: none !important;
   }
 
-  .report-hero__text {
-    color: #ffffff;
-  }
-
-  .report-hero__text strong {
-    color: #ffffff;
+  .report-hero-mobile-text {
+    display: block !important;
   }
 }
 
@@ -205,15 +254,6 @@
   text-align: center;
 }
 
-.report-disclaimer__text {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
-  line-height: 1.7;
-  color: #333333;
-  max-width: 700px;
-  margin: 0 auto;
-  margin-top: 22px;
-}
 
 /* Imagem do coração + título do formulário */
 .report-card__header-row {
