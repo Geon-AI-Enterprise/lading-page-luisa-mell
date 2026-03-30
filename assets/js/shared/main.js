@@ -12,7 +12,7 @@ import {
 import { setupMobileMenu } from './navigation.js';
 import { setupSmoothScroll, handleHeaderScroll } from './scroll.js';
 import { setupHelpDropdown } from './help-dropdown.js';
-import { setupAdoptFilters } from './adopt-filters.js';
+import { setupAdoptFilters } from '../pages/adopt-filters.js';
 
 // ========================================
 // HERO - Carrossel de banners (placeholder)

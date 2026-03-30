@@ -8,22 +8,40 @@ export function setupHelpDropdown() {
     const dropdown = document.getElementById('help-dropdown');
 
     // Segurança: se os elementos não existirem no HTML, para a execução
-    if (!helpWrapper || !displayButton || !dropdown) return;
+    if (!helpWrapper || !displayButton || !dropdown) {
+        console.warn('Elementos do help-dropdown não encontrados', { helpWrapper, displayButton, dropdown });
+        return;
+    }
+
+    console.log('✓ Help dropdown inicializado');
 
     // 1. Toggle visibility ao clicar no botão
-    displayButton.addEventListener('click', (e) => {
-        e.stopPropagation(); // Previne fechar imediatamente
+    displayButton.addEventListener('click', function(e) {
+        console.log('Click no botão help-display');
+        e.preventDefault();
+        e.stopPropagation();
+        
         const isExpanded = displayButton.getAttribute('aria-expanded') === 'true';
-        toggleDropdown(!isExpanded);
+        const newState = !isExpanded;
+        
+        displayButton.setAttribute('aria-expanded', newState);
+        dropdown.hidden = !newState;
+        
+        console.log('Dropdown agora está:', dropdown.hidden ? 'oculto' : 'visível');
     });
 
     // 2. Handle seleção de opção no dropdown
     dropdown.querySelectorAll('.help-option').forEach(option => {
-        option.addEventListener('click', (e) => {
-            const action = e.target.getAttribute('data-action');
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const action = this.getAttribute('data-action');
+            console.log('Opção clicada, action:', action);
 
             // Fecha o dropdown
-            toggleDropdown(false);
+            displayButton.setAttribute('aria-expanded', 'false');
+            dropdown.hidden = true;
 
             // Processa a ação selecionada
             handleHelpAction(action);
@@ -31,17 +49,12 @@ export function setupHelpDropdown() {
     });
 
     // 3. Fechar ao clicar fora
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', function(e) {
         if (!helpWrapper.contains(e.target)) {
-            toggleDropdown(false);
+            displayButton.setAttribute('aria-expanded', 'false');
+            dropdown.hidden = true;
         }
     });
-
-    // Função auxiliar para abrir/fechar
-    function toggleDropdown(show) {
-        displayButton.setAttribute('aria-expanded', show);
-        dropdown.hidden = !show;
-    }
 }
 
 // ========================================
@@ -49,24 +62,29 @@ export function setupHelpDropdown() {
 // ========================================
 
 function handleHelpAction(action) {
+    console.log('Executando ação:', action);
+    
     switch (action) {
         case 'donate':
             // Abrir modal de doação via Paybox SDK
-            if (typeof transformandoVidasComLuisaMell === 'function') {
-                transformandoVidasComLuisaMell();
+            if (window.transformandoVidasComLuisaMell && typeof window.transformandoVidasComLuisaMell === 'function') {
+                console.log('Abrindo modal de doação com Paybox');
+                window.transformandoVidasComLuisaMell();
             } else {
+                console.log('Abrindo doação via fallback URL');
                 window.open('https://institutoluisamell.colabore.org/doe/single_step', '_blank', 'noopener,noreferrer');
             }
             break;
         case 'volunteer':
-            // Redirecionar para a página de voluntários
+            console.log('Redirecionando para voluntários');
             window.location.href = 'ser-voluntario.html';
             break;
         case 'report':
-            // Redirecionar para a página de denúncias
+            console.log('Redirecionando para denúncias');
             window.location.href = 'denunciar.html';
             break;
         default:
+            console.warn('Ação não reconhecida:', action);
             break;
     }
 }

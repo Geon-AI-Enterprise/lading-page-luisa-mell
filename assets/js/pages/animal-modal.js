@@ -3,7 +3,7 @@
 // Modal de perfil do animal com dados do Supabase
 // ========================================
 
-import { fetchAnimalsSecure } from './supabase-client.js';
+import { fetchAnimalsSecure } from '../shared/supabase-client.js';
 
 // Cache do animal atual no modal
 let currentAnimal = null;

@@ -3,7 +3,7 @@
 // Instituto Luisa Mell
 // ========================================
 
-import { fetchAnimalsSecure } from './supabase-client.js';
+import { fetchAnimalsSecure } from '../shared/supabase-client.js';
 
 /**
  * Busca animais via Edge Function com filtros opcionais
