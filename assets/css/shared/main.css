@@ -13,7 +13,7 @@
 @import url('footer.css');
 
 /* 2.1 Home Styles */
-@import url('home.css');
+@import url('../home.css');
 
 /* 3. Responsive Styles */
 @import url('responsive.css');

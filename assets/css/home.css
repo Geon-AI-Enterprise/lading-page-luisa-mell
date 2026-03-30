@@ -1,0 +1,1411 @@
+﻿/* ========================================
+   Home Page Layout
+   Estrutura da página principal (Hero,
+   3 bolhas, Institucional, Resgates,
+   Como transformamos, Parceiros)
+   ======================================== */
+
+/* ----------------------------------------
+   HERO SECTION
+   ---------------------------------------- */
+.hero-video {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 60px;
+  background: url('../images/home/background-herosection.png') no-repeat center center;
+  background-size: cover;
+}
+
+.hero-video__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: var(--section-padding);
+}
+
+.hero-video__text {
+  color: #00202a;
+}
+
+.hero-video__eyebrow {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f4a261;
+  margin-bottom: 8px;
+}
+
+.hero-video__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #CA6134;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+.hero-video__description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #00202a;
+  margin: 0 0 16px 0;
+}
+
+.hero-video__cta-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #00202a;
+  margin: 0 0 32px 0;
+}
+
+.hero-video__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 25px;
+  background-color: #4ECDC4;
+  color: #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-video__btn:hover {
+  background-color: #3eb39f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.25);
+}
+
+.hero-video__image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-video__img {
+  max-width: 120%;
+  height: auto;
+  max-height: 650px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Wave Transition */
+.hero-video__wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-video__wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ----------------------------------------
+   HERO CAROUSEL - Full Width Wrapper
+   ---------------------------------------- */
+.hero__carousel.hero-carousel--fullwidth {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-carousel--fullwidth .hero__carousel-track {
+  position: relative;
+  width: 100%;
+}
+
+.hero-carousel--fullwidth .hero__carousel-slide {
+  border-radius: 0;
+}
+
+.hero-carousel--fullwidth .hero__carousel-arrow {
+  display: none;
+}
+
+.hero-carousel--fullwidth .hero__dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.hero-carousel--fullwidth .hero-dot {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-carousel--fullwidth .hero-dot--active {
+  background-color: #D6561D;
+}
+
+/* ----------------------------------------
+   SLIDE 2 - iPhone Promo
+   ---------------------------------------- */
+.hero-slide--iphone {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 60px;
+  background: url('../images/herosection_pannel.png') no-repeat center center;
+  background-size: cover;
+  background-color: #00282e;
+}
+
+.hero-slide--iphone__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: var(--section-padding);
+}
+
+.hero-slide--iphone__text {
+  color: #ffffff;
+  max-width: 540px;
+}
+
+.hero-slide--iphone__eyebrow {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #D6561D;
+  margin-bottom: 12px;
+}
+
+.hero-slide--iphone__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+.hero-slide--iphone__description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 20px 0;
+}
+
+.hero-slide--iphone__cta-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 32px 0;
+}
+
+.hero-slide--iphone__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #D6561D;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-slide--iphone__btn:hover {
+  background-color: #e06b3a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(202, 97, 52, 0.35);
+}
+
+.hero-slide--iphone__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-slide--iphone__img {
+  max-width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: contain;
+}
+
+/* Responsivo */
+@media (max-width: 1307px) {
+  .hero-carousel--fullwidth {
+    overflow: hidden;
+  }
+
+  .hero-video {
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .hero-video__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .hero-video__title {
+    font-size: 2.5rem;
+  }
+
+  .hero-video__image {
+    justify-content: center;
+    order: -1;
+  }
+
+  .hero-video__img {
+    max-height: 450px;
+  }
+
+  .hero-video__text {
+    padding: 0 20px;
+  }
+
+  /* iPhone slide responsivo */
+  .hero-slide--iphone {
+    background-position: center right;
+  }
+
+  .hero-slide--iphone__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .hero-slide--iphone__text {
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  .hero-slide--iphone__title {
+    font-size: 2.5rem;
+  }
+
+  .hero-slide--iphone__image {
+    justify-content: center;
+    order: -1;
+  }
+
+  .hero-slide--iphone__img {
+    max-height: 450px;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .hero-video {
+    min-height: auto;
+    background-position: center top;
+    background: none;
+  }
+
+  .hero-video__content {
+    padding: 60px 0;
+  }
+
+  .hero-video__text {
+    padding: 0 20px;
+  }
+
+  .hero-video__title {
+    font-size: 2rem;
+  }
+
+  .hero-video__description,
+  .hero-video__cta-text {
+    font-size: 0.9rem;
+  }
+
+  .hero-video__img {
+    max-height: 280px;
+  }
+
+  /* iPhone slide mobile */
+  .hero-slide--iphone {
+    min-height: auto;
+    padding: 80px 0 80px;
+    background-position: 70% center;
+  }
+
+  .hero-slide--iphone__content {
+    padding: 40px 0;
+  }
+
+  .hero-slide--iphone__title {
+    font-size: 2rem;
+  }
+
+  .hero-slide--iphone__description,
+  .hero-slide--iphone__cta-text {
+    font-size: 0.9rem;
+  }
+
+  .hero-slide--iphone__image {
+    justify-content: center;
+  }
+
+  .hero-slide--iphone__img {
+    max-height: 280px;
+  }
+
+  .hero-carousel--fullwidth .hero__dots {
+    bottom: 16px;
+  }
+}
+
+/* ----------------------------------------
+   HERO (Legacy - Banner Carousel)
+   ---------------------------------------- */
+
+.hero {
+  background-color: #ffffff;
+  padding: var(--section-padding);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Área cinza grande do banner (placeholder) */
+.hero__banner {
+  width: 100%;
+  max-width: var(--content-max-width);
+  min-height: 260px;
+  border-radius: 12px;
+  background-color: #dedede;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.6s ease,
+    transform 0.6s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Container para múltiplos banners */
+.hero__banners {
+  width: 100%;
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.hero__banner-link {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__banner-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.hero__banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.hero__banner-link:hover .hero__banner-img {
+  transform: scale(1.02);
+}
+
+/* ----------------------------------------
+   HERO CAROUSEL
+   ---------------------------------------- */
+.hero__carousel {
+  width: 100%;
+  max-width: 1120px;
+  position: relative;
+  overflow: visible;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.hero__carousel-track {
+  position: relative;
+  width: 100%;
+}
+
+.hero__carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero__carousel-slide--active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__carousel-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.hero__carousel-slide:hover .hero__carousel-img {
+  transform: scale(1.02);
+}
+
+/* Setas de navegação - Removidas */
+.hero__carousel-arrow {
+  display: none;
+}
+
+.hero__banner span {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #666;
+}
+
+/* Placeholder genérico, reutilizado em outros blocos */
+.hero-placeholder {
+  background-color: #dedede;
+}
+
+/* Variações do carrossel (só mudança visual de fundo) */
+.hero__banner--slide-0 {
+  background: #dedede;
+}
+
+.hero__banner--slide-1 {
+  background: linear-gradient(135deg, #dedede 0%, #f0f0f0 60%, #e0e0e0 100%);
+}
+
+.hero__banner--slide-2 {
+  background: linear-gradient(135deg, #e2e2e2 0%, #f5f5f5 60%, #d8d8d8 100%);
+}
+
+/* Pontinhos do hero */
+.hero__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.hero__dots--center {
+  justify-content: center;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background-color: #c0c0c0;
+  opacity: 0.6;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.hero-dot:hover {
+  opacity: 0.8;
+}
+
+.hero-dot--active {
+  opacity: 1;
+  transform: scale(1.3);
+  background-color: #ff7a1b; /* tom de laranja da marca */
+}
+
+/* ----------------------------------------
+   3 BOLHAS - COMO AJUDAR
+   ---------------------------------------- */
+
+.help-cards {
+  padding: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.help-cards__deco {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.help-cards__deco--heart {
+  top: 15px;
+  left: 25px;
+  width: 90px;
+  height: auto;
+}
+
+.help-cards__deco--smile {
+  bottom: 80px;
+  right: 25px;
+  width: 75px;
+  height: auto;
+}
+
+.help-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.help-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  padding: 8px 8px 24px;
+  border-radius: 20px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.help-card__shape {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 32px;
+  background: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.help-card__shape::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 100%;
+  height: 100%;
+  background: #FFD9C4;
+  border-radius: 32px;
+  z-index: 1;
+}
+
+.help-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.help-card:hover .help-card__img {
+  transform: scale(1.05);
+}
+
+/* bolha com “recorte” - apenas visual */
+.hero-placeholder--blob {
+  border-radius: 999px;
+}
+
+/* Botões das bolhas */
+.help-card__button {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #ff7a1b;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  box-shadow: 0 4px 12px rgba(255, 122, 27, 0.25);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Botão de Doação - Turquesa */
+.help-card__button--donation {
+  background-color: #4BC5B8;
+  box-shadow: 0 4px 12px rgba(75, 197, 184, 0.25);
+}
+
+.help-card__button--donation:hover {
+  background-color: #3eb39f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(75, 197, 184, 0.3);
+}
+
+/* Botões de Apadrinhamento e Adoção - Laranja */
+.help-card__button--sponsor,
+.help-card__button--adopt {
+  background-color: #D6561D;
+  box-shadow: 0 4px 12px rgba(214, 86, 29, 0.25);
+}
+
+.help-card__button--sponsor:hover,
+.help-card__button--adopt:hover {
+  background-color: #c04a18;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 86, 29, 0.3);
+}
+
+
+/* ----------------------------------------
+   BLOCO INSTITUCIONAL (4 FOTOS + TEXTO)
+   ---------------------------------------- */
+
+.about {
+  padding: var(--section-padding);
+  background-color: #ffffff;
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Imagem institucional */
+.about__gallery {
+  border-radius: 16px;
+  flex-shrink: 0;
+  max-width: 450px;
+  margin: 0;
+}
+
+.about__gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Carrossel da seção institucional */
+.about__carousel {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: visible;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+/* ADICIONE ESTE BLOCO NOVO para criar as patinhas */
+.about__carousel::before {
+  content: "";
+  position: absolute;
+  
+  /* Define o tamanho da área das patinhas. 
+     Como elas flutuam "fora" da foto, usamos mais de 100% */
+  width: 140%; 
+  height: 160%;
+  
+  /* Centraliza as patinhas em relação à foto */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Insere a imagem das patinhas */
+  background-image: url('../images/patinhas-carrossel.png'); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* Ajusta para caber no espaço definido */
+  
+  /* Garante que fique atrás da foto principal */
+  z-index: 99; 
+  pointer-events: none; /* Evita que a decoração atrapalhe cliques */
+}
+
+.about__carousel-track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.about__carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  box-shadow: -20px -20px 0px #FFD9C4;
+}
+
+.about__carousel-img.active {
+  opacity: 1;
+}
+
+.about__carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.about__carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.about__carousel-dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.about__carousel-dot.active {
+  background-color: #ff7a1b;
+  transform: scale(1.2);
+}
+
+.about__gallery-frame {
+  border-radius: 12px;
+  background-color: #ffffff;
+  padding: 18px 18px 24px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.about__gallery-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background: #e3f1d8;
+  transition:
+    background 0.6s ease,
+    transform 0.6s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Variações visuais do “carrossel” */
+.about__gallery-image--slide-0 {
+  background: #e3f1d8;
+}
+
+.about__gallery-image--slide-1 {
+  background: linear-gradient(135deg, #e3f1d8 0%, #f6ffe9 50%, #d7ebcb 100%);
+}
+
+.about__gallery-image--slide-2 {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e3f1d8 70%, #f5f5f5 100%);
+}
+
+.about__gallery-text {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+/* pontinhos do carrossel das 4 fotos */
+.about__gallery-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.about__gallery-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background-color: #c5c5c5;
+  opacity: 0.6;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.about__dot--active {
+  opacity: 1;
+  transform: scale(1.2);
+  background-color: #ff7a1b;
+}
+
+/* Texto institucional */
+.about__content h2 {
+  font-size: var(--font-size-h2);
+  margin-bottom: 20px;
+  color: #CA6134;
+}
+
+.about__content p {
+  margin-bottom: 12px;
+  color: #00202a
+}
+
+.about__stat {
+  margin-top: 20px;
+}
+
+.about__stat h3 {
+  font-size: var(--font-size-h3);
+  margin-bottom: 4px;
+  color: #00202a;
+}
+
+.about__stat p {
+  margin-bottom: 0;
+  color: #00202a
+}
+
+/* ----------------------------------------
+   RESGATES MARCANTES
+   ---------------------------------------- */
+
+.rescues {
+  padding: var(--section-padding);
+  background: url('../images/home/background-resgates.png') no-repeat center center;
+  background-size: cover;
+}
+
+.section-header {
+  text-align: center;
+  max-width: var(--content-narrow-width);
+  margin: 0 auto 32px;
+}
+
+.section-header h2 {
+  font-size: var(--font-size-h2);
+  margin-bottom: 8px;
+  color: #CA6134;
+}
+
+.section-header p {
+  font-size: var(--font-size-body);
+}
+
+.rescues .section-header h2,
+.rescues .section-header p {
+  color: #ffffff;
+}
+
+.rescues__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Container da imagem do card */
+.rescue-card__image-container {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+}
+
+.rescue-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s ease;
+}
+
+.rescue-card--news:hover .rescue-card__image {
+  transform: scale(1.08);
+}
+
+/* Overlay gradiente na imagem */
+.rescue-card__image-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Conteúdo do card */
+.rescue-card__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 16px 20px 20px;
+}
+
+/* Cards de Manchetes de Jornais */
+.rescue-card--news {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rescue-card--news:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.rescue-card--news a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.rescue-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.rescue-card__source {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.rescue-card__source--cnn {
+  background: linear-gradient(135deg, #cc0000, #990000);
+}
+
+.rescue-card__source--g1 {
+  background: linear-gradient(135deg, #e02020, #b81818);
+}
+
+.rescue-card__date {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  color: #888888;
+}
+
+.rescue-card__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #222222;
+  margin: 0 0 12px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rescue-card--news:hover .rescue-card__title {
+  color: #ff7a1b;
+}
+
+.rescue-card__excerpt {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rescue-card__link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ff7a1b;
+  margin-top: 16px;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.rescue-card--news:hover .rescue-card__link {
+  color: #e06500;
+}
+
+/* Responsivo - Cards de Manchetes */
+@media (max-width: 1024px) {
+  .rescues__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .rescues__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .rescue-card__content {
+    padding: 14px 16px 16px;
+  }
+  
+  .rescue-card__image-container {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .rescue-card__title {
+    font-size: 0.95rem;
+  }
+}
+
+/* ----------------------------------------
+   COMO TRANSFORMAMOS VIDAS + DIAGRAMA
+   ---------------------------------------- */
+
+.how-we-help {
+  padding: var(--section-padding);
+  background-color: #ffffff;
+}
+
+.how-we-help__image {
+  display: block;
+  width: 100%;
+  max-width: var(--content-max-width);
+  height: auto;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+/* ----------------------------------------
+   PARCEIROS - CARROSSEL INFINITO
+   ---------------------------------------- */
+
+.partners {
+  padding: var(--section-padding);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* Carrossel infinito */
+.partners-carousel {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 32px auto 0;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.partners-carousel__track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: scroll-partners 25s linear infinite;
+}
+
+/* Pausar animação ao passar o mouse */
+.partners-carousel:hover .partners-carousel__track {
+  animation-play-state: paused;
+}
+
+.partners-carousel__slide {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  padding: 0 20px;
+}
+
+.partners-carousel__logo {
+  max-height: 60px;
+  max-width: 180px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Logo específica maior */
+.partners-carousel__logo--large {
+  max-height: 100px;
+  max-width: 320px;
+}
+
+/* Logo extra grande */
+.partners-carousel__logo--xlarge {
+  max-height: 120px;
+  max-width: 400px;
+}
+
+.partners-carousel__logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@keyframes scroll-partners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+/* Estilos antigos mantidos para compatibilidade */
+.partners__logos {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+.partners__logo {
+  width: 140px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: #f4f4f4;
+}
+
+.partners__note {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #777777;
+}
+
+/* ----------------------------------------
+   RESPONSIVO
+   ---------------------------------------- */
+
+@media (max-width: 1320px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about__gallery {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .about__content {
+    text-align: center;
+  }
+
+  .about__content .btn {
+    margin: 0 auto;
+  }
+
+  .about__content h2 {
+    margin-top: 4rem;
+  }
+
+  .help-cards__grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .rescues__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .about__carousel::before{
+    width: 125%;
+    height: 180%;
+  }
+
+  .hero__banner {
+    min-height: 220px;
+    padding: 20px;
+  }
+
+  .hero__banners {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hero__carousel-track {
+    min-height: 200px;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .rescues__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .partners__logo {
+    width: 120px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rescues__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Seção Institucional - About */
+  .about {
+    padding: 40px 0;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .about__gallery {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .about__carousel {
+    margin-top: 14px;
+    margin-left: 14px;
+  }
+
+  .about__carousel::before {
+    width: 120%;
+    height: 160%;
+  }
+
+  .about__carousel-img {
+    box-shadow: -14px -14px 0px #FFD9C4;
+    border-radius: 12px;
+  }
+
+  .about__carousel-track {
+    aspect-ratio: 4 / 5;
+  }
+
+  .about__content {
+    text-align: center;
+    padding: 0 4px;
+  }
+
+  .about__content h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .about__content h2 br {
+    display: none;
+  }
+
+  .about__content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .about__stat {
+    margin-top: 16px;
+  }
+
+  .about__stat h3 {
+    font-size: 1.05rem;
+  }
+
+  .about__stat p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+}
