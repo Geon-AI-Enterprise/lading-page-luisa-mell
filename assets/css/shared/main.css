@@ -15,8 +15,5 @@
 /* 2.1 Home Styles */
 @import url('home.css');
 
-/* 2.2 About Styles */
-@import url('about.css');
-
 /* 3. Responsive Styles */
 @import url('responsive.css');

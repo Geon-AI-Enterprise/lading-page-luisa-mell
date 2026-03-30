@@ -8,15 +8,15 @@
       content="Perguntas Frequentes - Instituto Luisa Mell"
     />
     <title>Instituto Luisa Mell - FAQ</title>
-    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/images/shared/logo_orange.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/faq.css" />
+    <link rel="stylesheet" href="assets/css/shared/main.css" />
+    <link rel="stylesheet" href="assets/css/pages/faq.css" />
   </head>
 
   <body>
@@ -27,7 +27,7 @@
           <div class="logo">
             <a href="index.html">
               <img
-                src="assets/images/logo.svg"
+                src="assets/images/shared/logo.svg"
                 alt="Instituto Luisa Mell"
                 class="logo-image"
               />
@@ -91,7 +91,9 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="adotar.html" data-i18n="nav.adopt">Adotar</a></li>
+              <li>
+                <a href="adotar.html" data-i18n="nav.adopt">Adotar</a>
+              </li>
               <li>
                 <a href="apadrinhar.html" data-i18n="nav.sponsor">Apadrinhar</a>
               </li>
@@ -178,53 +180,25 @@
     </header>
 
     <main class="main-content faq-page">
-      <!-- Hero Section -->
+      <!-- Hero Section with Image Only -->
       <section class="faq-hero">
+        <picture class="faq-hero__image">
+          <source media="(max-width: 768px)" srcset="assets/images/faq/faq-herosection-mobile.png" />
+          <img src="assets/images/faq/faq-herosection.png" alt="Perguntas Frequentes" />
+        </picture>
+      </section>
+
+      <!-- FAQ Title Section -->
+      <section class="faq-intro">
         <div class="container">
-          <h1 data-i18n="faq.title">Perguntas Frequentes</h1>
-          <p class="faq-hero__description" data-i18n="faq.description">
-            Encontre respostas para as dúvidas mais comuns sobre adoção, 
-            apadrinhamento, voluntariado e como ajudar o Instituto Luisa Mell.
-          </p>
-          
-          <!-- Search Bar -->
-          <div class="faq-search">
-            <div class="faq-search__wrapper">
-              <svg class="faq-search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              <input 
-                type="text" 
-                id="faq-search-input"
-                class="faq-search__input" 
-                placeholder="Digite sua dúvida..."
-                data-i18n-placeholder="faq.searchPlaceholder"
-                autocomplete="off"
-              />
-              <button class="faq-search__clear" id="faq-search-clear" hidden aria-label="Limpar busca">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-            <div class="faq-search__results" id="faq-search-results" hidden></div>
-          </div>
+          <h1 class="faq-intro__title" data-i18n="faq.title">Perguntas Frequentes</h1>
         </div>
       </section>
 
       <!-- FAQ Categories -->
       <section class="faq-content">
         <div class="container">
-          <!-- Category: Instituto Luisa Mell -->
-          <div class="faq-category" data-category="institute">
-            <h2 class="faq-category__title">
-              <span class="faq-category__icon">🐾</span>
-              <span>Instituto Luisa Mell</span>
-            </h2>
-            
-            <div class="faq-list">
+          <div class="faq-list">
               <details class="faq-item">
                 <summary class="faq-item__question">
                   1. O que é o Instituto Luisa Mell?
@@ -386,7 +360,6 @@
                 </div>
               </details>
             </div>
-          </div>
 
           <!-- No Results Message -->
           <div class="faq-no-results" id="faq-no-results" hidden>
@@ -408,7 +381,7 @@
         <div class="footer-content">
           <div class="footer-brand">
             <img
-              src="assets/images/logo.svg"
+              src="assets/images/shared/logo.svg"
               alt="Instituto Luisa Mell"
               class="footer-logo"
             />
@@ -458,8 +431,6 @@
               <a href="https://institutoluisamell.colabore.org/doe/single_step" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="donation">Doar</a>
               <a href="denunciar.html" class="footer-link" data-i18n="footer.report">Denunciar</a>
               <a href="ser-voluntario.html" class="footer-link" data-i18n="footer.volunteer">Ser Voluntário</a>
-              <a href="adotar.html" class="footer-link" data-i18n="nav.adopt">Adotar</a>
-              <a href="apadrinhar.html" class="footer-link" data-i18n="nav.sponsor">Apadrinhar</a>
             </div>
 
             <div class="footer-nav-col">
@@ -483,6 +454,6 @@
     <script src="assets/js/donation.js"></script>
     <script src="assets/js/config.js"></script>
     <script type="module" src="assets/js/main.js"></script>
-    <script src="assets/js/faq-search.js"></script>
+    <script src="assets/js/pages/faq-accordion.js"></script>
   </body>
 </html>

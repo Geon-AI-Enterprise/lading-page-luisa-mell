@@ -1,6 +1,6 @@
-Ôªø/* ========================================
+/* ========================================
    Home Page Layout
-   Estrutura da p√°gina principal (Hero,
+   Estrutura da p·gina principal (Hero,
    3 bolhas, Institucional, Resgates,
    Como transformamos, Parceiros)
    ======================================== */
@@ -15,7 +15,7 @@
   align-items: center;
   overflow: hidden;
   padding-bottom: 60px;
-  background: url('../images/background-herosection.png') no-repeat center center;
+  background: url('../images/home/background-herosection.png') no-repeat center center;
   background-size: cover;
 }
 
@@ -170,7 +170,7 @@
   align-items: center;
   overflow: hidden;
   padding-bottom: 60px;
-  background: url('../images/herosection_pannel.png') no-repeat center center;
+  background: url('../images/home/herosection_pannel.png') no-repeat center center;
   background-size: cover;
   background-color: #00282e;
 }
@@ -402,7 +402,7 @@
   gap: 16px;
 }
 
-/* √Årea cinza grande do banner (placeholder) */
+/* ¡rea cinza grande do banner (placeholder) */
 .hero__banner {
   width: 100%;
   max-width: var(--content-max-width);
@@ -423,7 +423,7 @@
     box-shadow 0.3s ease;
 }
 
-/* Container para m√∫ltiplos banners */
+/* Container para m˙ltiplos banners */
 .hero__banners {
   width: 100%;
   max-width: 1120px;
@@ -508,7 +508,7 @@
   transform: scale(1.02);
 }
 
-/* Setas de navega√ß√£o - Removidas */
+/* Setas de navegaÁ„o - Removidas */
 .hero__carousel-arrow {
   display: none;
 }
@@ -521,12 +521,12 @@
   color: #666;
 }
 
-/* Placeholder gen√©rico, reutilizado em outros blocos */
+/* Placeholder genÈrico, reutilizado em outros blocos */
 .hero-placeholder {
   background-color: #dedede;
 }
 
-/* Varia√ß√µes do carrossel (s√≥ mudan√ßa visual de fundo) */
+/* VariaÁıes do carrossel (sÛ mudanÁa visual de fundo) */
 .hero__banner--slide-0 {
   background: #dedede;
 }
@@ -658,12 +658,12 @@
   transform: scale(1.05);
 }
 
-/* bolha com ‚Äúrecorte‚Äù - apenas visual */
+/* bolha com ìrecorteî - apenas visual */
 .hero-placeholder--blob {
   border-radius: 999px;
 }
 
-/* Bot√µes das bolhas */
+/* Botıes das bolhas */
 .help-card__button {
   border: none;
   outline: none;
@@ -685,7 +685,7 @@
     transform 0.2s ease;
 }
 
-/* Bot√£o de Doa√ß√£o - Turquesa */
+/* Bot„o de DoaÁ„o - Turquesa */
 .help-card__button--donation {
   background-color: #4BC5B8;
   box-shadow: 0 4px 12px rgba(75, 197, 184, 0.25);
@@ -697,7 +697,7 @@
   box-shadow: 0 6px 16px rgba(75, 197, 184, 0.3);
 }
 
-/* Bot√µes de Apadrinhamento e Ado√ß√£o - Laranja */
+/* Botıes de Apadrinhamento e AdoÁ„o - Laranja */
 .help-card__button--sponsor,
 .help-card__button--adopt {
   background-color: #D6561D;
@@ -744,7 +744,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Carrossel da se√ß√£o institucional */
+/* Carrossel da seÁ„o institucional */
 .about__carousel {
   position: relative;
   width: 100%;
@@ -759,25 +759,25 @@
   content: "";
   position: absolute;
   
-  /* Define o tamanho da √°rea das patinhas. 
+  /* Define o tamanho da ·rea das patinhas. 
      Como elas flutuam "fora" da foto, usamos mais de 100% */
   width: 140%; 
   height: 160%;
   
-  /* Centraliza as patinhas em rela√ß√£o √† foto */
+  /* Centraliza as patinhas em relaÁ„o ‡ foto */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   
   /* Insere a imagem das patinhas */
-  background-image: url('../images/patinhas-carrossel.png'); 
+  background-image: url('../images/home/patinhas-carrossel.png'); 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain; /* Ajusta para caber no espa√ßo definido */
+  background-size: contain; /* Ajusta para caber no espaÁo definido */
   
-  /* Garante que fique atr√°s da foto principal */
+  /* Garante que fique atr·s da foto principal */
   z-index: 99; 
-  pointer-events: none; /* Evita que a decora√ß√£o atrapalhe cliques */
+  pointer-events: none; /* Evita que a decoraÁ„o atrapalhe cliques */
 }
 
 .about__carousel-track {
@@ -854,7 +854,7 @@
     box-shadow 0.3s ease;
 }
 
-/* Varia√ß√µes visuais do ‚Äúcarrossel‚Äù */
+/* VariaÁıes visuais do ìcarrosselî */
 .about__gallery-image--slide-0 {
   background: #e3f1d8;
 }
@@ -932,7 +932,7 @@
 
 .rescues {
   padding: var(--section-padding);
-  background: url('../images/background-resgates.png') no-repeat center center;
+  background: url('../images/shared/resgates/background-resgates.png') no-repeat center center;
   background-size: cover;
 }
 
@@ -995,7 +995,7 @@
   pointer-events: none;
 }
 
-/* Conte√∫do do card */
+/* Conte˙do do card */
 .rescue-card__content {
   display: flex;
   flex-direction: column;
@@ -1185,7 +1185,7 @@
   animation: scroll-partners 25s linear infinite;
 }
 
-/* Pausar anima√ß√£o ao passar o mouse */
+/* Pausar animaÁ„o ao passar o mouse */
 .partners-carousel:hover .partners-carousel__track {
   animation-play-state: paused;
 }
@@ -1211,7 +1211,7 @@
   cursor: pointer;
 }
 
-/* Logo espec√≠fica maior */
+/* Logo especÌfica maior */
 .partners-carousel__logo--large {
   max-height: 100px;
   max-width: 320px;
@@ -1340,7 +1340,7 @@
     grid-template-columns: 1fr;
   }
 
-  /* Se√ß√£o Institucional - About */
+  /* SeÁ„o Institucional - About */
   .about {
     padding: 40px 0;
   }

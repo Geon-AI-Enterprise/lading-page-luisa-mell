@@ -14,27 +14,27 @@ let currentAnimal = null;
  */
 const careIcons = {
     special_diet: {
-        icon: 'assets/images/icons/care-food.svg',
+        icon: 'assets/images/shared/icons/care-food.svg',
         label: 'Alimentação especial'
     },
     vet_followup: {
-        icon: 'assets/images/icons/care-vet.svg',
+        icon: 'assets/images/shared/icons/care-vet.svg',
         label: 'Acompanhamento veterinário'
     },
     continuous_medication: {
-        icon: 'assets/images/icons/care-medicine.svg',
+        icon: 'assets/images/shared/icons/care-medicine.svg',
         label: 'Medicamentos contínuos'
     },
     hygiene_care: {
-        icon: 'assets/images/icons/care-hygiene.svg',
+        icon: 'assets/images/shared/icons/care-hygiene.svg',
         label: 'Cuidados de higiene'
     },
     special_shelter: {
-        icon: 'assets/images/icons/care-shelter.svg',
+        icon: 'assets/images/shared/icons/care-shelter.svg',
         label: 'Necessita abrigo adequado'
     },
     behavioral_training: {
-        icon: 'assets/images/icons/care-training.svg',
+        icon: 'assets/images/shared/icons/care-training.svg',
         label: 'Treinamento comportamental'
     }
 };
