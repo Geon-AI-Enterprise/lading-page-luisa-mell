@@ -8,7 +8,7 @@
       content="Conheça a história, missão e valores do Instituto Luisa Mell"
     />
     <title>Instituto Luisa Mell - Quem Somos</title>
-    <link rel="icon" href="assets/images/shared/logo_orange.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/images/shared/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -183,74 +183,91 @@
 
     <main class="main-content about-page">
       <section class="about-hero" id="quem-somos">
-        <div class="container">
+        <div class="about-hero__background"></div>
+        <div class="container about-hero__content">
           <span class="about-hero__eyebrow" data-i18n="aboutPage.eyebrow">Nossa história</span>
           <h1 data-i18n="aboutPage.title">Quem Somos</h1>
           <p data-i18n="aboutPage.intro">
-            O Instituto Luisa Mell é uma ONG dedicada à proteção e ao bem-estar animal. Desde 2015, atuamos no resgate animal, na reabilitação de cães e gatos vítimas de abandono e maus-tratos e na promoção da adoção responsável. Nosso trabalho envolve atendimento veterinário, acolhimento, tratamento e ações de conscientização para construir uma sociedade mais compassiva.
+            O Instituto Luisa Mell é uma ONG dedicada à proteção e ao bem-estar animal. Desde 2015, atuamos no resgate animal, na reabilitação de animais vítimas de abandono e maus-tratos e na promoção da adoção responsável.
           </p>
-          <p data-i18n="aboutPage.intro2">
-            Acreditamos que toda vida importa — e trabalhamos todos os dias para garantir dignidade, cuidado e um novo começo para milhares de animais resgatados.
-          </p>
+        </div>
+        <div class="about-hero__video-container">
+          <video class="about-hero__video" autoplay muted loop>
+            <source src="assets/videos/luisamell-drone.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeos HTML5.
+          </video>
         </div>
       </section>
 
       <section class="about-pillars">
-        <div class="container">
-          <div class="pillars-grid">
-            <article class="pillar-card">
-              <h3 data-i18n="aboutPage.pillars.mission.title">Missão</h3>
-              <p data-i18n="aboutPage.pillars.mission.text">
-                Resgatar, proteger e reabilitar animais em situação de risco, oferecendo atendimento veterinário, segurança e acolhimento. Promover a adoção responsável e conscientizar a sociedade sobre a importância da proteção animal e do respeito a todas as espécies.
+        <section class="about-work">
+          <div class="container about-work__wrapper">
+            <div class="about-work__video">
+              <div class="about-work__video-background"></div>
+              <video class="about-work__video-player" autoplay muted loop>
+                <source src="assets/images/quem_somos/Video Institucional Pag Doacao.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeos HTML5.
+              </video>
+            </div>
+            <div class="about-work__content">
+              <p>
+                Nosso trabalho envolve atendimento veterinário, acolhimento, tratamento e ações de conscientização para construir uma sociedade mais compassiva.
               </p>
-            </article>
-            <article class="pillar-card">
-              <h3 data-i18n="aboutPage.pillars.vision.title">Visão</h3>
-              <p data-i18n="aboutPage.pillars.vision.text">
-                Ser referência nacional em resgate animal, bem-estar e proteção animal, contribuindo para um futuro em que nenhum animal seja vítima de abandono ou crueldade. Inspirar ações que fortaleçam a adoção responsável e a educação sobre cuidados com os animais.
+              <p>
+                Acreditamos que toda vida importa. Trabalhamos todos os dias para garantir dignidade, cuidado e um novo começo para milhares de animais resgatados.
               </p>
-            </article>
-            <article class="pillar-card pillar-card--values">
-              <h3 data-i18n="aboutPage.pillars.values.title">Valores</h3>
-              <ul class="values-list">
-                <li><strong>Proteção e bem-estar animal:</strong> guiar todas as ações com respeito à vida.</li>
-                <li><strong>Compaixão:</strong> acolher cada animal com empatia, cuidado e dignidade.</li>
-                <li><strong>Transparência:</strong> atuar com responsabilidade e clareza em cada etapa do resgate.</li>
-                <li><strong>Compromisso:</strong> dedicar esforços contínuos ao tratamento, reabilitação e adoção responsável.</li>
-                <li><strong>Educação e conscientização:</strong> incentivar práticas de respeito aos animais na sociedade.</li>
-                <li><strong>Comunidade:</strong> unir voluntários, parceiros e apoiadores para fortalecer a causa animal.</li>
-              </ul>
-            </article>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Seção Missão -->
+      <section class="about-section about-section--missao">
+        <div class="about-section__content">
+          <div class="about-section__col">
+            <img src="assets/images/quem_somos/missao_texto.png" alt="Missão - Resgatar, proteger e reabilitar animais em situação de risco">
+          </div>
+          <div class="about-section__col">
+            <img src="assets/images/quem_somos/Missao_quem_somos.png" alt="Fotos de resgates e cuidados com animais">
           </div>
         </div>
       </section>
 
-      <section class="team-section" id="voluntario">
-        <div class="container">
-          <header class="team-header">
-            <h2 data-i18n="aboutPage.volunteers.title">Voluntários</h2>
-            <p data-i18n="aboutPage.volunteers.description">
-              Uma rede apaixonada que doa tempo e talento para garantir acolhimento e cuidado aos animais.
-            </p>
-          </header>
-          <div class="team-grid">
-            <article class="team-card">
-              <div class="team-photo">
-                <img src="assets/images/shared/voluntarios/luisa-mell-2.jpg" alt="Voluntário do Instituto Luisa Mell" />
-              </div>
-            </article>
-            <article class="team-card">
-              <div class="team-photo">
-                <img src="assets/images/shared/voluntarios/luisa-mell-3.jpg" alt="Voluntário do Instituto Luisa Mell" />
-              </div>
-            </article>
-            <article class="team-card">
-              <div class="team-photo">
-                <img src="assets/images/shared/voluntarios/luisa-mell-5.jpg" alt="Voluntário do Instituto Luisa Mell" />
-              </div>
-            </article>
+      <!-- Seção Visão -->
+      <section class="about-section about-section--visao">
+        <div class="about-section__content about-section__content--reverse">
+          <div class="about-section__col">
+            <img src="assets/images/quem_somos/visao_texto.png" alt="Visão - Ser referência nacional em resgate animal e bem-estar animal">
           </div>
-          <div class="section-cta">
+          <div class="about-section__col">
+            <img src="assets/images/quem_somos/Visao_quem_somos.png" alt="Luisa Mell com animal resgatado">
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção Valores -->
+      <section class="about-section about-section--valores">
+        <div class="about-section__content">
+          <div class="about-section__col">
+            <img src="assets/images/quem_somos/valores_texto.png" alt="Valores - Proteção, Transparência, Educação, Comunidade, Compaixão e Compromisso">
+          </div>
+          <div class="about-section__col">
+            <img src="assets/images/quem_somos/Valores_quem_Somos.png" alt="Luisa Mell com cachorro">
+          </div>
+        </div>
+      </section>
+
+      <section class="volunteers-section" id="voluntario">
+        <div class="volunteers-section__inner">
+          <h2 class="volunteers-section__title" data-i18n="aboutPage.volunteers.title">Voluntários</h2>
+          <p class="volunteers-section__description" data-i18n="aboutPage.volunteers.description">
+            Uma rede apaixonada que doa tempo e talento para
+            garantir acolhimento e cuidado aos animais.
+          </p>
+          <div class="volunteers-section__photo">
+            <img src="assets/images/quem_somos/voluntariados.png" alt="Equipe de voluntários do Instituto Luisa Mell" />
+          </div>
+          <div class="volunteers-section__cta">
             <a href="ser-voluntario.html" class="btn-primary" data-i18n="aboutPage.volunteers.cta">Quero ser voluntário</a>
           </div>
         </div>
