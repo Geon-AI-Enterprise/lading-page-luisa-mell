@@ -204,7 +204,7 @@
           <div class="container about-work__wrapper">
             <div class="about-work__video">
               <div class="about-work__video-background"></div>
-              <video class="about-work__video-player" autoplay muted loop>
+              <video class="about-work__video-player" id="institutional-video" loop playsinline preload="auto">
                 <source src="assets/images/quem_somos/Video Institucional Pag Doacao.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeos HTML5.
               </video>
@@ -521,5 +521,36 @@ Cada embaixador é um aliado essencial na transformação de vidas. Com sua infl
     <script src="assets/js/shared/donation.js"></script>
     <script src="assets/js/shared/config.js"></script>
     <script type="module" src="assets/js/shared/main.js"></script>
+
+    <script>
+      (function () {
+        const video = document.getElementById('institutional-video');
+        if (!video) return;
+
+        let hasStarted = false;
+
+        // IntersectionObserver: inicia o vídeo com áudio quando a section fica visível
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && !hasStarted) {
+              hasStarted = true;
+              video.play();
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.5 });
+
+        observer.observe(video.closest('.about-work__video') || video);
+
+        // Click para pausar/retomar
+        video.addEventListener('click', function () {
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
