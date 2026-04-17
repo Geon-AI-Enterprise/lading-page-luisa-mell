@@ -94,6 +94,17 @@ function renderCareIcons(features = []) {
 }
 
 /**
+ * Gera legenda textual das características de cuidado
+ * @param {string[]} features - Array de features
+ * @returns {string} Legenda separada por vírgula
+ */
+function renderCareCaption(features = []) {
+    if (!features || features.length === 0) return '';
+    const labels = features.map(f => careIcons[f]?.label).filter(Boolean);
+    return labels.join(', ');
+}
+
+/**
  * Renderiza galeria de imagens
  * @param {string[]} urls - Array de URLs das imagens
  * @param {string} name - Nome do animal para alt
@@ -127,25 +138,13 @@ function populateModal(animal) {
 
     // Nome
     const nameEl = modal.querySelector('.animal-modal__name');
-    if (nameEl) nameEl.textContent = `Olá, sou ${animal.name}!`;
+    if (nameEl) nameEl.textContent = `Olá, sou o ${animal.name}!`;
 
     // Descrição
     const descEl = modal.querySelector('.animal-modal__description');
     if (descEl) {
         descEl.textContent = animal.description || 
             'Este animal aguarda um lar cheio de amor. Entre em contato para conhecê-lo melhor!';
-    }
-
-    // Custo mensal (usando sponsorship_monthly_cost do banco de dados)
-    const costEl = modal.querySelector('.animal-modal__cost');
-    if (costEl) {
-        const cost = animal.sponsorship_monthly_cost || animal.monthly_cost || 0;
-        if (cost > 0) {
-            costEl.textContent = `Custos mensais: ${formatCurrency(cost)}`;
-            costEl.style.display = '';
-        } else {
-            costEl.style.display = 'none';
-        }
     }
 
     // Foto antes
@@ -186,10 +185,27 @@ function populateModal(animal) {
         }
     }
 
-    // Ícones de cuidados
+    // Botão Adote com nome do animal
+    const adoptBtn = modal.querySelector('.animal-modal__btn--adopt');
+    if (adoptBtn) {
+        adoptBtn.textContent = `Adote o ${animal.name}`;
+        adoptBtn.href = `adotar.html?animal=${animal.id}#contato`;
+    }
+
+    // Ícones de cuidados + legenda
     const careContainer = modal.querySelector('.animal-modal__care-icons');
     if (careContainer) {
         careContainer.innerHTML = renderCareIcons(animal.care_features);
+    }
+    const captionEl = modal.querySelector('.animal-modal__care-caption');
+    if (captionEl) {
+        captionEl.textContent = renderCareCaption(animal.care_features);
+    }
+
+    // Texto de ajuda com nome do animal
+    const helpText = modal.querySelector('.animal-modal__help-text');
+    if (helpText) {
+        helpText.innerHTML = `Não posso adotar o ${animal.name}, mas <strong>quero ajudar</strong>:`;
     }
 
     // Galeria
@@ -202,11 +218,6 @@ function populateModal(animal) {
     const sponsorBtn = modal.querySelector('.animal-modal__btn--sponsor');
     if (sponsorBtn) {
         sponsorBtn.href = `apadrinhar.html?animal=${animal.id}`;
-    }
-
-    const adoptBtn = modal.querySelector('.animal-modal__btn--adopt');
-    if (adoptBtn) {
-        adoptBtn.href = `adotar.html?animal=${animal.id}#contato`;
     }
 
     const giftBtn = modal.querySelector('.animal-modal__btn--gift');
@@ -268,6 +279,31 @@ export function closeAnimalModal() {
 }
 
 /**
+ * Inicializa navegação do carrossel de galeria
+ */
+function initGalleryCarousel() {
+    const gallery = document.querySelector('.animal-modal__gallery');
+    const prevBtn = document.querySelector('.animal-modal__gallery-prev');
+    const nextBtn = document.querySelector('.animal-modal__gallery-next');
+
+    if (!gallery || !prevBtn || !nextBtn) return;
+
+    prevBtn.addEventListener('click', () => {
+        const item = gallery.querySelector('.animal-modal__gallery-item');
+        if (item) {
+            gallery.scrollBy({ left: -(item.offsetWidth + 16), behavior: 'smooth' });
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const item = gallery.querySelector('.animal-modal__gallery-item');
+        if (item) {
+            gallery.scrollBy({ left: item.offsetWidth + 16, behavior: 'smooth' });
+        }
+    });
+}
+
+/**
  * Inicializa event listeners do modal
  */
 export function initAnimalModal() {
@@ -292,7 +328,7 @@ export function initAnimalModal() {
 
     // Delegar clique nos botões "Conheça-me" dos cards
     document.addEventListener('click', (e) => {
-        const knowMeBtn = e.target.closest('.btn-primary[data-i18n="adopt.btnKnow"]');
+        const knowMeBtn = e.target.closest('.adopt-card__btn[data-i18n="adopt.btnKnow"]') || e.target.closest('.btn-primary[data-i18n="adopt.btnKnow"]');
         if (knowMeBtn) {
             e.preventDefault();
             const card = knowMeBtn.closest('.adopt-card');
@@ -304,6 +340,9 @@ export function initAnimalModal() {
             }
         }
     });
+
+    // Inicializar carrossel da galeria
+    initGalleryCarousel();
 
     console.log('🐾 Animal modal initialized');
 }

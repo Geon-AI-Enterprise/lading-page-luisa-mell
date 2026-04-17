@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="assets/css/shared/main.css" />
     <link rel="stylesheet" href="assets/css/pages/adotar.css" />
     <link rel="stylesheet" href="assets/css/pages/animal-modal.css" />
+    <link rel="stylesheet" href="assets/css/pages/events.css" />
+    <link rel="stylesheet" href="assets/css/pages/eventos.css" />
   </head>
 
   <body>
@@ -155,29 +157,48 @@
     </header>
 
     <main class="main-content">
-      <!-- HERO: Banner -->
+      <!-- HERO: Apadrinhamento -->
       <section class="sponsor-hero">
-        <div class="sponsor-hero__wrapper">
-          <img 
-            src="assets/images/apadrinhe/banner-apadrinhe.png" 
-            alt="Apadrinhe um amigo" 
-            class="sponsor-hero__banner"
-          />
-          <div class="sponsor-hero__overlay">
+        <div class="sponsor-hero__container">
+          <!-- Imagem (Esquerda) -->
+          <div class="sponsor-hero__image-col">
+            <picture>
+              <source 
+                media="(max-width: 1024px)" 
+                srcset="assets/images/apadrinhe/luisamell-apadrinhar-hero-mobile.png"
+              />
+              <img 
+                src="assets/images/apadrinhe/luisamell-apadrinhar-hero.png" 
+                alt="Luisa Mell com animal resgatado" 
+                class="sponsor-hero__image"
+              />
+            </picture>
+          </div>
+
+          <!-- Texto (Direita) -->
+          <div class="sponsor-hero__text-col">
+            <img 
+              src="assets/images/shared/icons/stars-icon.png" 
+              alt="" 
+              class="sponsor-hero__stars"
+            />
             <h1 class="sponsor-hero__title">Apadrinhamento</h1>
             <p class="sponsor-hero__text">
-              O apadrinhamento é uma forma de apoio contínuo que
-              permite ao instituto oferecer, de forma estável, todos os
-              cuidados necessários aos animais como: alimentação,
-              suporte veterinário, manutenção do espaço e atenção integral,
-              até eles encontrarem um lar.
+              Nem todos os animais resgatados estão prontos para adoção imediata. Muitos chegam até nós feridos, debilitados ou com histórias difíceis que exigem tempo, cuidado e tratamento contínuo.
             </p>
-            <p class="sponsor-hero__cta">
-              <svg class="sponsor-hero__heart" width="16" height="16" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-              </svg>
-              <a href="https://institutoluisamell.colabore.org/doe/single_step" target="_blank" rel="noopener noreferrer">Quero ajudar mesmo sem apadrinhar.</a>
+            <p class="sponsor-hero__text sponsor-hero__text--highlight">
+              É aí que você pode fazer toda a diferença.
             </p>
+            <a href="https://institutoluisamell.colabore.org/doe/single_step" target="_blank" rel="noopener noreferrer" class="sponsor-hero__cta-link">
+              Quero ajudar, mesmo sem apadrinhar.
+            </a>
+            <div class="sponsor-hero__heart-wrapper">
+              <img 
+                src="assets/images/shared/icons/heart-apadrinhar-icon.png" 
+                alt="Coração" 
+                class="sponsor-hero__heart-icon"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -227,11 +248,11 @@
                 <span class="adopt-filter-group__title">Idade</span>
                 <div class="adopt-filter-group__buttons">
                   <button class="adopt-filter-btn" data-filter="puppies">
-                    <img src="assets/images/apadrinhe/filhote.png" alt="Filhote" class="adopt-filter-icon" />
+                    <img src="assets/images/shared/icons/filhote-icon.png" alt="Filhote" class="adopt-filter-icon adopt-filter-icon--small" />
                     <span data-i18n="adopt.filter.puppies">Filhote</span>
                   </button>
                   <button class="adopt-filter-btn" data-filter="adults">
-                    <img src="assets/images/apadrinhe/filhote.png" alt="Adulto" class="adopt-filter-icon" />
+                    <img src="assets/images/shared/icons/adulto-icon.png" alt="Adulto" class="adopt-filter-icon" />
                     <span data-i18n="adopt.filter.adults">Adulto</span>
                   </button>
                 </div>
@@ -275,8 +296,15 @@
 
           <div class="adopt-animals__wrapper">
             <!-- Título da seção -->
-            <div class="adopt-animals__header">
-              <h2 class="adopt-animals__title">Apadrinhe um amigo</h2>
+            <div class="adopt-animals__header adopt-animals__header--sponsor">
+              <h2 class="adopt-animals__title">Conheça seu futuro afilhado</h2>
+              <div class="adopt-animals__subtitle-row">
+                <img src="assets/images/shared/icons/happy-icon.png" alt="" class="adopt-animals__header-icon" />
+                <p class="adopt-animals__subtitle">
+                  Ao se tornar um padrinho ou madrinha, você ajuda diretamente na recuperação e manutenção desses animais, garantindo alimentação, cuidados veterinários, medicamentos e um ambiente seguro enquanto eles esperam por uma nova chance.
+                </p>
+                <img src="assets/images/shared/icons/pegada-icon.png" alt="" class="adopt-animals__header-icon" />
+              </div>
             </div>
 
             <!-- Mensagem quando não há resultados -->
@@ -363,38 +391,59 @@
         </div>
       </section>
 
-      <!-- CTA: Doação -->
-      <section class="adopt-donation-cta">
-        <div class="adopt-donation-cta__paws adopt-donation-cta__paws-left">
-          <img 
-            src="assets/images/apadrinhe/apadrinhe-3.svg" 
-            alt="Patas" 
-            class="adopt-donation-cta__paw-img"
-          />
-        </div>
-
+      <!-- Nosso dia no Instituto -->
+      <section class="sponsor-daily">
         <div class="container">
-          <div class="adopt-donation-cta__content">
-            <h2 data-i18n="adopt.donationTitle">Deseja ajudar todos eles? Faça uma doação!</h2>
-            <p data-i18n="adopt.donationDesc">Ajude a construir novos futuros para animais resgatados, transformando adoções em famílias.</p>
-            <a
-              href="https://institutoluisamell.colabore.org/doe/single_step"
-              class="btn-donate"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-i18n="donation"
-            >
-              Doação
-            </a>
-          </div>
-        </div>
-
-        <div class="adopt-donation-cta__paws adopt-donation-cta__paws-right">
+          <h2 class="sponsor-daily__title">Nosso dia no Instituto Luisa Mell</h2>
           <img 
-            src="assets/images/apadrinhe/apadrinhe-2.svg" 
-            alt="Patas" 
-            class="adopt-donation-cta__paw-img"
+            src="assets/images/apadrinhe/apadrinhar-daily-section.png" 
+            alt="Nosso dia no Instituto Luisa Mell" 
+            class="sponsor-daily__image"
           />
+        </div>
+      </section>
+
+      <!-- SECTION: Eventos -->
+      <section class="events-grid-section" aria-labelledby="events-title">
+        <div class="container">
+          <img 
+            src="assets/images/shared/icons/calendario-eventos.png" 
+            alt="Eventos de adoção - Calendário" 
+            class="events-title-image"
+            id="events-title"
+          />
+          
+          <!-- Filter Tabs -->
+          <div class="events-filter" role="tablist">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+              Todos
+            </button>
+            <button class="filter-tab" data-filter="upcoming" role="tab" aria-selected="false">
+              Próximos
+            </button>
+            <button class="filter-tab" data-filter="past" role="tab" aria-selected="false">
+              Realizados
+            </button>
+          </div>
+          
+          <div class="events-grid" id="events-grid">
+            <!-- Grid de eventos será inserida via JavaScript -->
+          </div>
+          
+          <div class="events-empty" id="events-empty" hidden>
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <p data-i18n="events.noEvents">Nenhum evento encontrado</p>
+          </div>
+          
+          <div class="events-loading" id="events-loading">
+            <div class="loading-spinner"></div>
+            <p>Carregando eventos...</p>
+          </div>
         </div>
       </section>
     </main>
@@ -481,50 +530,54 @@
       <button class="animal-modal__close" aria-label="Fechar">×</button>
       
       <div class="animal-modal__content">
-        <!-- Foto Antes -->
-        <div class="animal-modal__before">
-          <div class="animal-modal__placeholder">
-            <span>📷</span>
-            <p>Carregando...</p>
+        <!-- Fotos (Esquerda) -->
+        <div class="animal-modal__photos">
+          <div class="animal-modal__after">
+            <div class="animal-modal__placeholder">
+              <span>📷</span>
+              <p>Carregando...</p>
+            </div>
+            <span class="animal-modal__label">DEPOIS</span>
           </div>
-          <span class="animal-modal__label">ANTES</span>
+          <div class="animal-modal__before">
+            <div class="animal-modal__placeholder">
+              <span>📷</span>
+              <p>Carregando...</p>
+            </div>
+            <span class="animal-modal__label">ANTES</span>
+          </div>
         </div>
         
-        <!-- Informações Centrais -->
+        <!-- Informações (Direita) -->
         <div class="animal-modal__info">
           <h2 class="animal-modal__name">Olá, sou a Maria!</h2>
           <p class="animal-modal__description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            convallis neque in lorem egestas, at ultrices erat pulvinar.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          <p class="animal-modal__cost">Custos mensais: R$196,60</p>
-          
+
+          <div class="animal-modal__adopt-row">
+            <a href="apadrinhar.html" class="animal-modal__btn animal-modal__btn--sponsor-main">Apadrinhe</a>
+            <div class="animal-modal__care-icons">
+              <!-- Ícones serão populados via JS -->
+            </div>
+          </div>
+          <p class="animal-modal__care-caption"></p>
+
+          <p class="animal-modal__help-text">Não posso apadrinhar, mas <strong>quero ajudar</strong>:</p>
           <div class="animal-modal__actions">
-            <a href="apadrinhar.html" class="animal-modal__btn animal-modal__btn--sponsor">Apadrinhe</a>
-            <a href="adotar.html#contato" class="animal-modal__btn animal-modal__btn--adopt">Adote</a>
+            <a href="adotar.html#contato" class="animal-modal__btn animal-modal__btn--adopt-alt">Adote</a>
             <a href="https://institutoluisamell.colabore.org/doe/single_step" class="animal-modal__btn animal-modal__btn--gift" target="_blank">Dê um presente</a>
           </div>
-          
-          <div class="animal-modal__care-icons">
-            <!-- Ícones serão populados via JS -->
-          </div>
         </div>
-        
-        <!-- Foto Depois -->
-        <div class="animal-modal__after">
-          <div class="animal-modal__placeholder">
-            <span>📷</span>
-            <p>Carregando...</p>
-          </div>
-          <span class="animal-modal__label">DEPOIS</span>
+      </div>
+
+      <!-- Carrossel de Galeria -->
+      <div class="animal-modal__gallery-section">
+        <button class="animal-modal__gallery-prev" aria-label="Anterior">&#10094;</button>
+        <div class="animal-modal__gallery">
+          <!-- Galeria será populada via JS -->
         </div>
-        
-        <!-- Galeria -->
-        <div class="animal-modal__gallery-section">
-          <div class="animal-modal__gallery">
-            <!-- Galeria será populada via JS -->
-          </div>
-        </div>
+        <button class="animal-modal__gallery-next" aria-label="Próximo">&#10095;</button>
       </div>
     </div>
 
@@ -535,5 +588,6 @@
     <script src="assets/js/shared/filters-dropdown.js"></script>
     <script type="module" src="assets/js/pages/adopt-filters.js"></script>
     <script type="module" src="assets/js/pages/animal-modal.js"></script>
+    <script type="module" src="assets/js/pages/events-page.js"></script>
   </body>
 </html>

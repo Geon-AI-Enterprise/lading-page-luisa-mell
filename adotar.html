@@ -196,14 +196,26 @@
       <!-- HERO: Banner Adote -->
       <section class="adopt-hero">
         <div class="adopt-hero__wrapper">
-          <img src="assets/images/adotar/banner-adote.png" alt="Adote um peludo" class="adopt-hero__banner" />
-          <div class="adopt-hero__overlay">
-            <h1 class="adopt-hero__title">Adote um peludo</h1>
+          <div class="adopt-hero__content">
+            <h1 class="adopt-hero__title">Adote um peludo!</h1>
+            <h2 class="adopt-hero__subtitle">Aqui, cada história importa.</h2>
             <p class="adopt-hero__text">
-              Adotar é dar uma segunda chance.<br />
-              <a href="index.html#doacoes" class="adopt-hero__link">Mesmo sem adotar, eu escolho ajudar.</a>
+              Resgatamos, cuidamos, reabilitamos e preparamos nossos animais com todo o carinho para encontrarem uma família de verdade.
             </p>
+            <p class="adopt-hero__text">
+              Adotar um animal é muito mais do que dar um lar.
+            </p>
+            <p class="adopt-hero__text">
+              É oferecer uma segunda chance para quem já enfrentou abandono, maus-tratos ou o medo de não sobreviver.
+            </p>
+            <img src="assets/images/adotar/hero-adocao-heart.png" alt="" class="adopt-hero__heart" />
           </div>
+          <div class="adopt-hero__image-wrapper">
+            <img src="assets/images/adotar/hero-adocao-dogs.png" alt="Fotos de animais para adoção" class="adopt-hero__dogs" />
+          </div>
+        </div>
+        <div class="adopt-hero__cta">
+          <a href="index.html#doacoes" class="adopt-hero__link">Não posso adotar agora, mas quero ajudar!</a>
         </div>
       </section>
 
@@ -264,11 +276,11 @@
                 <span class="adopt-filter-group__title">Idade</span>
                 <div class="adopt-filter-group__buttons">
                   <button class="adopt-filter-btn" data-filter="puppies">
-                    <img src="assets/images/apadrinhe/filhote.png" alt="Filhote" class="adopt-filter-icon" />
+                    <img src="assets/images/shared/icons/filhote-icon.png" alt="Filhote" class="adopt-filter-icon adopt-filter-icon--small" />
                     <span data-i18n="adopt.filter.puppies">Filhote</span>
                   </button>
                   <button class="adopt-filter-btn" data-filter="adults">
-                    <img src="assets/images/apadrinhe/filhote.png" alt="Adulto" class="adopt-filter-icon" />
+                    <img src="assets/images/shared/icons/adulto-icon.png" alt="Adulto" class="adopt-filter-icon" />
                     <span data-i18n="adopt.filter.adults">Adulto</span>
                   </button>
                 </div>
@@ -313,7 +325,7 @@
           <div class="adopt-animals__wrapper">
             <!-- Título da seção -->
             <div class="adopt-animals__header">
-              <h2 class="adopt-animals__title" data-i18n="adopt.filterTitle">Escolha seu melhor amigo</h2>
+              <h2 class="adopt-animals__title" data-i18n="adopt.filterTitle">Conheça seu futuro amigo</h2>
             </div>
 
             <!-- (events moved below the animals listing) -->
@@ -402,12 +414,25 @@
         </div>
       </section>
 
+      <!-- SECTION: De resgatado a amado -->
+      <section class="adopt-stories-section">
+        <h2 class="adopt-stories-section__title" data-i18n="adopt.storiesTitle">De resgatado a amado</h2>
+        <img 
+          src="assets/images/adotar/section-adocao-resgate.png" 
+          alt="De resgatado a amado" 
+          class="adopt-stories-section__banner"
+        />
+      </section>
+
       <!-- EVENTS SECTION -->
       <section class="events-grid-section" aria-labelledby="events-title">
         <div class="container">
-          <h2 id="events-title" class="section-title" data-i18n="events.allEvents">
-            Todos os Eventos
-          </h2>
+          <img 
+            src="assets/images/shared/icons/calendario-eventos.png" 
+            alt="Eventos de adoção - Calendário" 
+            class="events-title-image"
+            id="events-title"
+          />
           
           <!-- Filter Tabs -->
           <div class="events-filter" role="tablist">
@@ -443,144 +468,19 @@
         </div>
       </section>
 
-      <!-- SECTION: De resgatado a amado -->
-      <section class="adopt-stories-section">
-        <div class="container">
-          <h2
-            class="adopt-stories-section__title"
-            data-i18n="adopt.storiesTitle"
-          >
-            De resgatado a amado
-          </h2>
-          <p
-            class="adopt-stories-section__subtitle"
-            data-i18n="adopt.storiesSubtitle"
-          >
-            Fotos do antes e depois com novos tutores
-          </p>
-
-          <div class="adopt-stories-grid">
-            <div class="adopt-story-item">
-              <img 
-                src="assets/images/adotar/antes-1.png" 
-                alt="Antes - História de resgate 1" 
-                class="adopt-story-image"
-              />
-              <img 
-                src="assets/images/adotar/depiois-1.png" 
-                alt="Depois - História de resgate 1" 
-                class="adopt-story-image"
-              />
-            </div>
-
-            <div class="adopt-story-item">
-              <img 
-                src="assets/images/adotar/antes-2.png" 
-                alt="Antes - História de resgate 2" 
-                class="adopt-story-image"
-              />
-              <img 
-                src="assets/images/adotar/depois-2.png" 
-                alt="Depois - História de resgate 2" 
-                class="adopt-story-image"
-              />
-            </div>
-
-            <div class="adopt-story-item">
-              <img 
-                src="assets/images/adotar/antes-3.png" 
-                alt="Antes - História de resgate 3" 
-                class="adopt-story-image"
-              />
-              <img 
-                src="assets/images/adotar/depois-3.png" 
-                alt="Depois - História de resgate 3" 
-                class="adopt-story-image"
-              />
-            </div>
-
-            <div class="adopt-story-item">
-              <img 
-                src="assets/images/adotar/antes-4.png" 
-                alt="Antes - História de resgate 4" 
-                class="adopt-story-image"
-              />
-              <img 
-                src="assets/images/adotar/depois-4.png" 
-                alt="Depois - História de resgate 4" 
-                class="adopt-story-image"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-
       <!-- SECTION: CTA Apadrinhamento -->
-      <section class="adopt-donation-cta adopt-donation-cta--secondary">
-        <div class="adopt-donation-cta__paws adopt-donation-cta__paws-left">
-          <img
-            src="assets/images/apadrinhe/apadrinhe-3.svg"
-            alt="Patas"
-            class="adopt-donation-cta__paw-img"
-          />
-        </div>
-
+      <section class="adopt-cta">
         <div class="container">
-          <div class="adopt-donation-cta__content">
-            <h2 data-i18n="adopt.sponsorshipTitle">
-              Não pode adotar? Seja padrinho ou madrinha!
-            </h2>
-            <p data-i18n="adopt.sponsorshipDesc">
-              Apadrinhar é mais do que doar — é criar um laço de afeto com um animal que depende de cuidados especiais para viver com dignidade. Com sua ajuda, garantimos que ele siga vivendo com conforto, saúde e muito amor.
-            </p>
-            <a
-              href="apadrinhar.html"
-              class="btn-donate"
-              data-i18n="adopt.sponsorshipBtn"
-            >
-              Apadrinhamento
-            </a>
-          </div>
-        </div>
-
-        <div class="adopt-donation-cta__paws adopt-donation-cta__paws-right">
-          <img
-            src="assets/images/apadrinhe/apadrinhe-2.svg"
-            alt="Patas"
-            class="adopt-donation-cta__paw-img"
+          <img 
+            src="assets/images/adotar/section-adocao-cta-heart.png" 
+            alt="" 
+            class="adopt-cta__heart"
           />
-        </div>
-      </section>
-
-      <!-- SECTION: FAQ / Dúvidas -->
-      <section class="adopt-faq-section">
-        <div class="container">
-          <h2 class="adopt-faq-section__title" data-i18n="adopt.faqTitle">
-            Tem alguma dúvida?
-          </h2>
-          
-          <!-- Search Bar -->
-          <form class="faq-search" action="faq.html" method="get">
-            <div class="faq-search__wrapper">
-              <svg class="faq-search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              <input 
-                type="text" 
-                name="q"
-                class="faq-search__input" 
-                placeholder="Digite sua dúvida..."
-                data-i18n-placeholder="adopt.faqSearchPlaceholder"
-                autocomplete="off"
-              />
-            </div>
-          </form>
-
-          <p class="adopt-faq-section__link">
-            Ou acesse nossa <a href="faq.html">página de perguntas frequentes</a>
+          <h2 class="adopt-cta__title">Não pode adotar?<br>Seja padrinho ou madrinha!</h2>
+          <p class="adopt-cta__text">
+            Apadrinhar é mais do que doar. É criar um laço de afeto com um animal que depende de cuidados especiais para viver com dignidade. Com sua ajuda, garantimos que ele siga vivendo com conforto, saúde e muito amor.
           </p>
+          <a href="apadrinhar.html" class="adopt-cta__btn">Apadrinhamento</a>
         </div>
       </section>
     </main>
@@ -667,50 +567,54 @@
       <button class="animal-modal__close" aria-label="Fechar">×</button>
       
       <div class="animal-modal__content">
-        <!-- Foto Antes -->
-        <div class="animal-modal__before">
-          <div class="animal-modal__placeholder">
-            <span>📷</span>
-            <p>Carregando...</p>
+        <!-- Fotos (Esquerda) -->
+        <div class="animal-modal__photos">
+          <div class="animal-modal__after">
+            <div class="animal-modal__placeholder">
+              <span>📷</span>
+              <p>Carregando...</p>
+            </div>
+            <span class="animal-modal__label">DEPOIS</span>
           </div>
-          <span class="animal-modal__label">ANTES</span>
+          <div class="animal-modal__before">
+            <div class="animal-modal__placeholder">
+              <span>📷</span>
+              <p>Carregando...</p>
+            </div>
+            <span class="animal-modal__label">ANTES</span>
+          </div>
         </div>
         
-        <!-- Informações Centrais -->
+        <!-- Informações (Direita) -->
         <div class="animal-modal__info">
           <h2 class="animal-modal__name">Olá, sou a Maria!</h2>
           <p class="animal-modal__description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            convallis neque in lorem egestas, at ultrices erat pulvinar.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          <p class="animal-modal__cost">Custos mensais: R$196,60</p>
-          
+
+          <div class="animal-modal__adopt-row">
+            <a href="#contato" class="animal-modal__btn animal-modal__btn--adopt">Adote</a>
+            <div class="animal-modal__care-icons">
+              <!-- Ícones serão populados via JS -->
+            </div>
+          </div>
+          <p class="animal-modal__care-caption"></p>
+
+          <p class="animal-modal__help-text">Não posso adotar, mas <strong>quero ajudar</strong>:</p>
           <div class="animal-modal__actions">
             <a href="apadrinhar.html" class="animal-modal__btn animal-modal__btn--sponsor">Apadrinhe</a>
-            <a href="#contato" class="animal-modal__btn animal-modal__btn--adopt">Adote</a>
             <a href="https://institutoluisamell.colabore.org/doe/single_step" class="animal-modal__btn animal-modal__btn--gift" target="_blank">Dê um presente</a>
           </div>
-          
-          <div class="animal-modal__care-icons">
-            <!-- Ícones serão populados via JS -->
-          </div>
         </div>
-        
-        <!-- Foto Depois -->
-        <div class="animal-modal__after">
-          <div class="animal-modal__placeholder">
-            <span>📷</span>
-            <p>Carregando...</p>
-          </div>
-          <span class="animal-modal__label">DEPOIS</span>
+      </div>
+
+      <!-- Carrossel de Galeria -->
+      <div class="animal-modal__gallery-section">
+        <button class="animal-modal__gallery-prev" aria-label="Anterior">&#10094;</button>
+        <div class="animal-modal__gallery">
+          <!-- Galeria será populada via JS -->
         </div>
-        
-        <!-- Galeria -->
-        <div class="animal-modal__gallery-section">
-          <div class="animal-modal__gallery">
-            <!-- Galeria será populada via JS -->
-          </div>
-        </div>
+        <button class="animal-modal__gallery-next" aria-label="Próximo">&#10095;</button>
       </div>
     </div>
 

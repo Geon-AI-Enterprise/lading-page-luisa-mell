@@ -15,7 +15,7 @@ yarn-error.log*
 .env.keys
 
 # Configuration with secrets (do not commit!)
-assets/js/config.js
+assets/js/shared/config.js
 
 # IDE / Editor
 .vscode/

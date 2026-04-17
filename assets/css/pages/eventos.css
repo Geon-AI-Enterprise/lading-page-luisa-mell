@@ -329,6 +329,14 @@
   padding: var(--section-padding);
 }
 
+.events-title-image {
+  display: block;
+  margin: 0 auto 2rem;
+  max-width: 1400px;
+  width: 100%;
+  height: auto;
+}
+
 .events-filter {
   display: flex;
   justify-content: center;

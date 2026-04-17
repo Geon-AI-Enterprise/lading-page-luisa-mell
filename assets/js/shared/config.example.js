@@ -4,20 +4,39 @@
 // ========================================
 // 
 // INSTRUÇÕES:
-// 1. Copie este arquivo para: assets/js/config.js
+// 1. Copie este arquivo para: assets/js/shared/config.js
 // 2. Substitua os valores pelas suas chaves reais
 // 3. NÃO commite o config.js no Git (já está no .gitignore)
-// 4. Faça upload do config.js via FTP para o servidor
+// 4. O ambiente é detectado automaticamente pelo hostname:
+//    - localhost / 127.0.0.1 → development
+//    - *.vercel.app / *.netlify.app → staging
+//    - demais → production
 //
 
-window.APP_CONFIG = {
-    // URL base do seu projeto Supabase
-    SUPABASE_URL: 'https://SEU_PROJECT_ID.supabase.co',
-    
-    // Chave pública (anon key) do Supabase
-    // Encontre em: Supabase Dashboard > Settings > API > anon public
-    SUPABASE_ANON_KEY: 'SUA_ANON_KEY_AQUI',
-    
-    // URL base das Edge Functions
-    EDGE_FUNCTION_BASE: 'https://SEU_PROJECT_ID.supabase.co/functions/v1'
-};
+(function () {
+    const hostname = window.location.hostname;
+
+    // Credenciais compartilhadas (mesmo banco para todos os ambientes)
+    const SUPABASE_URL = 'https://SEU_PROJECT_ID.supabase.co';
+    const SUPABASE_ANON_KEY = 'SUA_ANON_KEY_AQUI';
+    const EDGE_FUNCTION_BASE = 'https://SEU_PROJECT_ID.supabase.co/functions/v1';
+
+    // Determina o ambiente
+    let ENV = 'production';
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+        ENV = 'development';
+    } else if (hostname.includes('vercel.app') || hostname.includes('netlify.app')) {
+        ENV = 'staging';
+    }
+
+    window.APP_CONFIG = {
+        ENV,
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY,
+        EDGE_FUNCTION_BASE,
+    };
+
+    if (ENV !== 'production') {
+        console.log(`🔧 Ambiente: ${ENV} | Host: ${hostname}`);
+    }
+})();

@@ -227,8 +227,9 @@
           <div class="about-section__col">
             <img src="assets/images/quem_somos/missao_texto.png" alt="Missão - Resgatar, proteger e reabilitar animais em situação de risco">
           </div>
-          <div class="about-section__col">
-            <img src="assets/images/quem_somos/Missao_quem_somos.png" alt="Fotos de resgates e cuidados com animais">
+          <div class="about-section__col missao-crossfade">
+            <img src="assets/images/quem_somos/Missao_quem_somos.png" alt="Fotos de resgates e cuidados com animais" class="missao-crossfade__img missao-crossfade__img--active">
+            <img src="assets/images/quem_somos/Missao_quem_somos_2.png" alt="Fotos de resgates e cuidados com animais" class="missao-crossfade__img">
           </div>
         </div>
       </section>
@@ -523,6 +524,19 @@ Cada embaixador é um aliado essencial na transformação de vidas. Com sua infl
     <script type="module" src="assets/js/shared/main.js"></script>
 
     <script>
+      // Crossfade missão
+      (function () {
+        const imgs = document.querySelectorAll('.missao-crossfade__img');
+        if (imgs.length > 1) {
+          let current = 0;
+          setInterval(function () {
+            imgs[current].classList.remove('missao-crossfade__img--active');
+            current = (current + 1) % imgs.length;
+            imgs[current].classList.add('missao-crossfade__img--active');
+          }, 4000);
+        }
+      })();
+
       (function () {
         const video = document.getElementById('institutional-video');
         if (!video) return;

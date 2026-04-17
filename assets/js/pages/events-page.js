@@ -459,6 +459,9 @@ async function initEventsPage() {
   }
   
   try {
+    // Setup filter listeners regardless of event data
+    setupFilterListeners();
+
     // Fetch all events
     const result = await fetchEvents({ limit: 100 });
     
@@ -493,7 +496,6 @@ async function initEventsPage() {
 
     // Initialize grid
     renderEventsGrid(allEvents);
-    setupFilterListeners();
 
   } catch (error) {
     console.error('❌ Erro ao carregar eventos:', error);

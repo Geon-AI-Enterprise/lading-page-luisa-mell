@@ -668,6 +668,30 @@
   display: block;
 }
 
+/* Crossfade missão */
+.missao-crossfade {
+  position: relative;
+}
+
+.missao-crossfade__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.missao-crossfade__img--active {
+  opacity: 1;
+}
+
+.missao-crossfade__img:first-child {
+  position: relative;
+}
+
 @media (max-width: 960px) {
   .about-section__content,
   .about-section__content--reverse {

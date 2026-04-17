@@ -127,6 +127,8 @@ export function renderAnimalCard(animal) {
         ? `Resgatado em ${formatDate(animal.rescue_date)}` 
         : '';
 
+    const genderText = animal.gender === 'male' ? 'Macho' : animal.gender === 'female' ? 'Fêmea' : '';
+
     return `
         <article class="adopt-card" 
             data-filter-type="${typeClass}" 
@@ -134,16 +136,16 @@ export function renderAnimalCard(animal) {
             ${genderAttr}
             ${puppyAttr}
             data-id="${animal.id}">
-            <div class="adopt-card__image hero-placeholder">
+            <div class="adopt-card__image">
                 ${imageContent}
             </div>
             <div class="adopt-card__content">
                 <h3 class="adopt-card__name">${animal.name}</h3>
-                <p class="adopt-card__type">${getAnimalTypeText(animal.type)}</p>
+                ${genderText ? `<p class="adopt-card__info">${genderText}</p>` : ''}
                 <p class="adopt-card__info">${animal.breed || 'Sem raça definida'}</p>
                 ${rescueDateText ? `<p class="adopt-card__date">${rescueDateText}</p>` : ''}
                 ${animal.quote ? `<p class="adopt-card__quote">"${animal.quote}"</p>` : ''}
-                <button class="btn-primary" data-i18n="adopt.btnKnow">Conheça-me</button>
+                <button class="adopt-card__btn" data-i18n="adopt.btnKnow">Conheça-me</button>
             </div>
         </article>
     `;
