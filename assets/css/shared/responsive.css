@@ -70,7 +70,7 @@
 
     .nav-list a,
     .nav-list .help-display {
-        font-size: 1.125rem;
+        font-size: var(--fs-lead);
         display: block;
     }
 
@@ -119,7 +119,7 @@
         border-radius: 6px;
         font-family: var(--font-family);
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: var(--fs-small);
         cursor: pointer;
         transition: all 0.3s ease;
     }

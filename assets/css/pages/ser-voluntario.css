@@ -20,79 +20,42 @@
 
 /* Hero Section */
 .volunteer-hero {
-  background-color: transparent;
-  padding: 0;
-}
-
-.volunteer-hero__wrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.volunteer-hero__banner {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.volunteer-hero__banner--mobile {
-  display: none;
-}
-
-.volunteer-hero__overlay {
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 600px;
-  width: 90%;
-  z-index: 10;
+  background-color: #faf5ee;
+  padding: 80px 0 0;
   text-align: center;
 }
 
+.volunteer-hero__content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+
 .volunteer-hero__title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-}
-
-.volunteer-hero__title span:first-child {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #f4a261;
-  margin-bottom: 8px;
-}
-
-.volunteer-hero__title span:last-child {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.2rem;
+  font-size: clamp(2.4rem, 4vw + 1rem, 4rem);
   font-weight: 700;
   color: #CA6134;
-  line-height: 1.1;
+  line-height: 1.15;
+  margin-bottom: 24px;
 }
 
 .volunteer-hero__text {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: var(--fs-body);
   line-height: 1.7;
-  color: #00202a;
+  color: #333333;
 }
 
-.volunteer-hero__text strong {
-  color: #ffffff;
-  font-weight: 600;
+.volunteer-hero__image-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  line-height: 0;
 }
 
-.volunteer-hero__cta {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.85vw;
-  line-height: 1.5;
-  color: #ffffff;
+.volunteer-hero__image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .volunteer-cta-image {
@@ -132,7 +95,7 @@
 }
 
 .volunteer-card__intro h2 {
-  font-size: calc(var(--font-size-h2) + 10px);
+  font-size: var(--fs-h1);
 }
 
 .volunteer-card__intro p {
@@ -149,7 +112,7 @@
 }
 
 .form-required-note {
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
   color: #8b8b8b;
 }
 
@@ -162,7 +125,7 @@
 .form-field label,
 .form-label {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
   color: #2e2e2e;
 }
 
@@ -210,7 +173,7 @@
   padding: 10px 16px;
   border-radius: 999px;
   border: 1px solid #d9d9d9;
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -225,7 +188,7 @@
 }
 
 .form-helper {
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   color: #777777;
 }
 
@@ -233,7 +196,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   color: #3e3e3e;
 }
 
@@ -265,66 +228,27 @@
 }
 
 .privacy-note {
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   color: #777777;
   text-align: center;
 }
 
-@media (max-width: 1570px) {
-  .volunteer-hero__title span:first-child {
-    font-size: 1.3rem;
-  }
-
-  .volunteer-hero__title span:last-child {
-    font-size: 1.4rem;
-  }
-
-  .volunteer-hero__text {
-    font-size: 0.7rem;
-  }
-
-  .volunteer-hero__overlay {
-    max-width: 550px;
+@media (max-width: 1024px) {
+  .volunteer-hero {
+    padding: 60px 0 0;
   }
 }
 
-@media (max-width: 1024px) {
-  .volunteer-hero__banner--desktop {
-    display: none;
+@media (max-width: 768px) {
+  .volunteer-hero {
+    padding: 40px 0 0;
   }
 
-  .volunteer-hero__title span:first-child {
-    font-size: 1rem;
+  .volunteer-hero__title {
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
   }
 
-  .volunteer-hero__title span:last-child {
-    font-size: 1.2rem;
-  }
-
-  .volunteer-hero__text {
-    font-size: 0.7rem;
-    padding: 0 60px;
-  }
-
-  .volunteer-hero__banner--mobile {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 1024px) {
-
-  .volunteer-hero__title span:first-child {
-    font-size: 0.8rem;
-  }
-
-  .volunteer-hero__title span:last-child {
-    font-size: 0.9rem;
-  }
-
-  .volunteer-hero__text {
-    font-size: 0.7rem;
-    padding: 50 100px;
+  .volunteer-hero__content {
+    padding-bottom: 32px;
   }
 }

@@ -17,12 +17,12 @@
 }
 
 .events-hero h1 {
-  font-size: var(--font-size-h1);
+  font-size: var(--fs-h1);
   margin-bottom: 16px;
 }
 
 .events-hero__description {
-  font-size: var(--font-size-body);
+  font-size: var(--fs-body);
   max-width: 700px;
   margin: 0 auto;
 }
@@ -31,7 +31,7 @@
    Section Titles
 ======================================== */
 .section-title {
-  font-size: var(--font-size-h2);
+  font-size: var(--fs-h2);
   margin-bottom: 32px;
   text-align: center;
 }
@@ -117,7 +117,7 @@
 }
 
 .event-card__placeholder-text {
-  font-size: 1.25rem;
+  font-size: var(--fs-h3);
   font-weight: 600;
   text-align: center;
   padding: 0 20px;
@@ -129,7 +129,7 @@
   left: 16px;
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -178,7 +178,7 @@
 
 .event-card__date-day {
   display: block;
-  font-size: 1.5rem;
+  font-size: var(--fs-h3);
   font-weight: 700;
   color: var(--primary-orange);
   line-height: 1;
@@ -186,7 +186,7 @@
 
 .event-card__date-month {
   display: block;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   color: #666;
   text-transform: uppercase;
@@ -198,7 +198,7 @@
 }
 
 .event-card__title {
-  font-size: 1.5rem;
+  font-size: var(--fs-h3);
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 12px;
@@ -206,7 +206,7 @@
 }
 
 .event-card__description {
-  font-size: 1rem;
+  font-size: var(--fs-body);
   color: #666;
   line-height: 1.6;
   margin-bottom: 16px;
@@ -223,7 +223,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: #555;
 }
 
@@ -241,7 +241,7 @@
   flex: 1;
   padding: 14px 24px;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   text-align: center;
   text-decoration: none;
@@ -350,7 +350,7 @@
   border: 2px solid #e0e0e0;
   border-radius: 30px;
   background: white;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: #666;
   cursor: pointer;
@@ -400,12 +400,12 @@
 }
 
 .event-card-grid .event-card__title {
-  font-size: 1.125rem;
+  font-size: var(--fs-h3);
   margin-bottom: 8px;
 }
 
 .event-card-grid .event-card__description {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -418,7 +418,7 @@
 }
 
 .event-card-grid .event-card__meta-item {
-  font-size: 0.8rem;
+  font-size: var(--fs-small);
 }
 
 .event-card--past {
@@ -435,7 +435,7 @@
   left: 16px;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 0.7rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -475,7 +475,7 @@
 }
 
 .events-empty p {
-  font-size: 1rem;
+  font-size: var(--fs-body);
 }
 
 .loading-spinner {
@@ -508,14 +508,14 @@
 }
 
 .cta-card h2 {
-  font-size: 1.75rem;
+  font-size: var(--fs-h2);
   font-weight: 700;
   margin-bottom: 12px;
   font-family: 'Poppins', sans-serif;
 }
 
 .cta-card p {
-  font-size: 1rem;
+  font-size: var(--fs-body);
   opacity: 0.95;
   margin-bottom: 24px;
 }
@@ -533,7 +533,7 @@
   gap: 10px;
   padding: 14px 28px;
   border-radius: 30px;
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -567,21 +567,12 @@
     padding: 40px 0;
   }
 
-  .events-hero h1 {
-    font-size: 1.75rem;
-  }
-
-  .events-hero__description {
-    font-size: 1rem;
-  }
-
   .events-featured,
   .events-grid-section {
     padding: 40px 0;
   }
 
   .section-title {
-    font-size: 1.5rem;
     margin-bottom: 24px;
   }
 
@@ -610,10 +601,6 @@
     padding: 16px;
   }
 
-  .event-card__title {
-    font-size: 1.25rem;
-  }
-
   .event-card__actions {
     flex-direction: column;
   }
@@ -624,10 +611,6 @@
 
   .cta-card {
     padding: 32px 20px;
-  }
-
-  .cta-card h2 {
-    font-size: 1.5rem;
   }
 
   .cta-social {
@@ -649,12 +632,7 @@
     padding: 8px 12px;
   }
 
-  .event-card__date-day {
-    font-size: 1.25rem;
-  }
-
   .filter-tab {
     padding: 10px 18px;
-    font-size: 0.8rem;
   }
 }

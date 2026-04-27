@@ -8,7 +8,7 @@
       content="Programa de voluntariado do Instituto Luisa Mell"
     />
     <title>Instituto Luisa Mell - Ser Voluntário</title>
-    <link rel="icon" href="assets/images/shared/logo_orange.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/images/shared/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -187,19 +187,24 @@
     <main class="main-content volunteer-page">
       <!-- Hero Section -->
       <section class="volunteer-hero">
-        <div class="volunteer-hero__wrapper">
-          <img 
-            src="assets/images/voluntario/voluntario_banner.png" 
-            alt="Seja Voluntário do Instituto Luisa Mell" 
-            class="volunteer-hero__banner volunteer-hero__banner--desktop"
-          />
-          <img 
-            src="assets/images/voluntario/voluntario_banner_mobile.png" 
-            alt="Seja Voluntário do Instituto Luisa Mell" 
-            class="volunteer-hero__banner volunteer-hero__banner--mobile"
-          />
-          <div class="volunteer-hero__overlay">
+        <div class="container">
+          <div class="volunteer-hero__content">
+            <h1 class="volunteer-hero__title" data-i18n="volunteerPage.title">
+              Seja voluntário e faça parte dessa rede de amor e esperança.
+            </h1>
+            <p class="volunteer-hero__text" data-i18n="volunteerPage.intro">
+              Ser voluntário é dedicar tempo, carinho e disposição para transformar a vida de animais que
+              precisam de cuidado e proteção. Você pode apoiar nos resgates, nas rotinas do abrigo, nos
+              eventos e em diversas atividades essenciais.
+            </p>
           </div>
+        </div>
+        <div class="volunteer-hero__image-wrapper">
+          <img
+            src="assets/images/voluntario/voluntario_herosection.png"
+            alt="Voluntários do Instituto Luisa Mell"
+            class="volunteer-hero__image"
+          />
         </div>
       </section>
 
@@ -319,11 +324,13 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
-            <img
-              src="assets/images/shared/logo.svg"
-              alt="Instituto Luisa Mell"
-              class="footer-logo"
-            />
+            <a href="index.html">
+              <img
+                src="assets/images/shared/logo.svg"
+                alt="Instituto Luisa Mell"
+                class="footer-logo"
+              />
+            </a>
 
             <p class="footer-description" data-i18n="footer.desc">
               O Instituto Luisa Mell trabalha para resgatar, cuidar e promover

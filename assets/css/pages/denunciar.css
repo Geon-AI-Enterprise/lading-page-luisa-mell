@@ -96,14 +96,14 @@
 }
 
 .report-hero__title span:first-child {
-  font-size: 1.8rem;
+  font-size: var(--fs-h3);
   font-weight: 600;
   color: #f4a261;
 }
 
 .report-disclaimer__text {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
+  font-size: var(--fs-lead);
   line-height: 1.7;
   color: #000000;
   max-width: 700px;
@@ -113,7 +113,7 @@
 }
 
 .report-hero__title span:last-child {
-  font-size: 4.4rem;
+  font-size: var(--fs-display);
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   color: #CA6134;
@@ -122,7 +122,7 @@
 
 .report-hero__text {
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: var(--fs-body);
   line-height: 1.7;
   color: #000000;
 }
@@ -153,13 +153,13 @@
 }
 
 .report-hero-mobile-text__title span:first-child {
-  font-size: 1.8rem;
+  font-size: var(--fs-h3);
   font-weight: 600;
   color: #f4a261;
 }
 
 .report-hero-mobile-text__title span:last-child {
-  font-size: 2.2rem;
+  font-size: var(--fs-h1);
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   color: #CA6134;
@@ -168,7 +168,7 @@
 
 .report-hero-mobile-text__text {
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: var(--fs-body);
   line-height: 1.7;
   color: #000000;
 }
@@ -191,10 +191,6 @@
     padding: 40px 0;
   }
 
-  .report-disclaimer__text {
-  font-size: 1rem;
-}
-
   .report-hero__image {
     display: none;
   }
@@ -211,10 +207,6 @@
     max-height: 350px;
   }
 
-  .report-hero__title span:last-child {
-    font-size: 2.2rem;
-  }
-
   .report-hero__overlay {
     display: none !important;
   }
@@ -228,23 +220,6 @@
   .report-hero__photo {
     max-height: 260px;
   }
-
-  .report-hero__title span:first-child {
-    font-size: 1.2rem;
-  }
-
-  .report-hero__title span:last-child {
-    font-size: 1.8rem;
-  }
-
-  .report-hero__text {
-    font-size: 0.9rem;
-  }
-
-    .report-card__form-title{
-        font-size: 1.2rem;
-  }
-
 }
 
 /* Disclaimer entre hero e formulário */
@@ -271,7 +246,7 @@
 }
   .report-card__form-title{
     font-family: 'Poppins', sans-serif;
-    font-size: 2.4rem;
+    font-size: var(--fs-h1);
     font-weight: 700;
     color: #CA6134;
     margin: 0;
@@ -300,7 +275,7 @@
 }
 
 .report-card__intro h2 {
-  font-size: calc(var(--font-size-h2) + 10px);
+  font-size: var(--fs-h1);
   color: #CA6134;
 }
 
@@ -332,7 +307,7 @@
 .report-card .form-field label {
   color: #2e2e2e;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
 }
 
 .report-card .form-field input,
@@ -386,14 +361,14 @@
 
 /* Required note */
 .report-card .form-required-note {
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
   color: #8b8b8b;
   margin-bottom: 8px;
 }
 
 .report-card .form-helper {
   color: #777777;
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
 }
 
 .report-submit {
@@ -422,7 +397,7 @@
 .report-card .privacy-note {
   text-align: center;
   color: #777777;
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
   line-height: 1.5;
 }
 
@@ -482,21 +457,21 @@
 }
 
 .report-success-modal__title {
-  font-size: 1.5rem;
+  font-size: var(--fs-h3);
   font-weight: 700;
   color: #2e2e2e;
   margin-bottom: 16px;
 }
 
 .report-success-modal__text {
-  font-size: 1rem;
+  font-size: var(--fs-body);
   color: #4f4f4f;
   line-height: 1.7;
   margin-bottom: 16px;
 }
 
 .report-success-modal__note {
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   color: #777777;
   line-height: 1.6;
   margin-bottom: 24px;
@@ -534,14 +509,6 @@
   .report-success-modal__content {
     padding: 32px 24px;
   }
-
-  .report-success-modal__title {
-    font-size: 1.25rem;
-  }
-
-  .report-success-modal__text {
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 798px) {
@@ -557,12 +524,8 @@
     width: 100%;
   }
 
-    .report-card__form-title{
-    font-size: 1rem;
-  }
-
   .report-card__heart {
-  height: 40px;
-  width: auto;
-}
+    height: 40px;
+    width: auto;
+  }
 }

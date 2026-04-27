@@ -11,13 +11,13 @@
 }
 
 .transparency-hero h1 {
-  font-size: var(--font-size-h1);
+  font-size: var(--fs-h1);
   margin-bottom: 24px;
   color: #CA6134;
 }
 
 .transparency-hero__description {
-  font-size: var(--font-size-body);
+  font-size: var(--fs-body);
   max-width: var(--content-narrow-width);
   margin: 0 auto;
   color: #00202a;
@@ -37,7 +37,7 @@
   gap: 8px;
   margin-bottom: 32px;
   font-family: 'Poppins', system-ui, sans-serif;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
@@ -62,7 +62,7 @@
 
 .breadcrumb-separator {
   color: #aaa;
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
   user-select: none;
 }
 
@@ -106,7 +106,7 @@
 
 .directory-card__title {
   font-family: 'Poppins', system-ui, sans-serif;
-  font-size: 1.3rem;
+  font-size: var(--fs-h3);
   font-weight: 600;
   color: #00202a;
   margin-bottom: 8px;
@@ -137,7 +137,7 @@
   align-items: center;
   gap: 8px;
   font-family: 'Poppins', system-ui, sans-serif;
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: #ffffff;
   background-color: #E46038;
@@ -166,12 +166,7 @@
     padding: 100px 0 50px;
   }
 
-  .transparency-hero h1 {
-    font-size: 2.25rem;
-  }
-
   .transparency-hero__description {
-    font-size: 1rem;
     padding: 0 16px;
   }
 
@@ -182,10 +177,6 @@
 
   .directory-card {
     padding: 24px;
-  }
-
-  .directory-card__title {
-    font-size: 1.15rem;
   }
 
   .directory-breadcrumb {
