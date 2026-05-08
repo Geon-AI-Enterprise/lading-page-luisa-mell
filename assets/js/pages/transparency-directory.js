@@ -4,17 +4,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const allGrids = document.querySelectorAll('.directory-grid');
 
   const categoryLabels = {
-    contratos: 'Contratos e Documentos',
-    relatorios: 'Relatórios',
-    acoes: 'Ações',
-    doc031717: 'Doc.031717/2025',
+    'contratos-doc': 'Contratos e Documentos',
+    'node-1-0': '1.0 Projeto 97777.2025',
+    'node-1-1': '1.1 Consultor Administrativo',
+    'node-2-1': '2.1 Agente Social',
+    'node-3-1': '3.1 Serviços de Castração e Microchipagem',
+    'node-4-1': '4.1 Documentos Adicionais',
+    'node-5-1': '5.1 Contratação de Serviços Contábeis',
+    'node-6-1': '6.1 Coordenador de Projeto',
+    'node-7-1': '7.1 Coordenadora Técnica do Projeto',
+    'node-8-1': '8.1 Serviços Gráficos',
   };
 
   const parentMap = {
-    doc031717: 'contratos',
+    'contratos-doc': null,
+    'node-1-0': 'contratos-doc',
+    'node-1-1': 'node-1-0',
+    'node-2-1': 'node-1-0',
+    'node-3-1': 'node-1-0',
+    'node-4-1': 'node-1-0',
+    'node-5-1': 'node-1-0',
+    'node-6-1': 'node-1-0',
+    'node-7-1': 'node-1-0',
+    'node-8-1': 'node-1-0',
   };
 
   let currentPath = [];
+
+  function getPathTo(key) {
+    const path = [];
+    let current = key;
+    while (current) {
+      path.unshift(current);
+      current = parentMap[current];
+    }
+    return path;
+  }
 
   document.querySelectorAll('.directory-card[data-target]').forEach((card) => {
     card.addEventListener('click', (e) => {
@@ -27,11 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       allGrids.forEach((g) => g.classList.add('hidden'));
       subGrid.classList.remove('hidden');
 
-      if (parentMap[target]) {
-        currentPath = [parentMap[target], target];
-      } else {
-        currentPath = [target];
-      }
+      currentPath = getPathTo(target);
       updateBreadcrumb();
     });
   });

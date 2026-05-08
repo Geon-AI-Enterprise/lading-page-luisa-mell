@@ -65,16 +65,20 @@
 
 .about-hero__eyebrow {
   display: inline-block;
+  font-family: 'Poppins', sans-serif;
   font-size: var(--fs-h2);
   letter-spacing: 0.08em;
   color: #f4a261;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 
 .about-hero h1 {
-  font-size: var(--fs-h1);
-  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: calc(var(--fs-h1) + 10pt);
+  font-weight: 700;
+  margin-bottom: 4px;
   color: var(--primary-orange);
 }
 

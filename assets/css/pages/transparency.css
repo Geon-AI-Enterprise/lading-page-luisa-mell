@@ -34,6 +34,7 @@
 .directory-breadcrumb {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 32px;
   font-family: 'Poppins', system-ui, sans-serif;
@@ -79,11 +80,18 @@
   display: none;
 }
 
+/* When the root grid only holds project cards, give them more breathing room */
+.directory-grid--projects {
+  grid-template-columns: minmax(0, 720px);
+  justify-content: center;
+}
+
 /* Directory Card */
 .directory-card {
   background: #ffffff;
   border-radius: 16px;
   padding: 32px;
+  padding-top: 48px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   border-top: 4px solid #CA6134;
   display: flex;
@@ -100,6 +108,21 @@
   box-shadow: 0 8px 24px rgba(202, 97, 52, 0.18);
 }
 
+/* Numbering badge (1.0, 1.1, 1.1.1, ...) */
+.directory-card__number {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #CA6134;
+  background-color: rgba(202, 97, 52, 0.10);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
 .directory-card__icon {
   margin-bottom: 16px;
 }
@@ -110,6 +133,18 @@
   font-weight: 600;
   color: #00202a;
   margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.directory-card__subtitle {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #5a5a5a;
+  line-height: 1.5;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  max-width: 540px;
 }
 
 .directory-card__arrow {
@@ -122,7 +157,19 @@
   transform: translateX(4px);
 }
 
-/* File cards (sub-level) */
+/* Project card variant — visually elevated */
+.directory-card--project {
+  padding: 56px 48px 40px;
+  border-top-width: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, #fdf7f3 100%);
+}
+
+.directory-card--project .directory-card__title {
+  font-size: 1.35rem;
+  max-width: 600px;
+}
+
+/* File cards (leaf nodes) */
 .directory-card--file {
   cursor: default;
   border-top-color: #E46038;
@@ -130,6 +177,14 @@
 
 .directory-card--file:hover {
   transform: translateY(-2px);
+}
+
+.directory-card--file .directory-card__title {
+  font-size: 1.05rem;
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .directory-card__download {
@@ -159,6 +214,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
+
+  .directory-grid--projects {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 720px) {
@@ -175,8 +234,20 @@
     max-width: 400px;
   }
 
+  .directory-grid--projects {
+    max-width: 400px;
+  }
+
   .directory-card {
-    padding: 24px;
+    padding: 40px 24px 24px;
+  }
+
+  .directory-card--project {
+    padding: 48px 24px 28px;
+  }
+
+  .directory-card--project .directory-card__title {
+    font-size: 1.15rem;
   }
 
   .directory-breadcrumb {

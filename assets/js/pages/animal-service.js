@@ -4,6 +4,8 @@
 // ========================================
 
 import { fetchAnimalsSecure } from '../shared/supabase-client.js';
+import { cardThumb } from '../shared/image-transform.js';
+import { cacheAnimal } from './animal-modal.js';
 
 /**
  * Busca animais via Edge Function com filtros opcionais
@@ -119,8 +121,9 @@ export function renderAnimalCard(animal) {
     const genderAttr = animal.gender ? `data-filter-gender="${animal.gender}"` : '';
     const puppyAttr = animal.is_puppy ? 'data-filter-puppy="true"' : '';
 
-    const imageContent = animal.photo_url 
-        ? `<img src="${animal.photo_url}" alt="${animal.name}" loading="lazy">`
+    const thumbUrl = cardThumb(animal.photo_url);
+    const imageContent = thumbUrl
+        ? `<img src="${thumbUrl}" alt="${animal.name}" loading="lazy" width="360" decoding="async">`
         : getImagePlaceholder(animal.name);
 
     const rescueDateText = animal.rescue_date 
@@ -229,6 +232,9 @@ export function renderAnimalsToGrid(animals, container, append = false) {
         // Substituir todo o conteúdo
         container.innerHTML = animals.map(animal => renderAnimalCard(animal)).join('');
     }
+
+    // Popula o cache do modal com os dados já carregados
+    animals.forEach(cacheAnimal);
 }
 
 /**

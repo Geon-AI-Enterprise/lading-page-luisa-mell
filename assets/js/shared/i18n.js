@@ -113,7 +113,7 @@ export const translations = {
         'report.form.detailsPlaceholder': 'Descreva o caso com o máximo de detalhes possíveis.',
         'report.form.submit': 'Enviar Denúncia',
         'report.form.privacy': 'Garantimos o sigilo das informações. Utilize este canal apenas para denúncias verdadeiras para que possamos priorizar cada resgate.',
-        'aboutPage.eyebrow': 'Nossa história',
+        'aboutPage.eyebrow': 'Nossa História',
         'aboutPage.title': 'Quem Somos',
         'aboutPage.intro': 'Desde 2015, o Instituto Luisa Mell luta pelo resgate, tratamento e acolhimento de animais em situação de vulnerabilidade. Trabalhamos ao lado de uma rede de voluntários, veterinários e parceiros que compartilham o mesmo propósito: garantir dignidade, respeito e novas oportunidades para cada vida.',
         'aboutPage.pillars.mission.title': 'Missão',

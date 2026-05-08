@@ -4,9 +4,21 @@
 // ========================================
 
 import { fetchAnimalsSecure } from '../shared/supabase-client.js';
+import { modalMain, modalGallery, modalBeforeAfter } from '../shared/image-transform.js';
 
 // Cache do animal atual no modal
 let currentAnimal = null;
+
+// Cache de animais já carregados no grid — evita nova requisição ao abrir o modal
+const animalCache = new Map();
+
+/**
+ * Registra um animal no cache (chamado pelo grid ao renderizar os cards)
+ * @param {Object} animal - Dados completos do animal
+ */
+export function cacheAnimal(animal) {
+    if (animal?.id) animalCache.set(animal.id, animal);
+}
 
 /**
  * Ícones de características de cuidado
@@ -122,7 +134,7 @@ function renderGallery(urls = [], name = '') {
     
     return urls.slice(0, 4).map((url, i) => `
         <div class="animal-modal__gallery-item">
-            <img src="${url}" alt="${name} - Foto ${i + 1}" loading="lazy" />
+            <img src="${modalGallery(url)}" alt="${name} - Foto ${i + 1}" loading="lazy" decoding="async" />
         </div>
     `).join('');
 }
@@ -152,7 +164,7 @@ function populateModal(animal) {
     if (beforeContainer) {
         if (animal.photo_before_url) {
             beforeContainer.innerHTML = `
-                <img src="${animal.photo_before_url}" alt="${animal.name} - Antes" />
+                <img src="${modalBeforeAfter(animal.photo_before_url)}" alt="${animal.name} - Antes" loading="lazy" decoding="async" />
                 <span class="animal-modal__label">ANTES</span>
             `;
         } else {
@@ -171,7 +183,7 @@ function populateModal(animal) {
     if (afterContainer) {
         if (animal.photo_after_url) {
             afterContainer.innerHTML = `
-                <img src="${animal.photo_after_url}" alt="${animal.name} - Depois" />
+                <img src="${modalBeforeAfter(animal.photo_after_url)}" alt="${animal.name} - Depois" loading="lazy" decoding="async" />
                 <span class="animal-modal__label">DEPOIS</span>
             `;
         } else {
@@ -246,9 +258,10 @@ export async function openAnimalModal(animalId) {
     document.body.style.overflow = 'hidden';
 
     try {
-        // Buscar dados do animal
-        const animal = await fetchAnimalById(animalId);
-        
+        // Tenta o cache local primeiro (dados já carregados no grid)
+        const cached = animalCache.get(animalId);
+        const animal = cached ?? await fetchAnimalById(animalId);
+
         if (animal) {
             populateModal(animal);
         } else {

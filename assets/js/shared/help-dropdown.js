@@ -66,14 +66,7 @@ function handleHelpAction(action) {
     
     switch (action) {
         case 'donate':
-            // Abrir modal de doação via Paybox SDK
-            if (window.transformandoVidasComLuisaMell && typeof window.transformandoVidasComLuisaMell === 'function') {
-                console.log('Abrindo modal de doação com Paybox');
-                window.transformandoVidasComLuisaMell();
-            } else {
-                console.log('Abrindo doação via fallback URL');
-                window.open('https://institutoluisamell.colabore.org/doe/single_step', '_blank', 'noopener,noreferrer');
-            }
+            window.open('https://doar.institutoluisamell.com/', '_blank', 'noopener,noreferrer');
             break;
         case 'volunteer':
             console.log('Redirecionando para voluntários');
