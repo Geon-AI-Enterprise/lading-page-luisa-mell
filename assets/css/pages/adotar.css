@@ -47,7 +47,7 @@
 
 .adopt-hero__text {
     font-family: 'Poppins', sans-serif;
-    font-size: var(--fs-lead);
+    font-size: var(--fs-body);
     line-height: 1.7;
     color: #333;
     margin-bottom: 0.5rem;
@@ -56,7 +56,14 @@
 .adopt-hero__heart {
     width: 60px;
     height: auto;
+}
+
+.adopt-hero__heart-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .adopt-hero__image-wrapper {
@@ -71,12 +78,6 @@
     max-width: 600px;
     height: auto;
     object-fit: contain;
-}
-
-.adopt-hero__cta {
-    text-align: center;
-    margin-top: 2rem;
-    padding-bottom: 1rem;
 }
 
 .adopt-hero__link {
@@ -263,7 +264,8 @@
 }
 
 .adopt-process-image__img {
-    max-width: 90%;
+    width: 100%;
+    max-width: 1400px;
     height: auto;
 }
 
@@ -406,7 +408,7 @@
 
 .sponsor-hero__title {
     font-family: 'Poppins', sans-serif;
-    font-size: var(--fs-h1);
+    font-size: var(--fs-display);
     font-weight: 700;
     color: #ffffff;
     margin: 0 0 20px;
@@ -1120,10 +1122,8 @@
         text-align: center;
     }
 
-    .adopt-hero__heart {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
+    .adopt-hero__heart-row {
+        justify-content: center;
     }
 
     .adopt-hero__image-wrapper {

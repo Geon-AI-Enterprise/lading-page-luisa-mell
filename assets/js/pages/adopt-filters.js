@@ -5,7 +5,7 @@
 import { fetchAnimals, renderAnimalsToGrid, renderSkeletonCards, renderErrorMessage } from './animal-service.js';
 
 // Configuração de paginação
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 6;
 
 // Estado atual dos filtros
 let currentFilters = {

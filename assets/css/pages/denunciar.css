@@ -159,7 +159,7 @@
 }
 
 .report-hero-mobile-text__title span:last-child {
-  font-size: var(--fs-h1);
+  font-size: var(--fs-display);
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   color: #CA6134;

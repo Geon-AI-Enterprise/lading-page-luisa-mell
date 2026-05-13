@@ -32,7 +32,8 @@
 }
 
 .volunteer-hero__title {
-  font-size: clamp(2.4rem, 4vw + 1rem, 4rem);
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-display);
   font-weight: 700;
   color: #CA6134;
   line-height: 1.15;
@@ -75,7 +76,7 @@
 .volunteer-form {
   background-color: #f5f5f5;
   padding: 0 0 32px;
-  margin-top: -32px;
+  margin-top: -96px;
 }
 
 .volunteer-card {
@@ -246,7 +247,7 @@
   }
 
   .volunteer-hero__title {
-    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    font-size: var(--fs-display);
   }
 
   .volunteer-hero__content {

@@ -85,6 +85,7 @@
 .animal-modal__photos {
     position: relative;
     min-height: 380px;
+    align-self: start;
 }
 
 /* Depois (main large photo) */
