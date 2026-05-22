@@ -21,17 +21,9 @@ const RENDER_SEGMENT  = '/storage/v1/render/image/public/';
  */
 export function transformImageUrl(url, { width, height, quality = 80, resize = 'cover' } = {}) {
     if (!url || typeof url !== 'string') return null;
-    if (!url.includes(OBJECT_SEGMENT)) return url; // URL externa — sem transformação
-
-    const renderUrl = url.replace(OBJECT_SEGMENT, RENDER_SEGMENT);
-    const params = new URLSearchParams();
-
-    if (width)   params.set('width',   String(width));
-    if (height)  params.set('height',  String(height));
-    params.set('quality', String(quality));
-    params.set('resize',  resize);
-
-    return `${renderUrl}?${params.toString()}`;
+    // Image Transformations não está habilitado no projeto (requer plano Pro).
+    // Retornamos a URL original do Storage até o recurso ser ativado.
+    return url;
 }
 
 // ── Presets prontos para uso ──────────────────────────────────────────────────
