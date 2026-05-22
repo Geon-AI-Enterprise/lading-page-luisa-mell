@@ -124,7 +124,10 @@
   top: 20px;
   left: -20px;
   right: -20px;
-  bottom: -20px;
+  /* -40 (em vez de -20) para expor a borda verde abaixo do video: o video tem */
+  /* top:20 relative, entao visualmente termina 20px alem da base do container; */
+  /* o bottom precisa avancar mais 20px para sobrar borda visivel.              */
+  bottom: -40px;
   background-image: url('../../images/quem_somos/fundo\ azul\ video\ quem\ somos.png');
   background-size: cover;
   background-position: center;

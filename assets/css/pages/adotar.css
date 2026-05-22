@@ -263,7 +263,9 @@
 }
 
 .adopt-process-image__img {
-    max-width: 90%;
+    /* width forca escalonamento; max-width limita em telas largas */
+    width: 70%;
+    max-width: 1100px;
     height: auto;
 }
 
