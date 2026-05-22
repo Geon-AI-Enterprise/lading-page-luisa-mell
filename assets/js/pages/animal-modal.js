@@ -132,11 +132,26 @@ function renderGallery(urls = [], name = '') {
         `).join('');
     }
     
-    return urls.slice(0, 4).map((url, i) => `
+    return urls.map((url, i) => `
         <div class="animal-modal__gallery-item">
             <img src="${modalGallery(url)}" alt="${name} - Foto ${i + 1}" loading="lazy" decoding="async" />
         </div>
     `).join('');
+}
+
+/**
+ * Mostra/esconde as setas do carrossel conforme a galeria tenha ou nao overflow.
+ * Chamado apos renderizar a galeria e no resize.
+ */
+function updateGalleryArrows() {
+    const gallery = document.querySelector('.animal-modal__gallery');
+    const prevBtn = document.querySelector('.animal-modal__gallery-prev');
+    const nextBtn = document.querySelector('.animal-modal__gallery-next');
+    if (!gallery || !prevBtn || !nextBtn) return;
+
+    const hasOverflow = gallery.scrollWidth > gallery.clientWidth + 1;
+    prevBtn.hidden = !hasOverflow;
+    nextBtn.hidden = !hasOverflow;
 }
 
 /**
@@ -230,6 +245,8 @@ function populateModal(animal) {
     modal.classList.toggle('animal-modal--no-gallery', !hasGallery);
     if (galleryContainer && hasGallery) {
         galleryContainer.innerHTML = renderGallery(animal.gallery_urls, animal.name);
+        // Aguarda layout pintar para medir scrollWidth/clientWidth corretamente
+        requestAnimationFrame(updateGalleryArrows);
     } else if (galleryContainer) {
         galleryContainer.innerHTML = '';
     }
@@ -364,6 +381,9 @@ export function initAnimalModal() {
 
     // Inicializar carrossel da galeria
     initGalleryCarousel();
+
+    // Re-avaliar visibilidade das setas em resize (breakpoint pode mudar a contagem visivel)
+    window.addEventListener('resize', updateGalleryArrows);
 
     console.log('🐾 Animal modal initialized');
 }

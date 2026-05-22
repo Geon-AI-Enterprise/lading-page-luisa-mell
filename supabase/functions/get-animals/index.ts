@@ -185,8 +185,11 @@ Deno.serve(async (req) => {
       }
     }
 
-    // Ordenação (mais recentes primeiro)
-    query = query.order('created_at', { ascending: false })
+    // Ordenacao (mais recentes primeiro). 'id' como tiebreaker para garantir
+    // pagina estavel: sem ele, registros com mesmo created_at (bulk insert)
+    // aparecem em ordem nao-deterministica entre requisicoes, causando
+    // duplicatas e gaps na paginacao por offset.
+    query = query.order('created_at', { ascending: false }).order('id', { ascending: true })
 
     // Paginação
     const limit = filters.limit || 12

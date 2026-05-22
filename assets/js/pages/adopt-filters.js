@@ -15,6 +15,14 @@ let currentFilters = {
     isPuppy: false
 };
 
+// Reseta filtros para o estado neutro (filtros sao mutuamente exclusivos na UI)
+function clearFilterState() {
+    currentFilters.type = 'all';
+    currentFilters.size = null;
+    currentFilters.gender = null;
+    currentFilters.isPuppy = false;
+}
+
 // Estado da paginação
 let currentOffset = 0;
 let hasMoreItems = true;
@@ -234,22 +242,26 @@ export async function setupAdoptFilters() {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
-            // Mapear filtros especiais
+            // Mapear filtro clicado para os campos esperados pelo backend.
+            // Os tipos validos no Supabase sao apenas 'dog' e 'cat'; size 'p'/'m'/'g';
+            // gender 'male'/'female'; is_puppy boolean.
+            clearFilterState();
+
             if (filterType === 'puppies') {
-                currentFilters.type = 'all';
                 currentFilters.isPuppy = true;
+            } else if (filterType === 'adults') {
+                currentFilters.isPuppy = false;
             } else if (filterType === 'female') {
-                currentFilters.type = 'all';
                 currentFilters.gender = 'female';
-                currentFilters.isPuppy = false;
             } else if (filterType === 'male') {
-                currentFilters.type = 'all';
                 currentFilters.gender = 'male';
-                currentFilters.isPuppy = false;
-            } else {
+            } else if (filterType === 'size-p' || filterType === 'size-m' || filterType === 'size-g') {
+                currentFilters.size = filterType.replace('size-', '');
+            } else if (filterType === 'dogs' || filterType === 'cats') {
                 currentFilters.type = filterType;
-                currentFilters.gender = null;
-                currentFilters.isPuppy = false;
+            } else {
+                // 'all' (e qualquer fallback) — mantem estado neutro
+                currentFilters.type = 'all';
             }
 
             await loadAnimals();
