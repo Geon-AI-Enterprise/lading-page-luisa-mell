@@ -220,10 +220,18 @@ function populateModal(animal) {
         helpText.innerHTML = `Não posso adotar o ${animal.name}, mas <strong>quero ajudar</strong>:`;
     }
 
-    // Galeria
+    // Galeria — esconde a seção inteira quando não há fotos no carrossel
     const galleryContainer = modal.querySelector('.animal-modal__gallery');
-    if (galleryContainer) {
+    const gallerySection = modal.querySelector('.animal-modal__gallery-section');
+    const hasGallery = Array.isArray(animal.gallery_urls) && animal.gallery_urls.length > 0;
+    if (gallerySection) {
+        gallerySection.hidden = !hasGallery;
+    }
+    modal.classList.toggle('animal-modal--no-gallery', !hasGallery);
+    if (galleryContainer && hasGallery) {
         galleryContainer.innerHTML = renderGallery(animal.gallery_urls, animal.name);
+    } else if (galleryContainer) {
+        galleryContainer.innerHTML = '';
     }
 
     // Atualizar links dos botões com o ID do animal
