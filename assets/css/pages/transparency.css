@@ -17,7 +17,7 @@
 }
 
 .transparency-hero__description {
-  font-size: var(--fs-body);
+  font-size: var(--fs-lead);
   max-width: var(--content-narrow-width);
   margin: 0 auto;
   color: #00202a;
@@ -57,7 +57,7 @@
 
 .breadcrumb-item.active {
   color: #CA6134;
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   cursor: default;
 }
 
@@ -114,8 +114,8 @@
   top: 14px;
   left: 16px;
   font-family: 'Poppins', system-ui, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
   letter-spacing: 0.6px;
   color: #CA6134;
   background-color: rgba(202, 97, 52, 0.10);
@@ -130,7 +130,7 @@
 .directory-card__title {
   font-family: 'Poppins', system-ui, sans-serif;
   font-size: var(--fs-h3);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: #00202a;
   margin-bottom: 8px;
   line-height: 1.35;
@@ -138,10 +138,10 @@
 
 .directory-card__subtitle {
   font-family: 'Poppins', system-ui, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 300;
+  font-size: var(--fs-tiny);
+  font-weight: var(--fw-light);
   color: #5a5a5a;
-  line-height: 1.5;
+  line-height: var(--lh-normal);
   margin-top: 4px;
   margin-bottom: 8px;
   max-width: 540px;
@@ -165,7 +165,7 @@
 }
 
 .directory-card--project .directory-card__title {
-  font-size: 1.35rem;
+  font-size: var(--fs-h3);
   max-width: 600px;
 }
 
@@ -180,7 +180,7 @@
 }
 
 .directory-card--file .directory-card__title {
-  font-size: 1.05rem;
+  font-size: var(--fs-lead);
   min-height: 2.6em;
   display: flex;
   align-items: center;
@@ -193,7 +193,7 @@
   gap: 8px;
   font-family: 'Poppins', system-ui, sans-serif;
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: #ffffff;
   background-color: #E46038;
   padding: 10px 24px;
@@ -247,7 +247,7 @@
   }
 
   .directory-card--project .directory-card__title {
-    font-size: 1.15rem;
+    font-size: var(--fs-lead);
   }
 
   .directory-breadcrumb {

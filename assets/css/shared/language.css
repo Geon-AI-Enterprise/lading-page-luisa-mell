@@ -11,8 +11,8 @@
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.4);
     color: var(--white);
-    font-weight: 600;
-    font-size: 0.85rem;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-tiny);
     padding: 0.45rem 0.7rem;
     padding-right: 1.75rem;
     border-radius: 6px;
@@ -96,8 +96,8 @@
     color: var(--white);
     padding: 0.75rem 1rem;
     cursor: pointer;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
     transition: background-color 0.2s ease;
     display: block;
     text-align: left;
@@ -109,5 +109,5 @@
 
 .lang-option.active {
     background-color: rgba(255, 255, 255, 0.25);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
 }

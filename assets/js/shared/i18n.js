@@ -95,7 +95,7 @@ export const translations = {
         'events.filterPast': 'Realizados',
         'events.ctaTitle': 'Quer ser avisado sobre nossos eventos?',
         'events.ctaDescription': 'Siga-nos nas redes sociais para ficar por dentro de todas as nossas ações e eventos!',
-        'report.heroTitle': 'Denuncie maus-tratos!',
+        'report.heroTitle': 'Denuncie<br>maus&#8209;tratos!',
         'report.heroSubtitle': 'Faça a Diferença: Denuncie Maus-Tratos!',
         'report.heroParagraph1': 'Sua denúncia pode salvar vidas. No Instituto Luisa Mell, levamos a sério cada relato de maus-tratos e abandono. Todas as denúncias são tratadas com sigilo e analisadas por nossa equipe especializada para agir rapidamente em defesa do bem-estar animal.',
         'report.heroParagraph2': 'Não se cale diante da crueldade. Se você presenciou ou tem conhecimento de qualquer situação de maus-tratos, denuncie. Juntos, podemos combater a injustiça e proteger aqueles que não têm voz.',

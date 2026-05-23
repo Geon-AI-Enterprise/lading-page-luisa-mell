@@ -1,22 +1,55 @@
 // ========================================
 // Institutional Video - Quem Somos
 // Auto-play quando o video entra no viewport, pause quando sai.
-// Clique no video alterna mute (audio liga/desliga).
+// Tenta tocar COM audio primeiro; se o browser bloquear (autoplay policy),
+// faz fallback para mudo. Apos qualquer interacao do usuario na pagina,
+// o video toca com audio na proxima entrada no viewport.
+// Clique no video alterna mudo/desmutado.
 // ========================================
 
 (function initInstitutionalVideo() {
     const video = document.getElementById('institutional-video');
     if (!video) return;
 
-    // Inicia mudo: browsers bloqueiam autoplay com audio. Usuario clica
-    // para liberar o som (e o video continua tocando).
-    video.muted = true;
     video.setAttribute('playsinline', '');
 
-    // Clique alterna mute em vez de pausar — o controle de play/pause fica
-    // 100% por conta do IntersectionObserver, evitando estado inconsistente.
-    video.addEventListener('click', () => {
+    // Flag: usuario interagiu com a pagina (qualquer clique/teclado/touch).
+    // Apos isso, browsers permitem play() com audio.
+    let userInteracted = false;
+
+    // Tenta tocar respeitando o estado atual de muted. Em primeira tentativa
+    // sem interacao, geralmente browser exige muted — fazemos fallback.
+    async function tryPlay() {
+        try {
+            await video.play();
+        } catch {
+            // Bloqueado: forca mudo e tenta de novo.
+            video.muted = true;
+            try { await video.play(); } catch {
+                // Persistiu bloqueado (ex.: economia de dados). Usuario precisa
+                // clicar manualmente — o handler de click cuida disso.
+            }
+        }
+    }
+
+    // Marca interacao globalmente para desbloquear audio nas proximas execucoes.
+    const markInteraction = () => {
+        userInteracted = true;
+        // Se o video esta tocando mudo e a interacao acabou de acontecer,
+        // libera o audio automaticamente.
+        if (!video.paused && video.muted) {
+            video.muted = false;
+        }
+    };
+    ['click', 'keydown', 'touchstart'].forEach((evt) => {
+        document.addEventListener(evt, markInteraction, { once: true, passive: true });
+    });
+
+    // Clique no video alterna mute (controle manual do usuario).
+    video.addEventListener('click', (e) => {
+        e.stopPropagation();
         video.muted = !video.muted;
+        userInteracted = true;
     });
 
     // Play/pause baseado em visibilidade.
@@ -24,11 +57,9 @@
         (entries) => {
             for (const entry of entries) {
                 if (entry.isIntersecting) {
-                    video.play().catch(() => {
-                        // Autoplay bloqueado em alguns browsers mesmo mutado
-                        // (ex.: economia de dados). Silenciamos o erro — o
-                        // usuario pode clicar para iniciar.
-                    });
+                    // Se o usuario ja interagiu, tenta com audio.
+                    if (userInteracted) video.muted = false;
+                    tryPlay();
                 } else {
                     video.pause();
                 }

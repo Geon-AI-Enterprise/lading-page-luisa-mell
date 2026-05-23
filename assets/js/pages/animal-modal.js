@@ -193,12 +193,15 @@ function populateModal(animal) {
         }
     }
 
-    // Foto depois
+    // Foto depois — fallback para a foto principal (photo_url) quando nao houver
+    // photo_after_url. A foto principal representa o estado atual do animal, que
+    // e justamente o "depois" da historia de resgate.
     const afterContainer = modal.querySelector('.animal-modal__after');
     if (afterContainer) {
-        if (animal.photo_after_url) {
+        const afterSrc = animal.photo_after_url || animal.photo_url;
+        if (afterSrc) {
             afterContainer.innerHTML = `
-                <img src="${modalBeforeAfter(animal.photo_after_url)}" alt="${animal.name} - Depois" loading="lazy" decoding="async" />
+                <img src="${modalBeforeAfter(afterSrc)}" alt="${animal.name} - Depois" loading="lazy" decoding="async" />
                 <span class="animal-modal__label">DEPOIS</span>
             `;
         } else {
@@ -212,11 +215,17 @@ function populateModal(animal) {
         }
     }
 
-    // Botão Adote com nome do animal
+    // Botao Adote com nome do animal + artigo (o/a) conforme genero.
+    // Anima e id ficam no dataset para o adopt-form-modal recuperar.
     const adoptBtn = modal.querySelector('.animal-modal__btn--adopt');
     if (adoptBtn) {
-        adoptBtn.textContent = `Adote o ${animal.name}`;
-        adoptBtn.href = `adotar.html?animal=${animal.id}#contato`;
+        const article = animal.gender === 'female' ? 'a' : 'o';
+        adoptBtn.textContent = `Adote ${article} ${animal.name}`;
+        adoptBtn.dataset.animalId = animal.id;
+        adoptBtn.dataset.animalName = animal.name;
+        adoptBtn.dataset.animalGender = animal.gender || 'male';
+        // O atributo href fica como fallback; o adopt-form-modal.js intercepta o clique.
+        adoptBtn.href = `#adotar-${animal.id}`;
     }
 
     // Ícones de cuidados + legenda
@@ -251,15 +260,28 @@ function populateModal(animal) {
         galleryContainer.innerHTML = '';
     }
 
-    // Atualizar links dos botões com o ID do animal
+    // Botoes "Apadrinhe" e "De um presente" usam URLs configuradas na retaguarda
+    // (sponsor_url e gift_url no banco). Mantemos fallback para a rota padrao
+    // caso o admin nao tenha configurado para o animal especifico.
     const sponsorBtn = modal.querySelector('.animal-modal__btn--sponsor');
     if (sponsorBtn) {
-        sponsorBtn.href = `apadrinhar.html?animal=${animal.id}`;
+        sponsorBtn.href = animal.sponsor_url || `apadrinhar.html?animal=${animal.id}`;
+        // Se URL e externa, abre em nova aba
+        const isExternalSponsor = /^https?:\/\//.test(sponsorBtn.href) && !sponsorBtn.href.includes(window.location.host);
+        if (isExternalSponsor) {
+            sponsorBtn.target = '_blank';
+            sponsorBtn.rel = 'noopener noreferrer';
+        } else {
+            sponsorBtn.removeAttribute('target');
+            sponsorBtn.removeAttribute('rel');
+        }
     }
 
     const giftBtn = modal.querySelector('.animal-modal__btn--gift');
     if (giftBtn) {
-        giftBtn.href = `https://institutoluisamell.colabore.org/doe/single_step?animal=${animal.id}`;
+        giftBtn.href = animal.gift_url || `https://institutoluisamell.colabore.org/doe/single_step?animal=${animal.id}`;
+        giftBtn.target = '_blank';
+        giftBtn.rel = 'noopener noreferrer';
     }
 }
 

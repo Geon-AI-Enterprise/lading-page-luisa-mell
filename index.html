@@ -1,16 +1,24 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <!-- SEO:start (gerado automaticamente, nao edite a mao) -->
+    <title>Instituto Luisa Mell</title>
+    <meta name="description" content="ONG dedicada ao resgate, reabilitacao e adocao responsavel de animais vitimas de abandono e maus-tratos." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Instituto Luisa Mell" />
+    <meta property="og:description" content="ONG dedicada ao resgate, reabilitacao e adocao responsavel de animais vitimas de abandono e maus-tratos." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Instituto Luisa Mell" />
+    <meta name="twitter:description" content="ONG dedicada ao resgate, reabilitacao e adocao responsavel de animais vitimas de abandono e maus-tratos." />
+<!-- SEO:end -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Instituto Luisa Mell - Proteção Animal e Ambiental"
-    />
-    <title>Instituto Luisa Mell - DEV</title>
     <link rel="icon" href="assets/images/shared/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload do LCP (hero da home) — comeca download antes do parser chegar no <img> -->
+    <link rel="preload" as="image" href="assets/images/home/luisa-herosection.png" fetchpriority="high" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -26,7 +34,7 @@
           <!-- Logo -->
           <div class="logo">
             <a href="index.html">
-              <img
+              <img loading="eager" decoding="async" fetchpriority="high"
                 src="assets/images/shared/logo.svg"
                 alt="Instituto Luisa Mell"
                 class="logo-image"
@@ -159,8 +167,8 @@
             <section class="hero-video" id="topo">
               <div class="container hero-video__content">
                 <div class="hero-video__text">
-                  <span class="hero-video__eyebrow" data-i18n="hero.eyebrow">Juntos salvamos vidas</span>
                   <h1 class="hero-video__title" data-i18n="hero.welcome">Bem-vindos</h1>
+                  <span class="hero-video__eyebrow" data-i18n="hero.eyebrow">Juntos salvamos vidas</span>
                   <p class="hero-video__description" data-i18n="hero.description">
                     No Instituto Luisa Mell, acreditamos que toda vida importa. Desde 2015, nossa missão é resgatar, cuidar e transformar a realidade de animais vítimas de abandono, maus-tratos e situações de risco. Com uma equipe apaixonada e voluntária, oferecemos atendimento veterinário, reabilitação e, principalmente, uma nova chance para centenas de cães, gatos e outros animais encontrarem um lar cheio de amor.
                   </p>
@@ -178,8 +186,8 @@
                   </a>
                 </div>
                 <div class="hero-video__image">
-                  <img 
-                    src="assets/images/home/luisa-herosection.png" 
+                  <img loading="eager" decoding="async" fetchpriority="high"
+                    src="assets/images/home/luisa-herosection.png"
                     alt="Luisa Mell com um cachorro"
                     class="hero-video__img"
                   />
@@ -188,7 +196,9 @@
             </section>
           </div>
 
-          <!-- SLIDE 2: Ação iPhone -->
+          <!-- SLIDE 2: Acao iPhone — desativado a pedido. Manter markup comentado para
+               facilitar reativacao futura (basta descomentar este bloco + os dots abaixo). -->
+          <!--
           <div class="hero__carousel-slide">
             <section class="hero-slide--iphone">
               <div class="container hero-slide--iphone__content">
@@ -201,8 +211,8 @@
                   <p class="hero-slide--iphone__cta-text" data-i18n="hero.iphone.ctaText">
                     Doe e participe do sorteio do<br>iPhone 17 Pro 256GB
                   </p>
-                  <a 
-                    href="https://doar.institutoluisamell.com/" 
+                  <a
+                    href="https://doar.institutoluisamell.com/"
                     class="hero-slide--iphone__btn"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -212,8 +222,8 @@
                   </a>
                 </div>
                 <div class="hero-slide--iphone__image">
-                  <img 
-                    src="assets/images/home/iphone_luisa.png" 
+                  <img loading="lazy" decoding="async"
+                    src="assets/images/home/iphone_luisa.png"
                     alt="iPhone 17 Pro - Sorteio Instituto Luisa Mell"
                     class="hero-slide--iphone__img"
                   />
@@ -221,26 +231,26 @@
               </div>
             </section>
           </div>
+          -->
 
         </div>
 
-        <!-- Dots de navegação -->
-        <div class="hero__dots hero__dots--center" id="hero-dots">
+        <!-- Dots de navegacao — ocultos enquanto so houver 1 slide. Re-exibir ao reativar o slide 2. -->
+        <div class="hero__dots hero__dots--center" id="hero-dots" hidden>
           <button class="hero-dot hero-dot--active" aria-label="Slide 1"></button>
-          <button class="hero-dot" aria-label="Slide 2"></button>
         </div>
       </div>
 
       <!-- 3 CARDS: Doação / Apadrinhamento / Adoção -->
       <section class="help-cards" id="como-ajudar">
-        <img src="assets/images/home/3panels-smile.png" alt="" class="help-cards__deco help-cards__deco--heart" aria-hidden="true" />
-        <img src="assets/images/home/3panels-heart.png" alt="" class="help-cards__deco help-cards__deco--smile" aria-hidden="true" />
+        <img loading="lazy" decoding="async" src="assets/images/home/3panels-smile.png" alt="" class="help-cards__deco help-cards__deco--heart" aria-hidden="true" />
+        <img loading="lazy" decoding="async" src="assets/images/home/3panels-heart.png" alt="" class="help-cards__deco help-cards__deco--smile" aria-hidden="true" />
         <div class="container">
           <div class="help-cards__grid">
             <!-- Doação -->
             <article class="help-card">
               <div class="help-card__shape">
-                <img src="assets/images/home/doacao.png" alt="Doação" class="help-card__img" />
+                <img loading="lazy" decoding="async" src="assets/images/home/doacao.png" alt="Doação" class="help-card__img" />
               </div>
               <a
                 href="https://doar.institutoluisamell.com/"
@@ -256,7 +266,7 @@
             <!-- Adotar -->
             <article class="help-card" id="adotar">
               <div class="help-card__shape">
-                <img src="assets/images/home/adotar-img.png" alt="Adotar" class="help-card__img" />
+                <img loading="lazy" decoding="async" src="assets/images/home/adotar-img.png" alt="Adotar" class="help-card__img" />
               </div>
               <a href="adotar.html"><button class="help-card__button help-card__button--sponsor" data-i18n="nav.adopt">Adotar</button></a>
             </article>
@@ -264,7 +274,7 @@
             <!-- Apadrinhar -->
             <article class="help-card" id="apadrinhar">
               <div class="help-card__shape">
-                <img src="assets/images/home/denunciar.png" alt="Apadrinhar" class="help-card__img" />
+                <img loading="lazy" decoding="async" src="assets/images/home/denunciar.png" alt="Apadrinhar" class="help-card__img" />
               </div>
               <a href="apadrinhar.html"><button class="help-card__button help-card__button--adopt" data-i18n="nav.sponsor">Apadrinhar</button></a>
             </article>
@@ -278,17 +288,17 @@
           <figure class="about__gallery">
             <div class="about__carousel">
               <div class="about__carousel-track">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="assets/images/shared/luisa-section/luisa-section.jpg" 
                   alt="Instituto Luisa Mell" 
                   class="about__carousel-img active"
                 />
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="assets/images/shared/luisa-section/luisa-section-1.jpg" 
                   alt="Instituto Luisa Mell" 
                   class="about__carousel-img"
                 />
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="assets/images/shared/luisa-section/luisa-section-2.png" 
                   alt="Instituto Luisa Mell" 
                   class="about__carousel-img"
@@ -339,7 +349,7 @@
             <article class="rescue-card rescue-card--news">
               <a href="https://www.cnnbrasil.com.br/nacional/a-cnn-luisa-mell-relata-desafios-no-resgate-de-animais-durante-enchentes/" target="_blank" rel="noopener noreferrer">
                 <div class="rescue-card__image-container">
-                  <img src="assets/images/shared/resgates/luisa-mell7.png" alt="Resgate de animais nas enchentes do RS" class="rescue-card__image" style="object-position: center center;" />
+                  <img loading="lazy" decoding="async" src="assets/images/shared/resgates/luisa-mell7.png" alt="Resgate de animais nas enchentes do RS" class="rescue-card__image" style="object-position: center center;" />
                 </div>
                 <div class="rescue-card__content">
                   <div class="rescue-card__header">
@@ -357,7 +367,7 @@
             <article class="rescue-card rescue-card--news">
               <a href="https://g1.globo.com/pop-arte/noticia/2024/05/14/luisa-mell-conta-que-quebrou-duas-costelas-em-resgate-de-animais-no-rio-grande-do-sul.ghtml" target="_blank" rel="noopener noreferrer">
                 <div class="rescue-card__image-container">
-                  <img src="assets/images/shared/resgates/resgate-costelas.png" alt="Luisa Mell quebra costelas em resgate" class="rescue-card__image" />
+                  <img loading="lazy" decoding="async" src="assets/images/shared/resgates/resgate-costelas.png" alt="Luisa Mell quebra costelas em resgate" class="rescue-card__image" />
                 </div>
                 <div class="rescue-card__content">
                   <div class="rescue-card__header">
@@ -375,7 +385,7 @@
             <article class="rescue-card rescue-card--news">
               <a href="https://g1.globo.com/sao-paulo/noticia/ong-de-luisa-mell-resgata-135-caes-de-maus-tratos-em-canil-de-osasco.ghtml" target="_blank" rel="noopener noreferrer">
                 <div class="rescue-card__image-container">
-                  <img src="assets/images/shared/resgates/resgate-osasco.png" alt="Resgate de 135 cães em Osasco" class="rescue-card__image" />
+                  <img loading="lazy" decoding="async" src="assets/images/shared/resgates/resgate-osasco.png" alt="Resgate de 135 cães em Osasco" class="rescue-card__image" />
                 </div>
                 <div class="rescue-card__content">
                   <div class="rescue-card__header">
@@ -393,7 +403,7 @@
             <article class="rescue-card rescue-card--news">
               <a href="https://g1.globo.com/sp/sorocaba-jundiai/noticia/2022/11/08/justica-condena-dona-de-canil-por-maus-tratos-contra-mais-de-1700-cachorros-no-interior-de-sp.ghtml" target="_blank" rel="noopener noreferrer">
                 <div class="rescue-card__image-container">
-                  <img src="assets/images/shared/resgates/resgate-canil-1500.png" alt="Resgate de 1.700 cachorros em Piedade" class="rescue-card__image" />
+                  <img loading="lazy" decoding="async" src="assets/images/shared/resgates/resgate-canil-1500.png" alt="Resgate de 1.700 cachorros em Piedade" class="rescue-card__image" />
                 </div>
                 <div class="rescue-card__content">
                   <div class="rescue-card__header">
@@ -416,7 +426,7 @@
           <header class="section-header">
             <h2 data-i18n="how.title">Como transformamos vidas</h2>
           </header>
-          <img 
+          <img loading="lazy" decoding="async" 
             src="assets/images/home/diagrama-principal.jpg" 
             alt="Como transformamos vidas - Diagrama do processo de resgate, cuidado e adoção" 
             class="how-we-help__image"
@@ -437,79 +447,79 @@
             <!-- Conjunto 1 -->
             <div class="partners-carousel__slide">
               <a href="https://www.cobasi.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://lojadoportabanner.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://nfpet.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://www.petfoodsolution.com.br/br/allcanis.php" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://www.belmond.studio/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
               </a>
             </div>
             <!-- Conjunto 2 (duplicado) -->
             <div class="partners-carousel__slide">
               <a href="https://www.cobasi.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://lojadoportabanner.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://nfpet.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://www.petfoodsolution.com.br/br/allcanis.php" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://www.belmond.studio/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
               </a>
             </div>
             <!-- Conjunto 3 (duplicado) -->
             <div class="partners-carousel__slide">
               <a href="https://www.cobasi.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-cobasi.png" alt="Cobasi" class="partners-carousel__logo" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://lojadoportabanner.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-loja-do-porta-banner.png" alt="Loja do Porta Banner" class="partners-carousel__logo partners-carousel__logo--xlarge" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://nfpet.com.br/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-nf-pet.svg" alt="NF Pet" class="partners-carousel__logo" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://www.petfoodsolution.com.br/br/allcanis.php" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiros-allcanis.png" alt="Allcanis" class="partners-carousel__logo partners-carousel__logo--large" />
               </a>
             </div>
             <div class="partners-carousel__slide">
               <a href="https://www.belmond.studio/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/shared/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
+                <img loading="lazy" decoding="async" src="assets/images/shared/parceiros/parceiro-belmond.svg" alt="Belmond" class="partners-carousel__logo" />
               </a>
             </div>
           </div>
@@ -522,7 +532,7 @@
         <div class="footer-content">
           <div class="footer-brand">
             <a href="index.html">
-              <img
+              <img loading="eager" decoding="async" fetchpriority="high"
                 src="assets/images/shared/logo.svg"
                 alt="Instituto Luisa Mell"
                 class="footer-logo"
@@ -576,6 +586,7 @@
               <a href="https://doar.institutoluisamell.com/" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="donation">Doar</a>
               <a href="denunciar.html" class="footer-link" data-i18n="footer.report">Denunciar</a>
               <a href="ser-voluntario.html" class="footer-link" data-i18n="footer.volunteer">Ser Voluntário</a>
+              <a href="https://doa.re/EmbaixadoresInstitutoLuisaMell" target="_blank" rel="noopener noreferrer" class="footer-link">Ser Embaixador</a>
             </div>
 
             <div class="footer-nav-col">

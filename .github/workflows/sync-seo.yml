@@ -1,0 +1,58 @@
+name: Sync SEO config
+
+# Atualiza as meta tags dos HTMLs estaticos a partir da tabela `seo_pages`
+# do Supabase. Roda em 3 situacoes:
+#   1. Manualmente, via botao "Run workflow" no GitHub.
+#   2. A cada 30 minutos (cron).
+#   3. Por webhook externo (repository_dispatch com event_type=seo-config-changed),
+#      caso a retaguarda implemente notificacao em tempo real no futuro.
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '*/30 * * * *'
+  repository_dispatch:
+    types: [seo-config-changed]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: scripts/package.json
+
+      - name: Install deps
+        working-directory: scripts
+        run: npm install --omit=dev
+
+      - name: Run sync
+        working-directory: scripts
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node sync-seo.mjs
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain '*.html')" ]; then
+            git add '*.html'
+            git commit -m "chore(seo): sync de meta tags via Supabase [skip ci]"
+            git push
+            echo "Mudancas commitadas."
+          else
+            echo "Nenhuma mudanca para commitar."
+          fi

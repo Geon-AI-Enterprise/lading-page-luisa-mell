@@ -30,7 +30,7 @@
 
 .adopt-hero__title {
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     font-size: var(--fs-display);
     color: #D2691E;
     margin-bottom: 1.5rem;
@@ -39,7 +39,7 @@
 
 .adopt-hero__subtitle {
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     font-size: var(--fs-h3);
     color: #1a1a1a;
     margin-bottom: 1rem;
@@ -48,7 +48,7 @@
 .adopt-hero__text {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-lead);
-    line-height: 1.7;
+    line-height: var(--lh-loose);
     color: #333;
     margin-bottom: 0.5rem;
 }
@@ -82,7 +82,7 @@
 .adopt-hero__link {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-lead);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #1a1a1a;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -114,8 +114,8 @@
 .adopt-hero-section__text-left {
     font-size: var(--fs-body);
     color: #333;
-    line-height: 1.6;
-    font-weight: 400;
+    line-height: var(--lh-relaxed);
+    font-weight: var(--fw-regular);
     text-align: justify;
     align-self: flex-start;
 }
@@ -123,8 +123,8 @@
 .adopt-hero-section__text-right {
     font-size: var(--fs-body);
     color: #333;
-    line-height: 1.6;
-    font-weight: 400;
+    line-height: var(--lh-relaxed);
+    font-weight: var(--fw-regular);
     text-align: justify;
     align-self: flex-end;
 }
@@ -153,7 +153,7 @@
 .adopt-hero-section__image-caption {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-body);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     color: #1a1a1a;
     text-align: center;
     margin: 0;
@@ -162,18 +162,19 @@
 
 /* PROCESS INTRO SECTION */
 .adopt-process-intro {
-    padding: var(--section-padding);
+    /* Mais respiro vertical para o fundo laranja ficar mais presente atras dos cards */
+    padding: 96px 0 112px;
     background: #F4A261;
 }
 
 .adopt-process-intro__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #ffffff;
     text-align: center;
     margin: 0 0 1.5rem 0;
-    line-height: 1.3;
+    line-height: var(--lh-tight);
 }
 
 .adopt-process-intro__description {
@@ -182,7 +183,7 @@
     color: #ffffff;
     text-align: center;
     margin: 0;
-    line-height: 1.6;
+    line-height: var(--lh-relaxed);
     max-width: 700px;
     margin: 0 auto;
 }
@@ -219,9 +220,9 @@
 .adopt-process-step__text {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-small);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     color: #ffffff;
-    line-height: 1.4;
+    line-height: var(--lh-snug);
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: none;
@@ -250,23 +251,68 @@
     height: 40px;
 }
 
-/* Process Image (fluxo de adoção) */
-.adopt-process-image {
+/* Process Grid — fluxo de adocao em cards individuais (substitui o PNG unico).
+   Estrutura: flexbox + justify-content:center. Quando uma linha tem menos
+   itens que a anterior, os "orfaos" ficam centralizados — formando um
+   layout em piramide (linha 1 maior, linha 2 menor, sem espaco vazio). */
+.adopt-process-grid {
+    list-style: none;
+    margin: 2.5rem 0 0;
+    padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin-inline: auto;
 }
 
-.adopt-process-image__img {
-    /* width forca escalonamento; max-width limita em telas largas */
-    width: 70%;
-    max-width: 1100px;
+/* Tamanho dos cards por breakpoint usando flex-basis calculado em funcao
+   da quantidade desejada por linha + o gap. */
+.adopt-process-grid__item {
+    /* Desktop: 5 cards em 1 linha. (100% - 4 gaps) / 5 */
+    flex: 0 0 calc((100% - 4 * 1.5rem) / 5);
+    display: flex;
+    justify-content: center;
+    max-width: 260px;
+}
+
+.adopt-process-grid__img {
+    width: 100%;
     height: auto;
+    display: block;
+}
+
+/* Tablet/mobile largo: 3 cards na 1a linha, 2 centralizados na 2a (piramide 3-2) */
+@media (max-width: 1024px) {
+    .adopt-process-grid {
+        gap: 1.25rem;
+        max-width: 720px;
+    }
+    .adopt-process-grid__item {
+        flex: 0 0 calc((100% - 2 * 1.25rem) / 3);
+        max-width: 220px;
+    }
+}
+
+/* Mobile: piramide 2-1-1-1 (2 na primeira linha, depois descem um a um) */
+@media (max-width: 640px) {
+    .adopt-process-grid {
+        gap: 1rem;
+        max-width: 420px;
+    }
+    .adopt-process-grid__item {
+        flex: 0 0 calc((100% - 1rem) / 2);
+        max-width: 180px;
+    }
+}
+
+/* Mobile estreito: empilhado, sempre centralizado */
+@media (max-width: 360px) {
+    .adopt-process-grid__item {
+        flex: 0 0 100%;
+        max-width: 240px;
+    }
 }
 
 /* STORIES SECTION - De resgatado a amado */
@@ -280,18 +326,24 @@
 .adopt-stories-section__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     font-style: normal;
     color: #ffffff;
     margin: 0 0 2rem 0;
-    line-height: 1.3;
+    line-height: var(--lh-tight);
 }
 
 .adopt-stories-section__banner {
     max-width: 1050px;
-    height: auto;
     display: block;
     margin: 0 auto;
+}
+
+/* Regra para a <img> dentro do <picture> — picture e um wrapper inline por padrao */
+.adopt-stories-section__banner img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* CTA SECTION - Apadrinhamento */
@@ -316,9 +368,9 @@
 .adopt-cta__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #1a1a1a;
-    line-height: 1.3;
+    line-height: var(--lh-tight);
     margin: 0 0 1.5rem 0;
 }
 
@@ -326,7 +378,7 @@
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-lead);
     color: #333;
-    line-height: 1.7;
+    line-height: var(--lh-loose);
     max-width: 600px;
     margin: 0 0 2rem 0;
 }
@@ -335,7 +387,7 @@
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-lead);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     color: #ffffff;
     background-color: #CA6134;
     padding: 0.85rem 2.5rem;
@@ -403,21 +455,33 @@
     flex-direction: column;
     justify-content: center;
     padding: 60px 60px 40px 60px;
+    /* Limita a largura do texto em telas largas, dando um respiro confortavel */
+    /* sem alongar demais as linhas. */
+    max-width: 860px;
     position: relative;
 }
 
 .sponsor-hero__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
+    color: #ffffff;
+    margin: 0 0 8px;
+}
+
+.sponsor-hero__subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--fs-lead);
+    font-weight: var(--fw-medium);
     color: #ffffff;
     margin: 0 0 20px;
+    opacity: 0.95;
 }
 
 .sponsor-hero__text {
     font-family: 'Poppins', sans-serif;
-    font-size: var(--fs-body);
-    line-height: 1.7;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-loose);
     color: #ffffff;
     margin-bottom: 16px;
 }
@@ -429,29 +493,29 @@
 .sponsor-hero__cta-link {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-small);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #ffffff;
     text-decoration: underline;
     transition: opacity 0.2s ease;
     display: inline-block;
-    margin-bottom: 24px;
 }
 
 .sponsor-hero__cta-link:hover {
     opacity: 0.8;
 }
 
-.sponsor-hero__heart-wrapper {
-    text-align: center;
-    width: 100%;
+/* Linha do CTA: alinha o coracao ao lado do link "Quero ajudar..." */
+.sponsor-hero__cta-row {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
-
 .sponsor-hero__heart-icon {
-    width: 56px;
+    width: 48px;
     height: auto;
+    flex-shrink: 0;
 }
 
 /* ========================================
@@ -465,7 +529,7 @@
 .sponsor-daily__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #ffffff;
     text-align: center;
     margin-bottom: 2rem;
@@ -476,6 +540,14 @@
     max-width: 1000px;
     display: block;
     margin: 0 auto;
+    border-radius: 16px;
+}
+
+/* Regra para a <img> dentro do <picture> — picture e wrapper inline por padrao */
+.sponsor-daily__image img {
+    width: 100%;
+    height: auto;
+    display: block;
     border-radius: 16px;
 }
 
@@ -508,7 +580,7 @@
 .adopt-animals__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #CA6134;
     margin: 0 0 0.5rem 0;
 }
@@ -537,7 +609,7 @@
 .adopt-animals__subtitle {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-small);
-    line-height: 1.6;
+    line-height: var(--lh-relaxed);
     color: #333;
     text-align: center;
     margin: 0;
@@ -563,10 +635,10 @@
 .adopt-filters__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h3);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #1a1a1a;
     margin: 0 0 1rem 0;
-    line-height: 1.3;
+    line-height: var(--lh-tight);
     text-align: center;
     display: none;
 }
@@ -581,8 +653,8 @@
     background: transparent;
     border: none;
     color: #666;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: var(--fs-tiny);
+    font-weight: var(--fw-medium);
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: left;
@@ -636,7 +708,7 @@
 
 .adopt-filter-btn.active {
     color: #E46038;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     background-color: rgba(228, 96, 56, 0.1);
 }
 
@@ -660,8 +732,8 @@
     border: none;
     background: transparent;
     font-family: var(--font-poppins);
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: var(--fs-tiny);
+    font-weight: var(--fw-medium);
     color: #666666;
     cursor: pointer;
     border-radius: 6px;
@@ -684,7 +756,7 @@
 .adopt-filter-switch__option.active {
     background-color: #E46038;
     color: #ffffff;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     box-shadow: 0 2px 8px rgba(228, 96, 56, 0.3);
 }
 
@@ -723,8 +795,8 @@
     background: transparent;
     border: none;
     color: #666;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: var(--fs-tiny);
+    font-weight: var(--fw-medium);
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0.5rem 0.75rem;
@@ -751,7 +823,7 @@
 
 .adopt-filter-size-btn.active {
     color: #E46038;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     background-color: rgba(228, 96, 56, 0.1);
 }
 
@@ -771,7 +843,7 @@
 
 .adopt-filter-size-option {
     padding: 0.4rem 0.75rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-tiny);
     color: #666;
     cursor: pointer;
     border-radius: 4px;
@@ -785,7 +857,7 @@
 
 .adopt-filter-size-option.active {
     color: #E46038;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     background-color: rgba(228, 96, 56, 0.1);
 }
 
@@ -793,7 +865,7 @@
     padding: 0.6rem 1.2rem;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: 0.9rem;
+    font-size: var(--fs-tiny);
     color: #333;
 }
 
@@ -827,7 +899,7 @@
 }
 
 .adopt-no-results__icon {
-    font-size: 4rem;
+    font-size: var(--fs-display);
     margin-bottom: 1.5rem;
     filter: grayscale(20%);
 }
@@ -835,7 +907,7 @@
 .adopt-no-results__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h3);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     color: #1a1a1a;
     margin-bottom: 1rem;
 }
@@ -843,7 +915,7 @@
 .adopt-no-results__text {
     font-size: var(--fs-body);
     color: #555;
-    line-height: 1.7;
+    line-height: var(--lh-loose);
     margin-bottom: 1.5rem;
     max-width: 480px;
 }
@@ -858,8 +930,8 @@
     border: none;
     border-radius: 2rem;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-medium);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -902,8 +974,8 @@
     align-items: center;
     justify-content: center;
     color: #999;
-    font-weight: 500;
-    font-size: 0.85rem;
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-tiny);
     border: none;
     margin: 12px;
     border-radius: 14px;
@@ -930,7 +1002,7 @@
 .adopt-card__name {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h3);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #ffffff;
     margin: 0 0 0.25rem 0;
 }
@@ -938,7 +1010,7 @@
 .adopt-card__type {
     font-size: var(--fs-small);
     color: #ffffff;
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     margin: 0;
     text-transform: capitalize;
 }
@@ -947,16 +1019,16 @@
     font-size: var(--fs-small);
     color: #ffffff;
     margin: 0;
-    line-height: 1.4;
-    font-weight: 400;
+    line-height: var(--lh-snug);
+    font-weight: var(--fw-regular);
 }
 
 .adopt-card__date {
     font-size: var(--fs-small);
     color: #ffffff;
     margin: 0;
-    line-height: 1.4;
-    font-weight: 400;
+    line-height: var(--lh-snug);
+    font-weight: var(--fw-regular);
 }
 
 .adopt-card__quote {
@@ -964,8 +1036,8 @@
     color: #ffffff;
     font-style: italic;
     margin: 0.5rem 0 0.75rem 0;
-    line-height: 1.5;
-    font-weight: 400;
+    line-height: var(--lh-normal);
+    font-weight: var(--fw-regular);
 }
 
 .adopt-card__btn {
@@ -974,8 +1046,8 @@
     border: none;
     padding: 0.7rem 2rem;
     border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-semibold);
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
@@ -998,8 +1070,8 @@
     border: none;
     padding: 0.85rem 2.5rem;
     border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-semibold);
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
@@ -1072,7 +1144,7 @@
 .adopt-donation-cta__content h2 {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #1a1a1a;
     margin: 0;
     line-height: 1.2;
@@ -1082,7 +1154,7 @@
     font-size: var(--fs-body);
     color: #333;
     margin: 0;
-    line-height: 1.6;
+    line-height: var(--lh-relaxed);
 }
 
 .btn-donate {
@@ -1090,8 +1162,8 @@
     color: var(--white);
     padding: 1rem 2.5rem;
     border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
@@ -1287,8 +1359,8 @@
         border: 1px solid #e0e0e0;
         border-radius: 12px;
         font-family: 'Poppins', sans-serif;
-        font-size: 0.95rem;
-        font-weight: 600;
+        font-size: var(--fs-meta);
+        font-weight: var(--fw-semibold);
         color: #333;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -1337,8 +1409,8 @@
     .adopt-filter-group__title {
         display: block;
         font-family: 'Poppins', sans-serif;
-        font-size: 0.75rem;
-        font-weight: 600;
+        font-size: var(--fs-xs);
+        font-weight: var(--fw-semibold);
         color: #666;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -1360,7 +1432,7 @@
         background-color: #ffffff;
         border-radius: 20px;
         border: 1px solid #e0e0e0;
-        font-size: 0.8rem;
+        font-size: var(--fs-xs);
         flex: 0 1 auto;
     }
 
@@ -1390,7 +1462,7 @@
         background-color: #ffffff;
         border-radius: 20px;
         border: 1px solid #e0e0e0;
-        font-size: 0.8rem;
+        font-size: var(--fs-xs);
     }
 
     .adopt-filter-size-menu {
@@ -1401,7 +1473,7 @@
 
     .adopt-filter-size-option {
         padding: 0.5rem 1rem;
-        font-size: 0.8rem;
+        font-size: var(--fs-xs);
         background-color: #ffffff;
         border-radius: 20px;
         border: 1px solid #e0e0e0;
@@ -1439,7 +1511,7 @@
 .adopt-faq-section__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #1a1a1a;
     text-align: center;
     margin-bottom: 3rem;
@@ -1486,7 +1558,7 @@
     flex: 1;
     border: none;
     background: transparent;
-    font-size: 1rem;
+    font-size: var(--fs-body);
     color: white;
     font-family: 'Poppins', sans-serif;
     outline: none;
@@ -1511,7 +1583,7 @@
     border: none;
     border-radius: 50px;
     background: var(--primary-orange);
-    font-size: 1rem;
+    font-size: var(--fs-body);
     color: white;
     font-family: 'Poppins', sans-serif;
     outline: none;
@@ -1528,7 +1600,7 @@
 .adopt-faq-section__link a {
     color: var(--primary-orange);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     transition: all 0.2s ease;
 }
 
@@ -1566,7 +1638,7 @@
     }
 
     .faq-search__input {
-        font-size: 0.9rem;
+        font-size: var(--fs-tiny);
     }
 }
 
@@ -1656,14 +1728,14 @@
 }
 
 .adopt-error__icon {
-    font-size: 4rem;
+    font-size: var(--fs-display);
     margin-bottom: 1.5rem;
 }
 
 .adopt-error__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h3);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     color: #1a1a1a;
     margin-bottom: 1rem;
 }
@@ -1671,7 +1743,7 @@
 .adopt-error__text {
     font-size: var(--fs-body);
     color: #555;
-    line-height: 1.7;
+    line-height: var(--lh-loose);
     margin-bottom: 1.5rem;
     max-width: 480px;
 }
@@ -1686,8 +1758,8 @@
     border: none;
     border-radius: 2rem;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-medium);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -1722,8 +1794,8 @@
     border: 2px solid #E46038;
     border-radius: 2rem;
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 200px;
@@ -1741,7 +1813,7 @@
     align-items: center;
     gap: 0.75rem;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
+    font-size: var(--fs-meta);
     color: #666;
 }
 
@@ -1762,7 +1834,7 @@
 
 .adopt-load-more__end {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
+    font-size: var(--fs-meta);
     color: #888;
     text-align: center;
     margin: 0;

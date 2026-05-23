@@ -4,8 +4,8 @@
 .btn-donation {
     background-color: #4ECDC4;
     color: var(--white);
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-meta);
     padding: 0.8rem 1.8rem;
     border-radius: 8px;
     cursor: pointer;

@@ -1,13 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <!-- SEO:start (gerado automaticamente, nao edite a mao) -->
+    <title>Instituto Luisa Mell - Denunciar</title>
+    <meta name="description" content="Denuncie maus-tratos contra animais. Sua denuncia pode salvar vidas." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Instituto Luisa Mell - Denunciar" />
+    <meta property="og:description" content="Denuncie maus-tratos contra animais. Sua denuncia pode salvar vidas." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Instituto Luisa Mell - Denunciar" />
+    <meta name="twitter:description" content="Denuncie maus-tratos contra animais. Sua denuncia pode salvar vidas." />
+<!-- SEO:end -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="SOS Animal - Denúncia de maus-tratos Instituto Luisa Mell"
-    />
-    <title>Instituto Luisa Mell - Denunciar</title>
     <link rel="icon" href="assets/images/shared/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +37,7 @@
         <div class="header-content">
           <div class="logo">
             <a href="index.html">
-              <img
+              <img loading="eager" decoding="async" fetchpriority="high"
                 src="assets/images/shared/logo.svg"
                 alt="Instituto Luisa Mell"
                 class="logo-image"
@@ -197,12 +203,12 @@
         <div class="report-hero__wrapper">
           <div class="container report-hero__content">
             <div class="report-hero__image">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="assets/images/denunciar/luisamell_denunciar.png" 
                 alt="Luisa Mell abraçando cachorro resgatado" 
                 class="report-hero__photo report-hero__photo--desktop"
               />
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="assets/images/denunciar/luisa_denunciar_mobile.png" 
                 alt="Luisa Mell abraçando cachorro resgatado" 
                 class="report-hero__photo report-hero__photo--mobile"
@@ -210,8 +216,8 @@
             </div>
             <div class="report-hero__overlay">
               <h1 class="report-hero__title">
+                <span data-i18n="report.heroTitle">Denuncie<br>maus&#8209;tratos!</span>
                 <span data-i18n="report.heroEyebrow">Faça a diferença:</span>
-                <span data-i18n="report.heroTitle">Denuncie<br>maus-tratos!</span>
               </h1>
               <p class="report-hero__text" data-i18n="report.heroText">
                 Cada denúncia recebida pelo Instituto Luisa Mell é
@@ -239,17 +245,19 @@
           flex-direction: column;
           margin-bottom: 20px;
         }
+        /* Titulo principal agora e o primeiro span (DOM invertido para titulo-primeiro) */
         #hero-text-mobile .mobile-title span:first-child {
-          font-size: 1.8rem;
-          font-weight: 600;
-          color: #f4a261;
-        }
-        #hero-text-mobile .mobile-title span:last-child {
           font-size: 2.2rem;
           font-weight: 700;
           font-family: 'Poppins', sans-serif;
           color: #CA6134;
           line-height: 1.1;
+        }
+        /* Eyebrow agora e o ultimo span */
+        #hero-text-mobile .mobile-title span:last-child {
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: #f4a261;
         }
         #hero-text-mobile .mobile-text {
           font-family: 'Poppins', sans-serif;
@@ -270,8 +278,8 @@
       <section id="hero-text-mobile">
         <div class="container">
           <h2 class="mobile-title">
+            <span data-i18n="report.heroTitle">Denuncie<br>maus&#8209;tratos!</span>
             <span data-i18n="report.heroEyebrow">Faça a diferença:</span>
-            <span data-i18n="report.heroTitle">Denuncie<br>maus-tratos!</span>
           </h2>
           <p class="mobile-text" data-i18n="report.heroText">
             Cada denúncia recebida pelo Instituto Luisa Mell é
@@ -294,7 +302,7 @@
       <section class="report-form" id="form-denuncia">
         <div class="container">
           <div class="report-card__header-row">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="assets/images/denunciar/coracao_denunciar.png" 
               alt="Coração" 
               class="report-card__heart"
@@ -528,7 +536,7 @@
         <div class="footer-content">
           <div class="footer-brand">
             <a href="index.html">
-              <img
+              <img loading="eager" decoding="async" fetchpriority="high"
                 src="assets/images/shared/logo.svg"
                 alt="Instituto Luisa Mell"
                 class="footer-logo"
@@ -580,6 +588,7 @@
               <a href="https://doar.institutoluisamell.com/" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="donation">Doar</a>
               <a href="denunciar.html" class="footer-link" data-i18n="footer.report">Denunciar</a>
               <a href="ser-voluntario.html" class="footer-link" data-i18n="footer.volunteer">Ser Voluntário</a>
+              <a href="https://doa.re/EmbaixadoresInstitutoLuisaMell" target="_blank" rel="noopener noreferrer" class="footer-link">Ser Embaixador</a>
             </div>
 
             <div class="footer-nav-col">

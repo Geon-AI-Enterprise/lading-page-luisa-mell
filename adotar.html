@@ -1,13 +1,26 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <!-- SEO:start (gerado automaticamente, nao edite a mao) -->
+    <title>Instituto Luisa Mell - Adotar</title>
+    <meta name="description" content="Adote um animal resgatado pelo Instituto Luisa Mell. Cada adocao e uma nova chance." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Instituto Luisa Mell - Adotar" />
+    <meta property="og:description" content="Adote um animal resgatado pelo Instituto Luisa Mell. Cada adocao e uma nova chance." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Instituto Luisa Mell - Adotar" />
+    <meta name="twitter:description" content="Adote um animal resgatado pelo Instituto Luisa Mell. Cada adocao e uma nova chance." />
+<!-- SEO:end -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Instituto Luisa Mell - Adote um Animal" />
-    <title>Adotar - Instituto Luisa Mell</title>
     <link rel="icon" href="assets/images/shared/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Pre-estabelece conexao com o CDN do Storage para reduzir o tempo da 1a imagem -->
+    <link rel="preconnect" href="https://iakcrxcpumsffcogmbhz.supabase.co" crossorigin />
+    <!-- Preload do LCP (hero de adocao) -->
+    <link rel="preload" as="image" href="assets/images/adotar/hero-adocao-dogs.png" fetchpriority="high" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -21,6 +34,7 @@
     <link rel="stylesheet" href="assets/css/pages/events.css" />
     <link rel="stylesheet" href="assets/css/pages/eventos.css" />
     <link rel="stylesheet" href="assets/css/pages/animal-modal.css" />
+    <link rel="stylesheet" href="assets/css/pages/adopt-form-modal.css" />
     <link rel="stylesheet" href="assets/css/pages/faq.css" />
   </head>
 
@@ -32,7 +46,7 @@
           <!-- Logo -->
           <div class="logo">
             <a href="index.html">
-              <img
+              <img loading="eager" decoding="async" fetchpriority="high"
                 src="assets/images/shared/logo.svg"
                 alt="Instituto Luisa Mell"
                 class="logo-image"
@@ -215,10 +229,10 @@
             <p class="adopt-hero__text">
               É oferecer uma segunda chance para quem já enfrentou abandono, maus-tratos ou o medo de não sobreviver.
             </p>
-            <img src="assets/images/adotar/hero-adocao-heart.png" alt="" class="adopt-hero__heart" />
+            <img loading="eager" decoding="async" fetchpriority="high" src="assets/images/adotar/hero-adocao-heart.png" alt="" class="adopt-hero__heart" />
           </div>
           <div class="adopt-hero__image-wrapper">
-            <img src="assets/images/adotar/hero-adocao-dogs.png" alt="Fotos de animais para adoção" class="adopt-hero__dogs" />
+            <img loading="eager" decoding="async" fetchpriority="high" src="assets/images/adotar/hero-adocao-dogs.png" alt="Fotos de animais para adoção" class="adopt-hero__dogs" />
           </div>
         </div>
         <div class="adopt-hero__cta">
@@ -232,9 +246,23 @@
           <h2 class="adopt-process-intro__title" data-i18n="adopt.processTitle">
             Como faço para adotar?
           </h2>
-          <div class="adopt-process-image">
-            <img src="assets/images/adotar/fluxo_adotar.png" alt="Fluxo de adoção" class="adopt-process-image__img" />
-          </div>
+          <ol class="adopt-process-grid" aria-label="Passos da adocao">
+            <li class="adopt-process-grid__item">
+              <img loading="lazy" decoding="async" src="assets/images/adotar/fluxo_card_1.png" alt="Passo 1 do fluxo de adocao" class="adopt-process-grid__img" />
+            </li>
+            <li class="adopt-process-grid__item">
+              <img loading="lazy" decoding="async" src="assets/images/adotar/fluxo_card_2.png" alt="Passo 2 do fluxo de adocao" class="adopt-process-grid__img" />
+            </li>
+            <li class="adopt-process-grid__item">
+              <img loading="lazy" decoding="async" src="assets/images/adotar/fluxo_card_3.png" alt="Passo 3 do fluxo de adocao" class="adopt-process-grid__img" />
+            </li>
+            <li class="adopt-process-grid__item">
+              <img loading="lazy" decoding="async" src="assets/images/adotar/fluxo_card_4.png" alt="Passo 4 do fluxo de adocao" class="adopt-process-grid__img" />
+            </li>
+            <li class="adopt-process-grid__item">
+              <img loading="lazy" decoding="async" src="assets/images/adotar/fluxo_card_5.png" alt="Passo 5 do fluxo de adocao" class="adopt-process-grid__img" />
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -260,15 +288,15 @@
                 <span class="adopt-filter-group__title">Tipo de Animal</span>
                 <div class="adopt-filter-group__buttons">
                   <button class="adopt-filter-btn active" data-filter="all">
-                    <img src="assets/images/apadrinhe/todos.svg" alt="Todos" class="adopt-filter-icon" />
+                    <img loading="lazy" decoding="async" src="assets/images/apadrinhe/todos.svg" alt="Todos" class="adopt-filter-icon" />
                     <span data-i18n="adopt.filter.all">Todos</span>
                   </button>
                   <button class="adopt-filter-btn" data-filter="dogs">
-                    <img src="assets/images/shared/icons/cachorro-icon.svg" alt="Cães" class="adopt-filter-icon" />
+                    <img loading="lazy" decoding="async" src="assets/images/shared/icons/cachorro-icon.svg" alt="Cães" class="adopt-filter-icon" />
                     <span data-i18n="adopt.filter.dogs">Cães</span>
                   </button>
                   <button class="adopt-filter-btn" data-filter="cats">
-                    <img src="assets/images/shared/icons/gato-icon.svg" alt="Gatos" class="adopt-filter-icon" />
+                    <img loading="lazy" decoding="async" src="assets/images/shared/icons/gato-icon.svg" alt="Gatos" class="adopt-filter-icon" />
                     <span data-i18n="adopt.filter.cats">Gatos</span>
                   </button>
                 </div>
@@ -279,11 +307,11 @@
                 <span class="adopt-filter-group__title">Idade</span>
                 <div class="adopt-filter-group__buttons">
                   <button class="adopt-filter-btn" data-filter="puppies">
-                    <img src="assets/images/shared/icons/adulto-icon.png" alt="Filhote" class="adopt-filter-icon adopt-filter-icon--small" />
+                    <img loading="lazy" decoding="async" src="assets/images/shared/icons/adulto-icon.png" alt="Filhote" class="adopt-filter-icon adopt-filter-icon--small" />
                     <span data-i18n="adopt.filter.puppies">Filhote</span>
                   </button>
                   <button class="adopt-filter-btn" data-filter="adults">
-                    <img src="assets/images/shared/icons/adulto-icon.png" alt="Adulto" class="adopt-filter-icon" />
+                    <img loading="lazy" decoding="async" src="assets/images/shared/icons/adulto-icon.png" alt="Adulto" class="adopt-filter-icon" />
                     <span data-i18n="adopt.filter.adults">Adulto</span>
                   </button>
                 </div>
@@ -294,15 +322,15 @@
                 <span class="adopt-filter-group__title">Tamanho</span>
                 <div class="adopt-filter-group__buttons">
                   <button class="adopt-filter-btn" data-filter="size-p">
-                    <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho P" class="adopt-filter-icon adopt-filter-icon--size-p" />
+                    <img loading="lazy" decoding="async" src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho P" class="adopt-filter-icon adopt-filter-icon--size-p" />
                     <span>P</span>
                   </button>
                   <button class="adopt-filter-btn" data-filter="size-m">
-                    <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho M" class="adopt-filter-icon adopt-filter-icon--size-m" />
+                    <img loading="lazy" decoding="async" src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho M" class="adopt-filter-icon adopt-filter-icon--size-m" />
                     <span>M</span>
                   </button>
                   <button class="adopt-filter-btn" data-filter="size-g">
-                    <img src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho G" class="adopt-filter-icon adopt-filter-icon--size-g" />
+                    <img loading="lazy" decoding="async" src="assets/images/apadrinhe/tamanho.svg" alt="Tamanho G" class="adopt-filter-icon adopt-filter-icon--size-g" />
                     <span>G</span>
                   </button>
                 </div>
@@ -313,11 +341,11 @@
                 <span class="adopt-filter-group__title">Sexo</span>
                 <div class="adopt-filter-group__buttons">
                   <button class="adopt-filter-btn" data-filter="female">
-                    <img src="assets/images/shared/icons/Bow_Femea.svg" alt="Fêmea" class="adopt-filter-icon" />
+                    <img loading="lazy" decoding="async" src="assets/images/shared/icons/Bow_Femea.svg" alt="Fêmea" class="adopt-filter-icon" />
                     <span data-i18n="adopt.filter.female">Fêmea</span>
                   </button>
                   <button class="adopt-filter-btn" data-filter="male">
-                    <img src="assets/images/shared/icons/Tie_Macho.svg" alt="Macho" class="adopt-filter-icon" />
+                    <img loading="lazy" decoding="async" src="assets/images/shared/icons/Tie_Macho.svg" alt="Macho" class="adopt-filter-icon" />
                     <span data-i18n="adopt.filter.male">Macho</span>
                   </button>
                 </div>
@@ -420,17 +448,20 @@
       <!-- SECTION: De resgatado a amado -->
       <section class="adopt-stories-section">
         <h2 class="adopt-stories-section__title" data-i18n="adopt.storiesTitle">De resgatado a amado</h2>
-        <img 
-          src="assets/images/adotar/section-adocao-resgate.png" 
-          alt="De resgatado a amado" 
-          class="adopt-stories-section__banner"
-        />
+        <picture class="adopt-stories-section__banner">
+          <!-- Versao mobile abaixo de 768px (proporcoes ajustadas para tela estreita) -->
+          <source media="(max-width: 768px)" srcset="assets/images/adotar/section-adocao-resgate_mobile.png" />
+          <img loading="lazy" decoding="async"
+            src="assets/images/adotar/section-adocao-resgate.png"
+            alt="De resgatado a amado"
+          />
+        </picture>
       </section>
 
       <!-- EVENTS SECTION -->
       <section class="events-grid-section" aria-labelledby="events-title">
         <div class="container">
-          <img 
+          <img loading="lazy" decoding="async" 
             src="assets/images/shared/icons/calendario-eventos.png" 
             alt="Eventos de adoção - Calendário" 
             class="events-title-image"
@@ -474,7 +505,7 @@
       <!-- SECTION: CTA Apadrinhamento -->
       <section class="adopt-cta">
         <div class="container">
-          <img 
+          <img loading="lazy" decoding="async" 
             src="assets/images/adotar/section-adocao-cta-heart.png" 
             alt="" 
             class="adopt-cta__heart"
@@ -493,7 +524,7 @@
         <div class="footer-content">
           <div class="footer-brand">
             <a href="index.html">
-              <img
+              <img loading="eager" decoding="async" fetchpriority="high"
                 src="assets/images/shared/logo.svg"
                 alt="Instituto Luisa Mell"
                 class="footer-logo"
@@ -547,6 +578,7 @@
               <a href="https://doar.institutoluisamell.com/" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="donation">Doar</a>
               <a href="denunciar.html" class="footer-link" data-i18n="footer.report">Denunciar</a>
               <a href="ser-voluntario.html" class="footer-link" data-i18n="footer.volunteer">Ser Voluntário</a>
+              <a href="https://doa.re/EmbaixadoresInstitutoLuisaMell" target="_blank" rel="noopener noreferrer" class="footer-link">Ser Embaixador</a>
             </div>
 
             <div class="footer-nav-col">
@@ -623,10 +655,60 @@
       </div>
     </div>
 
+    <!-- Modal: Formulario de Pedido de Adocao -->
+    <div class="adopt-form-overlay" id="adopt-form-overlay"></div>
+    <div class="adopt-form-modal" id="adopt-form-modal">
+      <button class="adopt-form-modal__close" aria-label="Fechar">&times;</button>
+      <h2 class="adopt-form-modal__title">Quero adotar!</h2>
+      <p class="adopt-form-modal__subtitle">Preencha o formulario abaixo e nossa equipe entrara em contato.</p>
+
+      <form id="adopt-form" class="adopt-form" novalidate>
+        <div class="adopt-form__field">
+          <label for="adopt-form-animal">Animal de interesse</label>
+          <input id="adopt-form-animal" name="animalName" type="text" readonly />
+        </div>
+        <input type="hidden" id="adopt-form-animal-id" name="animalId" />
+
+        <div class="adopt-form__field">
+          <label for="adopt-form-name">Nome completo *</label>
+          <input id="adopt-form-name" name="fullName" type="text" required />
+        </div>
+
+        <div class="adopt-form__row--two">
+          <div class="adopt-form__field">
+            <label for="adopt-form-email">E-mail *</label>
+            <input id="adopt-form-email" name="email" type="email" required />
+          </div>
+          <div class="adopt-form__field">
+            <label for="adopt-form-phone">WhatsApp *</label>
+            <input id="adopt-form-phone" name="phone" type="tel" required placeholder="(00) 00000-0000" />
+          </div>
+        </div>
+
+        <div class="adopt-form__field">
+          <label for="adopt-form-city">Cidade / UF</label>
+          <input id="adopt-form-city" name="city" type="text" placeholder="Ex.: Sao Paulo / SP" />
+        </div>
+
+        <div class="adopt-form__field">
+          <label for="adopt-form-message">Por que voce quer adotar?</label>
+          <textarea id="adopt-form-message" name="message" rows="4" placeholder="Conte um pouco sobre sua rotina e por que decidiu adotar."></textarea>
+        </div>
+
+        <label class="adopt-form__consent">
+          <input type="checkbox" name="consent" required />
+          <span>Li e aceito os termos de adocao responsavel.</span>
+        </label>
+
+        <button type="submit" class="adopt-form__submit">Enviar pedido de adocao</button>
+      </form>
+    </div>
+
     <script type="text/javascript" src="https://paybox.doare.org/assets/javascripts/paybox.sdk.js"></script>
     <script src="assets/js/shared/donation.js"></script>
     <script src="assets/js/shared/config.js"></script>
     <script type="module" src="assets/js/shared/main.js"></script>
+    <script defer src="assets/js/pages/adopt-form-modal.js"></script>
     <script src="assets/js/shared/filters-dropdown.js"></script>
     <script type="module" src="assets/js/pages/adopt-filters.js"></script>
     <script type="module" src="assets/js/pages/animal-modal.js"></script>

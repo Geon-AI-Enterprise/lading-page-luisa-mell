@@ -1,0 +1,13 @@
+{
+  "name": "luisamell-scripts",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Scripts de manutencao do site Instituto Luisa Mell (executados via GitHub Actions).",
+  "scripts": {
+    "sync-seo": "node sync-seo.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  }
+}

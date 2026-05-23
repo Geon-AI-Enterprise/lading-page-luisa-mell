@@ -6,7 +6,7 @@
     padding-top: 4rem;
     padding-bottom: 2.5rem;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
 }
 
 .footer-content {
@@ -37,11 +37,11 @@
 }
 
 .footer-description {
-    font-size: 0.95rem; /* Ajuste fino para Poppins */
+    font-size: var(--fs-meta); /* Ajuste fino para Poppins */
     line-height: 1.8;
     color: #E0E0E0; /* Texto levemente mais claro para contraste na Poppins */
     margin-bottom: 2.5rem;
-    font-weight: 300;
+    font-weight: var(--fw-light);
     text-align: left;
 }
 
@@ -101,8 +101,8 @@
 .footer-link {
     color: var(--white);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 400;
+    font-size: var(--fs-tiny);
+    font-weight: var(--fw-regular);
     transition: color 0.2s ease;
     text-align: left;
     letter-spacing: 0px;
@@ -121,9 +121,9 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 0.5rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-tiny);
     color: #CCCCCC;
-    font-weight: 300;
+    font-weight: var(--fw-light);
 }
 
 .footer-bottom a {

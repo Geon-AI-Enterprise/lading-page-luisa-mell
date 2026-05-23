@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const dots = dotsContainer.querySelectorAll('.hero-dot');
 
     if (slides.length === 0) return;
+    // Com 1 unico slide, nao ha o que rotacionar/navegar — sai cedo para evitar
+    // autoplay e listeners desnecessarios.
+    if (slides.length < 2) {
+        console.log('🎠 Hero Carousel: 1 slide, autoplay desativado');
+        return;
+    }
 
     let currentIndex = 0;
     let autoplayInterval = null;

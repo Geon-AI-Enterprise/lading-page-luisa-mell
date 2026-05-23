@@ -29,9 +29,11 @@
     --fs-h2:      clamp(1.5rem, 2vw + 0.75rem, 2.25rem); /* Subtítulos de seção */
     --fs-h3:      clamp(1.25rem, 1vw + 0.75rem, 1.5rem); /* Títulos de cards */
     --fs-lead:    clamp(1.05rem, 0.5vw + 0.95rem, 1.15rem); /* Parágrafo destaque */
-    --fs-body:    1rem;        /* Texto corrido */
-    --fs-small:   0.875rem;    /* Labels, captions */
-    --fs-xs:      0.75rem;     /* Tags, badges */
+    --fs-body:    1rem;        /* Texto corrido (16px) */
+    --fs-meta:    0.95rem;     /* Texto secundario, captions com peso */
+    --fs-small:   0.875rem;    /* Labels, captions (14px) */
+    --fs-tiny:    0.85rem;     /* Disclaimers, footnotes */
+    --fs-xs:      0.75rem;     /* Tags, badges (12px) */
 
     /* Aliases legacy (mantém compatibilidade) */
     --font-size-h1: var(--fs-h1);
@@ -40,13 +42,41 @@
     --font-size-body: var(--fs-body);
     --font-size-small: var(--fs-small);
 
-    /* Line Heights */
-    --line-height-heading: 1.3;
-    --line-height-body: 1.7;
+    /* ============================================
+       Font Weights - Semantica
+       ============================================ */
+    --fw-light:    300;
+    --fw-regular:  400;
+    --fw-medium:   500;
+    --fw-semibold: 600;
+    --fw-bold:     700;
+
+    /* ============================================
+       Line Heights
+       ============================================ */
+    --lh-tight:    1.3;   /* Titulos grandes */
+    --lh-snug:     1.4;   /* Subtitulos */
+    --lh-normal:   1.5;   /* Texto curto */
+    --lh-relaxed:  1.6;   /* Texto medio */
+    --lh-loose:    1.7;   /* Paragrafos longos */
+    /* Aliases legacy */
+    --line-height-heading: var(--lh-tight);
+    --line-height-body: var(--lh-loose);
+
+    /* ============================================
+       Spacing - Tipografia
+       Margens padroes abaixo de titulos e entre paragrafos
+       ============================================ */
+    --space-title-after:     1rem;    /* abaixo de h1, h2 */
+    --space-subtitle-after:  0.75rem; /* abaixo de h3 / subtitulo */
+    --space-paragraph:       1rem;    /* entre paragrafos sequenciais */
+    --space-section-heading: 1.5rem;  /* abaixo de cabecalho de section */
 
     /* Spacing */
     --header-height: 80px;
-    --container-padding: 2rem;
+    /* Padding lateral padrao do .container — afeta todas as paginas que usam */
+    /* o container. Sections com width:100vw (heros full-bleed) nao sao afetadas. */
+    --container-padding: 3rem;
     
     /* Layout - Padronização de Larguras */
     --content-max-width: 1200px;
@@ -72,7 +102,7 @@ body {
 h1 {
     font-family: var(--font-poppins);
     font-size: var(--fs-h1);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     line-height: var(--line-height-heading);
     color: var(--text-dark);
 }
@@ -80,7 +110,7 @@ h1 {
 h2 {
     font-family: var(--font-poppins);
     font-size: var(--fs-h2);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     line-height: var(--line-height-heading);
     color: var(--text-dark);
 }
@@ -88,7 +118,7 @@ h2 {
 h3 {
     font-family: var(--font-poppins);
     font-size: var(--fs-h3);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     line-height: var(--line-height-heading);
     color: var(--text-dark);
 }
@@ -103,8 +133,34 @@ p {
 /* Modificadores utilitários para variantes */
 .text-display { font-size: var(--fs-display); }
 .text-lead    { font-size: var(--fs-lead); }
+.text-meta    { font-size: var(--fs-meta); }
 .text-small   { font-size: var(--fs-small); }
+.text-tiny    { font-size: var(--fs-tiny); }
 .text-xs      { font-size: var(--fs-xs); }
+
+/* Pesos */
+.fw-light     { font-weight: var(--fw-light); }
+.fw-regular   { font-weight: var(--fw-regular); }
+.fw-medium    { font-weight: var(--fw-medium); }
+.fw-semibold  { font-weight: var(--fw-semibold); }
+.fw-bold      { font-weight: var(--fw-bold); }
+
+/* ========================================
+   Content Flow - Spacing entre elementos sequenciais
+   Aplique .text-flow no container e os filhos diretos ganham
+   espacamento vertical padronizado entre si (sem mexer no primeiro).
+   Uso: <div class="text-flow"><h2>...</h2><p>...</p><p>...</p></div>
+   ======================================== */
+.text-flow > * + * {
+    margin-top: var(--space-paragraph);
+}
+.text-flow > h1 + *,
+.text-flow > h2 + * {
+    margin-top: var(--space-title-after);
+}
+.text-flow > h3 + * {
+    margin-top: var(--space-subtitle-after);
+}
 
 .header p {
     color: var(--white);

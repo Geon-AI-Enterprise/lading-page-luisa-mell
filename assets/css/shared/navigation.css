@@ -17,8 +17,8 @@
 /* Estilo dos links e novo hover sutil */
 .nav-list a {
     color: var(--white);
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-meta);
     transition: opacity 0.3s ease, transform 0.3s ease;
     position: relative;
     padding: 0.5rem 0;
@@ -87,8 +87,8 @@
     background: transparent;
     border: none;
     color: var(--white);
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-meta);
     padding: 0.5rem 0;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -155,8 +155,8 @@
     color: var(--white);
     padding: 0.75rem 1rem;
     cursor: pointer;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
     transition: background-color 0.2s ease;
     display: block;
     text-align: left;
@@ -168,5 +168,5 @@
 
 .help-option.active {
     background-color: rgba(255, 255, 255, 0.25);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
 }

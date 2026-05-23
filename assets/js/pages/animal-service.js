@@ -115,15 +115,21 @@ function getImagePlaceholder(name) {
  * @param {Object} animal - Dados do animal do Supabase
  * @returns {string} HTML do card
  */
-export function renderAnimalCard(animal) {
+export function renderAnimalCard(animal, opts = {}) {
     const typeClass = animal.type === 'dog' ? 'dogs' : 'cats';
     const sizeAttr = animal.size ? `data-filter-size="${animal.size}"` : '';
     const genderAttr = animal.gender ? `data-filter-gender="${animal.gender}"` : '';
     const puppyAttr = animal.is_puppy ? 'data-filter-puppy="true"' : '';
 
+    // Cards acima da dobra carregam eager + prioridade alta para acelerar LCP.
+    // Cards abaixo (5+ ou paginas seguintes) ficam lazy para nao competir.
+    const eager = opts.eager === true;
+    const loadingAttr = eager ? 'eager' : 'lazy';
+    const priorityAttr = eager ? 'fetchpriority="high"' : '';
+
     const thumbUrl = cardThumb(animal.photo_url);
     const imageContent = thumbUrl
-        ? `<img src="${thumbUrl}" alt="${animal.name}" loading="lazy" width="360" decoding="async">`
+        ? `<img src="${thumbUrl}" alt="${animal.name}" loading="${loadingAttr}" ${priorityAttr} width="360" decoding="async">`
         : getImagePlaceholder(animal.name);
 
     const rescueDateText = animal.rescue_date 
@@ -225,12 +231,18 @@ export function renderAnimalsToGrid(animals, container, append = false) {
 
     container.style.display = '';
     
+    // Primeiros 4 cards da primeira pagina sao tratados como above-the-fold:
+    // loading=eager + fetchpriority=high para acelerar a primeira render.
+    // Em paginas subsequentes (append=true) tudo continua lazy.
+    const EAGER_COUNT = 4;
+    const cardsHtml = animals
+        .map((animal, i) => renderAnimalCard(animal, { eager: !append && i < EAGER_COUNT }))
+        .join('');
+
     if (append) {
-        // Adicionar novos cards ao final
-        container.insertAdjacentHTML('beforeend', animals.map(animal => renderAnimalCard(animal)).join(''));
+        container.insertAdjacentHTML('beforeend', cardsHtml);
     } else {
-        // Substituir todo o conteúdo
-        container.innerHTML = animals.map(animal => renderAnimalCard(animal)).join('');
+        container.innerHTML = cardsHtml;
     }
 
     // Popula o cache do modal com os dados já carregados

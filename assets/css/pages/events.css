@@ -23,7 +23,7 @@
 .adopt-events__title {
   font-family: var(--font-poppins);
   font-size: var(--fs-h2);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--primary-orange);
   margin: 0 0 0.5rem 0;
 }
@@ -67,7 +67,7 @@
 .calendar-title {
   font-family: var(--font-poppins);
   font-size: var(--fs-lead);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--text-dark, #1f2937);
 }
 
@@ -101,7 +101,7 @@
 .calendar-weekday {
   text-align: center;
   font-size: var(--fs-xs);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--events-muted);
   text-transform: uppercase;
   padding: 0.5rem 0;
@@ -139,7 +139,7 @@
 
 .calendar-day__number {
   font-size: var(--fs-small);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: var(--text-dark, #1f2937);
 }
 
@@ -148,7 +148,7 @@
 }
 
 .calendar-day--today .calendar-day__number {
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   color: #d97706;
 }
 
@@ -166,7 +166,7 @@
 
 .calendar-day--has-event .calendar-day__number {
   color: var(--events-primary);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 .calendar-day__dot {
@@ -228,13 +228,13 @@
 
 .event-card__day {
   font-size: var(--fs-h3);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   line-height: 1;
 }
 
 .event-card__month {
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   text-transform: uppercase;
   opacity: 0.9;
 }
@@ -258,10 +258,10 @@
 
 .event-card__title {
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--text-dark, #1f2937);
   margin: 0;
-  line-height: 1.3;
+  line-height: var(--lh-tight);
 }
 
 .event-card__venue {
@@ -281,12 +281,12 @@
   font-size: var(--fs-small);
   color: #4b5563;
   margin: 0.25rem 0 0 0;
-  line-height: 1.4;
+  line-height: var(--lh-snug);
 }
 
 .event-card__link {
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: var(--events-primary);
   text-decoration: none;
   margin-top: 0.5rem;
@@ -332,7 +332,7 @@
 .day-events-panel__header h4 {
   margin: 0;
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: #92400e;
   text-transform: capitalize;
 }

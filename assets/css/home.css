@@ -33,36 +33,38 @@
   color: #00202a;
 }
 
+.hero-video__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  color: #CA6134;
+  /* Title agora vem primeiro; margem abaixo aproxima do subtitulo */
+  margin: 0 0 8px 0;
+  line-height: 1.1;
+}
+
 .hero-video__eyebrow {
   display: block;
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-h3);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: #f4a261;
-  margin-bottom: 8px;
-}
-
-.hero-video__title {
-  font-family: 'Poppins', sans-serif;
-  font-size: var(--fs-display);
-  font-weight: 700;
-  color: #CA6134;
-  margin: 0 0 24px 0;
-  line-height: 1.1;
+  /* Eyebrow agora atua como subtitulo (abaixo do h1) — espaco antes do paragrafo */
+  margin-bottom: 24px;
 }
 
 .hero-video__description {
   font-family: 'Poppins', sans-serif;
-  font-size: var(--fs-body);
-  line-height: 1.7;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-loose);
   color: #00202a;
   margin: 0 0 16px 0;
 }
 
 .hero-video__cta-text {
   font-family: 'Poppins', sans-serif;
-  font-size: var(--fs-body);
-  line-height: 1.7;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-loose);
   color: #00202a;
   margin: 0 0 32px 0;
 }
@@ -72,8 +74,8 @@
   align-items: center;
   justify-content: center;
   padding: 0.85rem 2rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
   border-radius: 25px;
   background-color: #4ECDC4;
   color: #ffffff;
@@ -194,7 +196,7 @@
   display: block;
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-h3);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: #D6561D;
   margin-bottom: 12px;
 }
@@ -202,7 +204,7 @@
 .hero-slide--iphone__title {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-display);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   color: #ffffff;
   margin: 0 0 24px 0;
   line-height: 1.1;
@@ -211,7 +213,7 @@
 .hero-slide--iphone__description {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-body);
-  line-height: 1.7;
+  line-height: var(--lh-loose);
   color: rgba(255, 255, 255, 0.85);
   margin: 0 0 20px 0;
 }
@@ -219,7 +221,7 @@
 .hero-slide--iphone__cta-text {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-body);
-  line-height: 1.7;
+  line-height: var(--lh-loose);
   color: rgba(255, 255, 255, 0.85);
   margin: 0 0 32px 0;
 }
@@ -229,8 +231,8 @@
   align-items: center;
   justify-content: center;
   padding: 0.85rem 2.4rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
   border-radius: 8px;
   background-color: #D6561D;
   color: #ffffff;
@@ -490,8 +492,8 @@
 .hero__banner span {
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-medium);
   color: #666;
 }
 
@@ -645,8 +647,8 @@
   padding: 12px 28px;
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
   cursor: pointer;
   background-color: #ff7a1b;
   color: #ffffff;
@@ -844,7 +846,7 @@
 .about__gallery-text {
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
-  font-size: 0.9rem;
+  font-size: var(--fs-tiny);
   color: #666666;
 }
 
@@ -1010,7 +1012,7 @@
 .rescue-card__source {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-xs);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 4px 10px;
@@ -1035,8 +1037,8 @@
 .rescue-card__title {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-body);
-  font-weight: 600;
-  line-height: 1.4;
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
   color: #222222;
   margin: 0 0 12px 0;
   display: -webkit-box;
@@ -1052,7 +1054,7 @@
 .rescue-card__excerpt {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-small);
-  line-height: 1.6;
+  line-height: var(--lh-relaxed);
   color: #555555;
   margin: 0;
   flex-grow: 1;
@@ -1065,7 +1067,7 @@
 .rescue-card__link {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: #ff7a1b;
   margin-top: 16px;
   display: inline-block;
@@ -1352,7 +1354,7 @@
   }
 
   .about__content h2 {
-    line-height: 1.3;
+    line-height: var(--lh-tight);
     margin-top: 2rem;
     margin-bottom: 16px;
   }
@@ -1362,7 +1364,7 @@
   }
 
   .about__content p {
-    line-height: 1.6;
+    line-height: var(--lh-relaxed);
   }
 
   .about__stat {
@@ -1370,6 +1372,6 @@
   }
 
   .about__stat p {
-    line-height: 1.6;
+    line-height: var(--lh-relaxed);
   }
 }
