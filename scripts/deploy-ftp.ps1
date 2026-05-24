@@ -69,21 +69,15 @@ $filemask = "|$exclusions"
 # Caminho local (passa pra WinSCP usando barras Windows entre aspas)
 $localPath = (Get-Location).Path
 
-# Raw settings por protocolo:
-# - Ftps=0  -> sem TLS (plain FTP)
-# - Ftps=2  -> explicit TLS mandatoria; cert do servidor da
-#              institutoluisamell.com e wildcard *.sslbr.net (Locaweb/UOL):
-#              nao bate com hostname. Aceitamos pelo fingerprint SHA-256.
-# - Ftps=1  -> implicit TLS (porta 990)
-#
-# MinTlsVersion/MaxTlsVersion=12: forca TLSv1.2 (valor 12 = TLS 1.2 em WinSCP).
-# vsftpd da hospedagem nao suporta TLS 1.3 session resumption corretamente.
-# Sem resume, o canal de dados e rejeitado com '425 Operation not permitted'.
-# Em TLS 1.2 o resume funciona e a GUI do WinSCP/FileZilla conectam ok.
-# (Valores: 10=TLS1.0, 11=TLS1.1, 12=TLS1.2, 13=TLS1.3)
+# Raw settings — espelha o que a GUI do WinSCP usa pra conectar nessa
+# hospedagem (extraido via "Generate Session URL/code"). So precisa:
+#   - ProxyPort=0  (default da GUI)
+#   - certificate=<fingerprint>  (cert do servidor e wildcard *.sslbr.net
+#     que nao bate com hostname, mas confiamos pelo fingerprint SHA-256)
+# Quando FTP_PROTOCOL=ftp (plain), nao precisa de cert nem proxy override.
 $rawSettings = switch ($env:FTP_PROTOCOL.ToLower()) {
-    'ftp'  { '-rawsettings Ftps=0' }
-    'ftps' { '-rawsettings Ftps=2 MinTlsVersion=12 MaxTlsVersion=12 SslSessionReuse=1 -certificate="99:11:bc:a5:a2:f2:f8:19:bc:80:b4:14:7e:05:d4:b8:49:99:c6:73:f6:b8:9a:50:c1:5b:6f:52:22:f9:dd:ee"' }
+    'ftp'  { '' }
+    'ftps' { '-rawsettings ProxyPort=0 -certificate="99:11:bc:a5:a2:f2:f8:19:bc:80:b4:14:7e:05:d4:b8:49:99:c6:73:f6:b8:9a:50:c1:5b:6f:52:22:f9:dd:ee"' }
     'sftp' { '' }
     default { '' }
 }
