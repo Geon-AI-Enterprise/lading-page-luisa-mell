@@ -50,9 +50,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [ -n "$(git status --porcelain '*.html')" ]; then
             git add '*.html'
-            git commit -m "chore(seo): sync de meta tags via Supabase [skip ci]"
+            # SEM [skip ci]: o push dispara o ftp-deploy.yml, que sobe os HTMLs
+            # atualizados pro servidor de producao automaticamente.
+            git commit -m "chore(seo): sync de meta tags via Supabase"
             git push
-            echo "Mudancas commitadas."
+            echo "Mudancas commitadas — ftp-deploy sera disparado."
           else
             echo "Nenhuma mudanca para commitar."
           fi

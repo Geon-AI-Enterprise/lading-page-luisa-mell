@@ -1,0 +1,58 @@
+name: Deploy via FTP
+
+# Sincroniza os arquivos do repo com o servidor FTP toda vez que houver
+# push no main (incluindo o sync-seo automatizado, que tambem commita ali).
+#
+# Tambem pode ser disparado manualmente via "Run workflow" na aba Actions.
+#
+# Usa SamKirkland/FTP-Deploy-Action que faz upload INCREMENTAL: mantem um
+# arquivo de estado no servidor (.ftp-deploy-sync-state.json) e so envia
+# arquivos que mudaram desde a ultima execucao.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      # Garante que so um deploy roda por vez (evita corrida no servidor FTP)
+      group: ftp-deploy
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: FTP deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # SFTP (porta 22) ou FTPS (porta 990 implicito / 21 explicito)
+          protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
+          port: ${{ vars.FTP_PORT || '21' }}
+          # Diretorio no servidor (ex.: ./public_html/, ./www/, ./)
+          # Definido como Variable (nao Secret) porque nao e sensivel.
+          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+          # Loga cada arquivo enviado/ignorado para debug
+          log-level: standard
+          # Exclui do upload tudo que nao deve ir pro site publico
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.vscode/**
+            **/.claude/**
+            **/.idea/**
+            **/node_modules/**
+            **/scripts/**
+            **/supabase/**
+            **/*.md
+            **/.gitignore
+            **/.editorconfig
+            **/CLAUDE.md
+            **/.env*
