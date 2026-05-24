@@ -16,7 +16,11 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    # Self-hosted runner no PC do Fernando (Brasil): a hospedagem da
+    # institutoluisamell.com tem firewall geografico que bloqueia IPs
+    # estrangeiros (GitHub-hosted runners rodam no Azure US). Rodando
+    # localmente o IP brasileiro passa pelo firewall.
+    runs-on: self-hosted
     # Vincula este job ao environment "FTP" — assim ele acessa os secrets
     # e variables cadastrados nele (FTP_HOST, FTP_USER, FTP_PASSWORD,
     # FTP_PROTOCOL, FTP_PORT, FTP_SERVER_DIR).
