@@ -89,7 +89,9 @@ $scriptLines = @(
     'option batch abort',
     'option confirm off',
     'option transfer binary',
-    "open ${scheme}://${userEnc}:${passEnc}@${hostPort} -passive=on -timeout=30 $rawSettings",
+    # Espelha o que a GUI do WinSCP exporta: host/ (com '/' final, sem porta
+    # explicita), sem -passive (default auto), sem -timeout.
+    "open ${scheme}://${userEnc}:${passEnc}@${env:FTP_HOST}/ $rawSettings",
     "cd `"$($env:FTP_SERVER_DIR)`"",
     "synchronize remote -filemask=`"$filemask`" `"$localPath`" .",
     'close',
