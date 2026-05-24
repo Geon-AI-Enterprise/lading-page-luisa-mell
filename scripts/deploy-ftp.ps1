@@ -84,8 +84,11 @@ $scriptLines = @(
 )
 $scriptContent = $scriptLines -join "`r`n"
 
+# Diretorio temp (RUNNER_TEMP existe no contexto do GitHub Actions; fallback p/ TEMP)
+$tempDir = if ($env:RUNNER_TEMP) { $env:RUNNER_TEMP } else { $env:TEMP }
+
 # Salva em arquivo temp (WinSCP espera arquivo, nao stdin)
-$scriptFile = [System.IO.Path]::Combine($env:RUNNER_TEMP ?? $env:TEMP, "winscp-script-$(Get-Random).txt")
+$scriptFile = [System.IO.Path]::Combine($tempDir, "winscp-script-$(Get-Random).txt")
 Set-Content -Path $scriptFile -Value $scriptContent -Encoding ASCII
 
 # Log do script (com senha mascarada)
@@ -96,7 +99,7 @@ Write-Output "-------------------------"
 Write-Output ""
 
 # Executa WinSCP
-$logFile = [System.IO.Path]::Combine($env:RUNNER_TEMP ?? $env:TEMP, "winscp-$(Get-Random).log")
+$logFile = [System.IO.Path]::Combine($tempDir, "winscp-$(Get-Random).log")
 $winscpArgs = @(
     "/script=$scriptFile",
     "/log=$logFile",
