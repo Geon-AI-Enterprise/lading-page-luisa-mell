@@ -99,10 +99,12 @@ Write-Output "-------------------------"
 Write-Output ""
 
 # Executa WinSCP
-$logFile = [System.IO.Path]::Combine($tempDir, "winscp-$(Get-Random).log")
+# Log do WinSCP vai pra um path persistente (sobrevive ao cleanup do runner)
+# E sempre dumpado no stdout do step pra aparecer no GitHub Actions UI.
+$persistentLog = 'C:\actions-runner\last-deploy.log'
 $winscpArgs = @(
     "/script=$scriptFile",
-    "/log=$logFile",
+    "/log=$persistentLog",
     '/loglevel=1',
     '/ini=nul'
 )
@@ -110,18 +112,20 @@ Write-Output "Executando WinSCP..."
 & $winscp @winscpArgs
 $exitCode = $LASTEXITCODE
 
-# Cleanup do script (mantem log)
+# Cleanup do script
 Remove-Item $scriptFile -ErrorAction SilentlyContinue
 
+# SEMPRE dumpa o log (ate quando sucesso, ajuda em debug futuro)
+Write-Output ""
+Write-Output "===== WinSCP log =====`r`n"
+if (Test-Path $persistentLog) {
+    Get-Content $persistentLog | Write-Output
+} else {
+    Write-Output "(log nao gerado em $persistentLog)"
+}
+Write-Output "===== fim do log ====="
+
 if ($exitCode -ne 0) {
-    Write-Output ""
-    Write-Output "----- WinSCP log (ultimas 100 linhas) -----"
-    if (Test-Path $logFile) {
-        Get-Content $logFile -Tail 100 | Write-Output
-    } else {
-        Write-Output "(log nao gerado)"
-    }
-    Write-Output "-------------------------------------------"
     throw "WinSCP saiu com codigo $exitCode"
 }
 
