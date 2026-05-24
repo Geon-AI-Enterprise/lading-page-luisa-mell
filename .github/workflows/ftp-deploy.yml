@@ -17,6 +17,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Vincula este job ao environment "FTP" — assim ele acessa os secrets
+    # e variables cadastrados nele (FTP_HOST, FTP_USER, FTP_PASSWORD,
+    # FTP_PROTOCOL, FTP_PORT, FTP_SERVER_DIR).
+    environment: FTP
     concurrency:
       # Garante que so um deploy roda por vez (evita corrida no servidor FTP)
       group: ftp-deploy
