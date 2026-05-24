@@ -2,12 +2,11 @@ name: Deploy via FTP
 
 # Sincroniza os arquivos do repo com o servidor FTP toda vez que houver
 # push no main (incluindo o sync-seo automatizado, que tambem commita ali).
-#
 # Tambem pode ser disparado manualmente via "Run workflow" na aba Actions.
 #
-# Usa SamKirkland/FTP-Deploy-Action que faz upload INCREMENTAL: mantem um
-# arquivo de estado no servidor (.ftp-deploy-sync-state.json) e so envia
-# arquivos que mudaram desde a ultima execucao.
+# Usa WinSCP CLI (winscp.com) que e robusto com vsftpd (lib basic-ftp do
+# SamKirkland action falhava com 425 no canal de dados).
+# Pre-requisito: WinSCP instalado no self-hosted runner (Windows).
 
 on:
   push:
@@ -21,12 +20,8 @@ jobs:
     # estrangeiros (GitHub-hosted runners rodam no Azure US). Rodando
     # localmente o IP brasileiro passa pelo firewall.
     runs-on: self-hosted
-    # Vincula este job ao environment "FTP" — assim ele acessa os secrets
-    # e variables cadastrados nele (FTP_HOST, FTP_USER, FTP_PASSWORD,
-    # FTP_PROTOCOL, FTP_PORT, FTP_SERVER_DIR).
     environment: FTP
     concurrency:
-      # Garante que so um deploy roda por vez (evita corrida no servidor FTP)
       group: ftp-deploy
       cancel-in-progress: false
 
@@ -34,33 +29,70 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: FTP deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # SFTP (porta 22) ou FTPS (porta 990 implicito / 21 explicito)
-          protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
-          port: ${{ vars.FTP_PORT || '21' }}
-          # Diretorio no servidor (ex.: ./public_html/, ./www/, ./)
-          # Definido como Variable (nao Secret) porque nao e sensivel.
-          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
-          # Loga cada arquivo enviado/ignorado para debug
-          log-level: standard
-          # Exclui do upload tudo que nao deve ir pro site publico
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/.vscode/**
-            **/.claude/**
-            **/.idea/**
-            **/node_modules/**
-            **/scripts/**
-            **/supabase/**
-            **/*.md
-            **/.gitignore
-            **/.editorconfig
-            **/CLAUDE.md
-            **/.env*
+      - name: Sync via WinSCP
+        shell: powershell
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PORT: ${{ vars.FTP_PORT }}
+          FTP_PROTOCOL: ${{ vars.FTP_PROTOCOL }}
+          FTP_SERVER_DIR: ${{ vars.FTP_SERVER_DIR }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          $winscp = 'C:\Program Files (x86)\WinSCP\WinSCP.com'
+          if (-not (Test-Path $winscp)) { throw "WinSCP not found at $winscp" }
+
+          # Mapeia o protocolo do action -> WinSCP
+          # ftp -> ftp, ftps -> ftpes (explicit TLS), sftp -> sftp
+          $proto = $env:FTP_PROTOCOL
+          $scheme = switch ($proto) {
+            'ftps' { 'ftpes' }
+            'sftp' { 'sftp' }
+            default { 'ftp' }
+          }
+
+          # Filemask do WinSCP: o que NAO subir.
+          # Sintaxe: <inclui>|<exclui> — sem includes, tudo entra; deps de "/"
+          # excluem diretorios; sem "/" excluem por nome.
+          $filemask = '|.git/;.github/;.vscode/;.claude/;node_modules/;scripts/;supabase/;.gitignore;.editorconfig;CLAUDE.md;*.md;.env;.env.*;run-log.txt'
+
+          # Monta script do WinSCP. Usa here-string single-quote para preservar
+          # caracteres especiais e nao expandir variaveis no PowerShell.
+          $userEnc = [uri]::EscapeDataString($env:FTP_USER)
+          $passEnc = [uri]::EscapeDataString($env:FTP_PASSWORD)
+          $hostPort = "$($env:FTP_HOST):$($env:FTP_PORT)"
+
+          $script = @"
+          option batch abort
+          option confirm off
+          option transfer binary
+          open $scheme`://${userEnc}:${passEnc}@${hostPort} -passive=on
+          cd "$($env:FTP_SERVER_DIR)"
+          synchronize remote -filemask="$filemask" "$(Get-Location)" .
+          close
+          exit
+          "@
+
+          $scriptFile = New-TemporaryFile
+          $script | Set-Content -Path $scriptFile -Encoding ASCII
+          Write-Output "----- WinSCP script -----"
+          Get-Content $scriptFile | ForEach-Object {
+            # Mascara a senha no log para nao vazar
+            $_ -replace "${passEnc}", '***'
+          }
+          Write-Output "-------------------------"
+
+          $logFile = Join-Path $env:RUNNER_TEMP 'winscp.log'
+          & $winscp /script=$scriptFile /log=$logFile /loglevel=1 /ini=nul
+          $exitCode = $LASTEXITCODE
+          Remove-Item $scriptFile -ErrorAction SilentlyContinue
+
+          if ($exitCode -ne 0) {
+            Write-Output "----- WinSCP log (ultimas 80 linhas) -----"
+            if (Test-Path $logFile) { Get-Content $logFile -Tail 80 }
+            throw "WinSCP exited with code $exitCode"
+          }
+
+          Write-Output "Deploy concluido com sucesso."
