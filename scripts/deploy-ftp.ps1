@@ -69,6 +69,19 @@ $filemask = "|$exclusions"
 # Caminho local (passa pra WinSCP usando barras Windows entre aspas)
 $localPath = (Get-Location).Path
 
+# Raw settings por protocolo:
+# - Ftps=0  -> sem TLS (plain FTP)
+# - Ftps=2  -> explicit TLS mandatoria; cert do servidor da
+#              institutoluisamell.com e wildcard *.sslbr.net (Locaweb/UOL):
+#              nao bate com hostname. Aceitamos pelo fingerprint SHA-256.
+# - Ftps=1  -> implicit TLS (porta 990)
+$rawSettings = switch ($env:FTP_PROTOCOL.ToLower()) {
+    'ftp'  { '-rawsettings Ftps=0' }
+    'ftps' { '-rawsettings Ftps=2 -certificate="99:11:bc:a5:a2:f2:f8:19:bc:80:b4:14:7e:05:d4:b8:49:99:c6:73:f6:b8:9a:50:c1:5b:6f:52:22:f9:dd:ee"' }
+    'sftp' { '' }
+    default { '' }
+}
+
 # Monta o script WinSCP
 # IMPORTANTE: aqui usamos arrays + join pra evitar pegadinhas de here-string
 # com indentacao/encoding/escape entre YAML+PowerShell.
@@ -76,7 +89,7 @@ $scriptLines = @(
     'option batch abort',
     'option confirm off',
     'option transfer binary',
-    "open ${scheme}://${userEnc}:${passEnc}@${hostPort} -passive=on -timeout=30",
+    "open ${scheme}://${userEnc}:${passEnc}@${hostPort} -passive=on -timeout=30 $rawSettings",
     "cd `"$($env:FTP_SERVER_DIR)`"",
     "synchronize remote -filemask=`"$filemask`" `"$localPath`" .",
     'close',
