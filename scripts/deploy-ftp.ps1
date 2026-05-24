@@ -69,15 +69,17 @@ $filemask = "|$exclusions"
 # Caminho local (passa pra WinSCP usando barras Windows entre aspas)
 $localPath = (Get-Location).Path
 
-# Raw settings — espelha o que a GUI do WinSCP usa pra conectar nessa
-# hospedagem (extraido via "Generate Session URL/code"). So precisa:
-#   - ProxyPort=0  (default da GUI)
-#   - certificate=<fingerprint>  (cert do servidor e wildcard *.sslbr.net
-#     que nao bate com hostname, mas confiamos pelo fingerprint SHA-256)
-# Quando FTP_PROTOCOL=ftp (plain), nao precisa de cert nem proxy override.
+# Raw settings — espelha EXATAMENTE a sessao salva do WinSCP da GUI
+# (extraido do registro: HKCU\Software\Martin Prikryl\WinSCP 2\Sessions\luisa mell):
+#   - Ftps=3        TLS explicit OPORTUNISTA (nao mandatorio).
+#                   E o que faz funcionar — Ftps=2 (mandatorio) era rejeitado
+#                   pelo vsftpd da hospedagem no canal de dados (425 EPERM).
+#   - ProxyPort=0   default
+#   - certificate   cert e wildcard *.sslbr.net que nao bate com hostname,
+#                   confiamos pelo fingerprint SHA-256.
 $rawSettings = switch ($env:FTP_PROTOCOL.ToLower()) {
     'ftp'  { '' }
-    'ftps' { '-rawsettings ProxyPort=0 -certificate="99:11:bc:a5:a2:f2:f8:19:bc:80:b4:14:7e:05:d4:b8:49:99:c6:73:f6:b8:9a:50:c1:5b:6f:52:22:f9:dd:ee"' }
+    'ftps' { '-rawsettings Ftps=3 ProxyPort=0 -certificate="99:11:bc:a5:a2:f2:f8:19:bc:80:b4:14:7e:05:d4:b8:49:99:c6:73:f6:b8:9a:50:c1:5b:6f:52:22:f9:dd:ee"' }
     'sftp' { '' }
     default { '' }
 }
