@@ -27,6 +27,9 @@ jobs:
       - name: Sync via WinSCP
         shell: powershell
         env:
+          # Quando FTP_STORED_SESSION estiver definida, o script ignora os demais
+          # campos e usa a sessao salva no registro do WinSCP do usuario do runner.
+          FTP_STORED_SESSION: ${{ vars.FTP_STORED_SESSION }}
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}

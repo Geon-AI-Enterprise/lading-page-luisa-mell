@@ -22,28 +22,48 @@ if (-not $winscp) {
 }
 Write-Output "WinSCP encontrado em: $winscp"
 
+# Se FTP_STORED_SESSION for definida, usamos o nome da sessao salva no
+# registro do WinSCP do usuario do runner (HKCU\Software\Martin Prikryl\WinSCP 2\Sessions).
+# Garante 100% de compatibilidade com o que funciona na GUI. As outras vars
+# (FTP_HOST/FTP_USER/...) ficam ignoradas nesse modo, exceto FTP_SERVER_DIR.
+$useStoredSession = -not [string]::IsNullOrEmpty($env:FTP_STORED_SESSION)
+
 # Valida vars obrigatorias
-foreach ($name in 'FTP_HOST', 'FTP_USER', 'FTP_PASSWORD', 'FTP_PORT', 'FTP_PROTOCOL', 'FTP_SERVER_DIR') {
+$requiredVars = if ($useStoredSession) {
+    @('FTP_STORED_SESSION', 'FTP_SERVER_DIR')
+} else {
+    @('FTP_HOST', 'FTP_USER', 'FTP_PASSWORD', 'FTP_PORT', 'FTP_PROTOCOL', 'FTP_SERVER_DIR')
+}
+foreach ($name in $requiredVars) {
     if (-not (Get-Item -LiteralPath "env:$name" -ErrorAction SilentlyContinue).Value) {
         throw "Variavel de ambiente '$name' nao definida."
     }
 }
 
-# Mapeia protocolo para WinSCP
-$scheme = switch ($env:FTP_PROTOCOL.ToLower()) {
-    'ftps' { 'ftpes' }   # FTP explicit TLS
-    'sftp' { 'sftp' }
-    default { 'ftp' }
+if ($useStoredSession) {
+    Write-Output "Modo: sessao SALVA do WinSCP"
+    Write-Output "Sessao:    $($env:FTP_STORED_SESSION)"
+} else {
+    Write-Output "Modo: ad-hoc"
+    Write-Output "Protocolo: $($env:FTP_PROTOCOL)"
+    Write-Output "Host:      $($env:FTP_HOST):$($env:FTP_PORT)"
 }
-Write-Output "Protocolo: $($env:FTP_PROTOCOL) -> WinSCP scheme '$scheme'"
-Write-Output "Host:      $($env:FTP_HOST):$($env:FTP_PORT)"
 Write-Output "Remoto:    $($env:FTP_SERVER_DIR)"
 Write-Output "Local:     $(Get-Location)"
 
-# URL-encode usuario/senha para o caso de terem caracteres especiais
-$userEnc = [uri]::EscapeDataString($env:FTP_USER)
-$passEnc = [uri]::EscapeDataString($env:FTP_PASSWORD)
-$hostPort = "$($env:FTP_HOST):$($env:FTP_PORT)"
+# Mapeia protocolo para WinSCP (so usado em modo ad-hoc)
+$scheme = if ($useStoredSession) { '' } else {
+    switch ($env:FTP_PROTOCOL.ToLower()) {
+        'ftps' { 'ftpes' }
+        'sftp' { 'sftp' }
+        default { 'ftp' }
+    }
+}
+
+# URL-encode usuario/senha — so usado em modo ad-hoc
+$userEnc = if ($useStoredSession) { '' } else { [uri]::EscapeDataString($env:FTP_USER) }
+$passEnc = if ($useStoredSession) { '' } else { [uri]::EscapeDataString($env:FTP_PASSWORD) }
+$hostPort = if ($useStoredSession) { '' } else { "$($env:FTP_HOST):$($env:FTP_PORT)" }
 
 # Filemask: o que NAO subir.
 # Sintaxe WinSCP: "<inclui>|<exclui>" — sem includes manda tudo;
@@ -84,16 +104,23 @@ $rawSettings = switch ($env:FTP_PROTOCOL.ToLower()) {
     default { '' }
 }
 
+# Monta o comando "open" do WinSCP
+# - Modo sessao salva: passa o nome da sessao (encoded) entre aspas.
+# - Modo ad-hoc: monta a URL com credenciais + rawsettings.
+$openCmd = if ($useStoredSession) {
+    "open `"$($env:FTP_STORED_SESSION)`""
+} else {
+    "open ${scheme}://${userEnc}:${passEnc}@${env:FTP_HOST}/ $rawSettings"
+}
+
 # Monta o script WinSCP
-# IMPORTANTE: aqui usamos arrays + join pra evitar pegadinhas de here-string
+# IMPORTANTE: usamos arrays + join pra evitar pegadinhas de here-string
 # com indentacao/encoding/escape entre YAML+PowerShell.
 $scriptLines = @(
     'option batch abort',
     'option confirm off',
     'option transfer binary',
-    # Espelha o que a GUI do WinSCP exporta: host/ (com '/' final, sem porta
-    # explicita), sem -passive (default auto), sem -timeout.
-    "open ${scheme}://${userEnc}:${passEnc}@${env:FTP_HOST}/ $rawSettings",
+    $openCmd,
     "cd `"$($env:FTP_SERVER_DIR)`"",
     "synchronize remote -filemask=`"$filemask`" `"$localPath`" .",
     'close',
@@ -108,23 +135,30 @@ $tempDir = if ($env:RUNNER_TEMP) { $env:RUNNER_TEMP } else { $env:TEMP }
 $scriptFile = [System.IO.Path]::Combine($tempDir, "winscp-script-$(Get-Random).txt")
 Set-Content -Path $scriptFile -Value $scriptContent -Encoding ASCII
 
-# Log do script (com senha mascarada)
+# Log do script (com senha mascarada se modo ad-hoc)
 Write-Output ""
 Write-Output "----- WinSCP script -----"
-$scriptContent -replace [regex]::Escape($passEnc), '***' | Write-Output
+if ($useStoredSession) {
+    $scriptContent | Write-Output
+} else {
+    $scriptContent -replace [regex]::Escape($passEnc), '***' | Write-Output
+}
 Write-Output "-------------------------"
 Write-Output ""
 
 # Executa WinSCP
-# Log do WinSCP vai pra um path persistente (sobrevive ao cleanup do runner)
-# E sempre dumpado no stdout do step pra aparecer no GitHub Actions UI.
+# Log do WinSCP vai pra um path persistente (sobrevive ao cleanup do runner).
+# Em modo sessao salva, NAO passamos /ini=nul (precisamos do registro do usuario).
 $persistentLog = 'C:\actions-runner\last-deploy.log'
 $winscpArgs = @(
     "/script=$scriptFile",
     "/log=$persistentLog",
-    '/loglevel=1',
-    '/ini=nul'
+    '/loglevel=1'
 )
+if (-not $useStoredSession) {
+    # Em modo ad-hoc, isolamos a config para nao acidentalmente herdar do registro.
+    $winscpArgs += '/ini=nul'
+}
 Write-Output "Executando WinSCP..."
 & $winscp @winscpArgs
 $exitCode = $LASTEXITCODE
