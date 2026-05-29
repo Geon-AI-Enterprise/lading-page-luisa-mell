@@ -395,7 +395,7 @@
 }
 
 .report-success-modal__text {
-  font-size: var(--fs-body);
+  font-size: var(--fs-lead);
   color: #4f4f4f;
   line-height: var(--lh-loose);
   margin-bottom: 16px;

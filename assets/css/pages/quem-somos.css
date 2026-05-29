@@ -76,7 +76,7 @@
 
 .about-hero h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: calc(var(--fs-h1) + 10pt);
+  font-size: var(--fs-display);
   font-weight: var(--fw-bold);
   margin-bottom: 4px;
   color: var(--primary-orange);
@@ -350,7 +350,7 @@
 
 .rescue-content h2 {
   font-family: var(--font-poppins);
-  font-size: var(--fs-h2);
+  font-size: var(--fs-h1);
   font-weight: var(--fw-bold);
   margin-bottom: 20px;
   color: #222222;
@@ -360,7 +360,7 @@
   margin-bottom: 28px;
   color: #454545;
   line-height: 1.8;
-  font-size: var(--fs-small);
+  font-size: var(--fs-lead);
 }
 
 .cta-button--teal {
@@ -448,7 +448,7 @@
 
 .partners-section h2 {
   font-family: var(--font-poppins);
-  font-size: var(--fs-h2);
+  font-size: var(--fs-h1);
   margin-bottom: 28px;
 }
 

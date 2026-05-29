@@ -35,7 +35,7 @@
 }
 
 .faq-intro__title {
-  font-size: var(--fs-h1);
+  font-size: var(--fs-display);
   color: var(--color-orange-dark);
   margin-bottom: 0;
   font-weight: var(--fw-bold);
@@ -61,7 +61,7 @@
   align-items: center;
   gap: 12px;
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: var(--fs-h2);
+  font-size: var(--fs-h1);
   font-weight: var(--fw-semibold);
   color: var(--color-ink);
   margin-bottom: 24px;
@@ -218,7 +218,7 @@
 }
 
 .faq-no-results__text {
-  font-size: var(--fs-body);
+  font-size: var(--fs-lead);
   color: var(--color-text-muted);
   max-width: 400px;
   margin: 0 auto 24px;
