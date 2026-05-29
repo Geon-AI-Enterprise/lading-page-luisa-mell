@@ -26,7 +26,7 @@ button,
     gap: 12px;
     padding: 16px 24px;
     border-radius: 8px;
-    background: #fff;
+    background: var(--color-white);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     z-index: 10000;
     transform: translateX(120%);
@@ -39,11 +39,11 @@ button,
 }
 
 .form-toast--success {
-    border-left: 4px solid #10b981;
+    border-left: 4px solid var(--color-success);
 }
 
 .form-toast--error {
-    border-left: 4px solid #ef4444;
+    border-left: 4px solid var(--color-danger);
 }
 
 .form-toast__icon {
@@ -58,18 +58,18 @@ button,
 }
 
 .form-toast--success .form-toast__icon {
-    background: #10b981;
+    background: var(--color-success);
     color: white;
 }
 
 .form-toast--error .form-toast__icon {
-    background: #ef4444;
+    background: var(--color-danger);
     color: white;
 }
 
 .form-toast__message {
     font-size: var(--fs-small);
-    color: #333;
+    color: var(--color-text);
     line-height: var(--lh-snug);
 }
 
@@ -109,7 +109,7 @@ button,
     display: block;
     margin-bottom: 8px;
     font-weight: var(--fw-medium);
-    color: #333;
+    color: var(--color-text);
 }
 
 .form-group input,
@@ -127,14 +127,14 @@ button,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #f97316;
+    border-color: var(--color-orange-bright);
     box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
 }
 
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-    border-color: #ef4444;
+    border-color: var(--color-danger);
 }
 
 /* Checkbox Group */
@@ -172,7 +172,7 @@ button,
     height: 20px;
     min-width: 20px;
     margin-top: 2px;
-    accent-color: #f97316;
+    accent-color: var(--color-orange-bright);
     cursor: pointer;
 }
 
@@ -183,7 +183,7 @@ button,
 }
 
 .checkbox-text a {
-    color: #f97316;
+    color: var(--color-orange-bright);
     text-decoration: underline;
     transition: color 0.2s;
 }
@@ -241,19 +241,19 @@ button,
 
 .file-upload__dropzone:hover,
 .file-upload--dragover .file-upload__dropzone {
-    border-color: #f97316;
+    border-color: var(--color-orange-bright);
     background: rgba(249, 115, 22, 0.05);
 }
 
 .file-upload__icon {
-    color: #666;
+    color: var(--color-text-muted);
     margin-bottom: 12px;
     transition: color 0.3s ease;
 }
 
 .file-upload__dropzone:hover .file-upload__icon,
 .file-upload--dragover .file-upload__icon {
-    color: #f97316;
+    color: var(--color-orange-bright);
 }
 
 .file-upload__text {
@@ -289,7 +289,7 @@ button,
     border: 1px solid rgba(249, 115, 22, 0.3);
     border-radius: 6px;
     font-size: var(--fs-small);
-    color: #f97316;
+    color: var(--color-orange-bright);
 }
 
 .file-upload__file-icon {
@@ -319,7 +319,7 @@ button,
     border: none;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    color: #fff;
+    color: var(--color-white);
     cursor: pointer;
     font-size: var(--fs-xs);
     line-height: 1;
@@ -327,7 +327,7 @@ button,
 }
 
 .file-upload__file-remove:hover {
-    background: #ef4444;
+    background: var(--color-danger);
 }
 
 /* Has Files State */
@@ -372,17 +372,17 @@ button,
 input.input-error,
 select.input-error,
 textarea.input-error {
-    border-color: #ef4444 !important;
+    border-color: var(--color-danger) !important;
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
 }
 
 .input-error:focus {
-    border-color: #ef4444 !important;
+    border-color: var(--color-danger) !important;
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
 }
 
 .field-error-message {
-    color: #ef4444;
+    color: var(--color-danger);
     font-size: var(--fs-xs);
     margin-top: 0.25rem;
     display: block;
@@ -458,7 +458,7 @@ textarea.input-error {
     width: 20px;
     height: 20px;
     border: 2px solid #ddd;
-    border-top-color: #f97316;
+    border-top-color: var(--color-orange-bright);
     border-radius: 50%;
     opacity: 0;
     visibility: hidden;
@@ -478,15 +478,15 @@ textarea.input-error {
 }
 
 .cep-status--loading {
-    color: #f97316;
+    color: var(--color-orange-bright);
 }
 
 .cep-status--success {
-    color: #10b981;
+    color: var(--color-success);
 }
 
 .cep-status--error {
-    color: #ef4444;
+    color: var(--color-danger);
 }
 
 /* Auto-filled fields */

@@ -38,8 +38,15 @@
     --color-surface-2:     #F0F0F0;  /* fundo alternativo */
     --color-border:        #E0E0E0;  /* bordas/divisores */
 
+    /* Marrom (botoes apadrinhe / de um presente) */
+    --color-tan:           #C69C72;
+
+    /* Preto puro */
+    --color-black:         #000000;
+
     /* Feedback */
     --color-danger:        #EF4444;
+    --color-success:       #10B981;
 
     /* ---- Aliases legados (mantidos p/ nao quebrar refs existentes) ---- */
     --primary-orange: var(--color-orange);

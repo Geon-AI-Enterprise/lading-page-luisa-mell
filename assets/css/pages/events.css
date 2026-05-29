@@ -3,8 +3,8 @@
 :root {
   --events-border: #eef2f4;
   --events-muted: #6b7280;
-  --events-primary: var(--primary-orange, #f97316);
-  --events-bg: #ffffff;
+  --events-primary: var(--primary-orange, var(--color-orange-bright));
+  --events-bg: var(--color-white);
 }
 
 /* ========================================
@@ -13,7 +13,7 @@
 
 .adopt-events {
   padding: 3rem 0;
-  background: linear-gradient(180deg, #fbfbfb 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #fbfbfb 0%, var(--color-white) 100%);
 }
 
 .adopt-events__header {

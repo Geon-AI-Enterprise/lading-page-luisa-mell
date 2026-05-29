@@ -25,7 +25,7 @@
     width: 92%;
     max-width: 600px;
     max-height: 92vh;
-    background: #ffffff;
+    background: var(--color-white);
     border-radius: 20px;
     z-index: 10001;
     opacity: 0;
@@ -51,7 +51,7 @@
     background: rgba(0, 0, 0, 0.06);
     border: none;
     font-size: 1.25rem;
-    color: #333;
+    color: var(--color-text);
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.2s ease, transform 0.2s ease;
@@ -69,7 +69,7 @@
     font-family: var(--font-poppins);
     font-size: var(--fs-h2);
     font-weight: var(--fw-bold);
-    color: #CA6134;
+    color: var(--color-orange-dark);
     margin: 0 0 8px 0;
     padding-right: 40px;
 }
@@ -121,8 +121,8 @@
 }
 
 .adopt-form__field input[readonly] {
-    background-color: #f5f5f5;
-    color: #555;
+    background-color: var(--color-surface);
+    color: var(--color-text-soft);
     cursor: not-allowed;
 }
 
@@ -155,8 +155,8 @@
     border: none;
     border-radius: 10px;
     padding: 14px 28px;
-    background-color: #D6561D;
-    color: #ffffff;
+    background-color: var(--color-orange-deep);
+    color: var(--color-white);
     font-family: var(--font-poppins);
     font-size: var(--fs-meta);
     font-weight: var(--fw-semibold);

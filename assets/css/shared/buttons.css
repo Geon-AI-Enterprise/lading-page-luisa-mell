@@ -2,7 +2,7 @@
    Donation Button
    ======================================== */
 .btn-donation {
-    background-color: #4ECDC4;
+    background-color: var(--color-teal);
     color: var(--white);
     font-weight: var(--fw-semibold);
     font-size: var(--fs-meta);

@@ -6,27 +6,27 @@
 /* Hero Section */
 .transparency-hero {
   padding: var(--section-padding);
-  background-color: #f5f5f5;
+  background-color: var(--color-surface);
   text-align: center;
 }
 
 .transparency-hero h1 {
   font-size: var(--fs-h1);
   margin-bottom: 24px;
-  color: #CA6134;
+  color: var(--color-orange-dark);
 }
 
 .transparency-hero__description {
   font-size: var(--fs-lead);
   max-width: var(--content-narrow-width);
   margin: 0 auto;
-  color: #00202a;
+  color: var(--color-navy);
 }
 
 /* Directory Section */
 .transparency-directory {
   padding: var(--section-padding);
-  background-color: #f5f5f5;
+  background-color: var(--color-surface);
   min-height: 400px;
 }
 
@@ -52,11 +52,11 @@
 }
 
 .breadcrumb-item:hover {
-  color: #CA6134;
+  color: var(--color-orange-dark);
 }
 
 .breadcrumb-item.active {
-  color: #CA6134;
+  color: var(--color-orange-dark);
   font-weight: var(--fw-semibold);
   cursor: default;
 }
@@ -88,12 +88,12 @@
 
 /* Directory Card */
 .directory-card {
-  background: #ffffff;
+  background: var(--color-white);
   border-radius: 16px;
   padding: 32px;
   padding-top: 48px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  border-top: 4px solid #CA6134;
+  border-top: 4px solid var(--color-orange-dark);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,7 +117,7 @@
   font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 0.6px;
-  color: #CA6134;
+  color: var(--color-orange-dark);
   background-color: rgba(202, 97, 52, 0.10);
   padding: 4px 10px;
   border-radius: 999px;
@@ -131,7 +131,7 @@
   font-family: 'Poppins', system-ui, sans-serif;
   font-size: var(--fs-h3);
   font-weight: var(--fw-semibold);
-  color: #00202a;
+  color: var(--color-navy);
   margin-bottom: 8px;
   line-height: 1.35;
 }
@@ -148,7 +148,7 @@
 }
 
 .directory-card__arrow {
-  color: #CA6134;
+  color: var(--color-orange-dark);
   margin-top: 12px;
   transition: transform 0.2s ease;
 }
@@ -161,7 +161,7 @@
 .directory-card--project {
   padding: 56px 48px 40px;
   border-top-width: 6px;
-  background: linear-gradient(180deg, #ffffff 0%, #fdf7f3 100%);
+  background: linear-gradient(180deg, var(--color-white) 0%, #fdf7f3 100%);
 }
 
 .directory-card--project .directory-card__title {
@@ -172,7 +172,7 @@
 /* File cards (leaf nodes) */
 .directory-card--file {
   cursor: default;
-  border-top-color: #E46038;
+  border-top-color: var(--color-orange);
 }
 
 .directory-card--file:hover {
@@ -194,8 +194,8 @@
   font-family: 'Poppins', system-ui, sans-serif;
   font-size: var(--fs-small);
   font-weight: var(--fw-semibold);
-  color: #ffffff;
-  background-color: #E46038;
+  color: var(--color-white);
+  background-color: var(--color-orange);
   padding: 10px 24px;
   border-radius: 8px;
   text-decoration: none;
@@ -204,7 +204,7 @@
 }
 
 .directory-card__download:hover {
-  background-color: #CA6134;
+  background-color: var(--color-orange-dark);
   transform: translateY(-1px);
 }
 

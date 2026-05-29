@@ -30,14 +30,14 @@
 }
 
 .hero-video__text {
-  color: #00202a;
+  color: var(--color-navy);
 }
 
 .hero-video__title {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-display);
   font-weight: var(--fw-bold);
-  color: #CA6134;
+  color: var(--color-orange-dark);
   /* Title agora vem primeiro; margem abaixo aproxima do subtitulo */
   margin: 0 0 8px 0;
   line-height: 1.1;
@@ -48,7 +48,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-h3);
   font-weight: var(--fw-semibold);
-  color: #f4a261;
+  color: var(--color-sand);
   /* Eyebrow agora atua como subtitulo (abaixo do h1) — espaco antes do paragrafo */
   margin-bottom: 24px;
 }
@@ -57,7 +57,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-lead);
   line-height: var(--lh-loose);
-  color: #00202a;
+  color: var(--color-navy);
   margin: 0 0 16px 0;
 }
 
@@ -65,7 +65,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-lead);
   line-height: var(--lh-loose);
-  color: #00202a;
+  color: var(--color-navy);
   margin: 0 0 32px 0;
 }
 
@@ -77,8 +77,8 @@
   font-size: var(--fs-meta);
   font-weight: var(--fw-semibold);
   border-radius: 25px;
-  background-color: #4ECDC4;
-  color: #ffffff;
+  background-color: var(--color-teal);
+  color: var(--color-white);
   border: none;
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
@@ -159,7 +159,7 @@
 }
 
 .hero-carousel--fullwidth .hero-dot--active {
-  background-color: #D6561D;
+  background-color: var(--color-orange-deep);
 }
 
 /* ----------------------------------------
@@ -188,7 +188,7 @@
 }
 
 .hero-slide--iphone__text {
-  color: #ffffff;
+  color: var(--color-white);
   max-width: 540px;
 }
 
@@ -197,7 +197,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-h3);
   font-weight: var(--fw-semibold);
-  color: #D6561D;
+  color: var(--color-orange-deep);
   margin-bottom: 12px;
 }
 
@@ -205,7 +205,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-display);
   font-weight: var(--fw-bold);
-  color: #ffffff;
+  color: var(--color-white);
   margin: 0 0 24px 0;
   line-height: 1.1;
 }
@@ -234,8 +234,8 @@
   font-size: var(--fs-meta);
   font-weight: var(--fw-semibold);
   border-radius: 8px;
-  background-color: #D6561D;
-  color: #ffffff;
+  background-color: var(--color-orange-deep);
+  color: var(--color-white);
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -367,7 +367,7 @@
    ---------------------------------------- */
 
 .hero {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   padding: var(--section-padding);
 }
 
@@ -494,7 +494,7 @@
     'Segoe UI', sans-serif;
   font-size: var(--fs-meta);
   font-weight: var(--fw-medium);
-  color: #666;
+  color: var(--color-text-muted);
 }
 
 /* Placeholder genérico, reutilizado em outros blocos */
@@ -508,11 +508,11 @@
 }
 
 .hero__banner--slide-1 {
-  background: linear-gradient(135deg, #dedede 0%, #f0f0f0 60%, #e0e0e0 100%);
+  background: linear-gradient(135deg, #dedede 0%, var(--color-surface-2) 60%, var(--color-border) 100%);
 }
 
 .hero__banner--slide-2 {
-  background: linear-gradient(135deg, #e2e2e2 0%, #f5f5f5 60%, #d8d8d8 100%);
+  background: linear-gradient(135deg, #e2e2e2 0%, var(--color-surface) 60%, #d8d8d8 100%);
 }
 
 /* Pontinhos do hero */
@@ -547,7 +547,7 @@
 .hero-dot--active {
   opacity: 1;
   transform: scale(1.3);
-  background-color: #ff7a1b; /* tom de laranja da marca */
+  background-color: var(--color-orange-neon); /* tom de laranja da marca */
 }
 
 /* ----------------------------------------
@@ -650,8 +650,8 @@
   font-size: var(--fs-meta);
   font-weight: var(--fw-semibold);
   cursor: pointer;
-  background-color: #ff7a1b;
-  color: #ffffff;
+  background-color: var(--color-orange-neon);
+  color: var(--color-white);
   letter-spacing: 0.02em;
   text-transform: none;
   box-shadow: 0 4px 12px rgba(255, 122, 27, 0.25);
@@ -676,7 +676,7 @@
 /* Botões de Apadrinhamento e Adoção - Laranja */
 .help-card__button--sponsor,
 .help-card__button--adopt {
-  background-color: #D6561D;
+  background-color: var(--color-orange-deep);
   box-shadow: 0 4px 12px rgba(214, 86, 29, 0.25);
 }
 
@@ -694,7 +694,7 @@
 
 .about {
   padding: var(--section-padding);
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 
 .about__inner {
@@ -804,13 +804,13 @@
 }
 
 .about__carousel-dot.active {
-  background-color: #ff7a1b;
+  background-color: var(--color-orange-neon);
   transform: scale(1.2);
 }
 
 .about__gallery-frame {
   border-radius: 12px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   padding: 18px 18px 24px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
   display: flex;
@@ -840,14 +840,14 @@
 }
 
 .about__gallery-image--slide-2 {
-  background: linear-gradient(135deg, #f5f5f5 0%, #e3f1d8 70%, #f5f5f5 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, #e3f1d8 70%, var(--color-surface) 100%);
 }
 
 .about__gallery-text {
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', sans-serif;
   font-size: var(--fs-tiny);
-  color: #666666;
+  color: var(--color-text-muted);
 }
 
 /* pontinhos do carrossel das 4 fotos */
@@ -872,19 +872,19 @@
 .about__dot--active {
   opacity: 1;
   transform: scale(1.2);
-  background-color: #ff7a1b;
+  background-color: var(--color-orange-neon);
 }
 
 /* Texto institucional */
 .about__content h2 {
   font-size: var(--fs-h2);
   margin-bottom: 20px;
-  color: #CA6134;
+  color: var(--color-orange-dark);
 }
 
 .about__content p {
   margin-bottom: 12px;
-  color: #00202a
+  color: var(--color-navy)
 }
 
 .about__stat {
@@ -894,12 +894,12 @@
 .about__stat h3 {
   font-size: var(--fs-h3);
   margin-bottom: 4px;
-  color: #00202a;
+  color: var(--color-navy);
 }
 
 .about__stat p {
   margin-bottom: 0;
-  color: #00202a
+  color: var(--color-navy)
 }
 
 /* ----------------------------------------
@@ -921,7 +921,7 @@
 .section-header h2 {
   font-size: var(--fs-h2);
   margin-bottom: 8px;
-  color: #CA6134;
+  color: var(--color-orange-dark);
 }
 
 .section-header p {
@@ -930,7 +930,7 @@
 
 .rescues .section-header h2,
 .rescues .section-header p {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .rescues__grid {
@@ -981,7 +981,7 @@
 
 /* Cards de Manchetes de Jornais */
 .rescue-card--news {
-  background: #ffffff;
+  background: var(--color-white);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -1017,7 +1017,7 @@
   letter-spacing: 0.05em;
   padding: 4px 10px;
   border-radius: 4px;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .rescue-card__source--cnn {
@@ -1048,14 +1048,14 @@
 }
 
 .rescue-card--news:hover .rescue-card__title {
-  color: #ff7a1b;
+  color: var(--color-orange-neon);
 }
 
 .rescue-card__excerpt {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-small);
   line-height: var(--lh-relaxed);
-  color: #555555;
+  color: var(--color-text-soft);
   margin: 0;
   flex-grow: 1;
   display: -webkit-box;
@@ -1068,7 +1068,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-small);
   font-weight: var(--fw-semibold);
-  color: #ff7a1b;
+  color: var(--color-orange-neon);
   margin-top: 16px;
   display: inline-block;
   transition: color 0.2s ease;
@@ -1106,7 +1106,7 @@
 
 .how-we-help {
   padding: var(--section-padding);
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 
 .how-we-help__image {
@@ -1124,7 +1124,7 @@
 
 .partners {
   padding: var(--section-padding);
-  background-color: #ffffff;
+  background-color: var(--color-white);
   overflow: hidden;
 }
 
@@ -1232,7 +1232,7 @@
   margin-top: 8px;
   font-size: var(--fs-small);
   text-align: center;
-  color: #777777;
+  color: var(--color-text-faint);
 }
 
 /* ----------------------------------------

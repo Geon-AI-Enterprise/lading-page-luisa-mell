@@ -86,7 +86,7 @@
   aspect-ratio: 1 / 1;
   max-height: 500px;
   overflow: hidden;
-  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  background: linear-gradient(135deg, var(--color-surface-2) 0%, var(--color-border) 100%);
 }
 
 .event-card__image {
@@ -141,28 +141,28 @@
 }
 
 .event-card__badge--vaccination {
-  background: #4ecdc4;
+  background: var(--color-teal);
   color: white;
 }
 
 .event-card__badge--fundraising {
   background: #ffe66d;
-  color: #333;
+  color: var(--color-text);
 }
 
 .event-card__badge--volunteer {
   background: #95e1d3;
-  color: #333;
+  color: var(--color-text);
 }
 
 .event-card__badge--education {
   background: #a8d8ea;
-  color: #333;
+  color: var(--color-text);
 }
 
 .event-card__badge--general {
   background: #dfe6e9;
-  color: #333;
+  color: var(--color-text);
 }
 
 .event-card__date-badge {
@@ -188,7 +188,7 @@
   display: block;
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
-  color: #666;
+  color: var(--color-text-muted);
   text-transform: uppercase;
   margin-top: 4px;
 }
@@ -207,7 +207,7 @@
 
 .event-card__description {
   font-size: var(--fs-body);
-  color: #666;
+  color: var(--color-text-muted);
   line-height: var(--lh-relaxed);
   margin-bottom: 16px;
 }
@@ -224,7 +224,7 @@
   align-items: center;
   gap: 8px;
   font-size: var(--fs-small);
-  color: #555;
+  color: var(--color-text-soft);
 }
 
 .event-card__meta-item svg {
@@ -261,12 +261,12 @@
 }
 
 .event-card__btn--secondary {
-  background: #f0f0f0;
+  background: var(--color-surface-2);
   color: var(--text-dark);
 }
 
 .event-card__btn--secondary:hover {
-  background: #e0e0e0;
+  background: var(--color-border);
 }
 
 /* ========================================
@@ -347,12 +347,12 @@
 
 .filter-tab {
   padding: 12px 24px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--color-border);
   border-radius: 30px;
   background: white;
   font-size: var(--fs-small);
   font-weight: var(--fw-semibold);
-  color: #666;
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -481,7 +481,7 @@
 .loading-spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid #f0f0f0;
+  border: 3px solid var(--color-surface-2);
   border-top-color: var(--primary-orange);
   border-radius: 50%;
   animation: spin 1s linear infinite;

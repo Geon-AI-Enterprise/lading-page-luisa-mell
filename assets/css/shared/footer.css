@@ -1,7 +1,7 @@
 /* assets/css/footer.css */
 
 .site-footer {
-    background-color: #00202a;
+    background-color: var(--color-navy);
     color: var(--white);
     padding-top: 4rem;
     padding-bottom: 2.5rem;
@@ -39,7 +39,7 @@
 .footer-description {
     font-size: var(--fs-meta); /* Ajuste fino para Poppins */
     line-height: 1.8;
-    color: #E0E0E0; /* Texto levemente mais claro para contraste na Poppins */
+    color: var(--color-border); /* Texto levemente mais claro para contraste na Poppins */
     margin-bottom: 2.5rem;
     font-weight: var(--fw-light);
     text-align: left;
@@ -71,14 +71,14 @@
 }
 
 .social-link:hover svg {
-    stroke: #e46038;
-    fill: #e46038;
+    stroke: var(--color-orange);
+    fill: var(--color-orange);
 }
 
 /* Instagram: manter fill none no hover para não virar quadrado */
 .social-link[aria-label="Instagram"]:hover svg {
     fill: none;
-    stroke: #e46038;
+    stroke: var(--color-orange);
 }
 
 /* --- Coluna da Direita (Links) --- */
@@ -109,7 +109,7 @@
 }
 
 .footer-link:hover {
-    color: #e46038;
+    color: var(--color-orange);
 }
 
 /* --- Rodapé Inferior (Sem borda) --- */
@@ -127,14 +127,14 @@
 }
 
 .footer-bottom a {
-    color: #FFFFFF; /* Destaque para links legais */
+    color: var(--color-white); /* Destaque para links legais */
     text-decoration: none;
     transition: opacity 0.2s;
 }
 
 .footer-bottom a:hover {
     opacity: 1;
-    color: #e46038;
+    color: var(--color-orange);
 }
 
 /* Responsividade */

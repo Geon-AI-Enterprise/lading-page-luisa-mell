@@ -3,7 +3,7 @@
    ======================================== */
 
 .volunteer-page {
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 
 .sr-only {
@@ -34,7 +34,7 @@
 .volunteer-hero__title {
   font-size: clamp(2.4rem, 4vw + 1rem, 4rem);
   font-weight: var(--fw-bold);
-  color: #CA6134;
+  color: var(--color-orange-dark);
   line-height: 1.15;
   margin-bottom: 24px;
 }
@@ -42,7 +42,7 @@
 .volunteer-hero__text {
   font-size: var(--fs-lead);
   line-height: var(--lh-loose);
-  color: #333333;
+  color: var(--color-text);
 }
 
 .volunteer-hero__image-wrapper {
@@ -62,7 +62,7 @@
 .volunteer-cta-image {
   width: 100%;
   line-height: 0;
-  background-color: #F5F5F5;
+  background-color: var(--color-surface);
   text-align: center;
 }
 
@@ -74,14 +74,14 @@
 }
 
 .volunteer-form {
-  background-color: #f5f5f5;
+  background-color: var(--color-surface);
   padding: 0 0 32px;
   /* margin-top negativo aproxima o card do formulario do CTA acima */
   margin-top: -130px;
 }
 
 .volunteer-card {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   border-radius: 32px;
   padding: 48px;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
@@ -192,7 +192,7 @@
 
 .form-helper {
   font-size: var(--fs-xs);
-  color: #777777;
+  color: var(--color-text-faint);
 }
 
 .form-consent {
@@ -211,8 +211,8 @@
   border: none;
   border-radius: 8px;
   padding: 14px 32px;
-  background-color: #D6561D;
-  color: #ffffff;
+  background-color: var(--color-orange-deep);
+  color: var(--color-white);
   font-family: var(--font-poppins);
   font-size: var(--fs-meta);
   font-weight: var(--fw-semibold);
@@ -232,7 +232,7 @@
 
 .privacy-note {
   font-size: var(--fs-xs);
-  color: #777777;
+  color: var(--color-text-faint);
   text-align: center;
 }
 

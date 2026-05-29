@@ -3,7 +3,7 @@
    ======================================== */
 
 .about-page {
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 
 .about-hero {
@@ -68,7 +68,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-h2);
   letter-spacing: 0.08em;
-  color: #f4a261;
+  color: var(--color-sand);
   font-weight: var(--fw-semibold);
   margin-top: 12px;
   margin-bottom: 0;
@@ -86,7 +86,7 @@
   max-width: 480px;
   margin: 0;
   font-size: var(--fs-lead);
-  color: #e0e0e0;
+  color: var(--color-border);
 }
 
 .about-pillars {
@@ -156,7 +156,7 @@
 
 .about-work__content p {
   font-size: var(--fs-lead);
-  color: #ffffff;
+  color: var(--color-white);
   line-height: 1.8;
   margin-bottom: 20px;
 }
@@ -217,7 +217,7 @@
 }
 
 .pillar-card {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   border-radius: 20px;
   padding: 28px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
@@ -308,14 +308,14 @@
   font-family: var(--font-poppins);
   font-size: var(--fs-h1);
   font-weight: var(--fw-bold);
-  color: #ffffff;
+  color: var(--color-white);
   margin-bottom: 16px;
 }
 
 .volunteers-section__description {
   font-family: var(--font-poppins);
   font-size: var(--fs-lead);
-  color: #ffffff;
+  color: var(--color-white);
   line-height: var(--lh-relaxed);
   margin-bottom: 32px;
   max-width: 600px;
@@ -393,7 +393,7 @@
 
 .rescue-highlight {
   padding: 72px 0;
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 
 .rescue-layout {
@@ -425,8 +425,8 @@
 }
 
 .cta-button--teal {
-  background-color: #4ecdc4;
-  color: #ffffff;
+  background-color: var(--color-teal);
+  color: var(--color-white);
 }
 
 .cta-button--teal:hover {
@@ -437,7 +437,7 @@
 .rescue-post {
   flex-shrink: 0;
   width: 220px;
-  background: #ffffff;
+  background: var(--color-white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -463,7 +463,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: #f0f0f0;
+  background: var(--color-surface-2);
 }
 
 .rescue-post__image img {
@@ -479,7 +479,7 @@
 
 .rescue-post__caption {
   padding: 12px 14px 16px;
-  background: #ffffff;
+  background: var(--color-white);
 }
 
 .rescue-post__source {
@@ -498,7 +498,7 @@
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
   line-height: var(--lh-snug);
-  color: #333333;
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -524,7 +524,7 @@
   min-width: 140px;
   padding: 16px 24px;
   border-radius: 12px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
   font-weight: var(--fw-semibold);
   color: #5c5c5c;
@@ -580,8 +580,8 @@
 /* Botão Primário Laranja Padronizado */
 .btn-primary {
   display: inline-block;
-  background-color: #E46038;
-  color: #ffffff;
+  background-color: var(--color-orange);
+  color: var(--color-white);
   border: none;
   padding: 14px 32px;
   border-radius: 8px;
@@ -610,7 +610,7 @@
 
 .about-section {
   padding: 64px 40px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   width: 100%;
 }
 
