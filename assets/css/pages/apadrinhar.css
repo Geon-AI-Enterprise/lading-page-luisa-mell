@@ -1,0 +1,192 @@
+/* ========================================
+   APADRINHAR PAGE - Estilos especificos
+   (hero de apadrinhamento + "nosso dia no instituto")
+   Compartilha cards/filtros/grid via animals-shared.css
+   ======================================== */
+
+/* Hero Section - Apadrinhamento */
+.sponsor-hero {
+    background: url('../../images/apadrinhe/bg_apadrinhamento.png') center center / cover no-repeat;
+    padding: 0;
+    overflow: visible;
+}
+
+.sponsor-hero__container {
+    display: flex;
+    align-items: stretch;
+    min-height: 420px;
+}
+
+/* Coluna da imagem (Esquerda) */
+.sponsor-hero__image-col {
+    position: relative;
+    flex: 0 0 42%;
+    display: flex;
+    align-items: flex-end;
+    overflow: visible;
+    margin-top: -10px;
+}
+
+.sponsor-hero__image {
+    min-width: 600px;
+    height: calc(100% + 80px);
+    object-fit: contain;
+    object-position: top center;
+    display: block;
+    visibility: hidden;
+}
+
+@media (max-width: 1280px) {
+    .sponsor-hero__image {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+.sponsor-hero__stars {
+    width: 60px;
+    height: auto;
+    pointer-events: none;
+    margin-bottom: 26px;
+    margin-left: -20px;
+}
+
+/* Coluna do texto (Direita) */
+.sponsor-hero__text-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 60px 40px 60px;
+    /* Limita a largura do texto em telas largas, dando um respiro confortavel */
+    /* sem alongar demais as linhas. */
+    max-width: 860px;
+    position: relative;
+}
+
+.sponsor-hero__title {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-bold);
+    color: var(--color-white);
+    margin: 0 0 8px;
+}
+
+.sponsor-hero__subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--fs-lead);
+    font-weight: var(--fw-medium);
+    color: var(--color-white);
+    margin: 0 0 20px;
+    opacity: 0.95;
+}
+
+.sponsor-hero__text {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-loose);
+    color: var(--color-white);
+    margin-bottom: 16px;
+}
+
+.sponsor-hero__text--highlight {
+    font-style: normal;
+}
+
+.sponsor-hero__cta-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-bold);
+    color: var(--color-white);
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+    display: inline-block;
+}
+
+.sponsor-hero__cta-link:hover {
+    opacity: 0.8;
+}
+
+/* Linha do CTA: alinha o coracao ao lado do link "Quero ajudar..." */
+.sponsor-hero__cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sponsor-hero__heart-icon {
+    width: 48px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   SPONSOR DAILY SECTION
+   ======================================== */
+.sponsor-daily {
+    background-color: var(--color-tan);
+    padding: 3rem 0 4rem;
+}
+
+.sponsor-daily__title {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-bold);
+    color: var(--color-white);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sponsor-daily__image {
+    width: 100%;
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+/* Regra para a <img> dentro do <picture> — picture e wrapper inline por padrao */
+.sponsor-daily__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+/* ========================================
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+    .sponsor-hero {
+        background: var(--color-orange-dark);
+    }
+
+    .sponsor-hero__container {
+        flex-direction: column;
+    }
+
+    .sponsor-hero__image-col {
+        flex: none;
+    }
+
+    .sponsor-hero__image {
+        object-position: center center;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        visibility: visible;
+    }
+
+    .sponsor-hero__text-col {
+        padding: 40px 30px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .sponsor-hero__stars {
+        margin-bottom: 52px;
+    }
+}
