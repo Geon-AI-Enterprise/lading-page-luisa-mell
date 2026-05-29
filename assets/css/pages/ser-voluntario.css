@@ -129,7 +129,7 @@
 .form-label {
   font-weight: var(--fw-semibold);
   font-size: var(--fs-small);
-  color: #2e2e2e;
+  color: var(--color-ink-soft);
 }
 
 .form-row {
@@ -225,7 +225,7 @@
 }
 
 .volunteer-submit:hover {
-  background-color: #c04a18;
+  background-color: var(--color-orange-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(214, 86, 29, 0.3);
 }

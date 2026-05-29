@@ -15,8 +15,9 @@
        ============================================ */
     /* Laranjas (marca) */
     --color-orange:        #E46038;  /* primaria */
-    --color-orange-dark:   #CA6134;  /* hover/titulos */
+    --color-orange-dark:   #CA6134;  /* titulos */
     --color-orange-deep:   #D6561D;  /* botoes de acao */
+    --color-orange-hover:  #C04A18;  /* hover de botoes laranja */
     --color-orange-bright: #F97316;  /* destaques */
     --color-orange-neon:   #FF7A1B;  /* realces */
     --color-sand:          #F4A261;  /* fundos quentes */
@@ -26,6 +27,8 @@
 
     /* Tons de tinta (texto/escuros) */
     --color-ink:           #1A1A1A;  /* titulos fortes */
+    --color-ink-soft:      #2E2E2E;  /* labels de formulario / texto escuro */
+    --color-gray:          #888888;  /* neutro / texto auxiliar */
     --color-navy:          #00202A;  /* texto sobre claro */
     --color-text:          #333333;  /* corpo */
     --color-text-soft:     #555555;  /* secundario */

@@ -466,7 +466,7 @@
   justify-content: center;
   padding: 60px 20px;
   text-align: center;
-  color: #888;
+  color: var(--color-gray);
 }
 
 .events-empty svg {

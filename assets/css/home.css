@@ -682,7 +682,7 @@
 
 .help-card__button--sponsor:hover,
 .help-card__button--adopt:hover {
-  background-color: #c04a18;
+  background-color: var(--color-orange-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(214, 86, 29, 0.3);
 }
@@ -1031,7 +1031,7 @@
 .rescue-card__date {
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-xs);
-  color: #888888;
+  color: var(--color-gray);
 }
 
 .rescue-card__title {

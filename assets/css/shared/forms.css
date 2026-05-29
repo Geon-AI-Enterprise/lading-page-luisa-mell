@@ -265,7 +265,7 @@ button,
 
 .file-upload__formats {
     font-size: var(--fs-xs);
-    color: #888;
+    color: var(--color-gray);
 }
 
 /* File Preview */
@@ -306,7 +306,7 @@ button,
 }
 
 .file-upload__file-size {
-    color: #888;
+    color: var(--color-gray);
     font-size: var(--fs-xs);
 }
 
@@ -391,7 +391,7 @@ textarea.input-error {
 /* Form helper text styling */
 .form-helper {
     font-size: var(--fs-xs);
-    color: #888;
+    color: var(--color-gray);
     margin-top: 0.25rem;
     display: block;
 }

@@ -98,7 +98,7 @@
     font-family: var(--font-poppins);
     font-size: var(--fs-small);
     font-weight: var(--fw-semibold);
-    color: #2e2e2e;
+    color: var(--color-ink-soft);
 }
 
 .adopt-form__field input,
@@ -168,7 +168,7 @@
 }
 
 .adopt-form__submit:hover:not(:disabled) {
-    background-color: #c04a18;
+    background-color: var(--color-orange-hover);
     transform: translateY(-1px);
     box-shadow: 0 6px 16px rgba(214, 86, 29, 0.3);
 }
