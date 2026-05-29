@@ -178,7 +178,7 @@
   }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 768px) {
   .about-work__wrapper {
     flex-direction: column;
     gap: 40px;
@@ -261,7 +261,7 @@
   object-position: 35% top;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .about-hero {
     min-height: 80vh;
   }
@@ -290,10 +290,10 @@
    ======================================== */
 
 .volunteers-section {
-  background-image: url('../../images/quem_somos/background-voluntario.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* Fundo laranja solido (#F4A261 = cor exata da antiga background-voluntario.png).
+     Trocamos a imagem por cor para remover a decoracao "high-five" que vazava
+     em telas estreitas — e elimina um request de imagem. */
+  background-color: var(--color-sand);
   padding: 64px 0;
 }
 
@@ -530,7 +530,7 @@
   color: #5c5c5c;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .pillars-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
@@ -662,7 +662,7 @@
   position: relative;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .about-section__content,
   .about-section__content--reverse {
     flex-direction: column;
