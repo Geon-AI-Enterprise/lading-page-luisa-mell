@@ -33,11 +33,11 @@
     width: auto;
     margin-bottom: 2rem;
     display: block;
-    /* O logo.svg tem ~26px de área transparente à esquerda no tamanho do
-       footer (height:120px). Compensamos com margin negativa para que o
-       logo VISÍVEL encoste na gutter do container — alinhado com a descrição,
-       redes sociais e o rodapé abaixo dele. */
-    margin-left: -25px;
+    /* Alinha o cãozinho do logo do footer (height:120px) exatamente com o
+       logo do header (height:90px). Os dois usam o mesmo logo.svg, mas como
+       têm alturas diferentes a área transparente à esquerda escala diferente;
+       esta margem compensa a diferença para o conteúdo visível coincidir. */
+    margin-left: -6.4px;
 }
 
 .footer-description {
