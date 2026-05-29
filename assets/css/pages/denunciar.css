@@ -180,7 +180,7 @@
   font-weight: var(--fw-semibold);
 }
 
-@media (max-width: 1220px) {
+@media (max-width: 1280px) {
   .report-hero__wrapper::after {
     display: block;
     background: url('../../images/denunciar/banner_denunciar_mobile.png') no-repeat center center;
@@ -218,7 +218,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 640px) {
   .report-hero__photo {
     max-height: 260px;
   }
@@ -513,7 +513,7 @@
   }
 }
 
-@media (max-width: 798px) {
+@media (max-width: 768px) {
   .form-grid {
     grid-template-columns: 1fr;
   }
