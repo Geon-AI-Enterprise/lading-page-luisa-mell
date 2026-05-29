@@ -1,0 +1,149 @@
+# ============================================================================
+#  Instituto Luisa Mell — .htaccess
+#  Apache 2.2/2.4 — hospedagem compartilhada (Locaweb/UOL)
+#
+#  Objetivos:
+#   1. Forçar HTTPS
+#   2. Cabeçalhos de segurança (CSP, HSTS, anti-clickjacking, etc.)
+#   3. Bloquear arquivos/diretórios sensíveis e listagem de pastas
+#   4. Compressão (gzip) e cache de navegador
+#
+#  Cada bloco usa <IfModule> para degradar com elegância caso o módulo
+#  não exista no servidor. Os domínios liberados no CSP refletem as
+#  features reais do site (Supabase, ViaCEP, BrasilAPI, doação Doare/
+#  Colabore, Google Fonts). Ao adicionar um novo recurso externo,
+#  inclua o domínio no CSP correspondente.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# 0. Índice padrão e proteções básicas de listagem/negociação
+# ----------------------------------------------------------------------------
+DirectoryIndex index.html
+Options -Indexes -MultiViews
+
+# Charset padrão
+AddDefaultCharset UTF-8
+
+# ----------------------------------------------------------------------------
+# 1. Reescritas: HTTPS, métodos perigosos e bloqueio de caminhos sensíveis
+# ----------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Bloquear métodos HTTP perigosos (TRACE/TRACK → Cross-Site Tracing)
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK) [NC]
+    RewriteRule .* - [F]
+
+    # Forçar HTTPS (cobre proxy/load balancer via X-Forwarded-Proto)
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Bloquear acesso a arquivos "dotfile" (.git, .env, .htaccess, .claude...)
+    # exceto /.well-known/ (usado por emissão de certificado SSL/ACME).
+    RewriteRule "(?:^|/)\.(?!well-known)" - [F]
+
+    # Bloquear pastas de desenvolvimento que não devem ser servidas
+    RewriteRule "^(scripts|node_modules|\.github)/" - [F]
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 2. Cabeçalhos de segurança
+# ----------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Impede o navegador de "adivinhar" o MIME type
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Anti-clickjacking (complementa frame-ancestors do CSP)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Vazamento de referrer controlado
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Restringe APIs sensíveis do navegador que o site não utiliza
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), browsing-topics=()"
+
+    # HSTS (1 ano). Navegadores só honram o header sobre HTTPS — e como já
+    # forçamos HTTPS acima, ele é entregue na conexão segura. Sem 'preload'
+    # por precaução; adicione 'preload' apenas após validar todos os subdomínios.
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Content-Security-Policy — libera exatamente os recursos usados pelo site.
+    #   script  : próprio + inline (onclick/script da página) + SDK de doação Paybox
+    #   style   : próprio + inline (atributos style) + Google Fonts
+    #   font    : próprio + Google Fonts (gstatic) + data:
+    #   img     : próprio + data: + https (fotos do Supabase, logos, OG)
+    #   connect : Supabase, ViaCEP, BrasilAPI, doação (Doare/Colabore/Paybox)
+    #   frame   : telas de doação/checkout
+    #   form    : envios para próprio + endpoints de doação/Supabase
+    Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests; script-src 'self' 'unsafe-inline' https://paybox.doare.org; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://iakcrxcpumsffcogmbhz.supabase.co https://viacep.com.br https://brasilapi.com.br https://doar.institutoluisamell.com https://institutoluisamell.colabore.org https://paybox.doare.org https://doa.re; frame-src https://paybox.doare.org https://doar.institutoluisamell.com https://doa.re https://institutoluisamell.colabore.org; form-action 'self' https://doar.institutoluisamell.com https://institutoluisamell.colabore.org https://paybox.doare.org https://iakcrxcpumsffcogmbhz.supabase.co"
+
+    # Remove cabeçalhos que expõem a stack
+    Header unset X-Powered-By
+    Header unset X-Pingback
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 3. Bloqueio de arquivos sensíveis por extensão/nome
+# ----------------------------------------------------------------------------
+<FilesMatch "(?i)(^\.|\.(env|ini|log|sh|ps1|bak|old|sql|md|ya?ml|mjs|lock|gitignore|gitattributes)$|^(package(-lock)?|composer)\.json$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Garante que o próprio .htaccess nunca seja servido
+<Files ".htaccess">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# ----------------------------------------------------------------------------
+# 4. Compressão (gzip)
+# ----------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
+    AddOutputFilterByType DEFLATE application/json application/xml application/rss+xml
+    AddOutputFilterByType DEFLATE image/svg+xml application/x-font-ttf application/vnd.ms-fontobject font/opentype
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 5. Cache de navegador
+#    HTML sem cache (deploy via FTP atualiza na hora); assets com cache.
+#    CSS/JS em 1 dia para reduzir risco de versão obsoleta após upload manual.
+# ----------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                          "access plus 1 month"
+    ExpiresByType text/html                 "access plus 0 seconds"
+    ExpiresByType text/css                  "access plus 1 day"
+    ExpiresByType application/javascript    "access plus 1 day"
+    ExpiresByType text/javascript           "access plus 1 day"
+    ExpiresByType image/jpeg                "access plus 1 month"
+    ExpiresByType image/png                 "access plus 1 month"
+    ExpiresByType image/webp                "access plus 1 month"
+    ExpiresByType image/svg+xml             "access plus 1 month"
+    ExpiresByType image/x-icon              "access plus 1 year"
+    ExpiresByType video/mp4                 "access plus 1 month"
+    ExpiresByType font/ttf                  "access plus 1 year"
+    ExpiresByType font/woff                 "access plus 1 year"
+    ExpiresByType font/woff2                "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # HTML sempre revalidado
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+</IfModule>
