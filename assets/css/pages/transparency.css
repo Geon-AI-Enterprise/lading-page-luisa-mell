@@ -209,7 +209,7 @@
 }
 
 /* Responsive */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .directory-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -220,7 +220,7 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .transparency-hero {
     padding: 100px 0 50px;
   }

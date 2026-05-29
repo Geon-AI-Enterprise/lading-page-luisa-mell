@@ -59,19 +59,19 @@
     /* ============================================
        Breakpoints - ESCALA PADRAO
        CSS nao aceita var() dentro de @media, entao isto
-       e CONVENCAO. Use SEMPRE um destes 5 valores:
-         --bp-xs:  480px   (celular)
-         --bp-sm:  768px   (tablet retrato)
-         --bp-md:  1024px  (tablet paisagem / laptop pequeno)
-         --bp-lg:  1280px  (desktop)
-         --bp-xl:  1440px  (desktop largo)
+       e CONVENCAO. Use SEMPRE um destes 5 valores em max-width:
+         480px   (celular)
+         640px   (celular grande / tablet pequeno)
+         768px   (tablet)
+         1024px  (laptop)
+         1280px  (desktop)
        (variaveis abaixo servem de referencia/documentacao)
        ============================================ */
     --bp-xs: 480px;
-    --bp-sm: 768px;
-    --bp-md: 1024px;
-    --bp-lg: 1280px;
-    --bp-xl: 1440px;
+    --bp-sm: 640px;
+    --bp-md: 768px;
+    --bp-lg: 1024px;
+    --bp-xl: 1280px;
 
     /* Typography */
     --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
