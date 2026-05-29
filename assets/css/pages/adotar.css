@@ -308,7 +308,7 @@
 }
 
 /* Mobile estreito: empilhado, sempre centralizado */
-@media (max-width: 360px) {
+@media (max-width: 480px) {
     .adopt-process-grid__item {
         flex: 0 0 100%;
         max-width: 240px;
@@ -433,7 +433,7 @@
     visibility: hidden;
 }
 
-@media (max-width: 1306px) {
+@media (max-width: 1280px) {
     .sponsor-hero__image {
         min-width: auto;
         width: 100%;

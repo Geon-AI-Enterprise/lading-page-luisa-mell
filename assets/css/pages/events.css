@@ -500,7 +500,7 @@
    Responsivo
    ======================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .adopt-events__wrapper {
     grid-template-columns: 1fr;
   }
@@ -510,7 +510,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .adopt-events {
     padding: 2rem 0;
   }
