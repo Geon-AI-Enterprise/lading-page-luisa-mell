@@ -56,7 +56,17 @@
 .adopt-hero__heart {
     width: 60px;
     height: auto;
+    flex-shrink: 0;
+}
+
+/* Linha do CTA: coração + link "Não posso adotar agora..." lado a lado,
+   logo abaixo dos parágrafos do hero. */
+.adopt-hero__cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .adopt-hero__image-wrapper {
@@ -71,12 +81,6 @@
     max-width: 600px;
     height: auto;
     object-fit: contain;
-}
-
-.adopt-hero__cta {
-    text-align: center;
-    margin-top: 2rem;
-    padding-bottom: 1rem;
 }
 
 .adopt-hero__link {
@@ -276,10 +280,8 @@
         text-align: center;
     }
 
-    .adopt-hero__heart {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
+    .adopt-hero__cta-row {
+        justify-content: center;
     }
 
     .adopt-hero__image-wrapper {
