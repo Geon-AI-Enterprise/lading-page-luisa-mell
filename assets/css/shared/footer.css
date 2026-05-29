@@ -33,7 +33,9 @@
     width: auto;
     margin-bottom: 2rem;
     display: block;
-    margin-left: -15px; /* Alinha visualmente com texto e ícones abaixo */
+    /* Sem deslocamento horizontal: alinha o logo à mesma gutter do header
+       (borda interna do .container) e aos elementos do footer abaixo dele. */
+    margin-left: 0;
 }
 
 .footer-description {
