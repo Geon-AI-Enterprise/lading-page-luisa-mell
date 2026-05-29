@@ -210,73 +210,12 @@
 }
 
 
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.pillar-card {
-  background-color: var(--color-white);
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-}
-
-.pillar-card h3 {
-  font-family: var(--font-poppins);
-  font-size: var(--fs-h3);
-  margin-bottom: 12px;
-}
-
-.pillar-card p {
-  color: #4a4a4a;
-  line-height: var(--lh-relaxed);
-}
-
-.pillar-card--values {
-  grid-column: span 2;
-}
-
-.values-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 24px;
-}
-
-.values-list li {
-  color: #4a4a4a;
-  line-height: var(--lh-relaxed);
-  font-size: var(--fs-small);
-}
-
-.values-list li strong {
-  color: #222222;
-}
-
-.team-photo--center-right img {
-  object-position: 35% top;
-}
 
 @media (max-width: 1024px) {
   .about-hero {
     min-height: 80vh;
   }
 
-  .pillars-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pillar-card--values {
-    grid-column: span 1;
-  }
-  
-  .values-list {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
@@ -531,10 +470,6 @@
 }
 
 @media (max-width: 1024px) {
-  .pillars-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-
   .rescue-layout {
     flex-wrap: wrap;
     justify-content: center;

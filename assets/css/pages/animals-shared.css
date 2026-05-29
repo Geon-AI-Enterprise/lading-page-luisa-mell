@@ -83,17 +83,6 @@
     display: none;
 }
 
-.adopt-filters__title {
-    font-family: 'Poppins', sans-serif;
-    font-size: var(--fs-h3);
-    font-weight: var(--fw-bold);
-    color: var(--color-ink);
-    margin: 0 0 1rem 0;
-    line-height: var(--lh-tight);
-    text-align: center;
-    display: none;
-}
-
 .adopt-filters__list {
     display: flex;
     flex-direction: column;
@@ -163,64 +152,6 @@
     background-color: rgba(228, 96, 56, 0.1);
 }
 
-/* Switch de Idade (Filhote/Adulto) */
-.adopt-filter-switch {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-surface-2);
-    border-radius: 8px;
-    padding: 4px;
-    gap: 4px;
-    position: relative;
-}
-
-.adopt-filter-switch__option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 10px 20px;
-    border: none;
-    background: transparent;
-    font-family: var(--font-poppins);
-    font-size: var(--fs-tiny);
-    font-weight: var(--fw-medium);
-    color: var(--color-text-muted);
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    z-index: 1;
-}
-
-.adopt-filter-switch__icon {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    transition: filter 0.3s ease;
-}
-
-.adopt-filter-switch__option:hover:not(.active) {
-    color: var(--color-orange);
-    background-color: rgba(228, 96, 56, 0.1);
-}
-
-.adopt-filter-switch__option.active {
-    background-color: var(--color-orange);
-    color: var(--color-white);
-    font-weight: var(--fw-semibold);
-    box-shadow: 0 2px 8px rgba(228, 96, 56, 0.3);
-}
-
-.adopt-filter-switch__option.active .adopt-filter-switch__icon {
-    filter: brightness(0) invert(1);
-}
-
-/* Separador visual entre grupos de filtros */
-.adopt-filter-separator {
-    height: 1px;
-    background: #e8e8e8;
-    margin: 0.5rem 0;
-}
 
 /* Grupos de filtros - Desktop */
 .adopt-filter-group {
@@ -456,14 +387,6 @@
     font-weight: var(--fw-bold);
     color: var(--color-white);
     margin: 0 0 0.25rem 0;
-}
-
-.adopt-card__type {
-    font-size: var(--fs-small);
-    color: var(--color-white);
-    font-weight: var(--fw-medium);
-    margin: 0;
-    text-transform: capitalize;
 }
 
 .adopt-card__info {
@@ -864,10 +787,6 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-    }
-
-    .adopt-filter-separator {
-        display: none;
     }
 
     .adopt-filter-btn {

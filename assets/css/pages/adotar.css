@@ -110,17 +110,6 @@
     line-height: var(--lh-tight);
 }
 
-.adopt-process-intro__description {
-    font-family: 'Poppins', sans-serif;
-    font-size: var(--fs-lead);
-    color: var(--color-white);
-    text-align: center;
-    margin: 0;
-    line-height: var(--lh-relaxed);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
 
 /* Process Grid — fluxo de adocao em cards individuais (substitui o PNG unico).
    Estrutura: flexbox + justify-content:center. Quando uma linha tem menos
@@ -296,10 +285,6 @@
     .adopt-hero__image-wrapper {
         flex: 1 1 100%;
     }
-
-    .adopt-stories-grid {
-        gap: 1.5rem;
-    }
 }
 
 @media (max-width: 768px) {
@@ -317,14 +302,5 @@
 
     .adopt-stories-section__title {
         margin-bottom: 2rem;
-    }
-
-    .adopt-stories-grid {
-        gap: 1rem;
-    }
-
-    .adopt-story-polaroid {
-        width: 160px;
-        padding: 8px 8px 2.5rem;
     }
 }
