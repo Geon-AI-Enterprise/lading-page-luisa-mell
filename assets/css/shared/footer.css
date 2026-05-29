@@ -33,9 +33,11 @@
     width: auto;
     margin-bottom: 2rem;
     display: block;
-    /* Sem deslocamento horizontal: alinha o logo à mesma gutter do header
-       (borda interna do .container) e aos elementos do footer abaixo dele. */
-    margin-left: 0;
+    /* O logo.svg tem ~26px de área transparente à esquerda no tamanho do
+       footer (height:120px). Compensamos com margin negativa para que o
+       logo VISÍVEL encoste na gutter do container — alinhado com a descrição,
+       redes sociais e o rodapé abaixo dele. */
+    margin-left: -25px;
 }
 
 .footer-description {
