@@ -85,10 +85,30 @@
     opacity: 0.7;
 }
 
-@media (max-width: 1024px) {
+/* No range em que o banner 1366 está ativo (769–1366px), a área central
+   vazia entre as fotos é mais estreita do que no banner 1920. Reduzimos
+   o tamanho do título e a max-width do conteúdo para o texto caber
+   inteiramente dentro dessa área e não invadir as fotos. */
+@media (max-width: 1366px) {
     .sponsor-hero__content {
         padding: 20px;
-        max-width: 560px;
+        max-width: 460px;
+    }
+    .sponsor-hero__title {
+        font-size: var(--fs-h1);
+    }
+}
+
+/* Faixa baixa do banner 1366 (769–900px): a área central encolhe junto
+   com a imagem, então o título passa para --fs-h2 e o conteúdo estreita
+   para 360px. Mobile (≤768px) usa o banner próprio com regras abaixo. */
+@media (max-width: 900px) {
+    .sponsor-hero__content {
+        padding: 16px;
+        max-width: 360px;
+    }
+    .sponsor-hero__title {
+        font-size: var(--fs-h2);
     }
 }
 
