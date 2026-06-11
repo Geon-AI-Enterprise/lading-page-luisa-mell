@@ -47,11 +47,19 @@
     margin-bottom: 2.5rem;
     font-weight: var(--fw-light);
     text-align: left;
+    /* Alinha o início do texto com o cãozinho visível do logo acima
+       (logo.svg tem ~21px de área transparente à esquerda no tamanho
+       do footer; descrição e ícones sociais compensam para encostar
+       no mesmo eixo vertical). Resetado no mobile abaixo. */
+    margin-left: 21px;
 }
 
 .footer-social {
     display: flex;
     gap: 1.5rem;
+    /* Mesmo deslocamento aplicado na descrição: alinha o eixo dos
+       ícones com o cãozinho visível do logo acima. */
+    margin-left: 21px;
 }
 
 /* Ícones limpos, sem box background por padrão, apenas o ícone branco */
@@ -165,10 +173,14 @@
 
     .footer-description {
         text-align: center;
+        /* No mobile a coluna brand é centralizada — anula o deslocamento
+           do desktop para não deslocar o texto fora do eixo central. */
+        margin-left: 0;
     }
 
     .footer-social {
         justify-content: center;
+        margin-left: 0;
     }
     
     .footer-links-area {
