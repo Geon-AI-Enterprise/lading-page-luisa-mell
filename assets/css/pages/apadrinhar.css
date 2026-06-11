@@ -4,121 +4,118 @@
    Compartilha cards/filtros/grid via animals-shared.css
    ======================================== */
 
-/* Hero Section - Apadrinhamento */
+/* Hero Section - Apadrinhamento
+   O banner (assets/images/apadrinhe/*_banner_apadrinhamento.png) já traz as
+   fotos decorativas e o coração; o texto fica centralizado sobre a área
+   central vazia. Três resoluções via <picture>: 1920 (≥1367px), 1366
+   (769–1366px) e 768 (≤768px). */
 .sponsor-hero {
-    background: url('../../images/apadrinhe/bg_apadrinhamento.png') center center / cover no-repeat;
-    padding: 0;
-    overflow: visible;
-}
-
-.sponsor-hero__container {
-    display: flex;
-    align-items: stretch;
-    min-height: 420px;
-}
-
-/* Coluna da imagem (Esquerda) */
-.sponsor-hero__image-col {
     position: relative;
-    flex: 0 0 42%;
-    display: flex;
-    align-items: flex-end;
-    overflow: visible;
-    margin-top: -10px;
+    overflow: hidden;
+    background: var(--color-white);
+    /* Hero full-bleed: cancela o padding padrão de section para o texto
+       caber exatamente sobre a área central do banner. */
+    padding: 0;
 }
 
-.sponsor-hero__image {
-    min-width: 600px;
-    height: calc(100% + 80px);
-    object-fit: contain;
-    object-position: top center;
+.sponsor-hero__bg {
     display: block;
-    visibility: hidden;
 }
 
-@media (max-width: 1280px) {
-    .sponsor-hero__image {
-        min-width: auto;
-        width: 100%;
-    }
-}
-
-.sponsor-hero__stars {
-    width: 60px;
+.sponsor-hero__bg-img {
+    display: block;
+    width: 100%;
     height: auto;
-    pointer-events: none;
-    margin-bottom: 26px;
-    margin-left: -20px;
 }
 
-/* Coluna do texto (Direita) */
-.sponsor-hero__text-col {
-    flex: 1;
+.sponsor-hero__content {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 60px 60px 40px 60px;
-    /* Limita a largura do texto em telas largas, dando um respiro confortavel */
-    /* sem alongar demais as linhas. */
-    max-width: 860px;
-    position: relative;
+    text-align: center;
+    padding: 24px;
+    max-width: 640px;
+    margin: 0 auto;
 }
 
 .sponsor-hero__title {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-display);
     font-weight: var(--fw-bold);
-    color: var(--color-white);
-    margin: 0 0 8px;
+    color: var(--color-orange-dark);
+    line-height: var(--lh-tight);
+    margin: 0 0 12px;
 }
 
 .sponsor-hero__subtitle {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h3);
-    font-weight: var(--fw-medium);
-    color: var(--color-white);
-    margin: 0 0 20px;
-    opacity: 0.95;
+    font-weight: var(--fw-bold);
+    color: var(--color-ink);
+    margin: 0 0 24px;
 }
 
 .sponsor-hero__text {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-lead);
     line-height: var(--lh-loose);
-    color: var(--color-white);
-    margin-bottom: 16px;
+    color: var(--color-text);
+    margin: 0 0 16px;
 }
 
 .sponsor-hero__text--highlight {
-    font-style: normal;
+    font-weight: var(--fw-semibold);
 }
 
 .sponsor-hero__cta-link {
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-lead);
     font-weight: var(--fw-bold);
-    color: var(--color-white);
+    color: var(--color-ink);
     text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-top: 8px;
     transition: opacity 0.2s ease;
-    display: inline-block;
 }
 
 .sponsor-hero__cta-link:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
-/* Linha do CTA: alinha o coracao ao lado do link "Quero ajudar..." */
-.sponsor-hero__cta-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
+@media (max-width: 1024px) {
+    .sponsor-hero__content {
+        padding: 20px;
+        max-width: 560px;
+    }
 }
 
-.sponsor-hero__heart-icon {
-    width: 48px;
-    height: auto;
-    flex-shrink: 0;
+@media (max-width: 768px) {
+    .sponsor-hero__content {
+        padding: 16px;
+        max-width: 86%;
+    }
+    /* Reduz a escala tipográfica no banner mobile (768) para o texto
+       caber confortavelmente sobre a área central, entre as fotos. */
+    .sponsor-hero__title {
+        font-size: var(--fs-h1);
+        margin-bottom: 6px;
+    }
+    .sponsor-hero__subtitle {
+        font-size: var(--fs-body);
+        margin-bottom: 14px;
+    }
+    .sponsor-hero__text {
+        font-size: var(--fs-small);
+        line-height: var(--lh-normal);
+        margin-bottom: 10px;
+    }
+    .sponsor-hero__cta-link {
+        font-size: var(--fs-small);
+        margin-top: 4px;
+    }
 }
 
 /* ========================================
