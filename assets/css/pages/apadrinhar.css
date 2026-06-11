@@ -99,42 +99,17 @@
     }
 }
 
-/* Faixa baixa do banner 1366 (769–900px): a área central encolhe junto
-   com a imagem, então o título passa para --fs-h2 e o conteúdo estreita
-   para 360px. Mobile (≤768px) usa o banner próprio com regras abaixo. */
-@media (max-width: 900px) {
+/* Mobile (≤1020px): banner exibido como imagem normal e o texto fluindo
+   logo abaixo, como se fosse uma nova section. Sem sobreposição. */
+@media (max-width: 1020px) {
     .sponsor-hero__content {
-        padding: 16px;
-        max-width: 360px;
+        position: static;
+        inset: auto;
+        max-width: 100%;
+        padding: 40px 24px;
     }
     .sponsor-hero__title {
-        font-size: var(--fs-h2);
-    }
-}
-
-@media (max-width: 768px) {
-    .sponsor-hero__content {
-        padding: 16px;
-        max-width: 86%;
-    }
-    /* Reduz a escala tipográfica no banner mobile (768) para o texto
-       caber confortavelmente sobre a área central, entre as fotos. */
-    .sponsor-hero__title {
-        font-size: var(--fs-h1);
-        margin-bottom: 6px;
-    }
-    .sponsor-hero__subtitle {
-        font-size: var(--fs-body);
-        margin-bottom: 14px;
-    }
-    .sponsor-hero__text {
-        font-size: var(--fs-small);
-        line-height: var(--lh-normal);
-        margin-bottom: 10px;
-    }
-    .sponsor-hero__cta-link {
-        font-size: var(--fs-small);
-        margin-top: 4px;
+        font-size: var(--fs-display);
     }
 }
 
