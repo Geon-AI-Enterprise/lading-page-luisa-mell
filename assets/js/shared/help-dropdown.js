@@ -76,6 +76,11 @@ function handleHelpAction(action) {
             console.log('Redirecionando para denúncias');
             window.location.href = 'denunciar.html';
             break;
+        case 'partnership':
+            console.log('Redirecionando para apoio e parceria');
+            // Página dedicada ainda não existe; direciona para a home por enquanto.
+            window.location.href = 'index.html';
+            break;
         default:
             console.warn('Ação não reconhecida:', action);
             break;

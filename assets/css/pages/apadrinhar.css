@@ -4,6 +4,12 @@
    Compartilha cards/filtros/grid via animals-shared.css
    ======================================== */
 
+/* Grid de animais sem a sidebar de filtros — ocupa a largura total.
+   Sobrescreve o layout em duas colunas definido em animals-shared.css. */
+.adopt-animals--no-filters .container {
+    display: block;
+}
+
 /* Hero Section - Apadrinhamento
    O banner (assets/images/apadrinhe/*_banner_apadrinhamento.png) já traz as
    fotos decorativas e o coração; o texto fica centralizado sobre a área
