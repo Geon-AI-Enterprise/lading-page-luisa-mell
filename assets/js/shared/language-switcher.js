@@ -76,7 +76,7 @@ export function updateAllLanguageVisuals(lang) {
     const langCodeSpan = document.getElementById('current-lang-code');
     const dropdown = document.getElementById('lang-dropdown');
 
-    if (langCodeSpan) langCodeSpan.textContent = lang.toUpperCase();
+    if (langCodeSpan) langCodeSpan.textContent = lang === 'pt' ? 'BR' : lang.toUpperCase();
     
     if (dropdown) {
         dropdown.querySelectorAll('.lang-option').forEach(opt => {

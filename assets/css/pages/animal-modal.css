@@ -277,6 +277,15 @@
     background: var(--color-orange-deep);
 }
 
+.animal-modal__btn--help {
+    background: var(--color-tan);
+    color: var(--color-white);
+}
+
+.animal-modal__btn--help:hover {
+    background: var(--color-orange-deep);
+}
+
 /* Apadrinhamento page - sponsor as primary button */
 .animal-modal__btn--sponsor-main {
     background: var(--color-orange-deep);

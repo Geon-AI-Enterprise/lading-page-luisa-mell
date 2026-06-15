@@ -163,9 +163,12 @@ function populateModal(animal) {
     const modal = document.getElementById('animal-profile-modal');
     if (!modal) return;
 
+    // Artigo (o/a) conforme genero — usado no nome, botao de adocao e texto de ajuda.
+    const article = animal.gender === 'female' ? 'a' : 'o';
+
     // Nome
     const nameEl = modal.querySelector('.animal-modal__name');
-    if (nameEl) nameEl.textContent = `Olá, sou o ${animal.name}!`;
+    if (nameEl) nameEl.textContent = `Olá, sou ${article} ${animal.name}!`;
 
     // Descrição
     const descEl = modal.querySelector('.animal-modal__description');
@@ -219,7 +222,6 @@ function populateModal(animal) {
     // Anima e id ficam no dataset para o adopt-form-modal recuperar.
     const adoptBtn = modal.querySelector('.animal-modal__btn--adopt');
     if (adoptBtn) {
-        const article = animal.gender === 'female' ? 'a' : 'o';
         adoptBtn.textContent = `Adote ${article} ${animal.name}`;
         adoptBtn.dataset.animalId = animal.id;
         adoptBtn.dataset.animalName = animal.name;
@@ -241,7 +243,7 @@ function populateModal(animal) {
     // Texto de ajuda com nome do animal
     const helpText = modal.querySelector('.animal-modal__help-text');
     if (helpText) {
-        helpText.innerHTML = `Não posso adotar o ${animal.name}, mas <strong>quero ajudar</strong>:`;
+        helpText.innerHTML = `Não posso adotar ${article} ${animal.name}, mas <strong>quero ajudar</strong>:`;
     }
 
     // Galeria — esconde a seção inteira quando não há fotos no carrossel
@@ -260,28 +262,16 @@ function populateModal(animal) {
         galleryContainer.innerHTML = '';
     }
 
-    // Botoes "Apadrinhe" e "De um presente" usam URLs configuradas na retaguarda
-    // (sponsor_url e gift_url no banco). Mantemos fallback para a rota padrao
-    // caso o admin nao tenha configurado para o animal especifico.
-    const sponsorBtn = modal.querySelector('.animal-modal__btn--sponsor');
-    if (sponsorBtn) {
-        sponsorBtn.href = animal.sponsor_url || `apadrinhar.html?animal=${animal.id}`;
-        // Se URL e externa, abre em nova aba
-        const isExternalSponsor = /^https?:\/\//.test(sponsorBtn.href) && !sponsorBtn.href.includes(window.location.host);
-        if (isExternalSponsor) {
-            sponsorBtn.target = '_blank';
-            sponsorBtn.rel = 'noopener noreferrer';
-        } else {
-            sponsorBtn.removeAttribute('target');
-            sponsorBtn.removeAttribute('rel');
+    // Botao "Quero ajudar" — href definido posteriormente. Quando houver uma
+    // URL (animal.help_url ou link global), basta defini-la aqui ou no HTML.
+    const helpBtn = modal.querySelector('.animal-modal__btn--help');
+    if (helpBtn && animal.help_url) {
+        helpBtn.href = animal.help_url;
+        const isExternalHelp = /^https?:\/\//.test(helpBtn.href) && !helpBtn.href.includes(window.location.host);
+        if (isExternalHelp) {
+            helpBtn.target = '_blank';
+            helpBtn.rel = 'noopener noreferrer';
         }
-    }
-
-    const giftBtn = modal.querySelector('.animal-modal__btn--gift');
-    if (giftBtn) {
-        giftBtn.href = animal.gift_url || `https://institutoluisamell.colabore.org/doe/single_step?animal=${animal.id}`;
-        giftBtn.target = '_blank';
-        giftBtn.rel = 'noopener noreferrer';
     }
 }
 

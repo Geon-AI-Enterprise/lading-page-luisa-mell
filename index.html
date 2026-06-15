@@ -55,16 +55,15 @@
             <ul class="nav-list">
               <li class="help-dropdown-wrapper">
                 <button class="help-display" aria-controls="help-dropdown" aria-expanded="false" id="help-display">
-                  <span data-i18n="nav.help">Como ajudar</span>
+                  <span data-i18n="nav.help">Faça parte</span>
                   <svg class="help-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </button>
                 <ul class="help-dropdown" id="help-dropdown" hidden>
-                  <li class="help-option" data-action="donate" data-i18n="nav.donate">Doar</li>
-                  <li class="help-option" data-action="report" data-i18n="footer.report">Denunciar</li>
                   <li class="help-option" data-action="volunteer" data-i18n="footer.volunteer">Ser Voluntário</li>
-                  <li class="help-option" data-action="ambassador" onclick="window.open('https://doa.re/EmbaixadoresInstitutoLuisaMell', '_blank', 'noopener noreferrer')">Ser Embaixador</li>
+                  <li class="help-option" data-action="ambassador" data-i18n="footer.ambassador" onclick="window.open('https://doa.re/EmbaixadoresInstitutoLuisaMell', '_blank', 'noopener noreferrer')">Ser Embaixador</li>
+                  <li class="help-option" data-action="partnership" data-i18n="nav.partnership">Apoio e Parceria</li>
                 </ul>
               </li>
               <li>
@@ -74,22 +73,18 @@
                 <a href="apadrinhar.html" data-i18n="nav.sponsor">Apadrinhar</a>
               </li>
               <li>
+                <a href="denunciar.html" data-i18n="nav.report">Denunciar</a>
+              </li>
+              <li>
                 <a href="quem-somos.html" data-i18n="nav.about">Quem somos</a>
               </li>
               <li class="mobile-only-donation">
-                <a
-                  href="https://doar.institutoluisamell.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-i18n="donation"
-                >
-                  Doação
-                </a>
+                <a href="https://doar.institutoluisamell.com/" target="_blank" rel="noopener noreferrer" data-i18n="donation">Doação</a>
               </li>
 
               <li class="mobile-lang-separator">
                 <div class="mobile-lang-options">
-                  <button class="mob-lang-btn active" data-lang="pt">PT</button>
+                  <button class="mob-lang-btn active" data-lang="pt">BR</button>
                   <button class="mob-lang-btn" data-lang="en">EN</button>
                   <button class="mob-lang-btn" data-lang="es">ES</button>
                 </div>
@@ -117,7 +112,7 @@
                 aria-expanded="false"
                 id="lang-display"
               >
-                <span class="current-lang-code" id="current-lang-code">PT</span>
+                <span class="current-lang-code" id="current-lang-code">BR</span>
                 <svg
                   class="lang-arrow"
                   width="12"
@@ -137,7 +132,7 @@
               </button>
 
               <ul class="lang-dropdown" id="lang-dropdown" hidden>
-                <li data-lang="pt" class="lang-option active">PT</li>
+                <li data-lang="pt" class="lang-option active">BR</li>
                 <li data-lang="en" class="lang-option">EN</li>
                 <li data-lang="es" class="lang-option">ES</li>
               </ul>
@@ -148,7 +143,7 @@
                 id="language-select"
                 style="display: none"
               >
-                <option value="pt" selected>PT</option>
+                <option value="pt" selected>BR</option>
                 <option value="en">EN</option>
                 <option value="es">ES</option>
               </select>
@@ -585,9 +580,12 @@
           <div class="footer-links-area">
             <div class="footer-nav-col">
               <a href="https://doar.institutoluisamell.com/" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="donation">Doar</a>
+              <a href="adotar.html" class="footer-link" data-i18n="nav.adopt">Adotar</a>
+              <a href="apadrinhar.html" class="footer-link" data-i18n="nav.sponsor">Apadrinhar</a>
               <a href="denunciar.html" class="footer-link" data-i18n="footer.report">Denunciar</a>
               <a href="ser-voluntario.html" class="footer-link" data-i18n="footer.volunteer">Ser Voluntário</a>
-              <a href="https://doa.re/EmbaixadoresInstitutoLuisaMell" target="_blank" rel="noopener noreferrer" class="footer-link">Ser Embaixador</a>
+              <a href="https://doa.re/EmbaixadoresInstitutoLuisaMell" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer.ambassador">Ser Embaixador</a>
+              <a href="index.html" class="footer-link" data-i18n="nav.partnership">Apoio e Parceria</a>
             </div>
 
             <div class="footer-nav-col">
