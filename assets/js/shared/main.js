@@ -13,6 +13,7 @@ import { setupMobileMenu } from './navigation.js';
 import { setupSmoothScroll, handleHeaderScroll } from './scroll.js';
 import { setupHelpDropdown } from './help-dropdown.js';
 import { setupAdoptFilters } from '../pages/adopt-filters.js';
+import { setupCookieConsent } from './cookie-consent.js';
 
 // ========================================
 // HERO - Carrossel de banners (placeholder)
@@ -223,4 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       console.warn('Erro ao carregar módulo de eventos:', err);
     }
+
+    // 10. Consentimento de cookies (LGPD) — banner persistente entre páginas
+    setupCookieConsent();
 });

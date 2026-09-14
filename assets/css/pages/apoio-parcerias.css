@@ -1,0 +1,334 @@
+/* ========================================
+   APOIO E PARCERIAS - Estilos especificos
+   (hero + carrossel de empresas + formulario)
+   ======================================== */
+
+.partnership-page {
+  background-color: var(--color-white);
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.partnership-hero {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('../../images/apoio-parcerias/hero-background-apoio-parcerias.png')
+    no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.partnership-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.partnership-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.partnership-hero__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.partnership-hero__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-loose);
+  color: var(--color-white);
+  margin: 0;
+}
+
+/* ========================================
+   EMPRESAS PARCEIRAS - CARROSSEL
+   ======================================== */
+.partnership-companies {
+  background-color: var(--color-surface);
+  padding: var(--section-padding);
+}
+
+.partnership-companies__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  color: var(--color-orange-dark);
+  text-align: center;
+  line-height: 1.15;
+  margin: 0 auto 48px;
+}
+
+.companies-carousel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.companies-carousel__viewport {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.companies-carousel__track {
+  list-style: none;
+  margin: 0;
+  padding: 24px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+/* Card de empresa */
+.company-card {
+  flex: 0 0 300px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0.5;
+  transform: scale(0.9);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Card ativo — destacado/maximizado ao centro */
+.company-card.is-active {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.company-card__logo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #d9d9d9;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-body);
+}
+
+.company-card.is-active .company-card__logo {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.company-card__desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-small);
+  line-height: var(--lh-loose);
+  color: var(--color-text);
+  margin: 20px 0 0;
+}
+
+/* Setas de navegacao */
+.companies-carousel__arrow {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--color-navy);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.companies-carousel__arrow:hover {
+  background-color: var(--color-orange-deep);
+  color: var(--color-white);
+  transform: scale(1.05);
+}
+
+.companies-carousel__arrow:focus-visible {
+  outline: 3px solid rgba(214, 86, 29, 0.4);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   FORMULARIO DE PARCERIA
+   (segue o padrao dos demais formularios do site)
+   ======================================== */
+.partnership-form {
+  background-color: var(--color-surface);
+  padding: 0 0 64px;
+}
+
+.partnership-card {
+  background-color: var(--color-white);
+  border-radius: 32px;
+  padding: 56px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.partnership-card__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  color: var(--color-orange-dark);
+  text-align: center;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.partnership-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-required-note {
+  font-size: var(--fs-small);
+  color: #8b8b8b;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label,
+.form-label {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-small);
+  color: var(--color-ink-soft);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #d9d9d9;
+  font-size: var(--fs-meta);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fcfcfc;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 3px rgba(228, 96, 56, 0.15);
+  outline: none;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-helper {
+  font-size: var(--fs-xs);
+  color: var(--color-text-faint);
+}
+
+.partnership-submit {
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  background-color: var(--color-orange-deep);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(214, 86, 29, 0.25);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  align-self: center;
+  min-width: 200px;
+}
+
+.partnership-submit:hover {
+  background-color: var(--color-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 86, 29, 0.3);
+}
+
+.privacy-note {
+  font-size: var(--fs-xs);
+  color: var(--color-text-faint);
+  text-align: center;
+}
+
+/* ========================================
+   RESPONSIVO
+   ======================================== */
+@media (max-width: 768px) {
+  .partnership-hero {
+    min-height: 360px;
+  }
+
+  .partnership-companies__title {
+    font-size: var(--fs-h2);
+    margin-bottom: 32px;
+  }
+
+  .companies-carousel {
+    gap: 4px;
+  }
+
+  .company-card {
+    flex-basis: 240px;
+    max-width: 240px;
+  }
+
+  .companies-carousel__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .partnership-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+
+  .partnership-card__title {
+    font-size: var(--fs-h2);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .partnership-submit {
+    width: 100%;
+  }
+}

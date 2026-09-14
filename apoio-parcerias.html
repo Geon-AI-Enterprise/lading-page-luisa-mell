@@ -1,17 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <!-- SEO:start (gerado automaticamente, nao edite a mao) -->
-    <title>Seja um Voluntário - Ajude Animais em Situação de Risco</title>
-    <meta name="description" content="Oportunidades de voluntariado em diferentes áreas. Junte-se à nossa missão de proteção animal." />
+    <title>Apoio e Parcerias - Instituto Luisa Mell</title>
+    <meta name="description" content="Sua empresa pode fazer a diferença. Conheça as formas de apoio e parceria com o Instituto Luisa Mell e junte-se a essa corrente do bem." />
     <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="voluntariado proteção animal, proteção animal, resgate de animais, lar temporário para animais" />
-    <meta property="og:title" content="Seja um Voluntário - Ajude Animais em Situação de Risco" />
-    <meta property="og:description" content="Oportunidades de voluntariado em diferentes áreas. Junte-se à nossa missão de proteção animal." />
+    <meta property="og:title" content="Apoio e Parcerias - Instituto Luisa Mell" />
+    <meta property="og:description" content="Sua empresa pode fazer a diferença. Conheça as formas de apoio e parceria com o Instituto Luisa Mell e junte-se a essa corrente do bem." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Seja um Voluntário - Ajude Animais em Situação de Risco" />
-    <meta name="twitter:description" content="Oportunidades de voluntariado em diferentes áreas. Junte-se à nossa missão de proteção animal." />
+    <meta name="twitter:title" content="Apoio e Parcerias - Instituto Luisa Mell" />
+    <meta name="twitter:description" content="Sua empresa pode fazer a diferença. Conheça as formas de apoio e parceria com o Instituto Luisa Mell e junte-se a essa corrente do bem." />
 <!-- SEO:end -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,7 +26,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/shared/main.css" />
-    <link rel="stylesheet" href="assets/css/pages/ser-voluntario.css" />
+    <link rel="stylesheet" href="assets/css/pages/apoio-parcerias.css" />
     <link rel="stylesheet" href="assets/css/shared/forms.css" />
   </head>
 
@@ -151,142 +150,162 @@
       </div>
     </header>
 
-    <main class="main-content volunteer-page">
+    <main class="main-content partnership-page">
       <!-- Hero Section -->
-      <section class="volunteer-hero">
-        <div class="container">
-          <div class="volunteer-hero__content">
-            <h1 class="volunteer-hero__title" data-i18n="volunteerPage.title">
-              Seja voluntário e faça parte dessa rede de amor e esperança.
-            </h1>
-            <p class="volunteer-hero__text" data-i18n="volunteerPage.intro">
-              Ser voluntário é dedicar tempo, carinho e disposição para transformar a vida de animais que
-              precisam de cuidado e proteção. Você pode apoiar nos resgates, nas rotinas do abrigo, nos
-              eventos e em diversas atividades essenciais.
-            </p>
-          </div>
-        </div>
-        <div class="volunteer-hero__image-wrapper">
-          <img loading="lazy" decoding="async"
-            src="assets/images/voluntario/voluntario_herosection.png"
-            alt="Voluntários do Instituto Luisa Mell"
-            class="volunteer-hero__image"
-          />
-        </div>
-      </section>
-
-      <!-- CTA Box -->
-      <section class="volunteer-cta-image">
-        <div class="container">
-        <div class="volunteer-cta-box">
-          <h2 class="volunteer-cta-box__title" data-i18n="volunteerPage.cta.title">
-            Juntos podemos fazer mais!
-          </h2>
-          <p class="volunteer-cta-box__text" data-i18n="volunteerPage.cta.text">
-            Venha fazer parte dessa corrente do bem. Buscamos pessoas
-            responsáveis, com vontade de ajudar e principalmente que tenha amor
-            aos animais.<br />
-            Preencha o formulário abaixo e nossa equipe analisará seu perfil e
-            entrará em contato para os próximos passos.
+      <section class="partnership-hero">
+        <div class="partnership-hero__overlay"></div>
+        <div class="container partnership-hero__content">
+          <h1 class="partnership-hero__title" data-i18n="partnershipPage.heroTitle">
+            Apoio e parcerias
+          </h1>
+          <p class="partnership-hero__text" data-i18n="partnershipPage.heroText">
+            Sua empresa pode fazer a diferença na vida de animais resgatados e em
+            situação de vulnerabilidade. Ao apoiar o Instituto, milhares de animais
+            recebem cuidados, proteção e a oportunidade de uma nova vida, ampliando
+            o alcance e o impacto da nossa missão todos os dias.
           </p>
         </div>
+      </section>
+
+      <!-- Empresas parceiras - Carrossel -->
+      <section class="partnership-companies">
+        <div class="container">
+          <h2 class="partnership-companies__title" data-i18n="partnershipPage.companiesTitle">
+            Empresas que fazem parte<br />dessa corrente do bem.
+          </h2>
+
+          <!--
+            Carrossel infinito com o card ativo destacado (maximizado) ao centro.
+            Conteudo placeholder para validacao de layout — substituir os logos e
+            descricoes pelas empresas reais quando disponiveis.
+          -->
+          <div class="companies-carousel" id="companies-carousel">
+            <button type="button" class="companies-carousel__arrow companies-carousel__arrow--prev" aria-label="Empresa anterior">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div class="companies-carousel__viewport">
+              <ul class="companies-carousel__track">
+                <li class="company-card">
+                  <div class="company-card__logo"><span>logo</span></div>
+                  <p class="company-card__desc">Empresa parceira do Instituto Luisa Mell. Espaço reservado para a descrição do apoio e da parceria.</p>
+                </li>
+                <li class="company-card">
+                  <div class="company-card__logo"><span>logo</span></div>
+                  <p class="company-card__desc">Empresa parceira do Instituto Luisa Mell. Espaço reservado para a descrição do apoio e da parceria.</p>
+                </li>
+                <li class="company-card">
+                  <div class="company-card__logo"><span>logo</span></div>
+                  <p class="company-card__desc">Empresa parceira do Instituto Luisa Mell. Espaço reservado para a descrição do apoio e da parceria.</p>
+                </li>
+                <li class="company-card">
+                  <div class="company-card__logo"><span>logo</span></div>
+                  <p class="company-card__desc">Empresa parceira do Instituto Luisa Mell. Espaço reservado para a descrição do apoio e da parceria.</p>
+                </li>
+                <li class="company-card">
+                  <div class="company-card__logo"><span>logo</span></div>
+                  <p class="company-card__desc">Empresa parceira do Instituto Luisa Mell. Espaço reservado para a descrição do apoio e da parceria.</p>
+                </li>
+                <li class="company-card">
+                  <div class="company-card__logo"><span>logo</span></div>
+                  <p class="company-card__desc">Empresa parceira do Instituto Luisa Mell. Espaço reservado para a descrição do apoio e da parceria.</p>
+                </li>
+              </ul>
+            </div>
+
+            <button type="button" class="companies-carousel__arrow companies-carousel__arrow--next" aria-label="Próxima empresa">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
 
-      <section class="volunteer-form" id="formulario">
+      <!-- Formulário de parceria -->
+      <section class="partnership-form" id="formulario">
         <div class="container">
-          <div class="volunteer-card">
+          <div class="partnership-card">
+            <h2 class="partnership-card__title" data-i18n="partnershipPage.form.title">
+              Quando uma empresa apoia, mais vidas são salvas. Junte-se a nossa causa.
+            </h2>
+
             <form
-              class="volunteer-card__form"
-              aria-label="Formulário de voluntariado"
+              class="partnership-card__form"
+              aria-label="Formulário de apoio e parceria"
               method="post"
               action="#"
             >
-              <p class="form-required-note" data-i18n="volunteerPage.form.requiredNote">(*) Campos obrigatórios</p>
+              <p class="form-required-note" data-i18n="partnershipPage.form.requiredNote">(*) Campos obrigatórios</p>
 
               <div class="form-field">
-                <label for="fullname" data-i18n="volunteerPage.form.nameLabel">Nome completo *</label>
+                <label for="partner-name" data-i18n="partnershipPage.form.nameLabel">Nome completo *</label>
                 <input
                   type="text"
-                  id="fullname"
-                  name="fullname"
+                  id="partner-name"
+                  name="partner-name"
                   placeholder="Digite seu nome completo"
-                  data-i18n-placeholder="volunteerPage.form.namePlaceholder"
+                  data-i18n-placeholder="partnershipPage.form.namePlaceholder"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="partner-company" data-i18n="partnershipPage.form.companyLabel">Nome da empresa *</label>
+                <input
+                  type="text"
+                  id="partner-company"
+                  name="partner-company"
+                  placeholder="Digite o nome da empresa"
+                  data-i18n-placeholder="partnershipPage.form.companyPlaceholder"
                   required
                 />
               </div>
 
               <div class="form-row">
                 <div class="form-field">
-                  <label for="email" data-i18n="volunteerPage.form.emailLabel">Email *</label>
+                  <label for="partner-email" data-i18n="partnershipPage.form.emailLabel">Email *</label>
                   <input
                     type="email"
-                    id="email"
-                    name="email"
+                    id="partner-email"
+                    name="partner-email"
                     placeholder="nome@email.com"
-                    data-i18n-placeholder="volunteerPage.form.emailPlaceholder"
+                    data-i18n-placeholder="partnershipPage.form.emailPlaceholder"
                     required
                   />
                 </div>
 
                 <div class="form-field">
-                  <label for="phone" data-i18n="volunteerPage.form.phoneLabel">Telefone *</label>
+                  <label for="partner-phone" data-i18n="partnershipPage.form.phoneLabel">Telefone *</label>
                   <input
                     type="tel"
-                    id="phone"
-                    name="phone"
+                    id="partner-phone"
+                    name="partner-phone"
                     placeholder="(00) 0000-0000"
-                    data-i18n-placeholder="volunteerPage.form.phonePlaceholder"
+                    data-i18n-placeholder="partnershipPage.form.phonePlaceholder"
                     pattern="\(\d{2}\) \d{4,5}-\d{4}"
                     required
                   />
-                  <small class="form-helper" data-i18n="volunteerPage.form.phoneHelper">Formato: (00) 0000-0000</small>
+                  <small class="form-helper" data-i18n="partnershipPage.form.phoneHelper">Formato: (00) 0000-0000</small>
                 </div>
               </div>
 
               <div class="form-field">
-                <label for="volunteer-topic" data-i18n="volunteerPage.form.topicLabel">Gostaria de ajudar o instituto com temas de *</label>
-                <select id="volunteer-topic" name="volunteer-topic" required>
-                  <option value="" disabled selected data-i18n="volunteerPage.form.topicPlaceholder">Selecionar</option>
-                  <option value="eventos" data-i18n="volunteerPage.form.topic.events">Eventos</option>
-                  <option value="administrativo" data-i18n="volunteerPage.form.topic.admin">Administrativos e legais</option>
-                  <option value="manutencao" data-i18n="volunteerPage.form.topic.maintenance">Manutenção do abrigo</option>
-                  <option value="cuidados" data-i18n="volunteerPage.form.topic.care">Cuidados básicos com os animais</option>
-                  <option value="socializacao" data-i18n="volunteerPage.form.topic.socialization">Socialização de animais</option>
-                  <option value="outros" data-i18n="volunteerPage.form.topic.others">Outros</option>
-                </select>
-              </div>
-
-              <div class="form-field">
-                <label for="motivation" data-i18n="volunteerPage.form.motivationLabel">Conte um pouco porque gostaria de ser voluntário</label>
+                <label for="partner-description" data-i18n="partnershipPage.form.descLabel">Descrição do apoio e parceria</label>
                 <textarea
-                  id="motivation"
-                  name="motivation"
+                  id="partner-description"
+                  name="partner-description"
                   rows="4"
-                  placeholder="Escreva aqui sua motivação..."
-                  data-i18n-placeholder="volunteerPage.form.motivationPlaceholder"
+                  placeholder="Conte como sua empresa gostaria de apoiar o Instituto."
+                  data-i18n-placeholder="partnershipPage.form.descPlaceholder"
                 ></textarea>
               </div>
 
-              <div class="form-field form-field--checkbox">
-                <label class="checkbox-label">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    name="consent"
-                    required
-                  />
-                  <span class="checkbox-text" data-i18n="volunteerPage.form.consentLabel">
-                    Concordo com o tratamento dos meus dados pessoais conforme a 
-                    <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a> 
-                    do Instituto Luisa Mell, em conformidade com a LGPD (Lei Geral de Proteção de Dados). *
-                  </span>
-                </label>
-              </div>
+              <button type="submit" class="partnership-submit" data-i18n="partnershipPage.form.submit">Enviar</button>
 
-              <button type="submit" class="volunteer-submit" data-i18n="volunteerPage.form.submit">Inscrever-se</button>
-
-              <p class="privacy-note" data-i18n="volunteerPage.form.privacy">
+              <p class="privacy-note" data-i18n="partnershipPage.form.privacy">
                 Seus dados são protegidos e utilizados exclusivamente para retorno do Instituto.
               </p>
             </form>
@@ -379,6 +398,6 @@
     <script src="assets/js/shared/donation.js"></script>
     <script src="assets/js/shared/config.js"></script>
     <script type="module" src="assets/js/shared/main.js"></script>
-    <script src="assets/js/pages/form-handler.js"></script>
+    <script src="assets/js/pages/apoio-parcerias.js"></script>
   </body>
 </html>

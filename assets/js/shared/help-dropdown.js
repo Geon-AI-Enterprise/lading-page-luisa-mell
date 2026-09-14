@@ -78,8 +78,7 @@ function handleHelpAction(action) {
             break;
         case 'partnership':
             console.log('Redirecionando para apoio e parceria');
-            // Página dedicada ainda não existe; direciona para a home por enquanto.
-            window.location.href = 'index.html';
+            window.location.href = 'apoio-parcerias.html';
             break;
         default:
             console.warn('Ação não reconhecida:', action);

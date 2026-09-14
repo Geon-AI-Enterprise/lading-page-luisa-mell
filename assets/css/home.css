@@ -1119,6 +1119,103 @@
 }
 
 /* ----------------------------------------
+   FEED DO INSTAGRAM
+   ---------------------------------------- */
+
+.instagram-feed {
+  padding: var(--section-padding);
+  background-color: var(--color-white);
+}
+
+.instagram-feed__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.instagram-feed__item {
+  margin: 0;
+}
+
+.instagram-post {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: var(--color-surface-2);
+}
+
+.instagram-post__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.instagram-post__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  background-color: rgba(0, 32, 42, 0.45);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.instagram-post:hover .instagram-post__image,
+.instagram-post:focus-visible .instagram-post__image {
+  transform: scale(1.06);
+}
+
+.instagram-post:hover .instagram-post__overlay,
+.instagram-post:focus-visible .instagram-post__overlay {
+  opacity: 1;
+}
+
+.instagram-feed__cta {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-meta);
+  color: var(--color-white);
+  background-color: var(--color-orange-deep);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-instagram:hover {
+  background-color: var(--color-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 86, 29, 0.3);
+}
+
+.btn-instagram:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .instagram-feed__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* ----------------------------------------
    PARCEIROS - CARROSSEL INFINITO
    ---------------------------------------- */
 

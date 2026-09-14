@@ -11,6 +11,7 @@
 @import url('language.css');
 @import url('buttons.css');
 @import url('footer.css');
+@import url('cookie-consent.css');
 
 /* 2.1 Home Styles */
 @import url('../home.css');

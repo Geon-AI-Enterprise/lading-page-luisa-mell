@@ -159,3 +159,17 @@
     border-radius: 16px;
 }
 
+/* ========================================
+   CARDS DE APADRINHAMENTO
+   Sobrescreve o fundo teal padrao (.adopt-card em animals-shared.css)
+   somente nesta pagina (wrapper --no-filters e exclusivo do apadrinhamento),
+   sem afetar a pagina Adotar.
+   ======================================== */
+.adopt-animals--no-filters .adopt-card {
+    background: var(--color-sand); /* #f4a261 */
+}
+
+.adopt-animals--no-filters .adopt-card:hover {
+    box-shadow: 0 8px 24px rgba(244, 162, 97, 0.35);
+}
+
