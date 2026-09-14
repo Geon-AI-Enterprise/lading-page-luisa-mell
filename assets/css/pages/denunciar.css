@@ -20,7 +20,7 @@
 
 /* Hero Section */
 .report-hero {
-  background-color: var(--color-white);
+  background-color: var(--color-surface);
   padding: 0;
 }
 
@@ -28,30 +28,16 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: var(--color-white);
+  background-color: var(--color-surface);
   min-height: 80vh;
   display: flex;
   align-items: center;
 }
 
-/* Camada do background decorativo (ondas) - fica ACIMA da foto, ABAIXO do texto */
-.report-hero__wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('../../images/denunciar/banner_denunciar.png') no-repeat center center;
-  background-size: cover;
-  z-index: 2;
-  pointer-events: none;
-}
-
 .report-hero__content {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: 48px;
   align-items: center;
   padding: var(--section-padding);
@@ -66,6 +52,7 @@
 }
 
 .report-hero__photo {
+  width: 70%;
   max-width: 100%;
   height: auto;
   max-height: 1200px;
@@ -92,18 +79,20 @@
 .report-hero__title span:last-child {
   font-size: var(--fs-h3);
   font-weight: var(--fw-semibold);
-  color: var(--color-sand);
+  color: var(--color-navy);
 }
 
 .report-disclaimer__text {
+  position: relative;
+  z-index: 5;
   font-family: 'Poppins', sans-serif;
   font-size: var(--fs-lead);
   line-height: var(--lh-loose);
-  color: var(--color-black);
-  max-width: 700px;
-  margin: 0 auto;
-  margin-top: 22px;
-  padding: 0 16px;
+  color: var(--color-white);
+  margin: -130px auto 0;
+  background-color: var(--color-gray);
+  border-radius: 24px;
+  padding: 32px 48px;
 }
 
 /* Titulo principal agora e o primeiro span (apos a inversao DOM) */
@@ -111,7 +100,7 @@
   font-size: var(--fs-display);
   font-weight: var(--fw-bold);
   font-family: 'Poppins', sans-serif;
-  color: var(--color-orange-dark);
+  color: var(--color-navy);
   line-height: 1.1;
 }
 
@@ -132,10 +121,17 @@
 }
 
 @media (max-width: 1280px) {
-  .report-hero__wrapper::after {
-    display: block;
-    background: url('../../images/denunciar/banner_denunciar_mobile.png') no-repeat center center;
-    background-size: cover;
+  /* Sem as ondas, o hero desktop fica vazio em telas menores;
+     o bloco #hero-text-mobile assume o conteudo. */
+  .report-hero {
+    display: none;
+  }
+
+  /* O acoplamento do container cinza so vale no desktop (hero com imagem);
+     aqui a hero e ocultada, entao removemos a sobreposicao. */
+  .report-disclaimer__text {
+    margin-top: 0;
+    max-width: 900px;
   }
 
   .report-hero__content {
@@ -190,15 +186,11 @@
   width: 100%;
 }
 
-.report-card__heart {
-  height: 60px;
-  width: auto;
-}
   .report-card__form-title{
     font-family: 'Poppins', sans-serif;
     font-size: var(--fs-h1);
     font-weight: var(--fw-bold);
-    color: var(--color-orange-dark);
+    color: var(--color-navy);
     margin: 0;
   }
 
@@ -306,23 +298,23 @@
   border: none;
   border-radius: 8px;
   padding: 14px 32px;
-  background-color: var(--color-orange-deep);
+  background-color: var(--color-navy);
   color: var(--color-white);
   font-family: var(--font-poppins);
   font-size: var(--fs-meta);
   font-weight: var(--fw-semibold);
   cursor: pointer;
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 12px rgba(214, 86, 29, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 32, 42, 0.25);
   transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   align-self: center;
   min-width: 200px;
 }
 
 .report-submit:hover {
-  background-color: var(--color-orange-hover);
+  background-color: #003140;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(214, 86, 29, 0.3);
+  box-shadow: 0 6px 16px rgba(0, 32, 42, 0.3);
 }
 
 .report-card .privacy-note {
@@ -453,10 +445,5 @@
 
   .report-submit {
     width: 100%;
-  }
-
-  .report-card__heart {
-    height: 40px;
-    width: auto;
   }
 }

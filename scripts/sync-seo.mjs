@@ -36,6 +36,7 @@ const SLUG_TO_FILE = {
     '/faq':             'faq.html',
     '/denunciar':       'denunciar.html',
     '/transparencia':   'transparencia.html',
+    '/apoio-parcerias': 'apoio-parcerias.html',
 };
 
 const SEO_MARKER_START = '<!-- SEO:start (gerado automaticamente, nao edite a mao) -->';
